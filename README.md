@@ -9,4 +9,4 @@ Team Members:
 - Nath Marooth Chaowanastier
 - Tey Siew Wen
 - Xiao Meng
-- Kundan
+- Kundan Dalmia  
