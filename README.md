@@ -9,7 +9,8 @@ Please update as you see fit for the README, so everyone is updated on the progr
 - UI Design: Last Updated 4th November 2018
 - Intro Activity: Last Updated 6th November 2018
 - Login Activity: Last Updated 6th November 2018
-
+- Kundan Dalmia  
+>>>>>>> 2045a0020b1029ac41c31f0aa8f23ba757270745
 
 ## UI Design [Nath/Estee] 
 L.U. 4th Nov 2018
