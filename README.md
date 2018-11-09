@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Project Status
 ## NOTICE
 Make sure tell the entire group what activity you are working so that you don't work on same file(s) concurrently. Otherwise I have to manually resolve conflicts and it might result in efforts to be counterproductive.
@@ -124,3 +125,17 @@ It serves as a queue management system to eliminate physical queues.
 
 
 
+=======
+# Q
+50.001 1D Project
+
+## To-do
+
+Team Members:
+- Gong Chen
+- Lim Theck Sean
+- Nath Marooth Chaowanastier
+- Tey Siew Wen
+- Xiao Meng
+- Kundan Dalmia  
+>>>>>>> 2045a0020b1029ac41c31f0aa8f23ba757270745
