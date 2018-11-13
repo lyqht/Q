@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Project Status
 ## NOTICE
 Make sure tell the entire group what activity you are working so that you don't work on same file(s) concurrently. Otherwise I have to manually resolve conflicts and it might result in efforts to be counterproductive.
@@ -82,8 +81,6 @@ Scrolling view
 3. Layout display of tags
 4. Floating Button: Join queue
 
-
-
 # About : Q-app
 This app is made as a school project for the course 50.001 Introduction to Information Sytems & Programming in SUTD. 
 
@@ -120,22 +117,3 @@ It serves as a queue management system to eliminate physical queues.
 5. Once-off Events 
   - Fitbit Distribution
   - House Guardian RetroNight
-
-
-
-
-
-=======
-# Q
-50.001 1D Project
-
-## To-do
-
-Team Members:
-- Gong Chen
-- Lim Theck Sean
-- Nath Marooth Chaowanastier
-- Tey Siew Wen
-- Xiao Meng
-- Kundan Dalmia  
->>>>>>> 2045a0020b1029ac41c31f0aa8f23ba757270745
