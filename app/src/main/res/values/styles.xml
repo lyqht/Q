@@ -2,39 +2,72 @@
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="bigQ">
-        <item name="android:textSize">100sp</item>
-        <item name="android:textColor">@color/colorBlack</item>
-        <item name="android:textStyle">bold</item>"
-        <item name="android:fontStyle">@font/Quicksand_Bold</item>
-    </style>
-
-    <style name="normalText">
-        <item name="android:textSize">16sp</item>
-        <item name="android:textColor">@color/colorBlack</item>
-    </style>
-
-    <style name="searchHeader">
-        <item name="android:textSize">30sp</item>
+    <!-- Button Styles -->
+    <style name="change_image">
+        <item name="android:layout_width">50dp</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:alpha">0.5</item>
+        <item name="android:background">@color/colorWhite</item>
+        <item name="android:textAlignment">center</item>
         <item name="android:textColor">@color/colorPrimary</item>
-        <item name="android:textStyle">bold</item>"
-    </style>
-
-    <style name="outletName">
-        <item name="android:textSize">24sp</item>
-        <item name="android:textColor">@color/colorPrimary</item>
-        <item name="android:textStyle">italic</item>"
+        <item name="android:textSize">30dp</item>
     </style>
 
     <style name="floatJoinQ">
         <item name="android:textSize">30sp</item>
         <item name="android:textColor">@color/colorWhite</item>
+    </style>
+
+    <!-- Commonly used styles -->
+    <style name="queueing_now">
+        <item name="android:textSize">16dp</item>
+        <item name="android:textColor">@color/colorGrey</item>
+        <item name="android:fontFamily">@font/quicksand_bold</item>
+    </style>
+
+    <style name="normalText">
+        <item name="android:textSize">16dp</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:fontFamily">@font/fran_regular</item>
+    </style>
+
+    <!-- Explore related styles -->
+
+    <style name="explore_header">
+        <item name="android:textSize">30dp</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:fontFamily">@font/quicksand_bold</item>
+    </style>
+
+    <style name="card_outlet_name">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textStyle">italic</item>"
+    </style>
+
+    <!-- Stall Desc Styles -->
+    <style name="stall_desc_name">
+        <item name="android:textSize">30dp</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:fontFamily">@font/maian</item>
+    </style>
+
+    <style name="stall_desc_header">
+        <item name="android:textSize">16dp</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:fontFamily">@font/quicksand_regular</item>
+    </style>
+
+    <!-- throwaway styles -->
+    <style name="bigQ">
+        <item name="android:textSize">100dp</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:fontFamily">@font/quicksand_regular</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
