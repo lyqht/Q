@@ -10,8 +10,9 @@
 
     <style name="bigQ">
         <item name="android:textSize">100sp</item>
-        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textColor">@color/colorBlack</item>
         <item name="android:textStyle">bold</item>"
+        <item name="android:fontStyle">@font/Quicksand_Bold</item>
     </style>
 
     <style name="normalText">
@@ -35,5 +36,14 @@
         <item name="android:textSize">30sp</item>
         <item name="android:textColor">@color/colorWhite</item>
     </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 </resources>

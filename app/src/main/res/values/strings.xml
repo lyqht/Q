@@ -1,6 +1,26 @@
 <resources>
     <string name="app_name">Q</string>
+
+    <!-- Strings related to toolbar -->
+    <string name="account_creation">Account Creation</string>
+    <string name="queue_creation">Queue Creation</string>
+    <string name="queue_dashboard">Queue Dashboard</string>
+    <string name="about_queue">What is This Queue?</string>
+
+    <!-- Strings related to userClick Buttons -->
+    <string name="join_queue_floating">Join Queue!</string>
+    <string name="join_queue_dashboard">Join Q </string>
+    <string name="skip_queue_formation">Skip Queue Formation</string>
+
+    <!-- Strings related to queues -->
+    <string name="time">Estimated Waiting Time</string>
+    <string name="queueing">people queueing now ...</string>
+    <string name="queue_size_limit">Queue Size Limit</string>
+    <string name="queue_system">Queue System</string>
+    <string name="advanced_ordering">Advanced Ordering</string>
+
     <!-- Strings related to login -->
+    <string name="account_created">Account Created!</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password (optional)</string>
     <string name="action_sign_in">Sign in or register</string>
@@ -85,4 +105,11 @@
     <string name="pref_ringtone_silent">Silent</string>
 
     <string name="pref_title_vibrate">Vibrate</string>
+    <string name="title_activity_customer_navigation">CustomerNavigation</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
 </resources>
