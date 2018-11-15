@@ -17,21 +17,41 @@
         <activity
             android:name=".LoginActivity"
             android:label="@string/app_name"
-            android:parentActivityName=".Intro">
+            android:parentActivityName=".Intro" />
+        <activity
+            android:name=".Intro"
+            android:label="Welcome Page!">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Intro" />
         <activity
             android:name=".Settings"
             android:label="@string/title_activity_settings" />
         <activity
-            android:name=".StallDesc"
+            android:name=".Cust_QueueDesc"
             android:label="@string/title_activity_stall_desc"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Init_SelAccType" />
+        <activity android:name=".Init_MercAccCreation" />
+        <activity android:name=".Init_CustAccCreation" />
+        <activity android:name=".Init_AccCreated" />
+        <activity android:name=".Merc_QueueCreation" />
+        <activity android:name=".Merc_QueueCreated" />
+        <activity android:name=".Cust_MainExplore" />
+        <activity android:name=".Cust_HelpPage" />
+        <activity android:name=".Cust_AccInfoSettings" />
+        <activity android:name=".Cust_QueueID" />
+        <activity android:name=".Cust_CurrentQueues" />
+        <activity android:name=".TEMP_Cust_GettingStarted" />
+        <activity android:name=".TEMP_Merc_GettingStarted" />
+        <activity android:name=".Merc_MainOverview" />
+        <activity android:name=".Merc_HelpPage" />
+        <activity android:name=".Merc_AccInfoSettings" />
+        <activity android:name=".Merc_QueueInfo" />
+        <activity android:name=".Merc_QueueSettingsAndEdit"></activity>
     </application>
 
 </manifest>

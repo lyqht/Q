@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".StallDesc"
-    tools:showIn="@layout/activity_stall_desc">
+    tools:context=".Cust_QueueDesc"
+    tools:showIn="@layout/activity_queue_desc">
 
     <TextView
         android:id="@+id/stall_desc_name_kinmoo"
@@ -41,7 +41,7 @@
         android:maxWidth="100sp"
         android:maxHeight="400sp"
         android:scaleType="center"
-        android:src="@drawable/kinmoo"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.50"
         app:layout_constraintStart_toStartOf="parent"
