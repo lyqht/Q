@@ -45,13 +45,11 @@
 
                 <ImageView
                     android:id="@+id/stall_image"
-                    android:layout_width="400dp"
+                    android:layout_width="match_parent"
                     android:layout_height="200dp"
                     android:layout_marginTop="12dp"
-                    android:maxWidth="100sp"
-                    android:maxHeight="400sp"
                     android:adjustViewBounds="true"
-                    android:scaleType="fitCenter"
+                    android:scaleType="centerCrop"
                     android:background="@drawable/kinmoo_02"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.50"
