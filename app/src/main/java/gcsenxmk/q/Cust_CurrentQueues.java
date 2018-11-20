@@ -8,6 +8,6 @@ public class Cust_CurrentQueues extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cust__current_queues);
+        //setContentView(R.layout.activity_cust_current_queues);
     }
 }

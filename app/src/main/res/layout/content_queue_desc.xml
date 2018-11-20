@@ -1,82 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingLeft="12dp"
+    android:paddingRight="12dp"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".Cust_QueueDesc"
     tools:showIn="@layout/activity_queue_desc">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/stall_desc_name_kinmoo"
-        style="@style/stall_desc_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Kinmoo"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/stall_image_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp">
 
-    <TextView
-        android:id="@+id/stall_desc_queueing"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="@string/queueing"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/stall_desc_name_kinmoo" />
+                <TextView
+                    android:id="@+id/stall_desc_name_kinmoo"
+                    style="@style/stall_desc_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Kinmoo"
+                    android:textAlignment="center"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/stall_image_kinmoo_01"
-        android:layout_width="355dp"
-        android:layout_height="165dp"
-        android:layout_marginTop="32dp"
-        android:adjustViewBounds="true"
-        android:maxWidth="100sp"
-        android:maxHeight="400sp"
-        android:scaleType="center"
+                <TextView
+                    android:id="@+id/stall_desc_queueing"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/queueing"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/stall_desc_name_kinmoo" />
 
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.50"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/stall_desc_queueing" />
+                <ImageView
+                    android:id="@+id/stall_image"
+                    android:layout_width="400dp"
+                    android:layout_height="200dp"
+                    android:layout_marginTop="12dp"
+                    android:maxWidth="100sp"
+                    android:maxHeight="400sp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitCenter"
+                    android:background="@drawable/kinmoo_02"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.50"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/stall_desc_queueing" />
 
-    <Button
-        android:id="@+id/stall_image_prev_button"
-        style="@style/change_image"
-        android:layout_marginStart="16dp"
-        android:text="L"
-        app:layout_constraintBottom_toBottomOf="@+id/stall_image_kinmoo_01"
-        app:layout_constraintStart_toStartOf="@+id/stall_image_kinmoo_01"
-        app:layout_constraintTop_toTopOf="@+id/stall_image_kinmoo_01" />
+                <Button
+                    android:id="@+id/stall_image_prev_button"
+                    style="@style/change_image"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="L"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/stall_image" />
 
-    <Button
-        android:id="@+id/stall_image_next_button"
-        style="@style/change_image"
-        android:layout_marginEnd="16dp"
-        android:text="R"
-        app:layout_constraintBottom_toBottomOf="@+id/stall_image_kinmoo_01"
-        app:layout_constraintEnd_toEndOf="@+id/stall_image_kinmoo_01"
-        app:layout_constraintTop_toTopOf="@+id/stall_image_kinmoo_01"
-        app:layout_constraintVertical_bias="0.50" />
+                <Button
+                    android:id="@+id/stall_image_next_button"
+                    style="@style/change_image"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="R"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/stall_image" />
+            </android.support.constraint.ConstraintLayout>
 
-    <TextView
-        style="@style/stall_desc_header"
-        android:id="@+id/stall_desc_header"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="@string/stall_desc_header"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/stall_image_kinmoo_01" />
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_below="@+id/stall_image_container">
+
+                <TextView
+                    android:id="@+id/stall_desc_header"
+                    style="@style/stall_desc_header"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/stall_desc_header" />
+
+                <TextView
+                    android:id="@+id/stall_desc"
+                    style="@style/normalText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/stall_desc_header"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/stall_desc" />
+            </RelativeLayout>
+
+        </RelativeLayout>
 
 
-</android.support.constraint.ConstraintLayout>
+</ScrollView>
