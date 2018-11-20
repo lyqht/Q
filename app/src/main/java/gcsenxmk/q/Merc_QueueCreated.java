@@ -8,6 +8,6 @@ public class Merc_QueueCreated extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_queue_created);
+        //setContentView(R.layout.activity_queue_created);
     }
 }

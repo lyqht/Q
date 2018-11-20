@@ -1,6 +1,11 @@
 <resources>
     <string name="app_name">Q</string>
 
+    <!-- Placeholder Strings -->
+    <string name="stall_desc">KinMoo – Featuring the quaint and tasty street-food culture of Thailand in a minimalist yet modern cafe set-up, KinMoo is also the 1st open-concept Thai kitchen in Singapore! /n/n
+
+Be it a quick bite to fill up that tummy during lunch, a chill down bar snack downed with ice-cold beer, or a hearty chow down with family and friends for dinner, we have it all! Always sticking to the good old ways of cooking that made Thailand’s food culture legendary, yet accommodating to each and every customers’ tastes as best as we can, come and experience KinMoo’s own unique style today!</string>
+
     <!-- Strings related to toolbar -->
     <string name="account_creation">Account Creation</string>
     <string name="queue_creation">Queue Creation</string>
@@ -10,6 +15,7 @@
     <!-- Strings related to userClick Buttons -->
     <string name="join_queue_floating">Join Queue!</string>
     <string name="join_queue_dashboard">Join Q </string>
+    <string name="joined_queue">Joined Queue</string>
     <string name="skip_queue_formation">Skip Queue Formation</string>
 
     <!-- Strings related to queues -->

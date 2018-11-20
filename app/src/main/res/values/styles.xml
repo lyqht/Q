@@ -6,6 +6,13 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+    <!-- Toolbar Title style -->
+    <style name="toolbar_title">
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:fontFamily">@font/maian</item>
+        <item name="android:textSize">24dp</item>
+
+    </style>
 
     <!-- Button Styles -->
     <style name="change_image">
@@ -19,8 +26,9 @@
     </style>
 
     <style name="floatJoinQ">
-        <item name="android:textSize">30sp</item>
+        <item name="android:textSize">16dp</item>
         <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:fontFamily">@font/quicksand_regular</item>
     </style>
 
     <!-- Commonly used styles -->
@@ -31,7 +39,7 @@
     </style>
 
     <style name="normalText">
-        <item name="android:textSize">16dp</item>
+        <item name="android:textSize">12dp</item>
         <item name="android:textColor">@color/colorBlack</item>
         <item name="android:fontFamily">@font/fran_regular</item>
     </style>
@@ -60,7 +68,7 @@
     <style name="stall_desc_header">
         <item name="android:textSize">16dp</item>
         <item name="android:textColor">@color/colorBlack</item>
-        <item name="android:fontFamily">@font/quicksand_regular</item>
+        <item name="android:fontFamily">@font/quicksand_bold</item>
     </style>
 
     <!-- throwaway styles -->

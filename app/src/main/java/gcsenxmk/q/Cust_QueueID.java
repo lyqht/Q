@@ -8,6 +8,6 @@ public class Cust_QueueID extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cust__queue_id);
+        //setContentView(R.layout.activity_cust__queue_id);
     }
 }
