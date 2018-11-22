@@ -10,7 +10,7 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="Login to Q"
+        android:label="Q"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -20,8 +20,7 @@
             android:parentActivityName=".Intro" />
         <activity
             android:name=".Intro"
-            android:label="Welcome Page!">
-        </activity>
+            android:label="Welcome Page!" />
         <activity
             android:name=".Settings"
             android:label="@string/title_activity_settings" />
@@ -29,17 +28,13 @@
             android:name=".Cust_QueueDesc"
             android:label="@string/title_activity_stall_desc"
             android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
         <activity android:name=".Init_SelAccType" />
         <activity android:name=".Init_MercAccCreation" />
         <activity android:name=".Init_CustAccCreation" />
         <activity android:name=".Init_AccCreated" />
-        <activity android:name=".Merc_QueueCreation" />
-        <activity android:name=".Merc_QueueCreated" />
+
         <activity android:name=".Cust_MainExplore" />
         <activity android:name=".Cust_HelpPage" />
         <activity android:name=".Cust_AccInfoSettings" />
@@ -47,11 +42,44 @@
         <activity android:name=".Cust_CurrentQueues" />
         <activity android:name=".TEMP_Cust_GettingStarted" />
         <activity android:name=".TEMP_Merc_GettingStarted" />
-        <activity android:name=".Merc_MainOverview" />
-        <activity android:name=".Merc_HelpPage" />
-        <activity android:name=".Merc_AccInfoSettings" />
-        <activity android:name=".Merc_QueueInfo" />
-        <activity android:name=".Merc_QueueSettingsAndEdit"></activity>
+
+
+
+
+
+
+        <activity
+            android:name=".Merc_QueueCreation"
+            android:label="Create a Queue!"/>
+        <activity android:name=".Merc_QueueCreated" />
+
+
+        <activity
+            android:name=".Merc_HelpPage"
+            android:label="Help Page(Merchant)"/>
+        <activity
+            android:name=".Merc_QueueInfo"
+            android:label="Queue Information"
+            />
+        <activity
+            android:name=".Merc_QueueSettingsAndEdit"
+            android:label="Queue Configuration"
+            />
+        <activity
+            android:name=".Merc_MainOverview"
+            android:label="Overview">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Merc_AccInfoSettings"
+            android:label="Account Settings"/>
+
+
     </application>
 
 </manifest>
