@@ -43,7 +43,7 @@
         <activity android:name=".Cust_MainExplore" />
         <activity android:name=".Cust_HelpPage" />
         <activity android:name=".Cust_AccInfoSettings" />
-        <activity android:name=".Cust_QueueID" />
+        <activity android:name=".Cust_SearchResult" />
         <activity android:name=".Cust_CurrentQueues" />
         <activity android:name=".TEMP_Cust_GettingStarted" />
         <activity android:name=".TEMP_Merc_GettingStarted" />
