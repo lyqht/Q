@@ -212,5 +212,7 @@ Be it a quick bite to fill up that tummy during lunch, a chill down bar snack do
         "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
         "when a user tries to pick up one of cards.\n\n"
     </string>
+
     <string name="title_activity_first_time_select_account_type">FirstTimeSelectAccountType</string>
+    <string name="Food_and_Beverage">F\u0026B</string>>
 </resources>
