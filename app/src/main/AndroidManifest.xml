@@ -10,17 +10,28 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="Q"
+        android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".LoginActivity"
-            android:label="@string/app_name"
-            android:parentActivityName=".Intro" />
+
         <activity
             android:name=".Intro"
             android:label="Welcome Page!" />
+        <activity
+            android:name=".SignupActivity"
+            android:parentActivityName=".LoginActivity"
+            android:label="Sign Up here">
+        </activity>
+        <activity
+            android:name=".LoginActivity"
+            android:label="@string/app_name"
+            android:parentActivityName=".Intro">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".Settings"
             android:label="@string/title_activity_settings" />
@@ -43,11 +54,6 @@
         <activity android:name=".TEMP_Cust_GettingStarted" />
         <activity android:name=".TEMP_Merc_GettingStarted" />
 
-
-
-
-
-
         <activity
             android:name=".Merc_QueueCreation"
             android:label="Create a Queue!"/>
@@ -68,12 +74,6 @@
         <activity
             android:name=".Merc_MainOverview"
             android:label="Overview">
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".Merc_AccInfoSettings"
