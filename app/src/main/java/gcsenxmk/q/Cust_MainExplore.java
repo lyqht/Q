@@ -8,5 +8,6 @@ public class Cust_MainExplore extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.cust_main_explore);
     }
 }
