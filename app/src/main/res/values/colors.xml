@@ -5,9 +5,9 @@
     <color name="colorAccent">#F3A8AA</color>
 
     <color name="colorSecondaryDark">#732D30</color>
-
     <color name="colorYellow">#FFF9A6</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorBlack">#292929</color>
     <color name="colorGrey">#707070</color>
+
 </resources>
