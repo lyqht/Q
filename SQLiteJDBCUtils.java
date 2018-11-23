@@ -1,9 +1,12 @@
-package com.example.kundandalmia.androidsql;
+package com.example.kundandalmia.qsystem1dproject;
+
+import android.database.sqlite.SQLiteDatabase;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import  java.sql.Statement;
+import java.sql.Time;
 
 public class SQLiteJDBCUtils {
     Connection c;
@@ -35,7 +38,8 @@ public class SQLiteJDBCUtils {
         String sql = "CREATE TABLE QSystem.users "
                 + "(userId INT PRIMARY KEY NOT NULL,"
                 + " userName TEXT NOT NULL,"
-                + " userPhone CHAR(8),"
+                + " userEmail CHAR(8) NOT NULL,"
+                + " userPassword CHAR(50) NOT NULL,"
                 + " maxWaitingTime INT NOT NULL,"
                 + " creditCard BOOLEAN NOT NULL,"
                 + " cash BOOLEAN NOT NULL,"
@@ -60,7 +64,7 @@ public class SQLiteJDBCUtils {
         return sql;
     }
 
-    public String createUserInstance(int userId, String userName,String userPhone,
+    public String createUserInstance(int userId, String userName,String userEmail,String userPassword,
                                      int maxWaitingTime,boolean creditCard, boolean cash,
                                      boolean userDisable, boolean userPregnant, boolean userSubscribe,
                                      String userSubscribeShop)
@@ -68,7 +72,8 @@ public class SQLiteJDBCUtils {
         String sql = "INSERT INTO QSystem.users VALUES ("
                 + Integer.toString(userId) + ","
                 + userName + ","
-                + userPhone + ","
+                + userEmail + ","
+                + userPassword +  ","
                 + Integer.toString(maxWaitingTime) + ","
                 + Boolean.toString(creditCard) + ","
                 + Boolean.toString(cash) + ","
@@ -99,50 +104,60 @@ public class SQLiteJDBCUtils {
     }
 
 
+
+
+    //TODO: add two more tables here
+    // TODO: AUTO- INCRIMENTAL
+
     public String createPeakTimeRecordTable() throws SQLException{
-        String sql = "CREATE TABLE COMPANY "
-                + "(ID INT PRIMARY KEY NOT NULL,"
-                + " NAME TEXT NOT NULL,"
-                + " AGE INT NOT NULL,"
-                + " ADDRESS CHAR(50),"
-                + " SALARY REAL)";
+        String sql = "";
         return sql;
     }
 
-        //TODO: add two more tables here
     public String createBulkyOrderTable() throws SQLException{
         String sql = "";
         return sql;
     }
 
     public String createQueue() throws SQLException{
-        String sql = "";
+        String sql = "CREATE TABLE QSystem.queue "
+                + "(queueId INT PRIMARY KEY NOT NULL,"
+                + " userId INT NOT NULL,"
+                + " shopId INT NOT NULL, "
+                + " time DATE NOT NULL) ; ";
         return sql;
     }
-    //    account exist method for signing up for new account and login find the account
-    public boolean accountExist(String username){
-        return true;
+
+
+    public String joinQ(String table_name, int queueId, int userId,int shopId){
+        java.util.Date javaDate = new java.util.Date();
+        long javaTime = javaDate.getTime();
+        Time sqlTime = new java.sql.Time(javaTime);
+
+        System.out.println("The SQL TIME is: " + sqlTime.toString());
+
+        String sql = "INSERT INTO "
+                + table_name + " VALUES ("
+                + queueId + " , "
+                + userId + ","
+                + shopId + ","
+                + sqlTime + " );";
+        return sql;
+    }
+    public String leaveQ(String table_name, int queueId){
+        String sql = "DELETE FROM "
+                +table_name
+                + " WHERE queueId "
+                + "= " + queueId + ";";
+        return sql;
+    }
+    public String finishQ(String table_name, int queueId){
+        String sql = "DELETE FROM "
+                + table_name
+                + " WHERE queueId "
+                + "= " + queueId + ";";
+        return sql;
     }
 
-    public String getPasswordbyName(String username){
 
-        return null;
-    }
-    public String getPasswordbyEmail(String useremail){
-        return null;
-    }
-    public String joinQ(){
-        return "";
-    }
-    public String leaveQ(){
-        return "";
-    }
-    public String finishQ(){
-        return "";
-    }
-
-    public int returnWaitingTime(){
-        return -1;
-    }
 }
-
