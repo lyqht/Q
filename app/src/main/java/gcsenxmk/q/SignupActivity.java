@@ -13,7 +13,7 @@ public class SignupActivity  extends AppCompatActivity {
 
     DataBaseHelper myDB;
     EditText username, email, password, waitingtime, creditcard, cash, disable, pregnant;
-    Button btnenter = findViewById(R.id.btnenterdb);
+    Button btnenter;
 
 
     @Override
@@ -29,6 +29,7 @@ public class SignupActivity  extends AppCompatActivity {
         cash = findViewById(R.id.cash);
         disable = findViewById(R.id.disable);
         pregnant = findViewById(R.id.pregnant);
+        btnenter = findViewById(R.id.btnenterdb);
 
 
 
