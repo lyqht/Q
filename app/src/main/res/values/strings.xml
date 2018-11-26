@@ -215,4 +215,5 @@ Be it a quick bite to fill up that tummy during lunch, a chill down bar snack do
 
     <string name="title_activity_first_time_select_account_type">FirstTimeSelectAccountType</string>
     <string name="Food_and_Beverage">F n B</string>
+    <string name="estimated_waiting_time">Estimated Waiting Time</string>
 </resources>
