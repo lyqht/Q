@@ -29,7 +29,7 @@ public class Cust_QueueDesc extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        // Switching images
+        // Widget References
         images = new ArrayList<>();
         images.add(R.drawable.kinmoo_01);
         images.add(R.drawable.kinmoo_02);
@@ -38,6 +38,7 @@ public class Cust_QueueDesc extends AppCompatActivity {
         prevImgButton = findViewById(R.id.stall_image_prev_button);
         nextImgButton = findViewById(R.id.stall_image_next_button);
 
+        // Binding onClickListener to Buttons to switch images
         prevImgButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

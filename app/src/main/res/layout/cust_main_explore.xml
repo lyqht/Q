@@ -88,7 +88,7 @@
                 android:adjustViewBounds="true"
                 android:background="#00000000"
                 android:scaleType="fitCenter"
-                app:srcCompat="@drawable/Icon_photo" />
+                app:srcCompat="@drawable/icon_photo" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -106,14 +106,14 @@
             android:orientation="vertical">
 
             <ImageButton
-                android:id="@+id/imageButtonFoodB"
+                android:id="@+id/imageButtonFnB"
                 android:layout_width="match_parent"
                 android:layout_height="64dp"
                 android:layout_weight="0.1"
                 android:adjustViewBounds="true"
                 android:background="#00000000"
                 android:scaleType="fitCenter"
-                app:srcCompat="@drawable/Icon_photo" />
+                app:srcCompat="@drawable/icon_food" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -138,7 +138,7 @@
                 android:adjustViewBounds="true"
                 android:background="#00000000"
                 android:scaleType="fitCenter"
-                app:srcCompat="@drawable/Icon_photo" />
+                app:srcCompat="@drawable/icon_music" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -156,14 +156,14 @@
             android:orientation="vertical">
 
             <ImageButton
-                android:id="@+id/imageButtonCulture"
+                android:id="@+id/imageButtonIT"
                 android:layout_width="match_parent"
                 android:layout_height="64dp"
                 android:layout_weight="0.1"
                 android:adjustViewBounds="true"
                 android:background="#00000000"
                 android:scaleType="fitCenter"
-                app:srcCompat="@drawable/Icon_photo" />
+                app:srcCompat="@drawable/icon_it_tech" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -171,7 +171,7 @@
                 android:layout_weight="0.2"
                 android:textAlignment="center"
                 android:textSize="10sp"
-                tools:text="Limited Time" />
+                tools:text="IT" />
         </LinearLayout>
 
         <LinearLayout
@@ -188,7 +188,7 @@
                 android:adjustViewBounds="true"
                 android:background="#00000000"
                 android:scaleType="fitCenter"
-                app:srcCompat="@drawable/Icon_photo" />
+                app:srcCompat="@drawable/icon_time" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -213,7 +213,7 @@
                 android:adjustViewBounds="true"
                 android:background="#00000000"
                 android:scaleType="fitCenter"
-                app:srcCompat="@drawable/Icon_photo" />
+                app:srcCompat="@drawable/icon_image" />
 
             <TextView
                 android:layout_width="match_parent"
