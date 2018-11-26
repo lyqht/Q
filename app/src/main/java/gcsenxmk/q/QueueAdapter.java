@@ -3,7 +3,6 @@ package gcsenxmk.q;
 import android.support.v7.widget.RecyclerView;
 
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +16,7 @@ import java.util.ArrayList;
 /***
  * The adapter class for the RecyclerView, contains the sports data
  */
-class QueueRecycler extends RecyclerView.Adapter<QueueRecycler.ViewHolder>  {
+class QueueAdapter extends RecyclerView.Adapter<QueueAdapter.ViewHolder>  {
 
     private ArrayList<AlohaQueue> resultQueues;
     private Context mContext;
@@ -27,7 +26,7 @@ class QueueRecycler extends RecyclerView.Adapter<QueueRecycler.ViewHolder>  {
      * @param queueData ArrayList containing the queue data
      * @param context Context of the application
      */
-    QueueRecycler(Context context, ArrayList<AlohaQueue> queueData) {
+    QueueAdapter(Context context, ArrayList<AlohaQueue> queueData) {
         this.resultQueues = queueData;
         this.mContext = context;
     }
@@ -42,7 +41,7 @@ class QueueRecycler extends RecyclerView.Adapter<QueueRecycler.ViewHolder>  {
      * TODO: make layout for the queue_list_item
      */
     @Override
-    public QueueRecycler.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public QueueAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         return new ViewHolder(LayoutInflater.from(mContext).inflate(R.layout.queue_list_item, parent, false));
     }
 
@@ -52,7 +51,7 @@ class QueueRecycler extends RecyclerView.Adapter<QueueRecycler.ViewHolder>  {
      * @param position The adapter position.
      */
     @Override
-    public void onBindViewHolder(QueueRecycler.ViewHolder holder, int position) {
+    public void onBindViewHolder(QueueAdapter.ViewHolder holder, int position) {
         //Get current queue
         AlohaQueue currentQueue = resultQueues.get(position);
         //Populate the textviews with data
