@@ -23,10 +23,6 @@
             android:name=".LoginActivity"
             android:label="@string/app_name"
             android:parentActivityName=".Intro">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".Settings"
@@ -45,7 +41,12 @@
         <activity android:name=".Cust_MainExplore" />
         <activity android:name=".Cust_HelpPage" />
         <activity android:name=".Cust_AccInfoSettings" />
-        <activity android:name=".Cust_SearchResult" />
+        <activity android:name=".Cust_SearchResult">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".Cust_CurrentQueues" />
         <activity android:name=".TEMP_Cust_GettingStarted" />
         <activity android:name=".TEMP_Merc_GettingStarted" />

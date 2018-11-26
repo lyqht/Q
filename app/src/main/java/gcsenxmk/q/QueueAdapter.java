@@ -3,6 +3,7 @@ package gcsenxmk.q;
 import android.support.v7.widget.RecyclerView;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,8 +38,6 @@ class QueueAdapter extends RecyclerView.Adapter<QueueAdapter.ViewHolder>  {
      * @param parent The ViewGroup into which the new View will be added after it is bound to an adapter position.
      * @param viewType The view type of the new View.
      * @return The newly create ViewHolder.
-     *
-     * TODO: make layout for the queue_list_item
      */
     @Override
     public QueueAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -86,20 +85,20 @@ class QueueAdapter extends RecyclerView.Adapter<QueueAdapter.ViewHolder>  {
         ViewHolder(View itemView) {
             super(itemView);
 
-            qName = (TextView)itemView.findViewById(R.id.queueName);
-            qWaitTime = (TextView)itemView.findViewById(R.id.queueWaitTime);
-            qImage = (ImageView)itemView.findViewById(R.id.queueImage);
-            qNumPeople = (TextView)itemView.findViewById(R.id.queueNumPeople);
+            qName = itemView.findViewById(R.id.queueName);
+            qWaitTime = itemView.findViewById(R.id.queueWaitTime);
+            qImage = itemView.findViewById(R.id.queueImage);
+            qNumPeople = itemView.findViewById(R.id.queueNumPeople);
         }
 
         void bindTo(AlohaQueue currentQ){
             //Populate the imageview & textviews with data
             qName.setText(currentQ.getName());
-            qNumPeople.setText(currentQ.getNumPeople());
-            qWaitTime.setText(currentQ.getWaitTime());
-            qImage.setImageResource(currentQ.getImageResource());
+            qNumPeople.setText(String.valueOf(currentQ.getNumPeople()));
+            qWaitTime.setText(String.valueOf(currentQ.getWaitTime()));
             Glide.with(mContext).load(
                     currentQ.getImageResource()).into(qImage);
+            Log.i("Logcat", "BindTo works");
 
         }
     }
