@@ -13,7 +13,7 @@ public class Cust_SearchResult extends AppCompatActivity {
 
     private RecyclerView qRecycler;
     private ArrayList<AlohaQueue> queues;
-    private QueueAdapter qAdapter;
+    private CustQueueAdapter qAdapter;
 
 
     @Override
@@ -29,7 +29,7 @@ public class Cust_SearchResult extends AppCompatActivity {
         qRecycler.setLayoutManager(new LinearLayoutManager(this));
 
         // Initialize the Adapter for RecyclerView
-        qAdapter = new QueueAdapter(this, queues);
+        qAdapter = new CustQueueAdapter(this, queues);
         qRecycler.setAdapter(qAdapter);
 
         initializeData();

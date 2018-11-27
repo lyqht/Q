@@ -17,7 +17,7 @@ import java.util.ArrayList;
 /***
  * The adapter class for the RecyclerView, contains the sports data
  */
-class QueueAdapter extends RecyclerView.Adapter<QueueAdapter.ViewHolder>  {
+class CustQueueAdapter extends RecyclerView.Adapter<CustQueueAdapter.ViewHolder>  {
 
     private ArrayList<AlohaQueue> resultQueues;
     private Context mContext;
@@ -27,7 +27,7 @@ class QueueAdapter extends RecyclerView.Adapter<QueueAdapter.ViewHolder>  {
      * @param queueData ArrayList containing the queue data
      * @param context Context of the application
      */
-    QueueAdapter(Context context, ArrayList<AlohaQueue> queueData) {
+    CustQueueAdapter(Context context, ArrayList<AlohaQueue> queueData) {
         this.resultQueues = queueData;
         this.mContext = context;
     }
@@ -40,8 +40,8 @@ class QueueAdapter extends RecyclerView.Adapter<QueueAdapter.ViewHolder>  {
      * @return The newly create ViewHolder.
      */
     @Override
-    public QueueAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new ViewHolder(LayoutInflater.from(mContext).inflate(R.layout.queue_list_item, parent, false));
+    public CustQueueAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        return new ViewHolder(LayoutInflater.from(mContext).inflate(R.layout.cust_list_item, parent, false));
     }
 
     /**
@@ -50,7 +50,7 @@ class QueueAdapter extends RecyclerView.Adapter<QueueAdapter.ViewHolder>  {
      * @param position The adapter position.
      */
     @Override
-    public void onBindViewHolder(QueueAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(CustQueueAdapter.ViewHolder holder, int position) {
         //Get current queue
         AlohaQueue currentQueue = resultQueues.get(position);
         //Populate the textviews with data
