@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class MercSectionsPagerAdapter extends FragmentPagerAdapter {
+public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     private final List<Fragment> mFragmentList = new ArrayList<>();
 
@@ -18,7 +18,7 @@ public class MercSectionsPagerAdapter extends FragmentPagerAdapter {
         mFragmentList.add(fragment);
     }
 
-    public MercSectionsPagerAdapter(FragmentManager fm) {
+    public SectionsPagerAdapter(FragmentManager fm) {
         super(fm);
     }
 
