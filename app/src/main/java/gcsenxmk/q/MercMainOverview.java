@@ -36,7 +36,7 @@ public class MercMainOverview extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.merc_main_overview, container, false);
 
-        recyclerView = view.findViewById(R.id.queue_recyclerview);
+        recyclerView = view.findViewById(R.id.merc_recyclerview);
         MercRecyclerViewAdapter adapter = new MercRecyclerViewAdapter(mNames, mImageUrls, getContext());
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));

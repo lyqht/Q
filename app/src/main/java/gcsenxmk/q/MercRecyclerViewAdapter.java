@@ -88,9 +88,9 @@ public class MercRecyclerViewAdapter extends RecyclerView.Adapter<MercRecyclerVi
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            image = itemView.findViewById(R.id.image);
-            imageName = itemView.findViewById(R.id.image_name);
-            parentLayout = itemView.findViewById(R.id.parent_layout);
+            image = itemView.findViewById(R.id.merc_queue_image);
+            imageName = itemView.findViewById(R.id.merc_queue_name);
+            parentLayout = itemView.findViewById(R.id.merc_parent_layout);
         }
     }
 

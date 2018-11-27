@@ -35,10 +35,10 @@ public class Merc_Gallery extends AppCompatActivity {
     private void setGallery(String imageUrl, String imageName) {
         Log.d(TAG, "setGallery:setting to image and name to widgets.");
 
-        TextView name = findViewById(R.id.image_name);
+        TextView name = findViewById(R.id.merc_queue_name);
         name.setText(imageName);
 
-        ImageView image = findViewById(R.id.image);
+        ImageView image = findViewById(R.id.merc_queue_image);
         Glide.with(this)
                 .asBitmap()
                 .load(imageUrl)
