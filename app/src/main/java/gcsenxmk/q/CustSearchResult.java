@@ -1,38 +1,43 @@
 package gcsenxmk.q;
 
 import android.content.res.TypedArray;
-import android.support.v7.app.AppCompatActivity;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import java.util.ArrayList;
 
-public class Cust_SearchResult extends AppCompatActivity {
+public class CustSearchResult extends Fragment {
 
     private RecyclerView qRecycler;
     private ArrayList<AlohaQueue> queues;
-    private QueueAdapter qAdapter;
+    private CustRecyclerViewAdapter qAdapter;
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cust_search_result);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.activity_cust_search_result, container,false);
 
         // Make new list of queues
         queues = new ArrayList<>();
 
         // Initialize the RecyclerView
-        qRecycler = findViewById(R.id.cust_queue_recycler);
-        qRecycler.setLayoutManager(new LinearLayoutManager(this));
+        qRecycler = view.findViewById(R.id.cust_queue_recycler);
+        qRecycler.setLayoutManager(new LinearLayoutManager(getContext()));
 
         // Initialize the Adapter for RecyclerView
-        qAdapter = new QueueAdapter(this, queues);
+        qAdapter = new CustRecyclerViewAdapter(getContext(), queues);
         qRecycler.setAdapter(qAdapter);
 
         initializeData();
+        return view;
 
     }
 

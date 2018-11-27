@@ -37,7 +37,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/queueWaitTimeHeader"
-                    android:text="@string/estimated_waiting_time"
+                    android:text="Estimated Waiting Time"
                     android:layout_marginBottom="5dp"/>
                 <TextView
                     android:layout_width="wrap_content"
@@ -71,6 +71,7 @@
                         android:layout_marginLeft="10dp" />
                 </LinearLayout>
                 <Button
+                    android:id="@+id/button_join_queue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/primary_float_button"
