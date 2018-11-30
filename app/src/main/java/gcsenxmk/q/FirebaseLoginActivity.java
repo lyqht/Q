@@ -47,10 +47,10 @@ public class FirebaseLoginActivity extends AppCompatActivity {
 
         //database =new Firebase("https://qsystem-5001.firebaseio.com/Users");
         firebaseAuth= FirebaseAuth.getInstance();
-        if(firebaseAuth.getCurrentUser()!= null){
-            finish();
-            startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
-        }
+//        if(firebaseAuth.getCurrentUser()!= null){
+//            finish();
+//            startActivity(new Intent(FirebaseLoginActivity.this, ProfileActivity.class));
+//        }
 
 
 
@@ -106,7 +106,7 @@ public class FirebaseLoginActivity extends AppCompatActivity {
 
                 if(task.isSuccessful()){
                     finish();
-                    startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+                    startActivity(new Intent(FirebaseLoginActivity.this, ProfileActivity.class));
                 }
 
             }

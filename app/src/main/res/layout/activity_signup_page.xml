@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
 
             android:layout_weight="3"
-            android:hint="Input E-mail ID"
+            android:hint="Sigup with an existing E-mail ID"
 
 
             />
@@ -57,7 +57,7 @@
             android:layout_height="wrap_content"
 
             android:layout_weight="3"
-            android:hint="Input Password"
+            android:hint="Create Password"
 
 
             />

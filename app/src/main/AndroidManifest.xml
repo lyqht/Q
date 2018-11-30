@@ -37,15 +37,10 @@
         </activity>
 
         <activity android:name=".FirebaseLoginActivity"
-            android:parentActivityName=".FirebaseTestActivity">
-
-
-        </activity>
+            android:parentActivityName=".FirebaseTestActivity"/>
 
         <activity android:name=".ProfileActivity"
-            android:parentActivityName=".FirebaseLoginActivity">
-
-        </activity>
+            android:parentActivityName=".FirebaseLoginActivity"/>
 
 
         <activity android:name=".FirebaseTestActivity">

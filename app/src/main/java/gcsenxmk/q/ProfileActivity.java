@@ -10,11 +10,14 @@ import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class ProfileActivity extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
     private TextView textViewUserEmail;
     private Button btnlogout1;
+
 
 
     @Override
@@ -25,10 +28,10 @@ public class ProfileActivity extends AppCompatActivity {
 
         firebaseAuth=FirebaseAuth.getInstance();
 
-        if(firebaseAuth.getCurrentUser()!= null){
-            finish();
-            startActivity(new Intent(getApplicationContext(), FirebaseLoginActivity.class));
-        }
+//        if(firebaseAuth.getCurrentUser()!= null){
+//            finish();
+//            startActivity(new Intent(getApplicationContext(), FirebaseLoginActivity.class));
+//        }
 
         FirebaseUser user= firebaseAuth.getCurrentUser();
         textViewUserEmail=(TextView) findViewById(R.id.textviewemail);

@@ -78,6 +78,7 @@
             android:layout_height="wrap_content"
             android:text="Sign Up" />
 
+
         <Button
             android:id="@+id/btntoSignin"
             android:layout_width="wrap_content"
