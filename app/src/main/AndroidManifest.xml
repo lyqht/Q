@@ -23,11 +23,9 @@
             android:name=".LoginActivity"
             android:label="@string/app_name"
             android:parentActivityName=".Intro">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
+
         <activity
             android:name=".Settings"
             android:label="@string/title_activity_settings" />
@@ -36,6 +34,26 @@
             android:label="@string/title_activity_stall_desc"
             android:theme="@style/AppTheme.NoActionBar">
 
+        </activity>
+
+        <activity android:name=".FirebaseLoginActivity"
+            android:parentActivityName=".FirebaseTestActivity">
+
+
+        </activity>
+
+        <activity android:name=".ProfileActivity"
+            android:parentActivityName=".FirebaseLoginActivity">
+
+        </activity>
+
+
+        <activity android:name=".FirebaseTestActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".Init_SelAccType" />
         <activity android:name=".Init_MercAccCreation" />
@@ -49,6 +67,7 @@
         <activity android:name=".Cust_CurrentQueues" />
         <activity android:name=".TEMP_Cust_GettingStarted" />
         <activity android:name=".TEMP_Merc_GettingStarted" />
+
 
         <activity
             android:name=".Merc_QueueCreation"
@@ -78,4 +97,6 @@
 
     </application>
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 </manifest>

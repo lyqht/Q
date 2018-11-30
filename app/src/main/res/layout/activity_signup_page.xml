@@ -21,18 +21,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="UserName"/>
+            android:text="Email ID"/>
 
         <EditText
-            android:id="@+id/username"
+            android:id="@+id/uniquemail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
             android:layout_weight="3"
-            android:hint="Input UserName"
+            android:hint="Input E-mail ID"
 
 
             />
+
+
     </LinearLayout>
 
     <LinearLayout
@@ -65,20 +67,20 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center">
+        android:gravity="center"
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/btnSignup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sign Up"/>
+            android:text="Sign Up" />
 
         <Button
             android:id="@+id/btnLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Login"/>
+            android:text="Login" />
 
     </LinearLayout>
 </LinearLayout>
