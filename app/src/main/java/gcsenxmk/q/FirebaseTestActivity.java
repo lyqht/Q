@@ -65,6 +65,8 @@ public class FirebaseTestActivity extends AppCompatActivity {
             public void onClick(View v) {
                 addUsers();
 
+
+
             }
         });
 
@@ -93,6 +95,10 @@ public class FirebaseTestActivity extends AppCompatActivity {
                     progressDialog.hide();
 
                     Toast.makeText(getApplicationContext(), "Registered Successfully", Toast.LENGTH_LONG).show();
+
+                    Intent segregate= new Intent(FirebaseTestActivity.this, SegregationActivity.class);
+                    startActivity(segregate);
+
 ////                    if(firebaseAuth.getCurrentUser()!= null){
 //                        finish();
 //                        startActivity(new Intent(getApplicationContext(), ProfileActivity.class));

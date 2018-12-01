@@ -40,15 +40,29 @@
             android:parentActivityName=".FirebaseTestActivity"/>
 
         <activity android:name=".ProfileActivity"
-            android:parentActivityName=".FirebaseLoginActivity"/>
+            android:parentActivityName=".SegregationActivity"/>
+
+
+
+        <activity android:name=".SegregationActivity"
+            android:parentActivityName=".FirebaseTestActivity"/>
+
+        <activity android:name=".QueueActivity"
+            android:parentActivityName=".SegregationActivity"/>
 
 
         <activity android:name=".FirebaseTestActivity">
+
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+
+        <activity android:name=".Upload_Activity"
+            android:parentActivityName=".QueueActivity">
+
         </activity>
         <activity android:name=".Init_SelAccType" />
         <activity android:name=".Init_MercAccCreation" />
@@ -94,4 +108,7 @@
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.STORAGE"/>
 </manifest>

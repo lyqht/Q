@@ -7,16 +7,25 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.iid.FirebaseInstanceIdService;
 
 public class ProfileActivity extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
     private TextView textViewUserEmail;
     private Button btnlogout1;
+    private DatabaseReference databaseReference;
+
+    private EditText name,area;
+    private Button save;
+
+
+
 
 
 
@@ -33,10 +42,27 @@ public class ProfileActivity extends AppCompatActivity {
 //            startActivity(new Intent(getApplicationContext(), FirebaseLoginActivity.class));
 //        }
 
+        databaseReference= FirebaseDatabase.getInstance().getReference("Users");
+
+        name=(EditText) findViewById(R.id.nickname);
+        area= (EditText) findViewById(R.id.areastaying);
+        save=(Button) findViewById(R.id.btnsaveinfo);
+
         FirebaseUser user= firebaseAuth.getCurrentUser();
         textViewUserEmail=(TextView) findViewById(R.id.textviewemail);
-        textViewUserEmail.setText("Welcome"+user.getEmail());
+        textViewUserEmail.setText("Welcome "+user.getEmail());
         btnlogout1=(Button) findViewById(R.id.btnLogout);
+
+        save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                saveUserInfo();
+
+            }
+        });
+
+
 
         btnlogout1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,6 +73,21 @@ public class ProfileActivity extends AppCompatActivity {
 
             }
         });
+
+    }
+
+    private void saveUserInfo(){
+
+        String getname=name.getText().toString().trim();
+        String getarea=area.getText().toString().trim();
+
+        UserInformation userInformation= new UserInformation(getname,getarea);
+
+            FirebaseUser user=firebaseAuth.getCurrentUser();
+
+            databaseReference.child(user.getUid()).setValue(userInformation);
+        Toast.makeText(this, "Information saved in the database", Toast.LENGTH_LONG).show();
+
 
     }
 }

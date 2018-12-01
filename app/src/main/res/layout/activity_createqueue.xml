@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Text"
-            android:id="@+id/textviewemail"
+            android:id="@+id/textviewemailmerchant"
             android:layout_gravity="center_horizontal"/>
 
 
@@ -44,15 +44,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Nickname"/>
+            android:text="Queue"/>
 
         <EditText
-            android:id="@+id/nickname"
+            android:id="@+id/queuenamemerchant"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
             android:layout_weight="3"
-            android:hint="Your nickname"
+            android:hint="Enter queue name"
 
 
             />
@@ -72,15 +72,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Area" />
+            android:text="Description" />
 
         <EditText
-            android:id="@+id/areastaying"
+            android:id="@+id/queuedescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
             android:layout_weight="3"
-            android:hint="Which area do you stay in"
+            android:hint="Description of queue"
 
 
             />
@@ -96,19 +96,32 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/btnsaveinfo"
+            android:id="@+id/btnuploadimage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="SAVE INFORMATION"
+            android:text="UPLOAD IMAGE"
+            android:layout_gravity="center_horizontal"/>
+
+        <Button
+            android:id="@+id/btnaddqueue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Create queue"
             android:layout_gravity="center_horizontal"/>
 
 
         <Button
-            android:id="@+id/btnLogout"
+            android:id="@+id/btnLogoutMerchant"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Logout"
             android:layout_gravity="center_horizontal"/>
+
+
+
+
+
+
 
 
     </LinearLayout>
