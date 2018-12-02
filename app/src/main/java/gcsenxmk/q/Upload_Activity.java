@@ -61,7 +61,7 @@ public class Upload_Activity extends AppCompatActivity {
 
             checkFilePermissions();
 
-            addFilePaths(); 
+            addFilePaths();
 
             previous.setOnClickListener(new View.OnClickListener() {
                 @Override
