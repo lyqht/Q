@@ -79,7 +79,7 @@ public class QueueActivity extends AppCompatActivity {
         imageupload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent= new Intent(QueueActivity.this, Upload_Activity.class);
+                Intent intent= new Intent(QueueActivity.this, FirebaseUploadActivity.class);
                 startActivity(intent);
             }
         });

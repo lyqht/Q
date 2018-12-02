@@ -60,10 +60,17 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".Upload_Activity"
-            android:parentActivityName=".QueueActivity">
+        <activity android:name=".Upload_Activity">
+
 
         </activity>
+        <activity android:name=".FirebaseUploadActivity"
+            android:parentActivityName=".QueueActivity"></activity>
+
+        <activity android:name=".RecyclerActivity"
+            android:parentActivityName=".FirebaseUploadActivity"></activity>
+
+
         <activity android:name=".Init_SelAccType" />
         <activity android:name=".Init_MercAccCreation" />
         <activity android:name=".Init_CustAccCreation" />
