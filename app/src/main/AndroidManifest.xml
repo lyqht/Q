@@ -40,7 +40,8 @@
             android:parentActivityName=".FirebaseTestActivity"/>
 
         <activity android:name=".ProfileActivity"
-            android:parentActivityName=".SegregationActivity"/>
+            android:parentActivityName=".SegregationActivity"
+            />
 
 
 
@@ -68,7 +69,12 @@
             android:parentActivityName=".QueueActivity"></activity>
 
         <activity android:name=".RecyclerActivity"
-            android:parentActivityName=".FirebaseUploadActivity"></activity>
+            android:parentActivityName=".SegregationActivityAfterLogin"></activity>
+
+        <activity android:name=".SegregationActivityAfterLogin"
+            android:parentActivityName=".FirebaseLoginActivity">
+
+        </activity>
 
 
         <activity android:name=".Init_SelAccType" />

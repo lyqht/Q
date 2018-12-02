@@ -106,7 +106,7 @@ public class FirebaseLoginActivity extends AppCompatActivity {
 
                 if(task.isSuccessful()){
                     finish();
-                    startActivity(new Intent(FirebaseLoginActivity.this, ProfileActivity.class));
+                    startActivity(new Intent(FirebaseLoginActivity.this, SegregationActivityAfterLogin.class));
                 }
 
             }

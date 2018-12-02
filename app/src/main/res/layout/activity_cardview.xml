@@ -20,7 +20,7 @@
             android:textColor="@android:color/black"
             android:textSize="20sp" />
 
-        <ImageView
+        <ImageButton
             android:id="@+id/image_view_upload"
             android:layout_width="match_parent"
             android:layout_height="200dp" />
