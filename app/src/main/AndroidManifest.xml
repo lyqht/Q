@@ -52,7 +52,6 @@
 
         <activity android:name=".Cust_HelpPage" />
         <activity android:name=".Cust_AccInfoSettings" />
-        <activity android:name=".CustCurrentQueues" />
         <activity android:name=".TEMP_Cust_GettingStarted" />
 
 

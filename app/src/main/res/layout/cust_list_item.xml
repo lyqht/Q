@@ -11,10 +11,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="12dp">
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        android:outlineAmbientShadowColor="@color/colorGrey">
         <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="150dp"
             android:adjustViewBounds="true"
             android:scaleType="centerCrop"
             android:id="@+id/queueImage"/>
@@ -26,41 +28,58 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_margin="12dp">
+                android:layout_margin="6dp">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/queueName"
                     android:text="Queue Name"
-                    android:layout_marginBottom="5dp"/>
+                    android:layout_marginBottom="5dp"
+                    style="@style/card_outlet_name"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/queueWaitTimeHeader"
-                    android:text="Estimated Waiting Time"
-                    android:layout_marginBottom="5dp"/>
+                    android:text="@string/estimated_waiting_time"
+                    style="@style/card_estimated_time_header" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="0"
+                    android:text="24"
                     android:id="@+id/queueWaitTime"
+                    style="@style/card_estimated_time"
                     android:layout_marginBottom="5dp"/>
+                    <TextView
+                        android:id="@+id/minutes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="mins"
+                        android:layout_marginLeft="4dp"
+                        style="@style/card_estimated_time" />
+                </LinearLayout>
             </LinearLayout>
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:layout_marginTop="12dp"
                 android:layout_marginBottom="12dp">
                 <LinearLayout
+                    android:id="@+id/queueNumPeopleLayout"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
+                    android:layout_alignParentRight="true"
                     android:layout_marginBottom="12dp">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/queueNumPeople"
+                        style="@style/queueing_now"
                         android:text="0"
                          />
                     <TextView
@@ -68,22 +87,23 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/queueNumPeopleHeader"
                         android:text="@string/queueing"
+                        style="@style/queueing_now"
                         android:layout_marginLeft="10dp" />
                 </LinearLayout>
                 <Button
-                    android:id="@+id/button_join_queue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/primary_float_button"
+                    android:paddingLeft="25dp"
+                    android:paddingRight="25dp"
                     android:layout_gravity="end"
-                    android:text="@string/join_queue_floating"
-                    />
-            </LinearLayout>
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@id/queueNumPeopleLayout"
+                    android:text="Join Q! >"
+                    style="@style/recyclerJoinQ" />
+            </RelativeLayout>
 
         </LinearLayout>
-
-
-
 
     </LinearLayout>
 
