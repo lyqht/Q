@@ -247,4 +247,7 @@ Be it a quick bite to fill up that tummy during lunch, a chill down bar snack do
 
     <string name="title_activity_first_time_select_account_type">FirstTimeSelectAccountType</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

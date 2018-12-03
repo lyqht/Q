@@ -26,6 +26,7 @@ public class Cust_MainActivity extends AppCompatActivity {
 
         tabLayout.getTabAt(0).setIcon(R.drawable.icon_food);
         tabLayout.getTabAt(1).setIcon(R.drawable.icon_food);
+        tabLayout.getTabAt(2).setIcon(R.drawable.icon_music);
 
     }
 
@@ -33,6 +34,7 @@ public class Cust_MainActivity extends AppCompatActivity {
         SectionsPagerAdapter adapter = new SectionsPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new CustSearchResult());
         adapter.addFragment(new CustExplore());
+        adapter.addFragment(new CustSettings());
         viewPager.setAdapter(adapter);
     }
 }
