@@ -5,13 +5,38 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:textSize="30sp"
+        android:text="Queue Setting"
+        android:layout_marginTop="10dp"
+        android:id="@+id/queueSetting"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_alignParentLeft="true"
+        android:textSize="15sp"
+        android:layout_marginTop="80dp"
+        android:text="Estimated Waiting Time: "
+        android:id="@+id/estTimeText"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/estTimeText"
+        android:textSize="15sp"
+        android:id="@+id/editEstTimeText"/>
     <Button
-        android:layout_marginTop="15dp"
         android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/btnTEST"
-        android:text="TestBtn 3"
+        android:layout_marginTop="180dp"
+        android:id="@+id/saveSetting"
+        android:text="Save"
         />
     <TextView
         android:layout_width="wrap_content"
@@ -19,7 +44,7 @@
         android:layout_centerHorizontal="true"
         android:textSize="25sp"
         android:text="Tab3"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="80dp"
         android:id="@+id/textTab3"
         android:layout_below="@+id/btnTEST"/>
 
