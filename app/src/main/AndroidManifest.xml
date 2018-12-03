@@ -36,12 +36,6 @@
         <activity android:name=".Init_AccCreated" />
 
         <!-- Cust Activities -->
-        <activity
-            android:name=".Cust_QueueDesc"
-            android:label="@string/title_activity_stall_desc"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
         <activity android:name=".Cust_Gallery" />
         <activity android:name=".Cust_MainActivity">
             <intent-filter>
