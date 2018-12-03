@@ -12,41 +12,43 @@ public class Cust_Gallery extends AppCompatActivity {
 
     private static final String TAG = "GalleryActivity";
 
-    //TODO: replace current Cust_QueueDesc when firebase is ready.
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.cust_gallery);
+        setContentView(R.layout.activity_queue_desc);
         getIncomingIntent();
         Log.d(TAG, "onCreate: started.");
     }
 
+    // TODO : MODIFY getIncomingIntent() & setGallery for more details to be displayed.
+    // TODO - tags, operating hours, location (Google Map API)
+
     private void getIncomingIntent() {
-        Log.d(TAG, "getIncomingIntent: checking for incoming intents.");
+        Log.d(TAG, "getIncomingIntent for Customer: checking for incoming intents.");
         if (getIntent().hasExtra("image_url") && getIntent().hasExtra("queue_name")) {
             Log.d(TAG, "getIncomingIntent: found intent extras.");
 
             String imageUrl = getIntent().getStringExtra("image_url");
             String queueName = getIntent().getStringExtra("queue_name");
+            String queueWaitingTime = getIntent().getStringExtra("queue_waiting_time");
+            String queueNumPeople = String.valueOf(getIntent().getStringExtra("queue_num_people"));
 
-            //TODO: after setGallery method is set
-            //setGallery(imageUrl, queueName);
+            setGallery(imageUrl, queueName, queueWaitingTime, queueNumPeople);
         }
     }
 
-    //TODO: setGallery method
-    private void setGallery(String imageUrl, String queueName, String queueTime, String queueNumPeople) {
+    private void setGallery(String imageUrl, String queueName,
+                            String queueTime, String queueNumPeople) {
         Log.d(TAG, "setGallery:setting to image and name to widgets.");
 
-        TextView name = findViewById(R.id.stall_desc_name_kinmoo);
+        TextView name = findViewById(R.id.stall_desc_name);
         name.setText(queueName);
-
-
+        TextView waitingTime = findViewById(R.id.stall_desc_waiting_time);
+        waitingTime.setText(queueTime);
+        TextView numPeople = findViewById(R.id.stall_desc_num_people);
+        numPeople.setText(queueNumPeople);
         ImageView image = findViewById(R.id.stall_image);
-        Glide.with(this)
-                .asBitmap()
-                .load(imageUrl)
-                .into(image);
+        Glide.with(this).load(
+                Integer.valueOf(imageUrl)).into(image);
     }
 }

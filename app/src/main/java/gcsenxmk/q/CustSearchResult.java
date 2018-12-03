@@ -42,7 +42,7 @@ public class CustSearchResult extends Fragment {
     }
 
     private void initializeData() {
-        //TODO: Get the resources from XML File / SQLiteDatabase
+        //TODO: REMOVE PLACEHOLDER ARRAYS BELOW AFTER FIREBASE DATABASE IS UP
 
         String[] queueNames = getResources().getStringArray(R.array.placeholder_queue_names);
         int[] queueWaitingTimes = getResources().getIntArray(R.array.placeholder_queue_waiting_time);
