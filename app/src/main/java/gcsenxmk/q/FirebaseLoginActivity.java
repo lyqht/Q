@@ -104,9 +104,13 @@ public class FirebaseLoginActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 progressDialog.dismiss();
 
-                if(task.isSuccessful()){
+                if(task.isSuccessful()) {
                     finish();
                     startActivity(new Intent(FirebaseLoginActivity.this, SegregationActivityAfterLogin.class));
+                }
+
+                else{
+                    Toast.makeText(FirebaseLoginActivity.this,"You entered wrong email/password. Please try again!", Toast.LENGTH_SHORT).show();
                 }
 
             }

@@ -92,6 +92,8 @@ public class FirebaseTestActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
+
+
                     progressDialog.hide();
 
                     Toast.makeText(getApplicationContext(), "Registered Successfully", Toast.LENGTH_LONG).show();
@@ -106,7 +108,14 @@ public class FirebaseTestActivity extends AppCompatActivity {
 
                 }
                 else{
-                    Toast.makeText(getApplicationContext(),"Unable to Register", Toast.LENGTH_LONG).show();
+                    progressDialog.hide();
+
+                    if(pass.length()<6){
+                        Toast.makeText(getApplicationContext(),"Make sure password is at least 6 characters long", Toast.LENGTH_LONG).show();
+
+
+                    }else
+                    Toast.makeText(getApplicationContext(),"Account already exists", Toast.LENGTH_LONG).show();
                 }
             }
         });
