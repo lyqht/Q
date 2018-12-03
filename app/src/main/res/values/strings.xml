@@ -130,6 +130,13 @@ Be it a quick bite to fill up that tummy during lunch, a chill down bar snack do
 
     <string name="pref_title_system_sync_settings">System sync settings</string>
 
+    <!-- Strings for Help Page-->
+
+    <string name="bulk">Bulk order - you might want to start to prepare early</string>
+    <string name="pregnant">Pregnant individual</string>
+    <string name="tick">My Application 0</string>
+    <string name="wheelchair">Wheelchair bounded</string>
+
     <!-- Example settings for Notifications -->
     <string name="pref_header_notifications">Notifications</string>
 

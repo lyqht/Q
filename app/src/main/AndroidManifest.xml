@@ -67,7 +67,12 @@
 
         <activity
             android:name=".Merc_HelpPage"
-            android:label="Help Page(Merchant)"/>
+            android:label="Help Page(Merchant)">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
         <activity
             android:name=".Merc_QueueInfo"
             android:label="Queue Information"
