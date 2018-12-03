@@ -17,6 +17,8 @@ import android.widget.TextView;
 import java.sql.Blob;
 import java.util.ArrayList;
 
+//TODO - contain tutorial on how to use the app
+
 public class Merc_HelpPage extends AppCompatActivity {
     private static final String TAG = "Helppage_merc";
     private RecyclerView recyclerView;
