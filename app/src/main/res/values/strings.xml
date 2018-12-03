@@ -43,7 +43,7 @@ Be it a quick bite to fill up that tummy during lunch, a chill down bar snack do
     <string name="skip_queue_formation">Skip Queue Formation</string>
 
     <!-- Strings related to queues -->
-    <string name="Food_and_Beverage">F n B</string>
+    <string name="Food_and_Beverage">F &#38; B</string>
     <string name="estimated_waiting_time">Estimated Waiting Time</string>
     <string name="queueing">people queueing now ...</string>
     <string name="queue_size_limit">Queue Size Limit</string>
