@@ -28,7 +28,8 @@
         </activity>
         <activity
             android:name=".Settings"
-            android:label="@string/title_activity_settings" />
+            android:label="Example Settings Activity">
+    </activity>
 
         <activity android:name=".Init_SelAccType" />
         <activity android:name=".Init_MercAccCreation" />
@@ -36,7 +37,8 @@
         <activity android:name=".Init_AccCreated" />
 
         <!-- Cust Activities -->
-        <activity android:name=".Cust_Gallery" />
+        <activity android:name=".Cust_Gallery"
+            android:label="Stall Description"/>
         <activity android:name=".Cust_MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -45,7 +47,6 @@
         </activity>
 
         <activity android:name=".Cust_HelpPage" />
-        <activity android:name=".Cust_AccInfoSettings" />
         <activity android:name=".TEMP_Cust_GettingStarted" />
 
         <!-- Merchant Activities -->
@@ -62,10 +63,6 @@
         <activity
             android:name=".Merc_HelpPage"
             android:label="Help Page(Merchant)">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
         </activity>
         <activity
             android:name=".Merc_QueueInfo"

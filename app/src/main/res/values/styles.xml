@@ -87,6 +87,33 @@
         <item name="android:fontFamily">@font/quicksand_bold</item>
     </style>
 
+    <!-- Profile Styles -->
+    <style name="profile_setting_header">
+        <item name="android:textSize">16dp</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:fontFamily">@font/quicksand_bold</item>
+        <item name="android:background">@color/colorAccent</item>
+        <item name="android:layout_marginTop">16dp</item>
+    </style>
+    <style name="profile_category_layout">
+        <item name="android:layout_marginBottom">48dp</item>
+        <item name="android:padding">12dp</item>
+    </style>
+
+    <style name="profile_detail_header">
+        <item name="android:textSize">24dp</item>
+        <item name="android:textColor">@color/colorGrey</item>
+        <item name="android:fontFamily">@font/quicksand_bold</item>
+    </style>
+    <style name="profile_detail">
+        <item name="android:textSize">16dp</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:fontFamily">@font/quicksand_bold</item>
+        <item name="android:padding">6dp</item>
+        <item name="android:background">@color/colorTransparentGrey</item>
+    </style>
+
+
     <!-- throwaway styles -->
     <style name="bigQ">
         <item name="android:textSize">100dp</item>
