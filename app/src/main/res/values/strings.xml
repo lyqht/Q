@@ -137,6 +137,25 @@ Be it a quick bite to fill up that tummy during lunch, a chill down bar snack do
     <string name="tick">My Application 0</string>
     <string name="wheelchair">Wheelchair bounded</string>
 
+    <string-array name="queue_system">
+        <item>FIFO</item>
+        <item>Batches</item>
+        <item>Random</item>
+    </string-array>
+
+    <string-array name="late_policy">
+        <item>5 mins</item>
+        <item>4 mins</item>
+        <item>3 mins</item>
+        <item>2 mins</item>
+        <item>1 mins</item>
+        <item>0 mins</item>
+    </string-array>
+
+    <string-array name="priority_queue">
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
     <!-- Example settings for Notifications -->
     <string name="pref_header_notifications">Notifications</string>
 
