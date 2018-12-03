@@ -137,6 +137,14 @@ Be it a quick bite to fill up that tummy during lunch, a chill down bar snack do
     <string name="tick">My Application 0</string>
     <string name="wheelchair">Wheelchair bounded</string>
 
+    <resources>
+        <string-array name="queue_system">
+            <item>FIFO</item>
+            <item>Batches</item>
+            <item>Random</item>
+        </string-array>
+    </resources>
+
     <!-- Example settings for Notifications -->
     <string name="pref_header_notifications">Notifications</string>
 

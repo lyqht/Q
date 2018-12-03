@@ -1,5 +1,6 @@
 package gcsenxmk.q;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -16,6 +17,7 @@ public class MercFragment3 extends Fragment {
     private Spinner queueTypeSpinner, lateSpinner, prioritySpinner;
     private EditText editEstTimeText;
     private Button saveSettingButton;
+    private SharedPreferences mPreferences;
 
     @Nullable
     @Override
@@ -23,7 +25,7 @@ public class MercFragment3 extends Fragment {
         View view = inflater.inflate(R.layout.merc_fragment3,container,false);
         saveSettingButton= (Button) view.findViewById(R.id.saveSetting);
         editEstTimeText = (EditText) view.findViewById(R.id.editEstTimeText);
-
+        queueTypeSpinner = (Spinner) view.findViewById(R.id.spinQueueSys);
         saveSettingButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

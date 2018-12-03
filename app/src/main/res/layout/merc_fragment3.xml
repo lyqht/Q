@@ -30,6 +30,23 @@
         android:layout_alignRight="@+id/estTimeText"
         android:textSize="15sp"
         android:id="@+id/editEstTimeText"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_alignParentLeft="true"
+        android:textSize="15sp"
+        android:layout_marginTop="100dp"
+        android:text="Queuing System: "
+        android:id="@+id/merc_queuingSys"/>
+
+    <Spinner
+        android:id="@+id/spinQueueSys"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+
     <Button
         android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
