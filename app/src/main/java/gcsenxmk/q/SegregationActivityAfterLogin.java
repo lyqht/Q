@@ -31,7 +31,7 @@ public class SegregationActivityAfterLogin extends AppCompatActivity {
         btnmerc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent queueactivity= new Intent(SegregationActivityAfterLogin.this, QueueActivity.class);
+                Intent queueactivity= new Intent(SegregationActivityAfterLogin.this, MerchantViewQueuesActivityAfterLogin.class);
                 startActivity(queueactivity);
 
             }

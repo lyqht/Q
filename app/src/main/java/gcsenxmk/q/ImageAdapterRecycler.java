@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -96,43 +97,39 @@ public class ImageAdapterRecycler extends RecyclerView.Adapter<ImageAdapterRecyc
                     queueDatabaseRef= FirebaseDatabase.getInstance().getReference("Queue");
 
 
-//                    Query query = merchantDatabaseRef.orderByChild("name").equalTo(textViewName.getText().toString());
-//                   // String merchantID = query.
-
-
-                    merchantDatabaseRef.orderByChild("name").equalTo(textViewName.getText().toString()).addListenerForSingleValueEvent(new ValueEventListener() {
+                    queueDatabaseRef.orderByChild("queuename").equalTo(textViewName.getText().toString()).addListenerForSingleValueEvent(new ValueEventListener() {
+                    //merchantDatabaseRef.orderByChild("name").equalTo(textViewName.getText().toString()).addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         for(DataSnapshot childSnapshot: dataSnapshot.getChildren()){
                             user = firebaseAuth.getCurrentUser();
-                            String merchantID = childSnapshot.getKey();
-                            System.out.println(merchantID);
-
-
-                            //ArrayList<String> queue = childSnapshot.child(merchantID).child("queue").getValue(ArrayList.class);
                             QueueInformation queueInformation = childSnapshot.getValue(QueueInformation.class);
-//                            System.out.println("print the name of " + queueInformation.queuename);
-//                            for(String s: queueInformation.queue){
-//                                System.out.println(s);
-//                            }
-//                            for(String s : queueInformation.queue){
-//                                System.out.println("pritningn the " + s);
-//                            }
-//                             queueInformation.queue.add(user.getUid());
-                            queueInformation.queue.add(user.getUid());
-                            queueDatabaseRef.child(merchantID).setValue(queueInformation);
+                            String merchantID = childSnapshot.getKey();
 
-                            //queueDatabaseRef.child(merchantID).setValue(queueInformation);
-                        }
+                            if(queueInformation.queue.contains(user.getUid())){
+                                System.out.println("already in the queue");
+                               // Toast.makeText(RecyclerActivity, "You already register for this queue", Toast.LENGTH_LONG).show();
+                            }else {
+                                queueInformation.queue.add(user.getUid());
+                                queueDatabaseRef.child(merchantID).setValue(queueInformation);
+                            }
 
                         }
+                    }
+
+
 
 
                     @Override
                     public void onCancelled(@NonNull DatabaseError databaseError) {
 
+
+
                     }
                 });
+
+
+
 
 
 
