@@ -19,31 +19,65 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginBottom="24dp">
+                android:layout_marginBottom="24dp"
+                android:background="@color/colorTransparentPrimary">
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/cust_profile_image"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:src="@drawable/kinmoo"/>
-
-                <TextView
-                    android:id="@+id/cust_profile_name"
+                <LinearLayout
+                    android:id="@+id/cust_profile_brief_layout"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:paddingLeft="24dp"
-                    android:text="Customer Name"
-                    android:fontFamily="@font/quicksand_bold"
-                    android:textSize="30dp"
-                    android:textColor="@color/colorAccent" />
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="center">
+                    <TextView
+                        android:id="@+id/cust_profile_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:paddingLeft="24dp"
+                        android:text="Customer Name"
+                        android:fontFamily="@font/quicksand_bold"
+                        android:textSize="24dp"
+                        android:textColor="@color/colorSecondaryDark" />
+                    <TextView
+                        android:id="@+id/cust_profile_email_textview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Email"
+                        android:textColor="@color/colorBlack"/>
 
+                    <LinearLayout
+                        android:id="@+id/cust_profile_id_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="6dp"
+                        android:layout_gravity="center">
+                        <TextView
+                            android:id="@+id/cust_profile_id_header"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="User"
+                            android:layout_marginRight="6dp"/>
+                        <TextView
+                            android:id="@+id/cust_profile_id"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="#000"/>
+                    </LinearLayout>
+                </LinearLayout>
             </LinearLayout>
 
             <Button
                 android:id="@+id/profile_general_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="General"
+                android:text="Change Email &#38; Password"
                 style="@style/profile_setting_header"
                 />
 
@@ -63,7 +97,7 @@
                     android:text="Email"
                     style="@style/profile_detail_header"/>
                 <EditText
-                    android:id="@+id/cust_profile_email_textview"
+                    android:id="@+id/cust_profile_email_editText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Default Email"
@@ -83,26 +117,31 @@
                     android:text="*******"
                     android:layout_marginBottom="12dp"
                     style="@style/profile_detail"/>
-                <LinearLayout
-                    android:id="@+id/cust_profile_tags_layout"
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/profile_tags_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Change Q Preferences"
+                style="@style/profile_setting_header"
+                />
+
+            <LinearLayout
+                android:id="@+id/cust_profile_tags_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="12dp"
+                style="@style/profile_category_layout"
+                android:background="@color/colorTransparentGrey">
+                <EditText
+                    android:id="@+id/cust_profile_tags"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginBottom="12dp">
-                    <TextView
-                        android:id="@+id/cust_profile_tags_header"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="Q Preferences"
-                        style="@style/profile_detail_header"/>
-                    <EditText
-                        android:id="@+id/cust_profile_tags"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="textMultiLine"
-                        android:outlineSpotShadowColor="@color/colorGrey"
-                        style="@style/profile_detail"/>
-                </LinearLayout>
+                    android:inputType="textMultiLine"
+                    android:outlineSpotShadowColor="@color/colorGrey"
+                    style="@style/profile_detail"/>
             </LinearLayout>
 
             <Button
@@ -127,9 +166,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
-
                     <TextView
-
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
@@ -138,10 +175,6 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="end"/>
                 </LinearLayout>
-
-
-
-
             </LinearLayout>
 
             <Button
