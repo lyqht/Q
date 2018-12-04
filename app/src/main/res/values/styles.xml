@@ -6,12 +6,12 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+
     <!-- Toolbar Title style -->
     <style name="toolbar_title">
         <item name="android:textColor">@color/colorWhite</item>
         <item name="android:fontFamily">@font/maian</item>
         <item name="android:textSize">24dp</item>
-
     </style>
 
     <!-- Button Styles -->
@@ -30,11 +30,16 @@
         <item name="android:textColor">@color/colorWhite</item>
         <item name="android:fontFamily">@font/quicksand_regular</item>
     </style>
+    <style name="recyclerJoinQ">
+        <item name="android:textSize">24dp</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:fontFamily">@font/quicksand_bold</item>
+    </style>
 
     <!-- Commonly used styles -->
     <style name="queueing_now">
-        <item name="android:textSize">16dp</item>
-        <item name="android:textColor">@color/colorGrey</item>
+        <item name="android:textSize">11dp</item>
+        <item name="android:textColor">@color/colorSecondaryDark</item>
         <item name="android:fontFamily">@font/quicksand_bold</item>
     </style>
 
@@ -53,10 +58,21 @@
     </style>
 
     <style name="card_outlet_name">
-        <item name="android:textSize">24sp</item>
-        <item name="android:textColor">@color/colorPrimary</item>
-        <item name="android:textStyle">italic</item>"
+        <item name="android:textSize">24dp</item>
+        <item name="android:textColor">@color/colorSecondaryDark</item>
+        <item name="android:fontFamily">@font/maian</item>
     </style>
+    <style name="card_estimated_time">
+        <item name="android:textSize">20dp</item>
+        <item name="android:textColor">@color/colorGrey</item>
+        <item name="android:fontFamily">@font/fran_regular</item>
+    </style>
+    <style name="card_estimated_time_header">
+        <item name="android:textSize">11dp</item>
+        <item name="android:textColor">@color/colorGrey</item>
+        <item name="android:fontFamily">@font/fran_regular</item>
+    </style>
+
 
     <!-- Stall Desc Styles -->
     <style name="stall_desc_name">
@@ -70,6 +86,39 @@
         <item name="android:textColor">@color/colorBlack</item>
         <item name="android:fontFamily">@font/quicksand_bold</item>
     </style>
+
+    <!-- Profile Styles -->
+    <style name="profile_setting_header">
+        <item name="android:textSize">16dp</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:fontFamily">@font/quicksand_bold</item>
+        <item name="android:background">@color/colorAccent</item>
+        <item name="android:layout_marginTop">16dp</item>
+    </style>
+    <style name="profile_category_layout">
+        <item name="android:layout_marginBottom">24dp</item>
+        <item name="android:padding">12dp</item>
+    </style>
+
+    <style name="profile_detail_header">
+        <item name="android:textSize">16dp</item>
+        <item name="android:textColor">@color/colorGrey</item>
+        <item name="android:fontFamily">@font/quicksand_bold</item>
+    </style>
+    <style name="profile_detail_forDisplay">
+        <item name="android:textSize">11dp</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:fontFamily">@font/quicksand_bold</item>
+        <item name="android:padding">6dp</item>
+    </style>
+    <style name="profile_detail_toEdit">
+        <item name="android:textSize">11dp</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:fontFamily">@font/quicksand_bold</item>
+        <item name="android:padding">6dp</item>
+        <item name="android:background">@color/colorTransparentGrey</item>
+    </style>
+
 
     <!-- throwaway styles -->
     <style name="bigQ">
