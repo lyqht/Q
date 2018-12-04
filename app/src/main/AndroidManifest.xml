@@ -23,8 +23,69 @@
         <activity
             android:name=".LoginActivity"
             android:label="@string/app_name"
-            android:parentActivityName=".Intro"></activity>
-      
+
+            android:parentActivityName=".Intro">
+
+        </activity>
+
+        <activity
+            android:name=".Settings"
+            android:label="@string/title_activity_settings" />
+        <activity
+            android:name=".Cust_QueueDesc"
+            android:label="@string/title_activity_stall_desc"
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
+
+        <activity android:name=".FirebaseLoginActivity"
+            android:parentActivityName=".FirebaseTestActivity"/>
+
+        <activity android:name=".ProfileActivity"
+            android:parentActivityName=".SegregationActivity"
+            />
+
+
+
+        <activity android:name=".SegregationActivity"
+            android:parentActivityName=".FirebaseTestActivity"/>
+
+        <activity android:name=".QueueActivity"
+            android:parentActivityName=".SegregationActivity"/>
+
+
+        <activity android:name=".FirebaseTestActivity">
+
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".Upload_Activity">
+
+
+
+
+        </activity>
+        <activity android:name=".FirebaseUploadActivity"
+            android:parentActivityName=".QueueActivity"></activity>
+
+        <activity android:name=".RecyclerActivity"
+            android:parentActivityName=".SegregationActivityAfterLogin"></activity>
+
+        <activity android:name=".SegregationActivityAfterLogin"
+            android:parentActivityName=".FirebaseLoginActivity">
+
+        </activity>
+
+
+        <activity android:name=".MerchantViewQueuesActivityAfterLogin"
+            android:parentActivityName=".SegregationActivityAfterLogin">
+
+        </activity>
+
         <activity android:name=".Init_SelAccType" />
         <activity android:name=".Init_MercAccCreation" />
         <activity android:name=".Init_CustAccCreation" />
@@ -40,7 +101,6 @@
         <activity android:name=".Cust_HelpPage" />
         <activity android:name=".TEMP_Cust_GettingStarted" />
 
-        <!-- Merchant Activities -->
         <activity android:name=".TEMP_Merc_GettingStarted" />
 
         <activity android:name=".Merc_MainActivity">
@@ -70,4 +130,9 @@
 
     </application>
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.STORAGE"/>
 </manifest>
