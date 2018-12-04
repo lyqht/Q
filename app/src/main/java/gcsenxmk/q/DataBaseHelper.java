@@ -5,22 +5,38 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 public class DataBaseHelper extends SQLiteOpenHelper{
 
-    private static final String DATABASE_NAME="signup.db";
+    public static DataBaseHelper myDB;
+
+    private static final String DATABASE_NAME="signup1.db";
     private static final String TABLE_NAME= "signup_table";
 
-    public DataBaseHelper(Context context){
-        super(context,DATABASE_NAME,null,1);
+
+//    public DataBaseHelper(Context context){
+//        super(context,DATABASE_NAME,null,1);
+//    }
 
 
+    public static DataBaseHelper getDataHelper(Context context) {
+        if (myDB == null){
+            myDB = new DataBaseHelper(context);
+        }
+        return myDB;
     }
+
+    public DataBaseHelper(Context context) {
+        super(context,DATABASE_NAME,null,1);
+    }
+
+
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE Table "+ TABLE_NAME+"(ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT, PRICE TEXT, ADDRESS TEXT)");
-
+        db.execSQL("CREATE Table "+ TABLE_NAME+"(Name TEXT, Email TEXT, Password TEXT,maxWaitingtime TEXT, CreditCard TEXT,Cash TEXT," +
+                "Disable TEXT, Pregnant TEXT )");
     }
 
     @Override
@@ -50,7 +66,7 @@ public class DataBaseHelper extends SQLiteOpenHelper{
         SQLiteDatabase db=this.getWritableDatabase();
 
         ContentValues contentValues= new ContentValues();
-        contentValues.put("NAME",userName);
+        contentValues.put("Name",userName);
         contentValues.put("Email",userEmail);
         contentValues.put("Password",userPassword);
         contentValues.put("maxWaitingtime",maxWaitingTime);
@@ -65,9 +81,21 @@ public class DataBaseHelper extends SQLiteOpenHelper{
         }else{
             return true;
         }
-
-
     }
+
+    public boolean login(String userEmail, String password){
+        if(accountExist(userEmail)){
+            if(checkPassword(userEmail, password)){
+                System.out.println("successful login!!!!!");
+            }else {
+                System.out.println("wrong password!!!!!");
+
+            }
+        }
+        return false;
+    }
+
+
 
     public Cursor getAllHotel(){
         SQLiteDatabase db= this.getWritableDatabase();
@@ -83,5 +111,43 @@ public class DataBaseHelper extends SQLiteOpenHelper{
     }
 
 
-}
 
+    public boolean accountExist(String userEmail) {
+        SQLiteDatabase db= this.getWritableDatabase();
+
+
+
+        Cursor cursor = db.rawQuery("select * from " + TABLE_NAME+ " where email= " + "'" + userEmail + "'" , null);
+
+        if(cursor.getCount() != 0){
+            Log.i("account search", userEmail + " account exists，return true");
+            return true;
+        }
+
+        cursor.close();
+        db.close();
+        Log.i("account search", "attend:    " + userEmail + " account not exist，return false");
+        return false;
+    }
+
+    public String getPassword(String userEmail){
+        if(!accountExist(userEmail)){
+            return null;
+        }
+        SQLiteDatabase db= this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("select Password from " + TABLE_NAME+ " where email= " + "'" + userEmail + "'" , null);
+        cursor.moveToPosition(0);
+        String password = cursor.getString(0);
+
+        return password;
+    }
+
+    public boolean checkPassword(String userEmail, String passwordInput){
+        String correctPassword = getPassword(userEmail);
+        return (correctPassword.equals(passwordInput));
+    }
+
+
+
+
+}
