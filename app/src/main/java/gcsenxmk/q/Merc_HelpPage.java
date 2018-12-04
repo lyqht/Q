@@ -17,6 +17,8 @@ import android.widget.TextView;
 import java.sql.Blob;
 import java.util.ArrayList;
 
+//TODO - contain tutorial on how to use the app
+
 public class Merc_HelpPage extends AppCompatActivity {
     private static final String TAG = "Helppage_merc";
     private RecyclerView recyclerView;
@@ -50,7 +52,7 @@ public class Merc_HelpPage extends AppCompatActivity {
     private void initImageBitmaps() {
         Log.d(TAG, "initImageBitmaps: preparing bitmaps.");
 
-        mImage.add("https://www.iconfinder.com/icons/1398912/check_circle_correct_mark_success_tick_yes_icon");
+        mImage.add("https://cdn3.iconfinder.com/data/icns/flat-actions-icons-9/792/Tick_Mark_Dark-512.png");
         mDescriptions.add("Confirmed that customer arrived on time");
 
         mImage.add("");

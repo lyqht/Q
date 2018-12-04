@@ -1,6 +1,9 @@
 package gcsenxmk.q;
 
+
 import android.content.Intent;
+import android.content.Context;
+
 import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
@@ -12,11 +15,13 @@ import android.preference.RingtonePreference;
 import android.provider.Settings;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.SwitchCompat;
+
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -156,11 +161,4 @@ public class CustSettings extends Fragment {
             NotificationEnabled.setVisibility(View.VISIBLE);
         }
     }
-
-
-
-
-
-
-
 }

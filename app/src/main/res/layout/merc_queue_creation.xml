@@ -4,23 +4,38 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true">
 
-    <Button
-        android:layout_marginTop="15dp"
-        android:layout_centerHorizontal="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/btnTEST"
-        android:text="TestBtn 1"
-        />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:textSize="25sp"
-        android:text="Tab1"
-        android:layout_marginTop="40dp"
-        android:id="@+id/textTab1"
-        android:layout_below="@+id/btnTEST"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:adjustViewBounds="true"
+            android:maxHeight="150dp"
+            android:maxWidth="150dp"
+            android:translationY="-30dp"
+
+            android:src="@drawable/aqua"
+
+            android:id="@+id/queuecreationimage"
+            />
+
+        <Button
+            android:layout_marginTop="25dp"
+            android:layout_below="@+id/queuecreationimage"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_createQ"
+            android:text="Create a Q!"
+
+            />
+
+    </RelativeLayout>
 
 </RelativeLayout>
