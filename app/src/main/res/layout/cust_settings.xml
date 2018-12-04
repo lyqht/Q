@@ -5,187 +5,156 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="12dp"
-    android:paddingBottom="24dp"
     tools:context=".CustSettings">
-    <ScrollView
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
             <LinearLayout
                 android:id="@+id/cust_profile_header"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="24dp"
-                android:background="@color/colorTransparentPrimary">
-
+                android:orientation="vertical"
+                android:layout_gravity="top">
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/cust_profile_image"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:src="@drawable/kinmoo"/>
-                <LinearLayout
-                    android:id="@+id/cust_profile_brief_layout"
-                    android:layout_width="match_parent"
+                    android:layout_gravity="center"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/search_icon"/>
+                <TextView
+                    android:id="@+id/cust_profile_name"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
+                    android:text="Customer Name"
+                    android:fontFamily="@font/quicksand_bold"
+                    android:layout_gravity="center"
+                    android:textColor="@color/colorSecondaryDark" />
+
+                <LinearLayout
+                    android:id="@+id/cust_profile_id_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
                     android:layout_gravity="center">
                     <TextView
-                        android:id="@+id/cust_profile_name"
+                        android:id="@+id/cust_profile_id_header"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:paddingLeft="24dp"
-                        android:text="Customer Name"
-                        android:fontFamily="@font/quicksand_bold"
-                        android:textSize="24dp"
-                        android:textColor="@color/colorSecondaryDark" />
+                        android:text="User"
+                        android:layout_marginRight="6dp"/>
                     <TextView
-                        android:id="@+id/cust_profile_email_textview"
+                        android:id="@+id/cust_profile_id"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="Email"
-                        android:textColor="@color/colorBlack"/>
-
-                    <LinearLayout
-                        android:id="@+id/cust_profile_id_layout"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_marginTop="6dp"
-                        android:layout_gravity="center">
-                        <TextView
-                            android:id="@+id/cust_profile_id_header"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="User"
-                            android:layout_marginRight="6dp"/>
-                        <TextView
-                            android:id="@+id/cust_profile_id"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="#000"/>
-                    </LinearLayout>
+                        android:text="#000"/>
                 </LinearLayout>
+
             </LinearLayout>
 
-            <Button
-                android:id="@+id/profile_general_button"
+        <LinearLayout
+            android:id="@+id/cust_profile_general_settings_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="24dp"
+            style="@style/profile_category_layout">
+            <TextView
+                android:id="@+id/cust_profile_email_header"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="Email"
+                style="@style/profile_detail_header"/>
+            <TextView
+                android:id="@+id/cust_profile_email_textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Change Email &#38; Password"
-                style="@style/profile_setting_header"
-                />
-
-            <LinearLayout
-                android:id="@+id/cust_profile_general_settings_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
+                android:text="Default Email"
                 android:layout_marginBottom="12dp"
-                style="@style/profile_category_layout"
-                android:background="@color/colorTransparentGrey">
-                <TextView
-                    android:id="@+id/cust_profile_email_header"
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:layout_marginBottom="12dp"
-                    android:text="Email"
-                    style="@style/profile_detail_header"/>
-                <EditText
-                    android:id="@+id/cust_profile_email_editText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Default Email"
-                    android:layout_marginBottom="12dp"
-                    style="@style/profile_detail" />
-                <TextView
-                    android:id="@+id/cust_profile_password_header"
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:layout_marginBottom="12dp"
-                    android:text="Password"
-                    style="@style/profile_detail_header" />
-                <EditText
-                    android:id="@+id/cust_profile_password_textview"
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:text="*******"
-                    android:layout_marginBottom="12dp"
-                    style="@style/profile_detail"/>
-            </LinearLayout>
-
-            <Button
-                android:id="@+id/profile_tags_button"
+                style="@style/profile_detail_forDisplay" />
+            <EditText
+                android:id="@+id/cust_profile_email_editText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Change Q Preferences"
-                style="@style/profile_setting_header"
-                />
-
-            <LinearLayout
-                android:id="@+id/cust_profile_tags_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
+                android:text="Default Email"
                 android:layout_marginBottom="12dp"
-                style="@style/profile_category_layout"
-                android:background="@color/colorTransparentGrey">
-                <EditText
-                    android:id="@+id/cust_profile_tags"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textMultiLine"
-                    android:outlineSpotShadowColor="@color/colorGrey"
-                    style="@style/profile_detail"/>
-            </LinearLayout>
-
-            <Button
-                android:id="@+id/profile_notifications_button"
+                style="@style/profile_detail_toEdit" />
+            <TextView
+                android:id="@+id/cust_profile_password_header"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="Password"
+                style="@style/profile_detail_header" />
+            <TextView
+                android:id="@+id/cust_profile_password_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="*******"
+                android:layout_marginBottom="12dp"
+                style="@style/profile_detail_forDisplay"/>
+            <EditText
+                android:id="@+id/cust_profile_password_userOld"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Notifications"
-                android:layout_marginBottom="12dp"
-                style="@style/profile_setting_header"
-                />
+                android:hint="Old Password"
+                android:layout_marginBottom="6dp"
+                style="@style/profile_detail_toEdit"/>
+            <EditText
+                android:id="@+id/cust_profile_password_userNew"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Old Password"
+                style="@style/profile_detail_toEdit"/>
+            <Button
+                android:id="@+id/cust_profile_editAccountButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="11dp"
+                android:text="Edit Account" />
+            <Button
+                android:id="@+id/cust_profile_SaveButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="11dp"
+                android:text="Save" />
+
+        </LinearLayout>
+    </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/cust_profile_notifications_settings_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginBottom="12dp"
-                style="@style/profile_category_layout"
-                android:background="@color/colorTransparentGrey">
+                android:layout_marginBottom="0dp"
+                style="@style/profile_category_layout">
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        <TextView
+                            android:id="@+id/cust_profile_enable_notifications_textview"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="6dp"
+                            android:text="Enable Notifications"/>
+                        <android.support.v7.widget.SwitchCompat
+                            android:id="@+id/cust_profile_notifications_switch"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
 
-                    <android.support.v7.widget.SwitchCompat
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="end"/>
-                </LinearLayout>
+                    </LinearLayout>
             </LinearLayout>
 
-            <Button
-                android:text="Sign Out"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/primary_float_button"
-                style="@style/floatJoinQ" />
-        </LinearLayout>
-    </ScrollView>
-
-
-
+    <Button
+        android:id="@+id/cust_profile_signOutButton"
+        android:text="Sign Out"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/primary_float_button"
+        style="@style/floatJoinQ" />
 </LinearLayout>
