@@ -40,7 +40,7 @@
         <activity android:name=".Cust_Gallery"
             android:label="Stall Description"/>
         <activity android:name=".Cust_MainActivity"
-            android:windowSoftInputMode="adjustResize">
+            android:windowSoftInputMode="adjustNothing">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
