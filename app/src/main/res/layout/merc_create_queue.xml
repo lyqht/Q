@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MercCreateQueue"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:textSize="30sp"
+        android:text="Create a Queue!"
+        android:layout_marginTop="10dp"
+        android:id="@+id/queuecreatetitle"
+
+        />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@+id/queuecreatetitle"
+            android:id="@+id/setName"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_alignParentLeft="true"
+                android:textSize="15sp"
+                android:layout_centerInParent="true"
+                android:text="Name: "
+                android:id="@+id/queuenametitle"
+
+                />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="70dp"
+                android:textSize="15sp"
+                android:id="@+id/enterQueueName"
+                android:layout_centerInParent="true"
+                android:layout_toRightOf="@+id/queuenametitle"
+                />
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@+id/setName"
+            android:id="@+id/setLocation">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_alignParentLeft="true"
+                android:textSize="15sp"
+                android:layout_centerInParent="true"
+                android:text="Location: "
+                android:id="@+id/queuelocationtitle"
+
+                />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerInParent="true"
+                android:layout_marginRight="70dp"
+                android:textSize="15sp"
+                android:id="@+id/enterLocation"
+                android:layout_toRightOf="@+id/queuelocationtitle"/>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@id/setLocation"
+            android:id="@+id/setEstTime">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_alignParentLeft="true"
+                android:textSize="15sp"
+                android:layout_centerInParent="true"
+                android:text="Est. Waiting Time: "
+                android:id="@+id/estTimeText"
+                />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerInParent="true"
+                android:layout_marginRight="70dp"
+                android:textSize="15sp"
+                android:inputType="numberDecimal"
+                android:layout_toRightOf="@id/estTimeText"
+                android:id="@+id/editEstTimeText"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="30dp"
+                android:layout_alignParentRight="true"
+                android:textSize="15sp"
+                android:layout_alignParentBottom="true"
+                android:paddingBottom="5dp"
+                android:layout_centerInParent="true"
+                android:text="mins"
+                />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@id/setEstTime"
+            android:id="@+id/setQueueType">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_alignParentLeft="true"
+            android:textSize="15sp"
+            android:layout_centerInParent="true"
+            android:text="Queuing System: "
+            android:id="@+id/queuingSysText"
+            />
+
+        <Spinner
+            android:id="@+id/spinQueueSys"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/queuingSysText"
+            android:textSize="15sp"
+            android:layout_marginRight="50dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@id/setQueueType"
+            android:id="@+id/setPriority">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_alignParentLeft="true"
+            android:textSize="15sp"
+            android:layout_centerInParent="true"
+            android:text="Priority Queue: "
+            android:id="@+id/priorityText"
+            />
+
+        <Spinner
+            android:id="@+id/spinPriority"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:textSize="15sp"
+            android:layout_marginRight="50dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            />
+
+        </RelativeLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <Button
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_centerHorizontal="true"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="10dp"
+        android:id="@+id/btn_createQ"
+        android:text="Create Queue!"
+        />
+    </android.support.constraint.ConstraintLayout>
+</RelativeLayout>
