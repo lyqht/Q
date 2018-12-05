@@ -249,7 +249,7 @@ public class CreateQueueUponLoginActivity extends AppCompatActivity {
                             final String sdownload_url = String.valueOf(downloadUrl);
 
                             Upload upload = new Upload(mEditTextFileName.getText().toString().trim(),
-                                    sdownload_url);
+                                    sdownload_url); 
                             String uploadId = databaseReference.push().getKey();
                             MerchantInformation merchantInformation= new MerchantInformation(getname,getdesc,upload);
                             QueueInformation queueInformation = new QueueInformation(queuename.getText().toString());
