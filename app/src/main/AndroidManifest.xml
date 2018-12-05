@@ -67,11 +67,13 @@
 
 
         </activity>
+
         <activity android:name=".FirebaseUploadActivity"
             android:parentActivityName=".QueueActivity"></activity>
-
         <activity android:name=".RecyclerActivity"
-            android:parentActivityName=".SegregationActivityAfterLogin"></activity>
+            android:parentActivityName=".CustomerHomePageActivity"></activity>
+
+
 
         <activity android:name=".SegregationActivityAfterLogin"
             android:parentActivityName=".FirebaseLoginActivity">
@@ -84,6 +86,11 @@
 
         </activity>
 
+        <activity android:name=".CreateQueueUponLoginActivity"
+            android:parentActivityName=".MerchantViewQueuesActivityAfterLogin"></activity>
+
+        <activity android:name=".CustomerHomePageActivity"
+            android:parentActivityName=".SegregationActivityAfterLogin"></activity>
         <activity android:name=".Init_SelAccType" />
         <activity android:name=".Init_MercAccCreation" />
         <activity android:name=".Init_CustAccCreation" />

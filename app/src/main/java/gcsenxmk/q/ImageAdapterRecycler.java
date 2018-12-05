@@ -1,5 +1,6 @@
 package gcsenxmk.q;
 
+import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
@@ -35,6 +36,7 @@ public class ImageAdapterRecycler extends RecyclerView.Adapter<ImageAdapterRecyc
     private List<Upload> mUploads;
     private DatabaseReference mDatabaseRef;
     private DatabaseReference queueDatabaseRef;
+    private DatabaseReference customerDatabaseRef;
     private FirebaseAuth firebaseAuth;
     private FirebaseUser user;
     private FirebaseUser merchant;
@@ -116,6 +118,8 @@ public class ImageAdapterRecycler extends RecyclerView.Adapter<ImageAdapterRecyc
 
                         }
                     }
+
+
 
 
 

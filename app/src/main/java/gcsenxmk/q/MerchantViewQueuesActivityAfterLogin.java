@@ -1,5 +1,6 @@
 package gcsenxmk.q;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -101,7 +102,11 @@ public class MerchantViewQueuesActivityAfterLogin extends AppCompatActivity{
                             Toast.makeText(MerchantViewQueuesActivityAfterLogin.this,
                                     "You already have a queue", Toast.LENGTH_LONG).show();
                         }else{
-                            Toast.makeText(MerchantViewQueuesActivityAfterLogin.this,"Add queue now", Toast.LENGTH_SHORT).show();
+
+
+                            Intent intent= new Intent(MerchantViewQueuesActivityAfterLogin.this, CreateQueueUponLoginActivity.class);
+                            startActivity(intent);
+                            //Toast.makeText(MerchantViewQueuesActivityAfterLogin.this,"Add queue now", Toast.LENGTH_SHORT).show();
                         }
 
                     }
