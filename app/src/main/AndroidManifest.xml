@@ -27,12 +27,6 @@
 
         </activity>
 
-        <activity
-            android:name=".Cust_QueueDesc"
-            android:label="@string/title_activity_stall_desc"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
 
         <activity android:name=".FirebaseLoginActivity"
             android:parentActivityName=".FirebaseTestActivity"/>
@@ -62,8 +56,6 @@
         <activity android:name=".Upload_Activity">
 
 
-
-
         </activity>
         <activity android:name=".FirebaseUploadActivity"
             android:parentActivityName=".QueueActivity"></activity>
@@ -81,10 +73,7 @@
 
         </activity>
 
-        <activity android:name=".Init_SelAccType" />
-        <activity android:name=".Init_MercAccCreation" />
-        <activity android:name=".Init_CustAccCreation" />
-        <activity android:name=".Init_AccCreated" />
+
 
         <!-- Cust Activities -->
         <activity
@@ -97,11 +86,10 @@
         <activity android:name=".Cust_HelpPage" />
         <activity android:name=".TEMP_Cust_GettingStarted" />
 
-<<<<<<< HEAD
+
         <!-- Merchant Activities -->
 
-=======
->>>>>>> d53b66269c1fd1d07e2fbfd253362e559b8da478
+
         <activity android:name=".TEMP_Merc_GettingStarted" />
 
         <activity android:name=".Merc_MainActivity">
@@ -130,9 +118,7 @@
             android:label="Queue Created"
             />
 
-        <activity android:name=".MercCreateQueue"
-            android:label="Create a Queue"
-            android:parentActivityName=".Cust_MainActivity"></activity>
+
 
     </application>
 
