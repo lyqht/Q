@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 
 public class MercMainOverview extends Fragment {
-    private static final String TAG = "Tab1Fragment";
+    private static final String TAG = "Tab2Fragment";
 
     private RecyclerView recyclerView;
     private ArrayList<String> mNames;

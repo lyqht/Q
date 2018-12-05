@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="gcsenxmk.q">
+
     <!-- Allow internet usage -->
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <!-- Intro, Login & Registration Activities -->
     <application
@@ -12,24 +13,73 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <activity
             android:name=".Intro"
             android:label="Welcome Page!" />
         <activity
             android:name=".SignupActivity"
-            android:parentActivityName=".LoginActivity"
-            android:label="Sign Up here">
-        </activity>
+            android:label="Sign Up here"
+            android:parentActivityName=".LoginActivity"></activity>
         <activity
             android:name=".LoginActivity"
             android:label="@string/app_name"
             android:parentActivityName=".Intro">
+
         </activity>
+
         <activity
-            android:name=".Settings"
-            android:label="Example Settings Activity">
-    </activity>
+            android:name=".Cust_QueueDesc"
+            android:label="@string/title_activity_stall_desc"
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
+
+        <activity android:name=".FirebaseLoginActivity"
+            android:parentActivityName=".FirebaseTestActivity"/>
+
+        <activity android:name=".ProfileActivity"
+            android:parentActivityName=".SegregationActivity"
+            />
+
+
+
+        <activity android:name=".SegregationActivity"
+            android:parentActivityName=".FirebaseTestActivity"/>
+
+        <activity android:name=".QueueActivity"
+            android:parentActivityName=".SegregationActivity"/>
+
+
+        <activity android:name=".FirebaseTestActivity">
+
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".Upload_Activity">
+
+
+
+
+        </activity>
+        <activity android:name=".FirebaseUploadActivity"
+            android:parentActivityName=".QueueActivity"></activity>
+
+        <activity android:name=".RecyclerActivity"
+            android:parentActivityName=".SegregationActivityAfterLogin"></activity>
+
+        <activity android:name=".SegregationActivityAfterLogin"
+            android:parentActivityName=".FirebaseLoginActivity">
+
+        </activity>
+
+        <activity android:name=".MerchantViewQueuesActivityAfterLogin"
+            android:parentActivityName=".SegregationActivityAfterLogin">
+
+        </activity>
 
         <activity android:name=".Init_SelAccType" />
         <activity android:name=".Init_MercAccCreation" />
@@ -37,6 +87,7 @@
         <activity android:name=".Init_AccCreated" />
 
         <!-- Cust Activities -->
+//<<<<<<< Cust_Explore_GridLayout-
         <activity android:name=".Cust_Gallery"
             android:label="Stall Description"/>
         <activity android:name=".Cust_MainActivity"
@@ -45,40 +96,55 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+//=======
+        <activity
+            android:name=".Cust_Gallery"
+            android:label="Stall Description" />
+        <activity android:name=".Cust_MainActivity">
+//>>>>>>> master
         </activity>
+
 
         <activity android:name=".Cust_HelpPage" />
         <activity android:name=".TEMP_Cust_GettingStarted" />
 
-        <!-- Merchant Activities -->
         <activity android:name=".TEMP_Merc_GettingStarted" />
+
         <activity android:name=".Merc_MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".Merc_Gallery" />
-
-
         <activity
             android:name=".Merc_HelpPage"
             android:label="Help Page(Merchant)">
         </activity>
         <activity
             android:name=".Merc_QueueInfo"
-            android:label="Queue Information"
-            />
+            android:label="Queue Information" />
         <activity
             android:name=".Merc_QueueSettingsAndEdit"
-            android:label="Queue Configuration"
-            />
+            android:label="Queue Configuration" />
         <activity
             android:name=".Merc_AccInfoSettings"
-            android:label="Account Settings"/>
+            android:label="Account Settings" />
+      
+        <activity android:name=".MercQueueCreated"
+            android:label="Queue Created"
+            />
 
-
+        <activity android:name=".MercCreateQueue"
+            android:label="Create a Queue"
+            android:parentActivityName=".Cust_MainActivity"></activity>
 
     </application>
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.STORAGE"/>
 </manifest>

@@ -18,12 +18,14 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_signup_page);
 
         email = (EditText) findViewById(R.id.username);
         pass = (EditText) findViewById(R.id.password);
         btnsignup = (Button) findViewById(R.id.btnSignup);
         btnlogin = (Button) findViewById(R.id.btnLogin);
+
+
         myDB = new DataBaseHelper(this);
 
         btnsignup.setOnClickListener(new View.OnClickListener() {
@@ -33,6 +35,14 @@ public class LoginActivity extends AppCompatActivity {
                 Intent intent = new Intent(LoginActivity.this, SignupActivity.class);
                 startActivity(intent);
 
+
+            }
+        });
+
+        btnlogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                myDB.login(email.getText().toString(),pass.getText().toString());
             }
         });
 
@@ -44,7 +54,7 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 }
-    //Create a method for adding data to hotel table
+//Create a method for adding data to hotel table
 
 
 //    public void addHotel(){
@@ -56,10 +66,10 @@ public class LoginActivity extends AppCompatActivity {
 //                boolean isInserted= myDB.insertHotel(txtName.getText().toString(), txtPrice.getText().toString(), txtAddress.getText().toString());
 //
 //                if(isInserted){
-//                    Toast.makeText(LoginActivity.this, "Data is inserted", Toast.LENGTH_LONG).show();
+//                    Toast.makeText(MainActivity.this, "Data is inserted", Toast.LENGTH_LONG).show();
 //                }else{
 //
-//                    Toast.makeText(LoginActivity.this, "Data is not inserted", Toast.LENGTH_LONG).show();
+//                    Toast.makeText(MainActivity.this, "Data is not inserted", Toast.LENGTH_LONG).show();
 //
 //                }
 //            }

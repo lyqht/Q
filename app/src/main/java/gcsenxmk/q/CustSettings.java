@@ -1,6 +1,9 @@
 package gcsenxmk.q;
 
+
+import android.content.Intent;
 import android.content.Context;
+
 import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
@@ -9,22 +12,36 @@ import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceManager;
 import android.preference.RingtonePreference;
+import android.provider.Settings;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.SwitchCompat;
+
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+
+import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class CustSettings extends Fragment {
 
-    private LinearLayout GeneralSettings;
-    private Button GeneralSettingsButton;
-    private LinearLayout NotificationSettings;
-    private Button NotificationsButton;
+    private Button editAccountButton;
+    private Button signOutButton;
+    private Button saveButton;
 
+    private TextView oldEmail;
+    private EditText newEmail;
+
+    private TextView displayPassword;
+    private EditText oldPassword;
+    private EditText newPassword;
+
+    private TextView Name;
+    private SwitchCompat NotificationEnabled;
 
     public CustSettings() {
         // Required empty public constructor
@@ -35,96 +52,113 @@ public class CustSettings extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.cust_settings, container, false);
-        GeneralSettings = v.findViewById(R.id.cust_profile_general_settings_layout);
-        NotificationSettings = v.findViewById(R.id.cust_profile_notifications_settings_layout);
+        saveButton = v.findViewById(R.id.cust_profile_SaveButton);
+        editAccountButton = v.findViewById(R.id.cust_profile_editAccountButton);
+        signOutButton = v.findViewById(R.id.cust_profile_signOutButton);
+        displayPassword = v.findViewById(R.id.cust_profile_password_textview);
+        oldPassword = v.findViewById(R.id.cust_profile_password_userOld);
+        newPassword = v.findViewById(R.id.cust_profile_password_userNew);
+        oldEmail = v.findViewById(R.id.cust_profile_email_textView);
+        newEmail = v.findViewById(R.id.cust_profile_email_editText);
+        Name = v.findViewById(R.id.cust_profile_name);
 
-        GeneralSettings.setVisibility(View.GONE);
-        NotificationSettings.setVisibility(View.GONE);
-
-        GeneralSettingsButton = v.findViewById(R.id.profile_general_button);
-        NotificationsButton = v.findViewById(R.id.profile_notifications_button);
-        GeneralSettingsButton.setOnClickListener(new View.OnClickListener() {
+        NotificationEnabled = v.findViewById(R.id.cust_profile_notifications_switch);
+        NotificationEnabled.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
-            public void onClick(View v) {
-                if (GeneralSettings.getVisibility() == View.GONE) GeneralSettings.setVisibility(View.VISIBLE);
-                else GeneralSettings.setVisibility(View.GONE);
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) Toast.makeText(getContext(), "Notifications Enabled",Toast.LENGTH_SHORT).show();
             }
         });
 
-        NotificationsButton.setOnClickListener(new View.OnClickListener() {
+        retrieveDetails();
+
+        // Setting widgets to be invisible at first, until change account button is clicked
+        newPassword.setVisibility(View.GONE);
+        oldPassword.setVisibility(View.GONE);
+        newEmail.setVisibility(View.GONE);
+        saveButton.setVisibility(View.GONE);
+
+        editAccountButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (NotificationSettings.getVisibility() == View.GONE) {
-                    NotificationSettings.setVisibility(View.VISIBLE);
-
-                    //bindPreferenceSummaryToValue(findPreference("notifications_new_message_ringtone"));
-                }
-                else NotificationSettings.setVisibility(View.GONE);
+                // UI Aspects of clicking editAccount Button
+                changeVisibility();
             }
         });
+
+        saveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //TODO: Firebase function to check if old password input by user matches database.
+                // TODO: If yes then update. Refer to updateDetails()
+                updateDetails();
+            }
+        });
+
+        //TODO: Signout Activity
+        signOutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
 
         return v;
     }
 
-    // TODO: NOTIFICATION FUNCTIONS
 
-    private static void bindPreferenceSummaryToValue(Preference preference) {
-        // Set the listener to watch for value changes.
-        preference.setOnPreferenceChangeListener(sBindPreferenceSummaryToValueListener);
+    //TODO: Firebase Function - Retrieve Details
+    //TODO: Set text to each of the fields after retrieving data.
+    void retrieveDetails() {
 
-        // Trigger the listener immediately with the preference's
-        // current value.
-        sBindPreferenceSummaryToValueListener.onPreferenceChange(preference,
-                PreferenceManager
-                        .getDefaultSharedPreferences(preference.getContext())
-                        .getString(preference.getKey(), ""));
     }
 
-    private static Preference.OnPreferenceChangeListener sBindPreferenceSummaryToValueListener = new Preference.OnPreferenceChangeListener() {
-        @Override
-        public boolean onPreferenceChange(Preference preference, Object value) {
-            String stringValue = value.toString();
+    //TODO : add on to this function - Save and override data in Firebase and local data
+    void updateDetails() {
+        oldEmail.setText(newEmail.getText());
+        changeVisibility();
 
-            if (preference instanceof ListPreference) {
-                // For list preferences, look up the correct display value in
-                // the preference's 'entries' list.
-                ListPreference listPreference = (ListPreference) preference;
-                int index = listPreference.findIndexOfValue(stringValue);
+    }
 
-                // Set the summary to reflect the new value.
-                preference.setSummary(
-                        index >= 0
-                                ? listPreference.getEntries()[index]
-                                : null);
+    void changeVisibility() {
+        if (oldPassword.getVisibility() == View.GONE) oldPassword.setVisibility(View.VISIBLE);
+        else if (oldPassword.getVisibility() == View.VISIBLE) oldPassword.setVisibility(View.GONE);
 
-            } else if (preference instanceof RingtonePreference) {
-                // For ringtone preferences, look up the correct display value
-                // using RingtoneManager.
-                if (TextUtils.isEmpty(stringValue)) {
-                    // Empty values correspond to 'silent' (no ringtone).
-                    preference.setSummary(R.string.pref_ringtone_silent);
+        if (newPassword.getVisibility() == View.GONE) newPassword.setVisibility(View.VISIBLE);
+        else if (newPassword.getVisibility() == View.VISIBLE) newPassword.setVisibility(View.GONE);
 
-                } else {
-                    Ringtone ringtone = RingtoneManager.getRingtone(
-                            preference.getContext(), Uri.parse(stringValue));
+        if (newEmail.getVisibility() == View.GONE) newEmail.setVisibility(View.VISIBLE);
+        else if (newEmail.getVisibility() == View.VISIBLE) newEmail.setVisibility(View.GONE);
 
-                    if (ringtone == null) {
-                        // Clear the summary if there was a lookup error.
-                        preference.setSummary(null);
-                    } else {
-                        // Set the summary to reflect the new ringtone display
-                        // name.
-                        String name = ringtone.getTitle(preference.getContext());
-                        preference.setSummary(name);
-                    }
-                }
-
-            } else {
-                // For all other preferences, set the summary to the value's
-                // simple string representation.
-                preference.setSummary(stringValue);
-            }
-            return true;
+        if (oldEmail.getVisibility() == View.GONE) {
+            oldEmail.setVisibility(View.VISIBLE);
         }
-    };
+        else if (oldEmail.getVisibility() == View.VISIBLE) oldEmail.setVisibility(View.GONE);
+
+        if (displayPassword.getVisibility() == View.GONE)
+            displayPassword.setVisibility(View.VISIBLE);
+        else if (displayPassword.getVisibility() == View.VISIBLE)
+            displayPassword.setVisibility(View.GONE);
+
+        if (signOutButton.getVisibility() == View.GONE) signOutButton.setVisibility(View.VISIBLE);
+        else if (signOutButton.getVisibility() == View.VISIBLE)
+            signOutButton.setVisibility(View.GONE);
+
+        if (editAccountButton.getVisibility() == View.VISIBLE) {
+            saveButton.setVisibility(View.VISIBLE);
+            editAccountButton.setVisibility(View.GONE);
+        }
+        else if (saveButton.getVisibility() == View.VISIBLE) {
+            saveButton.setVisibility(View.GONE);
+            editAccountButton.setVisibility(View.VISIBLE);
+        }
+
+        if (NotificationEnabled.getVisibility() == View.VISIBLE) {
+            NotificationEnabled.setVisibility(View.GONE);
+        }
+        else if (NotificationEnabled.getVisibility() == View.GONE) {
+            NotificationEnabled.setVisibility(View.VISIBLE);
+        }
+    }
 }

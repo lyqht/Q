@@ -18,7 +18,7 @@ import android.widget.Toast;
 
 public class MercFragment3 extends Fragment implements AdapterView.OnItemSelectedListener {
     private static final String TAG = "Tab3Fragment - Settings";
-    private Spinner queueTypeSpinner, lateSpinner, prioritySpinner;
+    private Spinner queueTypeSpinner, prioritySpinner;
     private EditText editEstTimeText;
     private Button saveSettingButton, deleteAllQueueButton;
     private SharedPreferences mPreferences;
@@ -39,17 +39,13 @@ public class MercFragment3 extends Fragment implements AdapterView.OnItemSelecte
         queueTypeSpinner.setAdapter(adapterQueue);
         queueTypeSpinner.setOnItemSelectedListener(this);
 
-        lateSpinner = (Spinner) view.findViewById(R.id.spinLate);
-        ArrayAdapter<CharSequence> adapterLate = ArrayAdapter.createFromResource(getContext(),
-                R.array.late_policy, android.R.layout.simple_spinner_item);
-        adapterLate.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        lateSpinner.setAdapter(adapterLate);
-        lateSpinner.setOnItemSelectedListener(this);
+
+
 
         prioritySpinner = (Spinner) view.findViewById(R.id.spinPriority);
         ArrayAdapter<CharSequence> adapterPriority = ArrayAdapter.createFromResource(getContext(),
                 R.array.priority_queue, android.R.layout.simple_spinner_item);
-        adapterLate.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
         prioritySpinner.setAdapter(adapterPriority);
         prioritySpinner.setOnItemSelectedListener(this);
 
