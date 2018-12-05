@@ -27,8 +27,7 @@
         <activity
             android:name=".Settings"
             android:label="@string/title_activity_settings" />
-            android:label="Example Settings Activity">
-    </activity>
+            
 
         <activity android:name=".Init_SelAccType" />
         <activity android:name=".Init_MercAccCreation" />
