@@ -36,5 +36,4 @@ public class MercQueueCreated extends AppCompatActivity {
 
 
     }
-
 }

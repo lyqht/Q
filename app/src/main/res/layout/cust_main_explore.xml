@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Cust_MainExplore"
+    tools:context=".CustExplore"
     >
-
 
     <ImageView
         android:id="@+id/imageView2"
@@ -41,7 +39,7 @@
     <Space
         android:id="@+id/cme_space1"
         android:layout_width="match_parent"
-        android:layout_height="5dp"
+        android:layout_height="2dp"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/imageView2" />
 
@@ -64,192 +62,268 @@
             android:textSize="30sp"
             android:textStyle="bold" />
     </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:id="@+id/cme_LL_Category"
-        android:layout_height="68dp"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/cme_LY02"
-        android:layout_weight="1"
-        android:orientation="horizontal">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="0.2"
-            android:orientation="vertical">
-
-            <ImageButton
-                android:id="@+id/imageButtonPhotography"
-                android:layout_width="match_parent"
-                android:layout_height="64dp"
-                android:layout_weight="0.1"
-                android:adjustViewBounds="true"
-                android:background="#00000000"
-                android:scaleType="fitCenter"
-                app:srcCompat="@drawable/icon_photo" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="0.2"
-                android:textAlignment="center"
-                android:textSize="10sp"
-                tools:text="Photography" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="0.2"
-            android:orientation="vertical">
-
-            <ImageButton
-                android:id="@+id/imageButtonFnB"
-                android:layout_width="match_parent"
-                android:layout_height="64dp"
-                android:layout_weight="0.1"
-                android:adjustViewBounds="true"
-                android:background="#00000000"
-                android:scaleType="fitCenter"
-                app:srcCompat="@drawable/icon_food" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="0.2"
-                android:textAlignment="center"
-                android:textSize="10sp"
-                tools:text="@string/Food_and_Beverage" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="0.2"
-            android:orientation="vertical">
-
-            <ImageButton
-                android:id="@+id/imageButtonMusic"
-                android:layout_width="match_parent"
-                android:layout_height="64dp"
-                android:layout_weight="0.1"
-                android:adjustViewBounds="true"
-                android:background="#00000000"
-                android:scaleType="fitCenter"
-                app:srcCompat="@drawable/icon_music" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="0.2"
-                android:textAlignment="center"
-                android:textSize="10sp"
-                tools:text="Music" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="0.2"
-            android:orientation="vertical">
-
-            <ImageButton
-                android:id="@+id/imageButtonIT"
-                android:layout_width="match_parent"
-                android:layout_height="64dp"
-                android:layout_weight="0.1"
-                android:adjustViewBounds="true"
-                android:background="#00000000"
-                android:scaleType="fitCenter"
-                app:srcCompat="@drawable/icon_it_tech" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="0.2"
-                android:textAlignment="center"
-                android:textSize="10sp"
-                tools:text="IT" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="0.2"
-            android:orientation="vertical">
-
-            <ImageButton
-                android:id="@+id/imageButtonLimitedT"
-                android:layout_width="match_parent"
-                android:layout_height="64dp"
-                android:layout_weight="0.1"
-                android:adjustViewBounds="true"
-                android:background="#00000000"
-                android:scaleType="fitCenter"
-                app:srcCompat="@drawable/icon_time" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="0.2"
-                android:textAlignment="center"
-                android:textSize="10sp"
-                tools:text="Limited Time" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="0.2"
-            android:orientation="vertical">
-
-            <ImageButton
-                android:id="@+id/imageButtonExtra"
-                android:layout_width="match_parent"
-                android:layout_height="64dp"
-                android:layout_weight="0.1"
-                android:adjustViewBounds="true"
-                android:background="#00000000"
-                android:scaleType="fitCenter"
-                app:srcCompat="@drawable/icon_image" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="0.2"
-                android:textAlignment="center"
-                android:textSize="10sp"
-                tools:text="Extra" />
-        </LinearLayout>
-    </LinearLayout>
-
     <Space
-        android:id="@+id/cme_space2"
+        android:id="@+id/cme_space3"
         android:layout_width="match_parent"
-        android:layout_height="89dp"
+        android:layout_height="2dp"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/cme_LL_Category" />
+        android:layout_below="@+id/cme_gridlayout" />
 
-    <LinearLayout
+    <GridLayout
+        android:id="@+id/cme_gridlayout"
         android:layout_width="match_parent"
-        android:layout_height="44dp"
+        android:layout_height="407dp"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/cme_space2"
-        android:layout_marginStart="0dp"
-        android:orientation="vertical">
-        <TextView
-            android:id="@+id/cme_TextV_RecentVisit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="5dp"
-            android:paddingLeft="15dp"
-            android:text="Last Visited >"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="30sp"
-            android:textStyle="bold" />
-    </LinearLayout>
+        android:alignmentMode="alignMargins"
+        android:columnCount="2"
+        android:columnOrderPreserved="false"
+        android:padding="10dp"
+        android:rowCount="3">
+        <!--Row1 Column1 F&B -->
+        <android.support.v7.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_marginBottom="12dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_rowWeight="1"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="5dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="16dp"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/buttonFood_and_Beverages"
+                    android:layout_width="99dp"
+                    android:layout_height="63dp"
+                    android:layout_gravity="center_horizontal"
+                    android:background="#00000000"
+                    android:scaleType="fitCenter"
+
+                    android:src="@drawable/icon_food" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbarSize="18sp"
+                    android:text="F and B"
+                    android:textAlignment="center"
+                    android:textStyle="bold" />
+
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+        <!--Row1 Column2 Retail-->
+        <android.support.v7.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_marginBottom="12dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_rowWeight="1"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="5dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="16dp"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/buttonRetail_Outlets"
+                    android:layout_width="99dp"
+                    android:layout_height="63dp"
+                    android:layout_gravity="center_horizontal"
+                    android:background="#00000000"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/icon_retail" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbarSize="18sp"
+                    android:text="Retail Outlets"
+                    android:textAlignment="center"
+                    android:textStyle="bold" />
+
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+        <!--Row2 Column1 Photo-->
+        <android.support.v7.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_marginBottom="12dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_rowWeight="1"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="5dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="16dp"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/buttonPhotography"
+                    android:layout_width="99dp"
+                    android:layout_height="63dp"
+                    android:layout_gravity="center_horizontal"
+                    android:background="#00000000"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/icon_photo" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbarSize="18sp"
+                    android:text="Photography"
+                    android:textAlignment="center"
+                    android:textStyle="bold" />
+
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+        <!--Row2 Column2 Music-->
+        <android.support.v7.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_marginBottom="12dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_rowWeight="1"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="5dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="16dp"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/buttonMusicConcert"
+                    android:layout_width="99dp"
+                    android:layout_height="63dp"
+                    android:layout_gravity="center_horizontal"
+                    android:background="#00000000"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/icon_music" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbarSize="18sp"
+                    android:text="Music"
+                    android:textAlignment="center"
+                    android:textStyle="bold" />
+
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+        <!--Row3 Column1 Event-->
+        <android.support.v7.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_marginBottom="12dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_rowWeight="1"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="5dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="16dp"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/buttonLimitedT"
+                    android:layout_width="99dp"
+                    android:layout_height="63dp"
+                    android:layout_gravity="center_horizontal"
+                    android:background="#00000000"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/icon_time" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbarSize="18sp"
+                    android:text="Events"
+                    android:textAlignment="center"
+                    android:textStyle="bold" />
+
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+        <!--Row3 Column2 Extra-->
+        <android.support.v7.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_marginBottom="12dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_rowWeight="1"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="5dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="16dp"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/buttonExtraCategory"
+                    android:layout_width="99dp"
+                    android:layout_height="63dp"
+                    android:layout_gravity="center_horizontal"
+                    android:background="#00000000"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/icon_more" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbarSize="18sp"
+                    android:text="More"
+                    android:textAlignment="center"
+                    android:textStyle="bold" />
+
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+
+    </GridLayout>
 
 
 </RelativeLayout>

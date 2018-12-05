@@ -9,12 +9,15 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+
 import android.widget.Toast;
+
 
 public class MercCreateQueue extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     EditText location;
-    private Spinner queueTypeSpinner, prioritySpinner;
+private Spinner queueTypeSpinner, prioritySpinner;
+
     private EditText editEstTimeText;
     private Button btn_createQueue;
     EditText Qname;
@@ -35,7 +38,6 @@ public class MercCreateQueue extends AppCompatActivity implements AdapterView.On
         adapterQueue.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         queueTypeSpinner.setAdapter(adapterQueue);
         queueTypeSpinner.setOnItemSelectedListener(this);
-
 
         prioritySpinner = findViewById(R.id.spinPriority);
         ArrayAdapter<CharSequence> adapterPriority = ArrayAdapter.createFromResource(this,
