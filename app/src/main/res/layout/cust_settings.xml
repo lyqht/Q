@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="12dp"
-    tools:context=".CustSettings">
+    tools:context=".customer.CustSettings">
 
     <LinearLayout
         android:layout_width="match_parent"
