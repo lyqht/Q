@@ -3,6 +3,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.WindowManager;
 
 import gcsenxmk.q.R;
 import gcsenxmk.q.misc.SectionsPagerAdapter;
@@ -18,6 +19,9 @@ public class Merc_MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+
         setContentView(R.layout.merc_outline);
 
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
@@ -38,7 +42,7 @@ public class Merc_MainActivity extends AppCompatActivity {
         SectionsPagerAdapter adapter = new SectionsPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new MercQueueCreation());
         adapter.addFragment(new MercMainOverview());
-        adapter.addFragment(new MercFragment3());
+        adapter.addFragment(new MercSettings());
         viewPager.setAdapter(adapter);
     }
 }

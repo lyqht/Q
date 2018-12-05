@@ -104,16 +104,14 @@
         <activity
             android:name=".merchant.Merc_HelpPage_DeleteQueue"
             android:label="Deleting the Queue"/>
-        <activity
-            android:name=".merchant.Merc_QueueInfo"
-            android:label="Queue Information" />
+
         <activity
             android:name=".merchant.Merc_QueueSettingsAndEdit"
             android:label="Queue Configuration" />
         <activity
-            android:name=".merchant.Merc_AccInfoSettings"
-            android:label="Account Settings" />
-      
+            android:name=".merchant.Merc_QueueDisplay"
+            />
+
         <activity android:name=".merchant.MercQueueCreated"
             android:label="Queue Created"
             />
