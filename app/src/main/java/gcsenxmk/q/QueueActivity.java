@@ -37,6 +37,7 @@ import com.squareup.picasso.Picasso;
 
 public class QueueActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
+
     private FirebaseAuth firebaseAuth;
     private DatabaseReference databaseReference;
     private DatabaseReference queue_databaseReference;
