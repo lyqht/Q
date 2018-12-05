@@ -66,6 +66,7 @@ public class CustomerHomePageActivity extends AppCompatActivity{
                     len = queueInformation.queue.size();
                     int waittime = len *5;
 
+                    System.out.println(user.getUid());
                     est_wait_time_data.setText(Integer.toString(waittime));
                     queue_name.setText(queueInformation.queuename);
 

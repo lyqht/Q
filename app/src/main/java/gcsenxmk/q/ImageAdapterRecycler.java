@@ -65,6 +65,12 @@ public class ImageAdapterRecycler extends RecyclerView.Adapter<ImageAdapterRecyc
                 .fit()
                 .centerCrop()
                 .into(holder.imageButton);
+            holder.description.setText(uploadCurrent.getDesc());
+             holder.waitingtime.setText(Integer.toString(uploadCurrent.getAvewaiting()));
+
+
+
+
     }
 
     @Override
@@ -74,7 +80,11 @@ public class ImageAdapterRecycler extends RecyclerView.Adapter<ImageAdapterRecyc
 
     public class ImageViewHolder extends RecyclerView.ViewHolder {
         public TextView textViewName;
+
+
         public ImageButton imageButton;
+        public  TextView description;
+        public TextView waitingtime;
 
 
 
@@ -89,6 +99,9 @@ public class ImageAdapterRecycler extends RecyclerView.Adapter<ImageAdapterRecyc
 
             textViewName = itemView.findViewById(R.id.text_view_name);
             imageButton = itemView.findViewById(R.id.image_view_upload);
+            description = itemView.findViewById(R.id.description);
+            waitingtime = itemView.findViewById(R.id.waiting_time);
+            String wait= waitingtime.getText().toString();
 
             imageButton.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -126,6 +139,8 @@ public class ImageAdapterRecycler extends RecyclerView.Adapter<ImageAdapterRecyc
 
                     @Override
                     public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                        System.out.println("error");
 
 
 

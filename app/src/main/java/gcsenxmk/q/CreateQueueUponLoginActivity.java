@@ -55,7 +55,7 @@ public class CreateQueueUponLoginActivity extends AppCompatActivity {
     private DatabaseReference databaseReference;
     private DatabaseReference queue_databaseReference;
 
-    private EditText queuename,queuedesc;
+    private EditText queuename,queuedesc, wait_time;
     private Button createqueue;
 
     private static final int PICK_IMAGE_REQUEST = 1;
@@ -63,7 +63,7 @@ public class CreateQueueUponLoginActivity extends AppCompatActivity {
     private Button mButtonChooseImage;
     private Button mButtonUpload;
     private TextView mTextViewShowUploads;
-    private EditText mEditTextFileName;
+    private EditText mEditTextFileName,mDesc, mWaitingtime;
     private ImageView mImageView;
     private ProgressBar mProgressBar;
 
@@ -100,6 +100,7 @@ public class CreateQueueUponLoginActivity extends AppCompatActivity {
         queuename=(EditText) findViewById(R.id.queuenamemerchant);
         queuedesc= (EditText) findViewById(R.id.queuedescription);
         createqueue=(Button) findViewById(R.id.btnaddqueue);
+        wait_time=(EditText) findViewById(R.id.average_time);
 
         user = firebaseAuth.getCurrentUser();
         textViewUserEmail=(TextView) findViewById(R.id.textviewemailmerchant);
@@ -140,6 +141,9 @@ public class CreateQueueUponLoginActivity extends AppCompatActivity {
         mButtonUpload = findViewById(R.id.button_upload);
         mTextViewShowUploads = findViewById(R.id.text_view_show_uploads);
         mEditTextFileName = findViewById(R.id.edit_text_file_name);
+        mDesc= findViewById(R.id.queuedescription);
+        mWaitingtime=findViewById(R.id.average_time);
+
         mImageView = findViewById(R.id.image_view);
         mProgressBar = findViewById(R.id.progress_bar);
 
@@ -177,6 +181,7 @@ public class CreateQueueUponLoginActivity extends AppCompatActivity {
 
         String getname=queuename.getText().toString().trim();
         String getdesc=queuedesc.getText().toString().trim();
+        int wait=Integer.parseInt(wait_time.getText().toString().trim());
 
         // MerchantInformation merchantInformation= new MerchantInformation(getname,getdesc);
 
@@ -217,6 +222,7 @@ public class CreateQueueUponLoginActivity extends AppCompatActivity {
 
         String getname=queuename.getText().toString().trim();
         String getdesc=queuedesc.getText().toString().trim();
+        int wait=Integer.parseInt(wait_time.getText().toString().trim());
 
 
         //  FirebaseUser user=firebaseAuth.getCurrentUser();
@@ -248,11 +254,10 @@ public class CreateQueueUponLoginActivity extends AppCompatActivity {
                             Uri downloadUrl = urlTask.getResult();
                             final String sdownload_url = String.valueOf(downloadUrl);
 
-                            Upload upload = new Upload(mEditTextFileName.getText().toString().trim(),
-                                    sdownload_url);
+                            Upload upload = new Upload(mEditTextFileName.getText().toString().trim(), sdownload_url ,Integer.parseInt(mWaitingtime.getText().toString()) ,mDesc.getText().toString());
                             String uploadId = databaseReference.push().getKey();
-                            MerchantInformation merchantInformation= new MerchantInformation(getname,getdesc,upload);
-                            QueueInformation queueInformation = new QueueInformation(queuename.getText().toString());
+                            MerchantInformation merchantInformation= new MerchantInformation(getname, getdesc, wait, upload);
+                            QueueInformation queueInformation = new QueueInformation(getname, getdesc, wait);
 
                             // merchantInformation.queueimage = upload;
                             databaseReference.child(user.getUid()).setValue(upload);

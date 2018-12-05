@@ -52,16 +52,19 @@ public class QueueActivity extends AppCompatActivity {
     //private Button imageupload;
     private DatabaseReference databaseReference;
     private DatabaseReference queue_databaseReference;
+    private DatabaseReference merchant_databaseReference;
 
-    private EditText queuename,queuedesc;
+    private EditText queuename,queuedesc,waiting_time;
     private Button createqueue;
+
+
 
     private static final int PICK_IMAGE_REQUEST = 1;
 
     private Button mButtonChooseImage;
     private Button mButtonUpload;
     private TextView mTextViewShowUploads;
-    private EditText mEditTextFileName;
+    private EditText mEditTextFileName, mEditTextDesc,mAverageWaitingtime;
     private ImageView mImageView;
     private ProgressBar mProgressBar;
 
@@ -97,7 +100,11 @@ public class QueueActivity extends AppCompatActivity {
 
         queuename=(EditText) findViewById(R.id.queuenamemerchant);
         queuedesc= (EditText) findViewById(R.id.queuedescription);
+        waiting_time=(EditText) findViewById(R.id.average_time);
+
         createqueue=(Button) findViewById(R.id.btnaddqueue);
+
+
 
        user = firebaseAuth.getCurrentUser();
         textViewUserEmail=(TextView) findViewById(R.id.textviewemailmerchant);
@@ -138,6 +145,8 @@ public class QueueActivity extends AppCompatActivity {
         mButtonUpload = findViewById(R.id.button_upload);
         mTextViewShowUploads = findViewById(R.id.text_view_show_uploads);
         mEditTextFileName = findViewById(R.id.edit_text_file_name);
+        mEditTextDesc = findViewById(R.id.queuedescription);
+        mAverageWaitingtime= findViewById(R.id.average_time);
         mImageView = findViewById(R.id.image_view);
         mProgressBar = findViewById(R.id.progress_bar);
 
@@ -171,20 +180,21 @@ public class QueueActivity extends AppCompatActivity {
 
     }
 
-    private void saveMerchantInfo(){
-
-        String getname=queuename.getText().toString().trim();
-        String getdesc=queuedesc.getText().toString().trim();
-
-       // MerchantInformation merchantInformation= new MerchantInformation(getname,getdesc);
-
-      //  FirebaseUser user=firebaseAuth.getCurrentUser();
-
-     //   databaseReference.child(user.getUid()).setValue(merchantInformation);
-        Toast.makeText(this, "Merchant info saved in the database", Toast.LENGTH_LONG).show();
-
-
-    }
+//    private void saveMerchantInfo(){
+//
+//        String getname=queuename.getText().toString().trim();
+//        String getdesc=queuedesc.getText().toString().trim();
+//        int wait_time= Integer.parseInt(waiting_time.getText().toString());
+//
+//       // MerchantInformation merchantInformation= new MerchantInformation(getname,getdesc);
+//
+//      //  FirebaseUser user=firebaseAuth.getCurrentUser();
+//
+//     //   databaseReference.child(user.getUid()).setValue(merchantInformation);
+//        Toast.makeText(this, "Merchant info saved in the database", Toast.LENGTH_LONG).show();
+//
+//
+//    }
 
     private void openFileChooser() {
         Intent intent = new Intent();
@@ -215,6 +225,8 @@ public class QueueActivity extends AppCompatActivity {
 
         String getname=queuename.getText().toString().trim();
         String getdesc=queuedesc.getText().toString().trim();
+        int wait_time= Integer.parseInt(waiting_time.getText().toString().trim());
+
 
 
         //  FirebaseUser user=firebaseAuth.getCurrentUser();
@@ -246,15 +258,17 @@ public class QueueActivity extends AppCompatActivity {
                             Uri downloadUrl = urlTask.getResult();
                             final String sdownload_url = String.valueOf(downloadUrl);
 
-                            Upload upload = new Upload(mEditTextFileName.getText().toString().trim(),
-                                    sdownload_url);
+
+                            Upload upload = new Upload(mEditTextFileName.getText().toString(), sdownload_url, Integer.parseInt(mAverageWaitingtime.getText().toString()),
+                                    mEditTextDesc.getText().toString() );
                             String uploadId = databaseReference.push().getKey();
-                            MerchantInformation merchantInformation= new MerchantInformation(getname,getdesc,upload);
-                            QueueInformation queueInformation = new QueueInformation(queuename.getText().toString());
+                            MerchantInformation merchantInformation= new MerchantInformation(getname, getdesc, wait_time, upload);
+                            QueueInformation queueInformation = new QueueInformation(getname, getdesc, wait_time);
 
                            // merchantInformation.queueimage = upload;
                             databaseReference.child(user.getUid()).setValue(upload);
                             queue_databaseReference.child(user.getUid()).setValue(queueInformation);
+                            //merchant_databaseReference.child(user.getUid()).setValue(upload);
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {

@@ -44,7 +44,7 @@ public class RecyclerActivity extends AppCompatActivity {
         setContentView(R.layout.activity_recycler);
 
         mRecyclerView = findViewById(R.id.recycler_view);
-        mRecyclerView.setHasFixedSize(true);
+        //mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         //mProgressCircle = findViewById(R.id.progress_circle);
@@ -58,9 +58,7 @@ public class RecyclerActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
-//                    if(postSnapshot.getValue() instanceof String){
-//                        continue;
-//                    }
+
                     Upload upload = postSnapshot.getValue(Upload.class);
                     mUploads.add(upload);
                 }
