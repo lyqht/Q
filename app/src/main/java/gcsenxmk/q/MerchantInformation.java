@@ -1,7 +1,5 @@
 package gcsenxmk.q;
 
-import android.graphics.Bitmap;
-
 public class MerchantInformation {
 
     public String queuename;

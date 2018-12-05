@@ -9,6 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import gcsenxmk.q.R;
+
 public class CustCurrentQueues extends Fragment {
     private static final String TAG = "CustCurrentQueues";
 

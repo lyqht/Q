@@ -15,6 +15,8 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.SearchView;
 
+import gcsenxmk.q.R;
+
 public class CustExplore extends Fragment {
 
     ImageButton imageButtonPhotography;

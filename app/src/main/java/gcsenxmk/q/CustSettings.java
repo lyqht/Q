@@ -27,6 +27,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import gcsenxmk.q.R;
+
 public class CustSettings extends Fragment {
 
     private Button editAccountButton;
