@@ -1,5 +1,6 @@
 package gcsenxmk.q.database;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 
@@ -26,11 +27,13 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 import gcsenxmk.q.R;
+import gcsenxmk.q.customer.Cust_Gallery;
 
 public class ImageAdapterRecycler extends RecyclerView.Adapter<ImageAdapterRecycler.ImageViewHolder>{
 
     private Context mContext;
     private List<Upload> mUploads;
+    private String imageURL;
     private DatabaseReference mDatabaseRef;
     private DatabaseReference queueDatabaseRef;
     private FirebaseAuth firebaseAuth;
@@ -54,6 +57,7 @@ public class ImageAdapterRecycler extends RecyclerView.Adapter<ImageAdapterRecyc
     public void onBindViewHolder(ImageViewHolder holder, int position) {
         Upload uploadCurrent = mUploads.get(position);
         holder.qName.setText(uploadCurrent.getName());
+        imageURL = uploadCurrent.getImageUrl();
         Picasso.with(mContext)
                 .load(uploadCurrent.getImageUrl())
                 .fit()
@@ -87,6 +91,19 @@ public class ImageAdapterRecycler extends RecyclerView.Adapter<ImageAdapterRecyc
             qNumPeople = itemView.findViewById(R.id.queueNumPeople);
             joinQButton = itemView.findViewById(R.id.joinQ_recycler);
 
+            imageButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Log.d(TAG, "Card's image Button Clicked.");
+                    Intent i = new Intent(mContext,Cust_Gallery.class);
+                    i.putExtra("image_url", imageURL);
+                    i.putExtra("queue_name", qName.getText().toString());
+                    i.putExtra("queue_waiting_time", String.valueOf("15"));
+                    i.putExtra("queue_num_people", String.valueOf("28"));
+                    mContext.startActivity(i);
+                }
+            });
+
             joinQButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -94,7 +111,6 @@ public class ImageAdapterRecycler extends RecyclerView.Adapter<ImageAdapterRecyc
                     mDatabaseRef = FirebaseDatabase.getInstance().getReference("Users");
                     merchantDatabaseRef=FirebaseDatabase.getInstance().getReference("Merchants");
                     queueDatabaseRef= FirebaseDatabase.getInstance().getReference("Queue");
-
 
                     queueDatabaseRef.orderByChild("queuename").equalTo(qName.getText().toString()).addListenerForSingleValueEvent(new ValueEventListener() {
                     //merchantDatabaseRef.orderByChild("name").equalTo(textViewName.getText().toString()).addListenerForSingleValueEvent(new ValueEventListener() {
@@ -116,9 +132,6 @@ public class ImageAdapterRecycler extends RecyclerView.Adapter<ImageAdapterRecyc
 
                         }
                     }
-
-
-
 
                     @Override
                     public void onCancelled(@NonNull DatabaseError databaseError) {
