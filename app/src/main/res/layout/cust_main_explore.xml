@@ -9,18 +9,38 @@
     android:windowSoftInputMode="adjustNothing"
     >
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="42dp"
-        android:layout_height="42dp"
+    <LinearLayout
+        android:id="@+id/cme_LY01"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="10dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
 
-        android:layout_alignTop="@+id/cme_editTxt_SearchBar"
-        android:layout_toStartOf="@+id/cme_editTxt_SearchBar"
-        android:adjustViewBounds="false"
-        android:padding="5dp"
-        app:srcCompat="@drawable/search_icon2" />
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_alignTop="@+id/cme_editTxt_SearchBar"
+            android:layout_toStartOf="@+id/cme_editTxt_SearchBar"
+            android:adjustViewBounds="false"
+            android:padding="5dp"
+            app:srcCompat="@drawable/search_icon2" />
 
-    <EditText
+        <SearchView
+            android:id="@+id/cme_editTxt_SearchBar"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/seach_layout"
+            android:queryHint="Queue ID / Store / Event Name"
+            android:searchHintIcon="@null"
+            android:iconifiedByDefault="false"
+            android:searchIcon="@null"
+             />
+    </LinearLayout>
+    <!--EditText
         android:id="@+id/cme_editTxt_SearchBar"
         android:windowSoftInputMode="adjustNothing"
         android:layout_width="307dp"
@@ -31,26 +51,29 @@
         android:layout_marginTop="14dp"
         android:background="@drawable/seach_layout"
         android:ems="10"
+        android:hint="Queue ID / Store / Event Nam"
         android:inputType="textPersonName"
         android:paddingBottom="8dp"
         android:paddingTop="8dp"
-        android:text="Queue ID / Store / Event Name"
-        android:textAlignment="center"
-        android:textColor="#adadad" />
+        android:paddingLeft="8dp"
+        android:textColor="#adadad" >
+        <requestFocus/>
+    </EditText-->
 
     <Space
         android:id="@+id/cme_space1"
         android:layout_width="match_parent"
-        android:layout_height="2dp"
+        android:layout_height="1dp"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/imageView2" />
+        />
 
     <LinearLayout
         android:id="@+id/cme_LY02"
         android:layout_width="match_parent"
-        android:layout_height="41dp"
+        android:layout_height="40dp"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/cme_space1"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="49dp"
         android:orientation="vertical">
 
         <TextView
@@ -64,280 +87,267 @@
             android:textSize="30sp"
             android:textStyle="bold" />
     </LinearLayout>
-    <Space
-        android:id="@+id/cme_space3"
+
+
+    <GridLayout
+        android:id="@+id/cme_gridlayout"
         android:layout_width="match_parent"
-        android:layout_height="2dp"
+        android:layout_height="match_parent"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/cme_grid_holder" />
+        android:layout_below="@+id/cme_LY02"
+        android:alignmentMode="alignMargins"
+        android:columnCount="2"
+        android:columnOrderPreserved="false"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        android:paddingLeft="10dp"
+        android:rowCount="3">
+        <!--Row1 Column1 F&B -->
+        <android.support.v7.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_marginBottom="12dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_rowWeight="1"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="5dp">
 
-    <LinearLayout
-        android:id="@+id/cme_grid_holder"
-        android:layout_width="match_parent"
-        android:layout_height="402dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="0dp"
-        android:orientation="vertical">
-        <GridLayout
-            android:id="@+id/cme_gridlayout"
-            android:layout_width="match_parent"
-            android:layout_height="407dp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentStart="true"
-            android:alignmentMode="alignMargins"
-            android:columnCount="2"
-            android:columnOrderPreserved="false"
-            android:padding="10dp"
-            android:rowCount="3">
-            <!--Row1 Column1 F&B -->
-            <android.support.v7.widget.CardView
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_columnWeight="1"
-                android:layout_marginBottom="12dp"
-                android:layout_marginLeft="12dp"
-                android:layout_marginRight="12dp"
-                android:layout_rowWeight="1"
-                app:cardCornerRadius="5dp"
-                app:cardElevation="5dp">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="16dp"
+                android:orientation="vertical">
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                <ImageButton
+                    android:id="@+id/buttonFood_and_Beverages"
+                    android:layout_width="117dp"
+                    android:layout_height="74dp"
                     android:layout_gravity="center_horizontal"
-                    android:layout_margin="16dp"
-                    android:orientation="vertical">
+                    android:background="#00000000"
+                    android:scaleType="fitCenter"
 
-                    <ImageButton
-                        android:id="@+id/buttonFood_and_Beverages"
-                        android:layout_width="99dp"
-                        android:layout_height="63dp"
-                        android:layout_gravity="center_horizontal"
-                        android:background="#00000000"
-                        android:scaleType="fitCenter"
+                    android:src="@drawable/icon_food" />
 
-                        android:src="@drawable/icon_food" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:scrollbarSize="18sp"
-                        android:text="F and B"
-                        android:textAlignment="center"
-                        android:textStyle="bold" />
-
-
-                </LinearLayout>
-
-            </android.support.v7.widget.CardView>
-            <!--Row1 Column2 Retail-->
-            <android.support.v7.widget.CardView
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_columnWeight="1"
-                android:layout_marginBottom="12dp"
-                android:layout_marginLeft="12dp"
-                android:layout_marginRight="12dp"
-                android:layout_rowWeight="1"
-                app:cardCornerRadius="5dp"
-                app:cardElevation="5dp">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
+                <TextView
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:scrollbarSize="18sp"
+                    android:text="F and B"
+                    android:textAlignment="center"
+                    android:textStyle="bold" />
+
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+        <!--Row1 Column2 Retail-->
+        <android.support.v7.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_marginBottom="12dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_rowWeight="1"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="5dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="16dp"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/buttonRetail_Outlets"
+                    android:layout_width="110dp"
+                    android:layout_height="73dp"
                     android:layout_gravity="center_horizontal"
-                    android:layout_margin="16dp"
-                    android:orientation="vertical">
+                    android:background="#00000000"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/icon_retail" />
 
-                    <ImageButton
-                        android:id="@+id/buttonRetail_Outlets"
-                        android:layout_width="99dp"
-                        android:layout_height="63dp"
-                        android:layout_gravity="center_horizontal"
-                        android:background="#00000000"
-                        android:scaleType="fitCenter"
-                        android:src="@drawable/icon_retail" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:scrollbarSize="18sp"
-                        android:text="Retail Outlets"
-                        android:textAlignment="center"
-                        android:textStyle="bold" />
-
-
-                </LinearLayout>
-
-            </android.support.v7.widget.CardView>
-            <!--Row2 Column1 Photo-->
-            <android.support.v7.widget.CardView
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_columnWeight="1"
-                android:layout_marginBottom="12dp"
-                android:layout_marginLeft="12dp"
-                android:layout_marginRight="12dp"
-                android:layout_rowWeight="1"
-                app:cardCornerRadius="5dp"
-                app:cardElevation="5dp">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
+                <TextView
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:scrollbarSize="18sp"
+                    android:text="Retail Outlets"
+                    android:textAlignment="center"
+                    android:textStyle="bold" />
+
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+        <!--Row2 Column1 Photo-->
+        <android.support.v7.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_marginBottom="12dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_rowWeight="1"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="5dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="16dp"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/buttonPhotography"
+                    android:layout_width="113dp"
+                    android:layout_height="75dp"
                     android:layout_gravity="center_horizontal"
-                    android:layout_margin="16dp"
-                    android:orientation="vertical">
+                    android:background="#00000000"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/icon_photo" />
 
-                    <ImageButton
-                        android:id="@+id/buttonPhotography"
-                        android:layout_width="99dp"
-                        android:layout_height="63dp"
-                        android:layout_gravity="center_horizontal"
-                        android:background="#00000000"
-                        android:scaleType="fitCenter"
-                        android:src="@drawable/icon_photo" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:scrollbarSize="18sp"
-                        android:text="Photography"
-                        android:textAlignment="center"
-                        android:textStyle="bold" />
-
-
-                </LinearLayout>
-
-            </android.support.v7.widget.CardView>
-            <!--Row2 Column2 Music-->
-            <android.support.v7.widget.CardView
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_columnWeight="1"
-                android:layout_marginBottom="12dp"
-                android:layout_marginLeft="12dp"
-                android:layout_marginRight="12dp"
-                android:layout_rowWeight="1"
-                app:cardCornerRadius="5dp"
-                app:cardElevation="5dp">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
+                <TextView
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:scrollbarSize="18sp"
+                    android:text="Photography"
+                    android:textAlignment="center"
+                    android:textStyle="bold" />
+
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+        <!--Row2 Column2 Music-->
+        <android.support.v7.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_marginBottom="12dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_rowWeight="1"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="5dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="16dp"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/buttonMusicConcert"
+                    android:layout_width="109dp"
+                    android:layout_height="76dp"
                     android:layout_gravity="center_horizontal"
-                    android:layout_margin="16dp"
-                    android:orientation="vertical">
+                    android:background="#00000000"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/icon_music" />
 
-                    <ImageButton
-                        android:id="@+id/buttonMusicConcert"
-                        android:layout_width="99dp"
-                        android:layout_height="63dp"
-                        android:layout_gravity="center_horizontal"
-                        android:background="#00000000"
-                        android:scaleType="fitCenter"
-                        android:src="@drawable/icon_music" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:scrollbarSize="18sp"
-                        android:text="Music"
-                        android:textAlignment="center"
-                        android:textStyle="bold" />
-
-
-                </LinearLayout>
-
-            </android.support.v7.widget.CardView>
-            <!--Row3 Column1 Event-->
-            <android.support.v7.widget.CardView
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_columnWeight="1"
-                android:layout_marginBottom="12dp"
-                android:layout_marginLeft="12dp"
-                android:layout_marginRight="12dp"
-                android:layout_rowWeight="1"
-                app:cardCornerRadius="5dp"
-                app:cardElevation="5dp">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
+                <TextView
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:scrollbarSize="18sp"
+                    android:text="Music"
+                    android:textAlignment="center"
+                    android:textStyle="bold" />
+
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+        <!--Row3 Column1 Event-->
+        <android.support.v7.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_marginBottom="12dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_rowWeight="1"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="5dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="16dp"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/buttonLimitedT"
+                    android:layout_width="107dp"
+                    android:layout_height="75dp"
                     android:layout_gravity="center_horizontal"
-                    android:layout_margin="16dp"
-                    android:orientation="vertical">
+                    android:background="#00000000"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/icon_time" />
 
-                    <ImageButton
-                        android:id="@+id/buttonLimitedT"
-                        android:layout_width="99dp"
-                        android:layout_height="63dp"
-                        android:layout_gravity="center_horizontal"
-                        android:background="#00000000"
-                        android:scaleType="fitCenter"
-                        android:src="@drawable/icon_time" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:scrollbarSize="18sp"
-                        android:text="Events"
-                        android:textAlignment="center"
-                        android:textStyle="bold" />
-
-
-                </LinearLayout>
-
-            </android.support.v7.widget.CardView>
-            <!--Row3 Column2 Extra-->
-            <android.support.v7.widget.CardView
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_columnWeight="1"
-                android:layout_marginBottom="12dp"
-                android:layout_marginLeft="12dp"
-                android:layout_marginRight="12dp"
-                android:layout_rowWeight="1"
-                app:cardCornerRadius="5dp"
-                app:cardElevation="5dp">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
+                <TextView
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:scrollbarSize="18sp"
+                    android:text="Events"
+                    android:textAlignment="center"
+                    android:textStyle="bold" />
+
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+        <!--Row3 Column2 Extra-->
+        <android.support.v7.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_marginBottom="12dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_rowWeight="1"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="5dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="16dp"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/buttonExtraCategory"
+                    android:layout_width="110dp"
+                    android:layout_height="76dp"
                     android:layout_gravity="center_horizontal"
-                    android:layout_margin="16dp"
-                    android:orientation="vertical">
+                    android:background="#00000000"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/icon_more" />
 
-                    <ImageButton
-                        android:id="@+id/buttonExtraCategory"
-                        android:layout_width="99dp"
-                        android:layout_height="63dp"
-                        android:layout_gravity="center_horizontal"
-                        android:background="#00000000"
-                        android:scaleType="fitCenter"
-                        android:src="@drawable/icon_more" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:scrollbarSize="18sp"
-                        android:text="More"
-                        android:textAlignment="center"
-                        android:textStyle="bold" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbarSize="18sp"
+                    android:text="More"
+                    android:textAlignment="center"
+                    android:textStyle="bold" />
 
 
-                </LinearLayout>
+            </LinearLayout>
 
-            </android.support.v7.widget.CardView>
-
-
-        </GridLayout>
+        </android.support.v7.widget.CardView>
 
 
+    </GridLayout>
 
-    </LinearLayout>
+
 
 
 </RelativeLayout>
