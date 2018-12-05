@@ -29,7 +29,7 @@ public class MercQueueCreation extends Fragment {
             @Override
             public void onClick(View view) {
                 Toast.makeText(getActivity(), "Fill up these information to create a Queue!",Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getContext(), MercCreateQueue.class);
+                Intent intent = new Intent(getContext(), QueueActivity.class);
                 startActivity(intent);
             }
         });

@@ -4,8 +4,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,12 +35,9 @@ import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
-public class QueueActivity extends AppCompatActivity {
+public class QueueActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     private FirebaseAuth firebaseAuth;
-    private TextView textViewUserEmail;
-    private Button btnlogout2;
-    //private Button imageupload;
     private DatabaseReference databaseReference;
     private DatabaseReference queue_databaseReference;
 
@@ -49,89 +49,78 @@ public class QueueActivity extends AppCompatActivity {
     private Button mButtonChooseImage;
     private Button mButtonUpload;
     private TextView mTextViewShowUploads;
-    private EditText mEditTextFileName;
+    private EditText mEditTextLocation;
     private ImageView mImageView;
     private ProgressBar mProgressBar;
 
     private Uri mImageUri;
-
     private FirebaseUser user;
     private StorageReference mStorageRef;
-
-
     private StorageTask mUploadTask;
 
-
-
-
-
+    // From Sean's MercCreateQueue
+    EditText location;
+    private Spinner queueTypeSpinner, prioritySpinner;
+    private EditText editEstTimeText;
+    private Button btn_createQueue;
+    EditText Qname;
 
     @Override
 
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_createqueue);
-
+        setContentView(R.layout.merc_create_queue);
+        
+        // Firebase Functions
         firebaseAuth=FirebaseAuth.getInstance();
-
-//        if(firebaseAuth.getCurrentUser()!= null){
-//            finish();
-//            startActivity(new Intent(getApplicationContext(), FirebaseLoginActivity.class));
-//        }
-
         databaseReference= FirebaseDatabase.getInstance().getReference("Merchants");
-
         queue_databaseReference= FirebaseDatabase.getInstance().getReference("Queue");
+        mStorageRef = FirebaseStorage.getInstance().getReference("Merchants");
+        user = firebaseAuth.getCurrentUser();
 
-        queuename=(EditText) findViewById(R.id.queuenamemerchant);
-        queuedesc= (EditText) findViewById(R.id.queuedescription);
-        createqueue=(Button) findViewById(R.id.btnaddqueue);
+        // UI Variables
+        queuename= findViewById(R.id.enterQueueName);
+        createqueue=(Button) findViewById(R.id.btn_createQ);
+        location = findViewById(R.id.enterLocation);
+        //editEstTimeText = findViewById(R.id.editEstTimeText);
+        queuedesc= (EditText) findViewById(R.id.enterDesc);
+        
+        queueTypeSpinner = findViewById(R.id.spinQueueSys);
+        ArrayAdapter<CharSequence> adapterQueue = ArrayAdapter.createFromResource(this,
+                R.array.queue_system, android.R.layout.simple_spinner_item);
+        adapterQueue.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        queueTypeSpinner.setAdapter(adapterQueue);
+        queueTypeSpinner.setOnItemSelectedListener(this);
 
-       user = firebaseAuth.getCurrentUser();
-        textViewUserEmail=(TextView) findViewById(R.id.textviewemailmerchant);
-        textViewUserEmail.setText("Welcome "+user.getEmail());
-        btnlogout2=(Button) findViewById(R.id.btnLogoutMerchant);
-        //imageupload=(Button) findViewById(R.id.btnuploadimage);
+        prioritySpinner = findViewById(R.id.spinPriority);
+        ArrayAdapter<CharSequence> adapterPriority = ArrayAdapter.createFromResource(this,
+                R.array.priority_queue, android.R.layout.simple_spinner_item);
+
+        prioritySpinner.setAdapter(adapterPriority);
+        prioritySpinner.setOnItemSelectedListener(this);
+        
+        
+        // Merchant Upload Image Area 
+        mButtonChooseImage = findViewById(R.id.button_choose_image);
+        mButtonUpload = findViewById(R.id.button_upload);
+        mTextViewShowUploads = findViewById(R.id.text_view_show_uploads);
+        mEditTextLocation = findViewById(R.id.enterLocation);
+        mImageView = findViewById(R.id.image_view);
+        mProgressBar = findViewById(R.id.progress_bar);
+
+        //textViewUserEmail=(TextView) findViewById(R.id.textviewemailmerchant);
+        //textViewUserEmail.setText("Welcome "+user.getEmail());
 
         createqueue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 uploadFile();
-
-            }
-        });
-
-
-
-        btnlogout2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                firebaseAuth.signOut();
+                Intent intent = new Intent(QueueActivity.this, MercQueueCreated.class);
+                startActivity(intent);
                 finish();
-                startActivity(new Intent(getApplicationContext(),FirebaseLoginActivity.class));
-
             }
         });
-
-//        imageupload.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent= new Intent(QueueActivity.this, FirebaseUploadActivity.class);
-//                startActivity(intent);
-//            }
-//        });
-
-        mButtonChooseImage = findViewById(R.id.button_choose_image);
-        mButtonUpload = findViewById(R.id.button_upload);
-        mTextViewShowUploads = findViewById(R.id.text_view_show_uploads);
-        mEditTextFileName = findViewById(R.id.edit_text_file_name);
-        mImageView = findViewById(R.id.image_view);
-        mProgressBar = findViewById(R.id.progress_bar);
-
-        mStorageRef = FirebaseStorage.getInstance().getReference("Merchants");
-
-
+        
         mButtonChooseImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -157,7 +146,30 @@ public class QueueActivity extends AppCompatActivity {
             }
         });
 
+        //TODO: MOVE THIS LOGOUT BUTTON TO MERCHANT ACCOUNT SETTINGS
+/*        btnlogout2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                firebaseAuth.signOut();
+                finish();
+                startActivity(new Intent(getApplicationContext(),FirebaseLoginActivity.class));
+
+            }
+        });*/
+
     }
+
+    // <========== UI FUNCTIONS ====================> //
+
+    public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
+        //String text = parent.getItemAtPosition(pos).toString();
+    }
+
+    public void onNothingSelected(AdapterView<?> parent) {
+        // Another interface callback
+    }
+
+    // <========== DATABASE FUNCTIONS ====================> //
 
     private void saveMerchantInfo(){
 
@@ -204,7 +216,6 @@ public class QueueActivity extends AppCompatActivity {
         String getname=queuename.getText().toString().trim();
         String getdesc=queuedesc.getText().toString().trim();
 
-
         //  FirebaseUser user=firebaseAuth.getCurrentUser();
 
         //databaseReference.child(user.getUid()).setValue(merchantInformation);
@@ -234,7 +245,7 @@ public class QueueActivity extends AppCompatActivity {
                             Uri downloadUrl = urlTask.getResult();
                             final String sdownload_url = String.valueOf(downloadUrl);
 
-                            Upload upload = new Upload(mEditTextFileName.getText().toString().trim(),
+                            Upload upload = new Upload(mEditTextLocation.getText().toString().trim(),
                                     sdownload_url);
                             String uploadId = databaseReference.push().getKey();
                             MerchantInformation merchantInformation= new MerchantInformation(getname,getdesc,upload);

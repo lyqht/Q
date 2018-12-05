@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MercCreateQueue"
+    tools:context=".QueueActivity"
     android:orientation="vertical">
 
     <TextView
@@ -78,10 +78,39 @@
                 android:layout_toRightOf="@+id/queuelocationtitle"/>
 
         </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@+id/setLocation"
+        android:id="@+id/setDescription">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_alignParentLeft="true"
+            android:textSize="15sp"
+            android:layout_centerInParent="true"
+            android:text="Description: "
+            android:id="@+id/queuedesctitle"
+
+            />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:layout_marginRight="70dp"
+            android:textSize="15sp"
+            android:id="@+id/enterDesc"
+            android:inputType="textMultiLine"
+            android:layout_toRightOf="@+id/queuedesctitle"/>
+
+    </RelativeLayout>
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:layout_below="@id/setLocation"
+            android:layout_below="@id/setDescription"
             android:id="@+id/setEstTime">
             <TextView
                 android:layout_width="wrap_content"
@@ -174,6 +203,57 @@
             />
 
         </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@id/setPriority"
+        android:layout_marginTop="16dp"
+        android:id="@+id/merchant_image_upload_area">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="100dp"
+                android:id="@+id/image_view"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginLeft="24dp"
+                android:layout_gravity="center">
+                <Button
+                    android:id="@+id/button_choose_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Choose file" />
+                <Button
+                    android:id="@+id/button_upload"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:text="Upload" />
+
+            </LinearLayout>
+        </LinearLayout>
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/button_upload"
+            android:layout_alignParentStart="true" />
+        <TextView
+            android:id="@+id/text_view_show_uploads"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Show Uploads"
+            android:textSize="16sp" />
+    </LinearLayout>
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
