@@ -87,10 +87,21 @@
         <activity android:name=".Init_AccCreated" />
 
         <!-- Cust Activities -->
+//<<<<<<< Cust_Explore_GridLayout-
+        <activity android:name=".Cust_Gallery"
+            android:label="Stall Description"/>
+        <activity android:name=".Cust_MainActivity"
+            android:windowSoftInputMode="adjustNothing">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+//=======
         <activity
             android:name=".Cust_Gallery"
             android:label="Stall Description" />
         <activity android:name=".Cust_MainActivity">
+//>>>>>>> master
         </activity>
 
 
