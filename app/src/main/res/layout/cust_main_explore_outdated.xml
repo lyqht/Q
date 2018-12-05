@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CustExplore"
+    >
+
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+
+        android:layout_alignTop="@+id/cme_editTxt_SearchBar"
+        android:layout_toStartOf="@+id/cme_editTxt_SearchBar"
+        android:adjustViewBounds="false"
+        android:padding="5dp"
+        app:srcCompat="@drawable/search_icon2" />
+
+    <EditText
+        android:id="@+id/cme_editTxt_SearchBar"
+        android:layout_width="307dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="23dp"
+        android:layout_marginTop="14dp"
+        android:background="@drawable/seach_layout"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp"
+        android:text="Queue ID / Store / Event Name"
+        android:textAlignment="center"
+        android:textColor="#adadad" />
+
+    <Space
+        android:id="@+id/cme_space1"
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/imageView2" />
+
+    <LinearLayout
+        android:id="@+id/cme_LY02"
+        android:layout_width="match_parent"
+        android:layout_height="41dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/cme_space1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/cme_TextV_Explore"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="5dp"
+            android:paddingLeft="15dp"
+            android:text="Explore"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:id="@+id/cme_LL_Category"
+        android:layout_height="68dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/cme_LY02"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.2"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/imageButtonPhotography"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:layout_weight="0.1"
+                android:adjustViewBounds="true"
+                android:background="#00000000"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/icon_photo" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.2"
+                android:textAlignment="center"
+                android:textSize="10sp"
+                tools:text="Photography" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.2"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/imageButtonFnB"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:layout_weight="0.1"
+                android:adjustViewBounds="true"
+                android:background="#00000000"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/icon_food" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.2"
+                android:textAlignment="center"
+                android:textSize="10sp"
+                tools:text="@string/Food_and_Beverage" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.2"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/imageButtonMusic"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:layout_weight="0.1"
+                android:adjustViewBounds="true"
+                android:background="#00000000"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/icon_music" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.2"
+                android:textAlignment="center"
+                android:textSize="10sp"
+                tools:text="Music" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.2"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/imageButtonIT"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:layout_weight="0.1"
+                android:adjustViewBounds="true"
+                android:background="#00000000"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/icon_it_tech" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.2"
+                android:textAlignment="center"
+                android:textSize="10sp"
+                tools:text="IT" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.2"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/imageButtonLimitedT"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:layout_weight="0.1"
+                android:adjustViewBounds="true"
+                android:background="#00000000"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/icon_time" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.2"
+                android:textAlignment="center"
+                android:textSize="10sp"
+                tools:text="Limited Time" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.2"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/imageButtonExtra"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:layout_weight="0.1"
+                android:adjustViewBounds="true"
+                android:background="#00000000"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/icon_image" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.2"
+                android:textAlignment="center"
+                android:textSize="10sp"
+                tools:text="Extra" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <Space
+        android:id="@+id/cme_space2"
+        android:layout_width="match_parent"
+        android:layout_height="89dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/cme_LL_Category" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/cme_space2"
+        android:layout_marginStart="0dp"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/cme_TextV_RecentVisit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="5dp"
+            android:paddingLeft="15dp"
+            android:text="Last Visited >"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+
+</RelativeLayout>
