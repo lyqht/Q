@@ -28,24 +28,18 @@
 
         </activity>
 
-        <activity
-            android:name=".Settings"
-            android:label="@string/title_activity_settings" />
-        <activity
-            android:name=".Cust_QueueDesc"
-            android:label="@string/title_activity_stall_desc"
-            android:theme="@style/AppTheme.NoActionBar">
-
+        <activity android:name=".database.FirebaseLoginActivity"
+            android:parentActivityName=".database.FirebaseTestActivity">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
         </activity>
 
-        <activity android:name=".database.FirebaseLoginActivity"
-            android:parentActivityName=".database.FirebaseTestActivity"/>
 
         <activity android:name=".database.ProfileActivity"
             android:parentActivityName=".database.SegregationActivity"
             />
-
-
 
         <activity android:name=".database.SegregationActivity"
             android:parentActivityName=".database.FirebaseTestActivity"/>
@@ -56,11 +50,6 @@
 
         <activity android:name=".database.FirebaseTestActivity">
 
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <activity android:name=".database.Upload_Activity">

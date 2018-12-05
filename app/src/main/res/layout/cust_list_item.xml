@@ -15,7 +15,7 @@
         android:paddingRight="12dp"
         android:outlineAmbientShadowColor="@color/colorGrey">
         <ImageButton
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="150dp"
             android:adjustViewBounds="true"
             android:scaleType="centerCrop"
