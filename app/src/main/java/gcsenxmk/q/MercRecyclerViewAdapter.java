@@ -1,3 +1,4 @@
+
 package gcsenxmk.q;
 
 import android.content.Context;
@@ -82,13 +83,13 @@ public class MercRecyclerViewAdapter extends RecyclerView.Adapter<MercRecyclerVi
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
-        CircleImageView image;
+       CircleImageView image;
         TextView imageName;
         RelativeLayout parentLayout;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            image = itemView.findViewById(R.id.merc_queue_image);
+           // image = itemView.findViewById(R.id.merc_queue_image);
             imageName = itemView.findViewById(R.id.merc_queue_name);
             parentLayout = itemView.findViewById(R.id.merc_parent_layout);
         }

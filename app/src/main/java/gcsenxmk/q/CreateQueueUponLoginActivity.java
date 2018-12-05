@@ -256,7 +256,7 @@ public class CreateQueueUponLoginActivity extends AppCompatActivity {
 
                             Upload upload = new Upload(mEditTextFileName.getText().toString().trim(), sdownload_url ,Integer.parseInt(mWaitingtime.getText().toString()) ,mDesc.getText().toString());
                             String uploadId = databaseReference.push().getKey();
-                            MerchantInformation merchantInformation= new MerchantInformation(getname, getdesc, wait, upload);
+                            //MerchantInformation merchantInformation= new MerchantInformation(getname, getdesc, wait, upload);
                             QueueInformation queueInformation = new QueueInformation(getname, getdesc, wait);
 
                             // merchantInformation.queueimage = upload;

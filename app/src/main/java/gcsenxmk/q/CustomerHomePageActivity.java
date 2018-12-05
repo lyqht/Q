@@ -38,6 +38,7 @@ public class CustomerHomePageActivity extends AppCompatActivity{
 
     private DatabaseReference queueDatabaseRef;
     private DatabaseReference customerDatabaseRef;
+    private DatabaseReference merchantDatabaseRef;
 
     @Override
 
@@ -53,43 +54,112 @@ public class CustomerHomePageActivity extends AppCompatActivity{
         btnDropQ = (Button) findViewById(R.id.btnDropQueue);
         est_wait_time_data= (TextView) findViewById(R.id.waiting_time_data);
 
+        merchantDatabaseRef=FirebaseDatabase.getInstance().getReference("Merchants");
+        customerDatabaseRef=FirebaseDatabase.getInstance().getReference("Users");
+
         queueDatabaseRef = FirebaseDatabase.getInstance().getReference("Queue");
 
-
-
-
-        queueDatabaseRef.child(user.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
+        System.out.println("hola");
+        customerDatabaseRef.child(user.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
-                    queueInformation = dataSnapshot.getValue(QueueInformation.class);
-                    len = queueInformation.queue.size();
-                    int waittime = len *5;
+                if(dataSnapshot.hasChild("merchantID")){
 
-                    System.out.println(user.getUid());
-                    est_wait_time_data.setText(Integer.toString(waittime));
-                    queue_name.setText(queueInformation.queuename);
+                merchantDatabaseRef.child(dataSnapshot.child("merchantID").getValue().toString()).addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        String merc_name=dataSnapshot.child("name").getValue().toString();
 
+                        queue_name.setText(merc_name);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+
+
+
+
+                   // queue_name.setText(dataSnapshot.child("merchantID").getValue().toString());
+
+                    queueDatabaseRef.child(dataSnapshot.child("merchantID").getValue().toString()).addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            queueInformation = dataSnapshot.getValue(QueueInformation.class);
+                            len = queueInformation.queue.size();
+                            int index=queueInformation.queue.indexOf(user.getUid());
+                            int average_wait_time=queueInformation.average_waiting_time;
+                            int waittime = index *average_wait_time;
+                            est_wait_time_data.setText(Integer.toString(waittime));
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                        }
+                    });
+
+
+                    System.out.println(dataSnapshot.child("merchantID").getValue());
+                }else
+                    {System.out.println(("hard luck"));
+                    }
+
+
+                    System.out.println(dataSnapshot);
 
                 }
-            }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
-
         });
+
+
 
         btnDropQ.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
 
-                int index= queueInformation.queue.indexOf(user.getUid());
-                    queueInformation.queue.remove(index);
-                    Toast.makeText(CustomerHomePageActivity.this, "drop the service", Toast.LENGTH_SHORT).show();
-                    queueDatabaseRef.child(user.getUid()).child("queue").setValue(queueInformation.queue);
+                customerDatabaseRef.child(user.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        if(dataSnapshot.child("merchantID").exists()){
+
+
+                            String merchant_id=dataSnapshot.child("merchantID").getValue().toString();
+                            customerDatabaseRef.child(user.getUid()).child("merchantID").removeValue();
+                            //System.out.println("id"+merchant_id);
+
+
+                            queueDatabaseRef.child(merchant_id).addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                    int index=queueInformation.queue.indexOf(user.getUid());
+                                    queueInformation.queue.remove(index);
+
+                                    queueDatabaseRef.child(merchant_id).child("queue").setValue(queueInformation.queue);
+
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                }
+                            });
+
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
 
 
 
@@ -102,8 +172,27 @@ public class CustomerHomePageActivity extends AppCompatActivity{
         btnjoinNewQ.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(CustomerHomePageActivity.this, RecyclerActivity.class);
-                startActivity(intent);
+
+                customerDatabaseRef.child(user.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        if(dataSnapshot.child("merchantID").exists()){
+                            Toast.makeText(CustomerHomePageActivity.this,"You're already in a queue",Toast.LENGTH_LONG).show();
+                        }
+                        else{
+                            Intent intent = new Intent(CustomerHomePageActivity.this, RecyclerActivity.class);
+                            startActivity(intent);
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+
+
+
             }
         });
 

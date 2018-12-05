@@ -262,7 +262,7 @@ public class QueueActivity extends AppCompatActivity {
                             Upload upload = new Upload(mEditTextFileName.getText().toString(), sdownload_url, Integer.parseInt(mAverageWaitingtime.getText().toString()),
                                     mEditTextDesc.getText().toString() );
                             String uploadId = databaseReference.push().getKey();
-                            MerchantInformation merchantInformation= new MerchantInformation(getname, getdesc, wait_time, upload);
+                            //MerchantInformation merchantInformation= new MerchantInformation(getname, getdesc, wait_time, upload);
                             QueueInformation queueInformation = new QueueInformation(getname, getdesc, wait_time);
 
                            // merchantInformation.queueimage = upload;

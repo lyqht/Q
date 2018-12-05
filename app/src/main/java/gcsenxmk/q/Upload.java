@@ -11,7 +11,7 @@ public class Upload {
         //empty constructor needed
     }
 
-    public Upload(String name, String imageUrl, int wait, String desc) {
+    public Upload(String name, String imageUrl,int wait, String desc) {
         if (name.trim().equals("")) {
             name = "Zombie";
         }

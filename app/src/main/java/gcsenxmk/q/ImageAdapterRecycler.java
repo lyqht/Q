@@ -127,9 +127,11 @@ public class ImageAdapterRecycler extends RecyclerView.Adapter<ImageAdapterRecyc
                             }else {
                                 queueInformation.queue.add(user.getUid());
                                 queueDatabaseRef.child(merchantID).setValue(queueInformation);
+                                mDatabaseRef.child(user.getUid()).child("merchantID").setValue(merchantID);
                             }
 
                         }
+
                     }
 
 
@@ -146,51 +148,6 @@ public class ImageAdapterRecycler extends RecyclerView.Adapter<ImageAdapterRecyc
 
                     }
                 });
-
-
-
-
-
-
-
-
-
-//                    DatabaseReference queueRef = FirebaseDatabase.getInstance().getReference("Queue");
-//                    Query query = queueRef.orderByChild("queuename").equalTo(textViewName.getText().toString());
-//
-//                    query.orderByChild("queue").addChildEventListener(new ChildEventListener() {
-//                        @Override
-//                        public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-//                            ArrayList<String> queue= dataSnapshot.getValue(ArrayList.class);
-//                            queue.add("hello");
-//                            dataSnapshot.getRef().child("queue").setValue(queue);
-//
-//
-//                        }
-//
-//                        @Override
-//                        public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-//
-//                        }
-//
-//                        @Override
-//                        public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
-//
-//                        }
-//
-//                        @Override
-//                        public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-//
-//                        }
-//
-//                        @Override
-//                        public void onCancelled(@NonNull DatabaseError databaseError) {
-//
-//                        }
-//                    });
-//                }
-//            });
-
 
                 }
 

@@ -94,7 +94,7 @@ public class FirebaseTestActivity extends AppCompatActivity {
                 if (task.isSuccessful()) {
 
 
-                    progressDialog.hide();
+                    progressDialog.dismiss();
 
                     Toast.makeText(getApplicationContext(), "Registered Successfully", Toast.LENGTH_LONG).show();
 
@@ -108,7 +108,7 @@ public class FirebaseTestActivity extends AppCompatActivity {
 
                 }
                 else{
-                    progressDialog.hide();
+                    progressDialog.dismiss();
 
                     if(pass.length()<6){
                         Toast.makeText(getApplicationContext(),"Make sure password is at least 6 characters long", Toast.LENGTH_LONG).show();
