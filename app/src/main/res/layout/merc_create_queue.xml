@@ -32,7 +32,8 @@
                 android:layout_marginLeft="10dp"
                 android:layout_alignParentLeft="true"
                 android:textSize="15sp"
-                android:text="Queue Name: "
+                android:layout_centerInParent="true"
+                android:text="Name: "
 
                 android:id="@+id/queuenametitle"
 
@@ -45,6 +46,7 @@
                 android:layout_marginRight="70dp"
                 android:textSize="15sp"
                 android:id="@+id/enterQueueName"
+                android:layout_centerInParent="true"
                 android:layout_toRightOf="@+id/queuenametitle"
                 />
 
@@ -60,9 +62,9 @@
                 android:layout_marginLeft="10dp"
                 android:layout_alignParentLeft="true"
                 android:textSize="15sp"
-                android:layout_marginTop="80dp"
+                android:layout_centerInParent="true"
 
-                android:text="Queue Location: "
+                android:text="Location: "
                 android:id="@+id/queuelocationtitle"
 
                 />
@@ -71,7 +73,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:layout_marginTop="70dp"
+                android:layout_centerInParent="true"
                 android:layout_marginRight="70dp"
                 android:textSize="15sp"
                 android:id="@+id/enterLocation"
@@ -89,8 +91,8 @@
                 android:layout_marginLeft="10dp"
                 android:layout_alignParentLeft="true"
                 android:textSize="15sp"
-                android:layout_marginTop="80dp"
-                android:text="Estimated Waiting Time: "
+                android:layout_centerInParent="true"
+                android:text="Est. Waiting Time: "
                 android:id="@+id/estTimeText"
                 />
 
@@ -98,9 +100,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:layout_marginTop="70dp"
+                android:layout_centerInParent="true"
                 android:layout_marginRight="70dp"
                 android:textSize="15sp"
+                android:inputType="numberDecimal"
                 android:layout_toRightOf="@id/estTimeText"
                 android:id="@+id/editEstTimeText"
                 />
@@ -111,7 +114,9 @@
                 android:layout_marginRight="30dp"
                 android:layout_alignParentRight="true"
                 android:textSize="15sp"
-                android:layout_marginTop="80dp"
+                android:layout_alignParentBottom="true"
+                android:paddingBottom="5dp"
+                android:layout_centerInParent="true"
                 android:text="mins"
                 />
         </RelativeLayout>
@@ -126,7 +131,7 @@
             android:layout_marginLeft="10dp"
             android:layout_alignParentLeft="true"
             android:textSize="15sp"
-            android:layout_marginTop="120dp"
+            android:layout_centerInParent="true"
             android:text="Queuing System: "
             android:id="@+id/queuingSysText"
             />
@@ -137,9 +142,9 @@
             android:layout_height="wrap_content"
             android:layout_alignRight="@+id/queuingSysText"
             android:textSize="15sp"
-            android:layout_marginRight="30dp"
+            android:layout_marginRight="50dp"
             android:layout_alignParentRight="true"
-            android:layout_marginTop="120dp"
+            android:layout_centerInParent="true"
             />
         </RelativeLayout>
 
@@ -154,7 +159,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_alignParentLeft="true"
                 android:textSize="15sp"
-                android:layout_marginTop="160dp"
+                android:layout_centerInParent="true"
                 android:text="Late Policy: "
                 android:id="@+id/lateText"
                 />
@@ -164,9 +169,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="15sp"
-                android:layout_marginRight="30dp"
+                android:layout_marginRight="50dp"
                 android:layout_alignParentRight="true"
-                android:layout_marginTop="160dp"
+                android:layout_centerInParent="true"
                 />
         </RelativeLayout>
 
@@ -174,7 +179,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:layout_below="@+id/setQueueType"
+            android:layout_below="@id/setLatePolicy"
             android:id="@+id/setPriority">
         <TextView
             android:layout_width="wrap_content"
@@ -182,7 +187,7 @@
             android:layout_marginLeft="10dp"
             android:layout_alignParentLeft="true"
             android:textSize="15sp"
-            android:layout_marginTop="200dp"
+            android:layout_centerInParent="true"
             android:text="Priority Queue: "
             android:id="@+id/priorityText"
             />
@@ -193,22 +198,25 @@
             android:layout_height="wrap_content"
 
             android:textSize="15sp"
-            android:layout_marginRight="30dp"
+            android:layout_marginRight="50dp"
             android:layout_alignParentRight="true"
-            android:layout_marginTop="200dp"
+            android:layout_centerInParent="true"
             />
 
         </RelativeLayout>
 
-
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <Button
-        android:layout_below="@+id/setPriority"
+        app:layout_constraintBottom_toBottomOf="parent"
         android:layout_centerHorizontal="true"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginBottom="10dp"
 
         android:id="@+id/btn_createQ"
         android:text="Create Queue!"
         />
-
+    </android.support.constraint.ConstraintLayout>
 </RelativeLayout>
