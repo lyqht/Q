@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.util.Log;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 
@@ -23,7 +24,7 @@ public class CustExplore extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.cust_main_explore_outdated, container,false);
+        View view = inflater.inflate(R.layout.cust_main_explore, container,false);
         // Widget References
         imageButtonPhotography = view.findViewById(R.id.imageButtonPhotography);
         imageButtonFnB = view.findViewById(R.id.imageButtonFnB);
