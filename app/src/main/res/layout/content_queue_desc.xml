@@ -21,7 +21,7 @@
                 android:layout_margin="10dp">
 
                 <TextView
-                    android:id="@+id/stall_desc_name_kinmoo"
+                    android:id="@+id/stall_desc_name"
                     style="@style/stall_desc_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -31,17 +31,58 @@
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/stall_desc_queueing"
+                <LinearLayout
+                    android:id="@+id/stall_desc_waiting_time_layout"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:text="@string/queueing"
+                    android:orientation="horizontal"
+                    app:layout_constraintTop_toBottomOf="@id/stall_desc_name"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/stall_desc_name_kinmoo" />
+                    app:layout_constraintStart_toStartOf="parent">
+                    <TextView
+                        android:id="@+id/stall_desc_waiting_time_header"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/estimated_waiting_time"
+                         />
+                    <TextView
+                        android:id="@+id/stall_desc_waiting_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="6dp"
+                        android:text="0"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="6dp"
+                        android:text="minutes"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/stall_desc_num_queue_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintTop_toBottomOf="@id/stall_desc_waiting_time_layout"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent">
+                    <TextView
+                        android:id="@+id/stall_desc_num_people"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"/>
+                    <TextView
+                        android:id="@+id/stall_desc_num_people_header"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="6dp"
+                        android:text="@string/queueing"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/stall_desc_waiting_time_layout" />
+                </LinearLayout>
 
                 <ImageView
                     android:id="@+id/stall_image"
@@ -50,11 +91,10 @@
                     android:layout_marginTop="12dp"
                     android:adjustViewBounds="true"
                     android:scaleType="centerCrop"
-                    android:background="@drawable/kinmoo_02"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.50"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/stall_desc_queueing" />
+                    app:layout_constraintTop_toBottomOf="@+id/stall_desc_num_queue_layout" />
 
                 <Button
                     android:id="@+id/stall_image_prev_button"
@@ -62,7 +102,7 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="8dp"
-                    android:text="L"
+                    android:text="&#60;"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/stall_image" />
@@ -73,7 +113,7 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="8dp"
                     android:layout_marginBottom="8dp"
-                    android:text="R"
+                    android:text="&#62;"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/stall_image" />

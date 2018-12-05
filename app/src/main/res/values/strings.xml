@@ -1,7 +1,31 @@
 <resources>
     <string name="app_name">Q</string>
 
-    <!-- Placeholder Strings -->
+    <!-- Placeholder Strings PUT YOUR PLACEHOLDERS HERE DONT CRAMP THE BOTTOM-->
+    <integer-array name="placeholder_queue_waiting_time">
+        <item>4</item>
+        <item>6</item>
+        <item>5</item>
+    </integer-array>
+
+    <integer-array name="placeholder_queue_num_people">
+        <item>4</item>
+        <item>6</item>
+        <item>5</item>
+    </integer-array>
+
+    <array name="placeholder_queue_images">
+        <item>@drawable/placeholder_caifan</item>
+        <item>@drawable/placeholder_caipng</item>
+        <item>@drawable/placeholder_chickenrice</item>
+    </array>
+
+    <string-array name="placeholder_queue_names">
+        <item>Caifan</item>
+        <item>Caipng</item>
+        <item>ChickenRice</item>
+    </string-array>
+
     <string name="stall_desc">KinMoo – Featuring the quaint and tasty street-food culture of Thailand in a minimalist yet modern cafe set-up, KinMoo is also the 1st open-concept Thai kitchen in Singapore! /n/n
 
 Be it a quick bite to fill up that tummy during lunch, a chill down bar snack downed with ice-cold beer, or a hearty chow down with family and friends for dinner, we have it all! Always sticking to the good old ways of cooking that made Thailand’s food culture legendary, yet accommodating to each and every customers’ tastes as best as we can, come and experience KinMoo’s own unique style today!</string>
@@ -19,7 +43,8 @@ Be it a quick bite to fill up that tummy during lunch, a chill down bar snack do
     <string name="skip_queue_formation">Skip Queue Formation</string>
 
     <!-- Strings related to queues -->
-    <string name="time">Estimated Waiting Time</string>
+    <string name="Food_and_Beverage">F &#38; B</string>
+    <string name="estimated_waiting_time">Estimated Waiting Time</string>
     <string name="queueing">people queueing now ...</string>
     <string name="queue_size_limit">Queue Size Limit</string>
     <string name="queue_system">Queue System</string>
@@ -105,6 +130,32 @@ Be it a quick bite to fill up that tummy during lunch, a chill down bar snack do
 
     <string name="pref_title_system_sync_settings">System sync settings</string>
 
+    <!-- Strings for Help Page-->
+
+    <string name="bulk">Bulk order - you might want to start to prepare early</string>
+    <string name="pregnant">Pregnant individual</string>
+    <string name="tick">My Application 0</string>
+    <string name="wheelchair">Wheelchair bounded</string>
+
+    <string-array name="queue_system">
+        <item>FIFO</item>
+        <item>Batches</item>
+        <item>Random</item>
+    </string-array>
+
+    <string-array name="late_policy">
+        <item>5 mins</item>
+        <item>4 mins</item>
+        <item>3 mins</item>
+        <item>2 mins</item>
+        <item>1 mins</item>
+        <item>0 mins</item>
+    </string-array>
+
+    <string-array name="priority_queue">
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
     <!-- Example settings for Notifications -->
     <string name="pref_header_notifications">Notifications</string>
 
@@ -214,5 +265,8 @@ Be it a quick bite to fill up that tummy during lunch, a chill down bar snack do
     </string>
 
     <string name="title_activity_first_time_select_account_type">FirstTimeSelectAccountType</string>
-    <string name="Food_and_Beverage">F n B</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

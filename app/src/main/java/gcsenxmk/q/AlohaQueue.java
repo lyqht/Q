@@ -7,7 +7,7 @@ public class AlohaQueue {
     private String name;
     private int estWaitTime;
     private int numPeople;
-    private int imageResource;
+    private final int imageResource;
 
     AlohaQueue(String name, int estWaitTime, int numPeople, int imageResource) {
         this.name = name;
