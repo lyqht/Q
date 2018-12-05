@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     tools:context=".MercQueueCreated"
     >
     <TextView
@@ -11,4 +12,22 @@
         android:layout_height="match_parent"
         android:id="@+id/gobackmercmainactivity"/>
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:text="Queue Created!"
+        android:fontFamily="@font/fran_italic"
+        android:layout_marginTop="80dp"
+        android:layout_centerHorizontal="true"/>
+    <ImageView
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:id="@+id/queuecreatedimage"
+        android:layout_marginTop="130dp"
+        android:layout_marginLeft="70dp"
+        android:src="@drawable/queue_created"
+
+        />
+
+</RelativeLayout>
