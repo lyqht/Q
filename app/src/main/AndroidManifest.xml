@@ -27,22 +27,12 @@
 
         </activity>
 
-        <activity
-            android:name=".Cust_QueueDesc"
-            android:label="@string/title_activity_stall_desc"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
-
         <activity android:name=".FirebaseLoginActivity"
             android:parentActivityName=".FirebaseTestActivity"/>
 
         <activity android:name=".ProfileActivity"
             android:parentActivityName=".SegregationActivity"
             />
-
-
-
         <activity android:name=".SegregationActivity"
             android:parentActivityName=".FirebaseTestActivity"/>
 
@@ -51,18 +41,9 @@
 
 
         <activity android:name=".FirebaseTestActivity">
-
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <activity android:name=".Upload_Activity">
-
-
-
 
         </activity>
         <activity android:name=".FirebaseUploadActivity"
@@ -96,14 +77,7 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
-        <activity
-            android:name=".Cust_Gallery"
-            android:label="Stall Description" />
-        <activity android:name=".Cust_MainActivity">
-
         </activity>
-
 
         <activity android:name=".Cust_HelpPage" />
         <activity android:name=".TEMP_Cust_GettingStarted" />
@@ -111,11 +85,6 @@
         <activity android:name=".TEMP_Merc_GettingStarted" />
 
         <activity android:name=".Merc_MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".Merc_Gallery" />
         <activity
