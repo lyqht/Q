@@ -70,11 +70,6 @@
 
         </activity>
 
-        <activity android:name=".Init_SelAccType" />
-        <activity android:name=".Init_MercAccCreation" />
-        <activity android:name=".Init_CustAccCreation" />
-        <activity android:name=".Init_AccCreated" />
-
         <!-- Cust Activities -->
 
         <activity android:name=".Cust_Gallery"
@@ -112,10 +107,6 @@
         <activity android:name=".MercQueueCreated"
             android:label="Queue Created"
             />
-
-        <activity android:name=".MercCreateQueue"
-            android:label="Create a Queue"
-            android:parentActivityName=".Cust_MainActivity"></activity>
 
     </application>
 
