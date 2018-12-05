@@ -14,7 +14,7 @@ import android.widget.Toast;
 public class MercCreateQueue extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     EditText location;
-    private Spinner queueTypeSpinner, lateSpinner, prioritySpinner;
+    private Spinner queueTypeSpinner, prioritySpinner;
     private EditText editEstTimeText;
     private Button btn_createQueue;
     EditText Qname;
@@ -36,17 +36,11 @@ public class MercCreateQueue extends AppCompatActivity implements AdapterView.On
         queueTypeSpinner.setAdapter(adapterQueue);
         queueTypeSpinner.setOnItemSelectedListener(this);
 
-        lateSpinner = findViewById(R.id.spinLate);
-        ArrayAdapter<CharSequence> adapterLate = ArrayAdapter.createFromResource(this,
-                R.array.late_policy, android.R.layout.simple_spinner_item);
-        adapterLate.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        lateSpinner.setAdapter(adapterLate);
-        lateSpinner.setOnItemSelectedListener(this);
 
         prioritySpinner = findViewById(R.id.spinPriority);
         ArrayAdapter<CharSequence> adapterPriority = ArrayAdapter.createFromResource(this,
                 R.array.priority_queue, android.R.layout.simple_spinner_item);
-        adapterLate.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
         prioritySpinner.setAdapter(adapterPriority);
         prioritySpinner.setOnItemSelectedListener(this);
 

@@ -148,38 +148,13 @@
             />
         </RelativeLayout>
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_below="@+id/setQueueType"
-            android:id="@+id/setLatePolicy">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_alignParentLeft="true"
-                android:textSize="15sp"
-                android:layout_centerInParent="true"
-                android:text="Late Policy: "
-                android:id="@+id/lateText"
-                />
 
-            <Spinner
-                android:id="@+id/spinLate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="15sp"
-                android:layout_marginRight="50dp"
-                android:layout_alignParentRight="true"
-                android:layout_centerInParent="true"
-                />
-        </RelativeLayout>
 
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:layout_below="@id/setLatePolicy"
+            android:layout_below="@id/setQueueType"
             android:id="@+id/setPriority">
         <TextView
             android:layout_width="wrap_content"
