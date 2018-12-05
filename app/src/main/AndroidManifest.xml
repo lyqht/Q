@@ -71,7 +71,7 @@
         <activity android:name=".MercCreateQueue"
             android:label="Create a Queue"
             android:parentActivityName=".Cust_MainActivity"></activity>
-        
+
     </application>
 
 </manifest>

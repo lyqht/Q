@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 public class MercCreateQueue extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
@@ -53,7 +54,12 @@ public class MercCreateQueue extends AppCompatActivity implements AdapterView.On
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MercCreateQueue.this, MercQueueCreated.class);
+
+                //TODO link to firebase submission of data
+                //TODO condition to check if queue creation successful
+                Toast.makeText(MercCreateQueue.this, "Queue Created!", Toast.LENGTH_SHORT).show();
                 startActivity(intent);
+                finish();
             }
         });
     }
