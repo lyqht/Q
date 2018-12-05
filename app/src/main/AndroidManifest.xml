@@ -28,11 +28,18 @@
         </activity>
 
         <activity android:name=".FirebaseLoginActivity"
-            android:parentActivityName=".FirebaseTestActivity"/>
+            android:parentActivityName=".FirebaseTestActivity">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+
 
         <activity android:name=".ProfileActivity"
             android:parentActivityName=".SegregationActivity"
             />
+
         <activity android:name=".SegregationActivity"
             android:parentActivityName=".FirebaseTestActivity"/>
 
@@ -41,6 +48,7 @@
 
 
         <activity android:name=".FirebaseTestActivity">
+
         </activity>
 
         <activity android:name=".Upload_Activity">

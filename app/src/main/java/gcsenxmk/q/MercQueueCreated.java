@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import gcsenxmk.q.R;
+
 public class MercQueueCreated extends AppCompatActivity {
 
     TextView gobackmercmainactivity;
