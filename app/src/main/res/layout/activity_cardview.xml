@@ -25,28 +25,6 @@
             android:layout_width="match_parent"
             android:layout_height="200dp" />
 
-        <TextView
-            android:id="@+id/description"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="8dp"
-            android:layout_marginTop="8dp"
-            android:text="Description"
-            android:textColor="@android:color/black"
-            android:textSize="20sp" />
-
-        <TextView
-            android:id="@+id/waiting_time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="8dp"
-            android:layout_marginTop="8dp"
-            android:text="Average Waiting Time"
-            android:textColor="@android:color/black"
-            android:textSize="20sp" />
-
     </LinearLayout>
 
 </android.support.v7.widget.CardView>

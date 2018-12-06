@@ -2,55 +2,35 @@ package gcsenxmk.q;
 
 
 public class Upload {
-    private String Name;
-    private String ImageUrl;
-    private String Desc;
-    private int Avewaiting;
+    private String mName;
+    private String mImageUrl;
 
     public Upload() {
         //empty constructor needed
     }
 
-    public Upload(String name, String imageUrl,int wait, String desc) {
+    public Upload(String name, String imageUrl) {
         if (name.trim().equals("")) {
-            name = "Zombie";
+            name = "No Name";
         }
 
-        Name = name;
-        ImageUrl = imageUrl;
-        Desc = desc;
-        Avewaiting = wait;
+        mName = name;
+        mImageUrl = imageUrl;
     }
 
     public String getName() {
-        return Name;
+        return mName;
     }
 
     public void setName(String name) {
-        Name = name;
+        mName = name;
     }
 
     public String getImageUrl() {
-        return ImageUrl;
+        return mImageUrl;
     }
 
     public void setImageUrl(String imageUrl) {
-        ImageUrl = imageUrl;
-    }
-
-    public String getDesc() {
-        return Desc;
-    }
-
-    public void setDesc(String desc) {
-        Desc = desc;
-    }
-
-    public int getAvewaiting() {
-        return Avewaiting;
-    }
-
-    public void setAvewaiting(int avewaiting) {
-        Avewaiting = avewaiting;
+        mImageUrl = imageUrl;
     }
 }

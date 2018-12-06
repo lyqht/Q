@@ -9,7 +9,6 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.firebase.client.Firebase;
@@ -92,17 +91,27 @@ public class FirebaseTestActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
-                    progressDialog.dismiss();
+
+
+                    progressDialog.hide();
+
                     Toast.makeText(getApplicationContext(), "Registered Successfully", Toast.LENGTH_LONG).show();
 
                     Intent segregate= new Intent(FirebaseTestActivity.this, SegregationActivity.class);
                     startActivity(segregate);
+
+////                    if(firebaseAuth.getCurrentUser()!= null){
+//                        finish();
+//                        startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+////                    }
+
                 }
-                else {
-                    progressDialog.dismiss();
+                else{
+                    progressDialog.hide();
 
                     if(pass.length()<6){
                         Toast.makeText(getApplicationContext(),"Make sure password is at least 6 characters long", Toast.LENGTH_LONG).show();
+
 
                     }else
                     Toast.makeText(getApplicationContext(),"Account already exists", Toast.LENGTH_LONG).show();

@@ -9,7 +9,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,29 +16,18 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import android.content.ContentResolver;
 
-import android.content.Intent;
+import android.content.ContentResolver;
 import android.net.Uri;
 import android.os.Handler;
 import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.view.View;
 import android.webkit.MimeTypeMap;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
@@ -62,12 +50,11 @@ public class QueueActivity extends AppCompatActivity implements AdapterView.OnIt
     private Button mButtonChooseImage;
     private Button mButtonUpload;
     private TextView mTextViewShowUploads;
-    private EditText mEditTextLocation; mEditTextDesc,mAverageWaitingtime;
+    private EditText mEditTextLocation;
     private ImageView mImageView;
     private ProgressBar mProgressBar;
 
     private Uri mImageUri;
-  
     private FirebaseUser user;
     private StorageReference mStorageRef;
     private StorageTask mUploadTask;
@@ -80,6 +67,7 @@ public class QueueActivity extends AppCompatActivity implements AdapterView.OnIt
     EditText Qname;
 
     @Override
+
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.merc_create_queue);
@@ -95,7 +83,7 @@ public class QueueActivity extends AppCompatActivity implements AdapterView.OnIt
         queuename= findViewById(R.id.enterQueueName);
         createqueue=(Button) findViewById(R.id.btn_createQ);
         location = findViewById(R.id.enterLocation);
-        editEstTimeText = findViewById(R.id.editEstTimeText);
+        //editEstTimeText = findViewById(R.id.editEstTimeText);
         queuedesc= (EditText) findViewById(R.id.enterDesc);
         
         queueTypeSpinner = findViewById(R.id.spinQueueSys);
@@ -184,21 +172,20 @@ public class QueueActivity extends AppCompatActivity implements AdapterView.OnIt
 
     // <========== DATABASE FUNCTIONS ====================> //
 
-//    private void saveMerchantInfo(){
-//
-//        String getname=queuename.getText().toString().trim();
-//        String getdesc=queuedesc.getText().toString().trim();
-//        int wait_time= Integer.parseInt(waiting_time.getText().toString());
-//
-//       // MerchantInformation merchantInformation= new MerchantInformation(getname,getdesc);
-//
-//      //  FirebaseUser user=firebaseAuth.getCurrentUser();
-//
-//     //   databaseReference.child(user.getUid()).setValue(merchantInformation);
-//        Toast.makeText(this, "Merchant info saved in the database", Toast.LENGTH_LONG).show();
-//
-//
-//    }
+    private void saveMerchantInfo(){
+
+        String getname=queuename.getText().toString().trim();
+        String getdesc=queuedesc.getText().toString().trim();
+
+       // MerchantInformation merchantInformation= new MerchantInformation(getname,getdesc);
+
+      //  FirebaseUser user=firebaseAuth.getCurrentUser();
+
+     //   databaseReference.child(user.getUid()).setValue(merchantInformation);
+        Toast.makeText(this, "Merchant info saved in the database", Toast.LENGTH_LONG).show();
+
+
+    }
 
     private void openFileChooser() {
         Intent intent = new Intent();
@@ -229,7 +216,6 @@ public class QueueActivity extends AppCompatActivity implements AdapterView.OnIt
 
         String getname=queuename.getText().toString().trim();
         String getdesc=queuedesc.getText().toString().trim();
-        int wait_time= Integer.parseInt(waiting_time.getText().toString().trim());
 
         //  FirebaseUser user=firebaseAuth.getCurrentUser();
 
@@ -245,7 +231,7 @@ public class QueueActivity extends AppCompatActivity implements AdapterView.OnIt
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                            Handler handler = new Handle
+                            Handler handler = new Handler();
                             handler.postDelayed(new Runnable() {
                                 @Override
                                 public void run() {
@@ -259,12 +245,14 @@ public class QueueActivity extends AppCompatActivity implements AdapterView.OnIt
                             while (!urlTask.isSuccessful());
                             Uri downloadUrl = urlTask.getResult();
                             final String sdownload_url = String.valueOf(downloadUrl);
-                          
-                            Upload upload = new Upload(mEditTextLocation.getText().toString(), sdownload_url, wait_time,
-                                    queuedesc.getText().toString() );
-                            String uploadId = databaseReference.push().getKey();
-                            QueueInformation queueInformation = new QueueInformation(getname, getdesc, wait_time);
 
+                            Upload upload = new Upload(mEditTextLocation.getText().toString().trim(),
+                                    sdownload_url);
+                            String uploadId = databaseReference.push().getKey();
+                            MerchantInformation merchantInformation= new MerchantInformation(getname,getdesc,upload);
+                            QueueInformation queueInformation = new QueueInformation(queuename.getText().toString());
+
+                           // merchantInformation.queueimage = upload;
                             databaseReference.child(user.getUid()).setValue(upload);
                             queue_databaseReference.child(user.getUid()).setValue(queueInformation);
                         }
