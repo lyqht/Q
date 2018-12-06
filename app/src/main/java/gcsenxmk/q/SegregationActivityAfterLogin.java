@@ -22,7 +22,7 @@ public class SegregationActivityAfterLogin extends AppCompatActivity {
         btncust.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent profile= new Intent(SegregationActivityAfterLogin.this, CustomerHomePageActivity.class);
+                Intent profile= new Intent(SegregationActivityAfterLogin.this, RecyclerActivity.class);
                 startActivity(profile);
 
             }
