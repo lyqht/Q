@@ -1,3 +1,4 @@
+/*
 package gcsenxmk.q;
 
 
@@ -166,3 +167,4 @@ public class FirebaseUploadActivity extends AppCompatActivity {
         startActivity(intent);
     }
 }
+*/

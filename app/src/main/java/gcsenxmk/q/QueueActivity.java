@@ -83,7 +83,7 @@ public class QueueActivity extends AppCompatActivity implements AdapterView.OnIt
         queuename= findViewById(R.id.enterQueueName);
         createqueue=(Button) findViewById(R.id.btn_createQ);
         location = findViewById(R.id.enterLocation);
-        //editEstTimeText = findViewById(R.id.editEstTimeText);
+        editEstTimeText = findViewById(R.id.editEstTimeText);
         queuedesc= (EditText) findViewById(R.id.enterDesc);
         
         queueTypeSpinner = findViewById(R.id.spinQueueSys);
@@ -178,9 +178,7 @@ public class QueueActivity extends AppCompatActivity implements AdapterView.OnIt
         String getdesc=queuedesc.getText().toString().trim();
 
        // MerchantInformation merchantInformation= new MerchantInformation(getname,getdesc);
-
       //  FirebaseUser user=firebaseAuth.getCurrentUser();
-
      //   databaseReference.child(user.getUid()).setValue(merchantInformation);
         Toast.makeText(this, "Merchant info saved in the database", Toast.LENGTH_LONG).show();
 
@@ -216,6 +214,7 @@ public class QueueActivity extends AppCompatActivity implements AdapterView.OnIt
 
         String getname=queuename.getText().toString().trim();
         String getdesc=queuedesc.getText().toString().trim();
+        int wait_time= Integer.parseInt(editEstTimeText.getText().toString().trim());
 
         //  FirebaseUser user=firebaseAuth.getCurrentUser();
 
@@ -246,12 +245,11 @@ public class QueueActivity extends AppCompatActivity implements AdapterView.OnIt
                             Uri downloadUrl = urlTask.getResult();
                             final String sdownload_url = String.valueOf(downloadUrl);
 
-                            Upload upload = new Upload(mEditTextLocation.getText().toString().trim(),
-                                    sdownload_url);
+                            Upload upload = new Upload(mEditTextLocation.getText().toString(), sdownload_url, wait_time,
+                                    queuedesc.getText().toString() );
                             String uploadId = databaseReference.push().getKey();
-                            MerchantInformation merchantInformation= new MerchantInformation(getname,getdesc,upload);
-                            QueueInformation queueInformation = new QueueInformation(queuename.getText().toString());
-
+                            //MerchantInformation merchantInformation= new MerchantInformation(getname, getdesc, wait_time, upload);
+                            QueueInformation queueInformation = new QueueInformation(getname, getdesc, wait_time);
                            // merchantInformation.queueimage = upload;
                             databaseReference.child(user.getUid()).setValue(upload);
                             queue_databaseReference.child(user.getUid()).setValue(queueInformation);

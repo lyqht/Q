@@ -1,7 +1,9 @@
 package gcsenxmk.q;
 
 import android.content.Intent;
+import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 
 
@@ -12,17 +14,24 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.ChildEventListener;
+
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ImageAdapterRecycler extends RecyclerView.Adapter<ImageAdapterRecycler.ImageViewHolder>{
@@ -30,6 +39,8 @@ public class ImageAdapterRecycler extends RecyclerView.Adapter<ImageAdapterRecyc
     private Context mContext;
     private List<Upload> mUploads;
     private String imageURL;
+    private String description;
+    private String waitingTime;
     private DatabaseReference mDatabaseRef;
     private DatabaseReference queueDatabaseRef;
     private FirebaseAuth firebaseAuth;
@@ -45,6 +56,7 @@ public class ImageAdapterRecycler extends RecyclerView.Adapter<ImageAdapterRecyc
 
     @Override
     public ImageViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+
         View v = LayoutInflater.from(mContext).inflate(R.layout.cust_list_item, parent, false);
         return new ImageViewHolder(v);
     }
@@ -58,7 +70,10 @@ public class ImageAdapterRecycler extends RecyclerView.Adapter<ImageAdapterRecyc
                 .load(uploadCurrent.getImageUrl())
                 .fit()
                 .centerCrop()
-                .into(holder.imageButton);
+                .into(holder.qImage);
+        description = uploadCurrent.getDesc();
+        waitingTime = Integer.toString(uploadCurrent.getAvewaiting());
+        holder.qWaitTime.setText(waitingTime);
     }
 
     @Override
@@ -67,35 +82,34 @@ public class ImageAdapterRecycler extends RecyclerView.Adapter<ImageAdapterRecyc
     }
 
     public class ImageViewHolder extends RecyclerView.ViewHolder {
-        public TextView textViewName;
-        public ImageButton imageButton;
-
         private TextView qName;
         private TextView qWaitTime;
         private TextView qNumPeople;
         private ImageButton qImage;
         private Button joinQButton;
+        public String description;
 
         public ImageViewHolder(View itemView) {
             super(itemView);
-
             firebaseAuth=FirebaseAuth.getInstance();
             user = firebaseAuth.getCurrentUser();
+
             qName = itemView.findViewById(R.id.queueName);
             qWaitTime = itemView.findViewById(R.id.queueWaitTime);
-            imageButton = itemView.findViewById(R.id.queueImage);
+            qImage = itemView.findViewById(R.id.queueImage);
             qNumPeople = itemView.findViewById(R.id.queueNumPeople);
             joinQButton = itemView.findViewById(R.id.joinQ_recycler);
 
-            imageButton.setOnClickListener(new View.OnClickListener() {
+            qImage.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Log.d(TAG, "Card's image Button Clicked.");
                     Intent i = new Intent(mContext,Cust_Gallery.class);
                     i.putExtra("image_url", imageURL);
                     i.putExtra("queue_name", qName.getText().toString());
-                    i.putExtra("queue_waiting_time", String.valueOf("15"));
+                    i.putExtra("queue_waiting_time", waitingTime);
                     i.putExtra("queue_num_people", String.valueOf("28"));
+                    i.putExtra("desc", description);
                     mContext.startActivity(i);
                 }
             });
@@ -103,81 +117,40 @@ public class ImageAdapterRecycler extends RecyclerView.Adapter<ImageAdapterRecyc
             joinQButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
                     mDatabaseRef = FirebaseDatabase.getInstance().getReference("Users");
                     merchantDatabaseRef=FirebaseDatabase.getInstance().getReference("Merchants");
                     queueDatabaseRef= FirebaseDatabase.getInstance().getReference("Queue");
 
                     queueDatabaseRef.orderByChild("queuename").equalTo(qName.getText().toString()).addListenerForSingleValueEvent(new ValueEventListener() {
-                    //merchantDatabaseRef.orderByChild("name").equalTo(textViewName.getText().toString()).addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        for(DataSnapshot childSnapshot: dataSnapshot.getChildren()){
-                            user = firebaseAuth.getCurrentUser();
-                            QueueInformation queueInformation = childSnapshot.getValue(QueueInformation.class);
-                            String merchantID = childSnapshot.getKey();
+                        //merchantDatabaseRef.orderByChild("name").equalTo(textViewName.getText().toString()).addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            for(DataSnapshot childSnapshot: dataSnapshot.getChildren()){
+                                user = firebaseAuth.getCurrentUser();
+                                QueueInformation queueInformation = childSnapshot.getValue(QueueInformation.class);
+                                String merchantID = childSnapshot.getKey();
 
-                            if(queueInformation.queue.contains(user.getUid())){
-                                Log.d("Customer Join Queue", "Already in queue.");
-                               // Toast.makeText(RecyclerActivity, "You already register for this queue", Toast.LENGTH_LONG).show();
-                            }else {
-                                queueInformation.queue.add(user.getUid());
-                                queueDatabaseRef.child(merchantID).setValue(queueInformation);
-                                Log.d("Customer Join Queue", "Joined Queue!");
+                                if(queueInformation.queue.contains(user.getUid())){
+                                    Log.d("Customer Join Queue", "Already in queue.");
+                                    // Toast.makeText(RecyclerActivity, "You already register for this queue", Toast.LENGTH_LONG).show();
+                                }else {
+                                    queueInformation.queue.add(user.getUid());
+                                    queueDatabaseRef.child(merchantID).setValue(queueInformation);
+                                    mDatabaseRef.child(user.getUid()).child("merchantID").setValue(merchantID);
+                                    Log.d("Customer Join Queue", "Joined Queue!");
+                                }
+
                             }
 
                         }
-                    }
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
 
-                    }
-                });
+                            System.out.println("error");
 
-
-
-
-
-
-
-
-
-//                    DatabaseReference queueRef = FirebaseDatabase.getInstance().getReference("Queue");
-//                    Query query = queueRef.orderByChild("queuename").equalTo(textViewName.getText().toString());
-//
-//                    query.orderByChild("queue").addChildEventListener(new ChildEventListener() {
-//                        @Override
-//                        public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-//                            ArrayList<String> queue= dataSnapshot.getValue(ArrayList.class);
-//                            queue.add("hello");
-//                            dataSnapshot.getRef().child("queue").setValue(queue);
-//
-//
-//                        }
-//
-//                        @Override
-//                        public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-//
-//                        }
-//
-//                        @Override
-//                        public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
-//
-//                        }
-//
-//                        @Override
-//                        public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-//
-//                        }
-//
-//                        @Override
-//                        public void onCancelled(@NonNull DatabaseError databaseError) {
-//
-//                        }
-//                    });
-//                }
-//            });
+                        }
+                    });
 
 
                 }
