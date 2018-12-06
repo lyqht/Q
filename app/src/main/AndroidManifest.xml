@@ -67,6 +67,8 @@
         <activity android:name=".login.CustomerHomePageActivity"
             android:parentActivityName=".login.SegregationActivityAfterLogin"></activity>
 
+        <activity android:name=".login.MerchantViewQueuesActivityAfterLogin"
+            android:parentActivityName=".login.SegregationActivityAfterLogin"></activity>
 
         <!-- Cust Activities -->
         <activity
