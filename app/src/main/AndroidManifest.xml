@@ -35,8 +35,6 @@
             android:parentActivityName=".SegregationActivity"
             />
 
-
-
         <activity android:name=".SegregationActivity"
             android:parentActivityName=".FirebaseTestActivity"/>
 
@@ -59,12 +57,15 @@
         </activity>
 
         <activity android:name=".RecyclerActivity"
-            android:parentActivityName=".SegregationActivityAfterLogin"></activity>
+            android:parentActivityName=".login.CustomerHomePageActivity"></activity>
 
-        <activity android:name=".SegregationActivityAfterLogin"
+        <activity android:name=".login.SegregationActivityAfterLogin"
             android:parentActivityName=".FirebaseLoginActivity">
 
         </activity>
+
+        <activity android:name=".login.CustomerHomePageActivity"
+            android:parentActivityName=".login.SegregationActivityAfterLogin"></activity>
 
 
         <!-- Cust Activities -->
