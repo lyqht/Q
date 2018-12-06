@@ -38,15 +38,16 @@ public class ImageAdapterRecycler extends RecyclerView.Adapter<ImageAdapterRecyc
 
     private Context mContext;
     private List<Upload> mUploads;
-    private String imageURL;
-    private String description;
-    private String waitingTime;
+
     private DatabaseReference mDatabaseRef;
     private DatabaseReference queueDatabaseRef;
+    private DatabaseReference customerDatabaseRef;
     private FirebaseAuth firebaseAuth;
     private FirebaseUser user;
     private FirebaseUser merchant;
     private final String TAG = "Customer Join Queue";
+
+    // Temporary variables for each detail of the current upload
 
     private DatabaseReference merchantDatabaseRef;
     public ImageAdapterRecycler(Context context, List<Upload> uploads) {
@@ -64,16 +65,21 @@ public class ImageAdapterRecycler extends RecyclerView.Adapter<ImageAdapterRecyc
     @Override
     public void onBindViewHolder(ImageViewHolder holder, int position) {
         Upload uploadCurrent = mUploads.get(position);
-        holder.qName.setText(uploadCurrent.getName());
-        imageURL = uploadCurrent.getImageUrl();
+        holder.name = uploadCurrent.getName();
+        holder.description = uploadCurrent.getDesc();
+        holder.waitingTime = Integer.toString(uploadCurrent.getAvewaiting());
+        holder.location = uploadCurrent.getLocation();
+        holder.imageURL = uploadCurrent.getImageUrl();
+        holder.numPeople = Integer.toString(uploadCurrent.getNumPeople());
+
+        holder.qName.setText(holder.name);
         Picasso.with(mContext)
-                .load(uploadCurrent.getImageUrl())
+                .load(holder.imageURL)
                 .fit()
                 .centerCrop()
                 .into(holder.qImage);
-        description = uploadCurrent.getDesc();
-        waitingTime = Integer.toString(uploadCurrent.getAvewaiting());
-        holder.qWaitTime.setText(waitingTime);
+        holder.qWaitTime.setText(holder.waitingTime);
+
     }
 
     @Override
@@ -87,7 +93,13 @@ public class ImageAdapterRecycler extends RecyclerView.Adapter<ImageAdapterRecyc
         private TextView qNumPeople;
         private ImageButton qImage;
         private Button joinQButton;
-        public String description;
+
+        private String name;
+        private String imageURL;
+        private String description;
+        private String waitingTime;
+        private String numPeople;
+        private String location;
 
         public ImageViewHolder(View itemView) {
             super(itemView);
@@ -100,19 +112,23 @@ public class ImageAdapterRecycler extends RecyclerView.Adapter<ImageAdapterRecyc
             qNumPeople = itemView.findViewById(R.id.queueNumPeople);
             joinQButton = itemView.findViewById(R.id.joinQ_recycler);
 
+
             qImage.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Log.d(TAG, "Card's image Button Clicked.");
                     Intent i = new Intent(mContext,Cust_Gallery.class);
                     i.putExtra("image_url", imageURL);
-                    i.putExtra("queue_name", qName.getText().toString());
+                    i.putExtra("location", location);
+                    i.putExtra("queue_name", name);
                     i.putExtra("queue_waiting_time", waitingTime);
-                    i.putExtra("queue_num_people", String.valueOf("28"));
+                    i.putExtra("queue_num_people", numPeople);
                     i.putExtra("desc", description);
                     mContext.startActivity(i);
                 }
             });
+
+            // TODO: Set joinQButton's text to "Joined Q!" for queues that are joined even after user exits the app.
 
             joinQButton.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -120,8 +136,8 @@ public class ImageAdapterRecycler extends RecyclerView.Adapter<ImageAdapterRecyc
                     mDatabaseRef = FirebaseDatabase.getInstance().getReference("Users");
                     merchantDatabaseRef=FirebaseDatabase.getInstance().getReference("Merchants");
                     queueDatabaseRef= FirebaseDatabase.getInstance().getReference("Queue");
-
-                    queueDatabaseRef.orderByChild("queuename").equalTo(qName.getText().toString()).addListenerForSingleValueEvent(new ValueEventListener() {
+                    Log.d(TAG,"joinQ Button clicked");
+                    queueDatabaseRef.orderByChild("queuename").equalTo(name).addListenerForSingleValueEvent(new ValueEventListener() {
                         //merchantDatabaseRef.orderByChild("name").equalTo(textViewName.getText().toString()).addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -131,13 +147,15 @@ public class ImageAdapterRecycler extends RecyclerView.Adapter<ImageAdapterRecyc
                                 String merchantID = childSnapshot.getKey();
 
                                 if(queueInformation.queue.contains(user.getUid())){
-                                    Log.d("Customer Join Queue", "Already in queue.");
-                                    // Toast.makeText(RecyclerActivity, "You already register for this queue", Toast.LENGTH_LONG).show();
+                                    Log.d("Join Queue", "Already in queue.");
+
                                 }else {
                                     queueInformation.queue.add(user.getUid());
                                     queueDatabaseRef.child(merchantID).setValue(queueInformation);
                                     mDatabaseRef.child(user.getUid()).child("merchantID").setValue(merchantID);
-                                    Log.d("Customer Join Queue", "Joined Queue!");
+                                    Log.d("Join Queue", "Joined Queue!");
+                                    joinQButton.setText("Joined!");
+                                    // TODO: Increase Q.size by 1
                                 }
 
                             }
@@ -146,8 +164,7 @@ public class ImageAdapterRecycler extends RecyclerView.Adapter<ImageAdapterRecyc
 
                         @Override
                         public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                            System.out.println("error");
+                            Log.e("Database", "Error");
 
                         }
                     });
