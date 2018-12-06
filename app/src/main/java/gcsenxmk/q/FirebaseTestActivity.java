@@ -92,27 +92,17 @@ public class FirebaseTestActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
-
-
                     progressDialog.dismiss();
-
                     Toast.makeText(getApplicationContext(), "Registered Successfully", Toast.LENGTH_LONG).show();
 
                     Intent segregate= new Intent(FirebaseTestActivity.this, SegregationActivity.class);
                     startActivity(segregate);
-
-////                    if(firebaseAuth.getCurrentUser()!= null){
-//                        finish();
-//                        startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
-////                    }
-
                 }
-                else{
+                else {
                     progressDialog.dismiss();
 
                     if(pass.length()<6){
                         Toast.makeText(getApplicationContext(),"Make sure password is at least 6 characters long", Toast.LENGTH_LONG).show();
-
 
                     }else
                     Toast.makeText(getApplicationContext(),"Account already exists", Toast.LENGTH_LONG).show();

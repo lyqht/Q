@@ -24,11 +24,6 @@ public class ProfileActivity extends AppCompatActivity {
     private EditText name,area;
     private Button save;
 
-
-
-
-
-
     @Override
 
     protected void onCreate(Bundle savedInstanceState){

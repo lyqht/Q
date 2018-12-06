@@ -31,12 +31,7 @@ public class FirebaseLoginActivity extends AppCompatActivity {
 
     private ProgressDialog progressDialog;
     private FirebaseAuth firebaseAuth;
-
-
-
-
-
-
+  
     @Override
     protected void onCreate(Bundle savedInstanceState){
 
@@ -80,9 +75,6 @@ public class FirebaseLoginActivity extends AppCompatActivity {
             }
         });
 
-
-
-
 }
 
     private  void userLogin(){
@@ -118,12 +110,6 @@ public class FirebaseLoginActivity extends AppCompatActivity {
         });
 
     }}
-
-
-
-
-
-
 
 
 //    private void signIn(final String username, final String password) {

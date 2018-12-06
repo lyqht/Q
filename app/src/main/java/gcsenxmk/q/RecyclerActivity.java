@@ -3,8 +3,6 @@ package gcsenxmk.q;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-
-
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -58,7 +56,6 @@ public class RecyclerActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
-
                     Upload upload = postSnapshot.getValue(Upload.class);
                     mUploads.add(upload);
                 }

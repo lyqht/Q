@@ -1,28 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Cust_MainExplore"
+    tools:context=".CustExplore"
+    android:windowSoftInputMode="adjustNothing"
     >
 
+    <LinearLayout
+        android:id="@+id/cme_LY01"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="10dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="42dp"
-        android:layout_height="42dp"
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_alignTop="@+id/cme_editTxt_SearchBar"
+            android:layout_toStartOf="@+id/cme_editTxt_SearchBar"
+            android:adjustViewBounds="false"
+            android:padding="5dp"
+            app:srcCompat="@drawable/search_icon2" />
 
-        android:layout_alignTop="@+id/cme_editTxt_SearchBar"
-        android:layout_toStartOf="@+id/cme_editTxt_SearchBar"
-        android:adjustViewBounds="false"
-        android:padding="5dp"
-        app:srcCompat="@drawable/search_icon2" />
-
-    <EditText
+        <SearchView
+            android:id="@+id/cme_editTxt_SearchBar"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/seach_layout"
+            android:queryHint="Queue ID / Store / Event Name"
+            android:searchHintIcon="@null"
+            android:iconifiedByDefault="false"
+            android:searchIcon="@null"
+             />
+    </LinearLayout>
+    <!--EditText
         android:id="@+id/cme_editTxt_SearchBar"
+        android:windowSoftInputMode="adjustNothing"
         android:layout_width="307dp"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
@@ -31,26 +51,29 @@
         android:layout_marginTop="14dp"
         android:background="@drawable/seach_layout"
         android:ems="10"
+        android:hint="Queue ID / Store / Event Nam"
         android:inputType="textPersonName"
         android:paddingBottom="8dp"
         android:paddingTop="8dp"
-        android:text="Queue ID / Store / Event Name"
-        android:textAlignment="center"
-        android:textColor="#adadad" />
+        android:paddingLeft="8dp"
+        android:textColor="#adadad" >
+        <requestFocus/>
+    </EditText-->
 
     <Space
         android:id="@+id/cme_space1"
         android:layout_width="match_parent"
-        android:layout_height="5dp"
+        android:layout_height="1dp"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/imageView2" />
+        />
 
     <LinearLayout
         android:id="@+id/cme_LY02"
         android:layout_width="match_parent"
-        android:layout_height="41dp"
+        android:layout_height="50dp"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/cme_space1"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="49dp"
         android:orientation="vertical">
 
         <TextView
@@ -65,191 +88,289 @@
             android:textStyle="bold" />
     </LinearLayout>
 
-    <LinearLayout
+
+    <GridLayout
+        android:id="@+id/cme_gridlayout"
         android:layout_width="match_parent"
-        android:id="@+id/cme_LL_Category"
-        android:layout_height="68dp"
+        android:layout_height="match_parent"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/cme_LY02"
-        android:layout_weight="1"
-        android:orientation="horizontal">
+        android:alignmentMode="alignMargins"
+        android:columnCount="2"
+        android:columnOrderPreserved="false"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        android:paddingLeft="10dp"
+        android:rowCount="3">
+        <!--Row1 Column1 F&B -->
+        <android.support.v7.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_marginBottom="12dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_rowWeight="1"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="5dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="0.2"
-            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
 
-            <ImageButton
-                android:id="@+id/imageButtonPhotography"
-                android:layout_width="match_parent"
-                android:layout_height="64dp"
-                android:layout_weight="0.1"
-                android:adjustViewBounds="true"
-                android:background="#00000000"
-                android:scaleType="fitCenter"
-                app:srcCompat="@drawable/icon_photo" />
+                android:orientation="vertical"
+                android:weightSum="1">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="0.2"
-                android:textAlignment="center"
-                android:textSize="10sp"
-                tools:text="Photography" />
-        </LinearLayout>
+                <ImageButton
+                    android:id="@+id/buttonFood_and_Beverages"
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:background="#00000000"
+                    android:scaleType="fitCenter"
+                    android:layout_weight="0.9"
+                    android:padding="10dp"
+                    android:src="@drawable/icon_food" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="0.2"
-            android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent"
+                    android:paddingBottom="5dp"
+                    android:text="@string/Food_and_Beverage"
+                    android:textAlignment="center"
+                    android:layout_weight="0.05"
+                    android:textStyle="bold" />
 
-            <ImageButton
-                android:id="@+id/imageButtonFnB"
-                android:layout_width="match_parent"
-                android:layout_height="64dp"
-                android:layout_weight="0.1"
-                android:adjustViewBounds="true"
-                android:background="#00000000"
-                android:scaleType="fitCenter"
-                app:srcCompat="@drawable/icon_food" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="0.2"
-                android:textAlignment="center"
-                android:textSize="10sp"
-                tools:text="@string/Food_and_Beverage" />
-        </LinearLayout>
+            </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="0.2"
-            android:orientation="vertical">
+        </android.support.v7.widget.CardView>
+        <!--Row1 Column2 Retail-->
+        <android.support.v7.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_marginBottom="12dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_rowWeight="1"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="5dp">
 
-            <ImageButton
-                android:id="@+id/imageButtonMusic"
-                android:layout_width="match_parent"
-                android:layout_height="64dp"
-                android:layout_weight="0.1"
-                android:adjustViewBounds="true"
-                android:background="#00000000"
-                android:scaleType="fitCenter"
-                app:srcCompat="@drawable/icon_music" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="0.2"
-                android:textAlignment="center"
-                android:textSize="10sp"
-                tools:text="Music" />
-        </LinearLayout>
+                android:orientation="vertical"
+                android:weightSum="1">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="0.2"
-            android:orientation="vertical">
+                <ImageButton
+                    android:id="@+id/buttonRetail_Outlets"
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:background="#00000000"
+                    android:scaleType="fitCenter"
+                    android:layout_weight="0.9"
+                    android:padding="10dp"
+                    android:src="@drawable/icon_retail" />
 
-            <ImageButton
-                android:id="@+id/imageButtonIT"
-                android:layout_width="match_parent"
-                android:layout_height="64dp"
-                android:layout_weight="0.1"
-                android:adjustViewBounds="true"
-                android:background="#00000000"
-                android:scaleType="fitCenter"
-                app:srcCompat="@drawable/icon_it_tech" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent"
+                    android:paddingBottom="5dp"
+                    android:text="Retail Outlets"
+                    android:textAlignment="center"
+                    android:layout_weight="0.05"
+                    android:textStyle="bold" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="0.2"
-                android:textAlignment="center"
-                android:textSize="10sp"
-                tools:text="IT" />
-        </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="0.2"
-            android:orientation="vertical">
+            </LinearLayout>
 
-            <ImageButton
-                android:id="@+id/imageButtonLimitedT"
-                android:layout_width="match_parent"
-                android:layout_height="64dp"
-                android:layout_weight="0.1"
-                android:adjustViewBounds="true"
-                android:background="#00000000"
-                android:scaleType="fitCenter"
-                app:srcCompat="@drawable/icon_time" />
+        </android.support.v7.widget.CardView>
+        <!--Row2 Column1 Photo-->
+        <android.support.v7.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_marginBottom="12dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_rowWeight="1"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="5dp">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="0.2"
-                android:textAlignment="center"
-                android:textSize="10sp"
-                tools:text="Limited Time" />
-        </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="0.2"
-            android:orientation="vertical">
+                android:orientation="vertical"
+                android:weightSum="1">
 
-            <ImageButton
-                android:id="@+id/imageButtonExtra"
-                android:layout_width="match_parent"
-                android:layout_height="64dp"
-                android:layout_weight="0.1"
-                android:adjustViewBounds="true"
-                android:background="#00000000"
-                android:scaleType="fitCenter"
-                app:srcCompat="@drawable/icon_image" />
+                <ImageButton
+                    android:id="@+id/buttonPhotography"
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:background="#00000000"
+                    android:scaleType="fitCenter"
+                    android:layout_weight="0.9"
+                    android:padding="10dp"
+                    android:src="@drawable/icon_photo" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="0.2"
-                android:textAlignment="center"
-                android:textSize="10sp"
-                tools:text="Extra" />
-        </LinearLayout>
-    </LinearLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="0.005"
+                    android:paddingBottom="5dp"
+                    android:text="Photography"
+                    android:textAlignment="center"
+                    android:textStyle="bold" />
 
-    <Space
-        android:id="@+id/cme_space2"
-        android:layout_width="match_parent"
-        android:layout_height="89dp"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/cme_LL_Category" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="44dp"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/cme_space2"
-        android:layout_marginStart="0dp"
-        android:orientation="vertical">
-        <TextView
-            android:id="@+id/cme_TextV_RecentVisit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="5dp"
-            android:paddingLeft="15dp"
-            android:text="Last Visited >"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="30sp"
-            android:textStyle="bold" />
-    </LinearLayout>
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+        <!--Row2 Column2 Music-->
+        <android.support.v7.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_marginBottom="12dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_rowWeight="1"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="5dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+
+                android:orientation="vertical"
+                android:weightSum="1">
+
+                <ImageButton
+                    android:id="@+id/buttonMusicConcert"
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:background="#00000000"
+                    android:scaleType="fitCenter"
+                    android:layout_weight="0.9"
+                    android:padding="10dp"
+                    android:src="@drawable/icon_music" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent"
+                    android:paddingBottom="5dp"
+                    android:text="Music"
+                    android:textAlignment="center"
+                    android:layout_weight="0.05"
+                    android:textStyle="bold" />
+
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+        <!--Row3 Column1 Event-->
+        <android.support.v7.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_marginBottom="12dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_rowWeight="1"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="5dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+
+                android:orientation="vertical"
+                android:weightSum="1">
+
+                <ImageButton
+                    android:id="@+id/buttonLimitedT"
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:background="#00000000"
+                    android:scaleType="fitCenter"
+                    android:layout_weight="0.9"
+                    android:padding="10dp"
+                    android:src="@drawable/icon_time" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent"
+                    android:paddingBottom="5dp"
+                    android:text="Events"
+                    android:textAlignment="center"
+                    android:layout_weight="0.05"
+                    android:textStyle="bold" />
+
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+        <!--Row3 Column2 Extra-->
+        <android.support.v7.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_marginBottom="12dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_rowWeight="1"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="5dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+
+                android:orientation="vertical"
+                android:weightSum="1">
+
+                <ImageButton
+                    android:id="@+id/buttonExtraCategory"
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:background="#00000000"
+                    android:scaleType="fitCenter"
+                    android:layout_weight="0.9"
+                    android:padding="10dp"
+                    android:src="@drawable/icon_more" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent"
+                    android:paddingBottom="5dp"
+                    android:text="More"
+                    android:textAlignment="center"
+                    android:layout_weight="0.05"
+                    android:textStyle="bold" />
+
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+
+    </GridLayout>
+
+
 
 
 </RelativeLayout>

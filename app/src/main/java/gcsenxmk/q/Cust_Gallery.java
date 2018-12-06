@@ -7,6 +7,9 @@ import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.bumptech.glide.Glide;
+import com.squareup.picasso.Picasso;
+
+import gcsenxmk.q.R;
 
 public class Cust_Gallery extends AppCompatActivity {
 
@@ -48,7 +51,12 @@ public class Cust_Gallery extends AppCompatActivity {
         TextView numPeople = findViewById(R.id.stall_desc_num_people);
         numPeople.setText(queueNumPeople);
         ImageView image = findViewById(R.id.stall_image);
-        Glide.with(this).load(
-                Integer.valueOf(imageUrl)).into(image);
+        //Glide.with(this).load(Integer.valueOf(imageUrl)).into(image);
+
+        Picasso.with(this)
+                .load(imageUrl)
+                .fit()
+                .centerCrop()
+                .into(image);
     }
 }

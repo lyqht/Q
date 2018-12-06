@@ -49,16 +49,13 @@ public class MerchantViewQueuesActivityAfterLogin extends AppCompatActivity{
         customerDatabaseReference=FirebaseDatabase.getInstance().getReference("Users");
         merchantDatabaseReference=FirebaseDatabase.getInstance().getReference("Merchants");
 
-
-
-
         queueDatabaseRef.child(user.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
                     queueInformation = dataSnapshot.getValue(QueueInformation.class);
                     len = queueInformation.queue.size();
-                    System.out.println(len);
+                    //System.out.println(len);
                     queue_length.setText(Integer.toString(len));
                 }
             }
@@ -74,7 +71,6 @@ public class MerchantViewQueuesActivityAfterLogin extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 if(len>=1) {
-
                     System.out.println(queueInformation.queue.size());
                     String current_user_in_queue= queueInformation.queue.get(0);
                     queueInformation.queue.remove(0);
@@ -104,6 +100,7 @@ public class MerchantViewQueuesActivityAfterLogin extends AppCompatActivity{
                         }
                     });
                     Toast.makeText(MerchantViewQueuesActivityAfterLogin.this, "finish the service for onen customer", Toast.LENGTH_SHORT).show();
+
                     queueDatabaseRef.child(user.getUid()).child("queue").setValue(queueInformation.queue);
                     len--;
                     queue_length.setText(Integer.toString(len));
@@ -135,8 +132,6 @@ public class MerchantViewQueuesActivityAfterLogin extends AppCompatActivity{
                             Toast.makeText(MerchantViewQueuesActivityAfterLogin.this,
                                     "You already have a queue", Toast.LENGTH_LONG).show();
                         }else{
-
-
                             Intent intent= new Intent(MerchantViewQueuesActivityAfterLogin.this, CreateQueueUponLoginActivity.class);
                             startActivity(intent);
                             //Toast.makeText(MerchantViewQueuesActivityAfterLogin.this,"Add queue now", Toast.LENGTH_SHORT).show();

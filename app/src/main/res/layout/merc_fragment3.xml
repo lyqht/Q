@@ -10,46 +10,27 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:textSize="30sp"
-        android:text="Queue Setting"
+        android:text="Queue Settings"
         android:layout_marginTop="10dp"
         android:id="@+id/queueSetting"/>
 
     <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:scaleType="centerCrop"
+        android:background="@color/colorWhite"
+        android:layout_marginRight="10dp"
         android:layout_marginTop="10dp"
         android:layout_alignParentRight="true"
         android:id="@+id/helpPage"
         android:src="@drawable/help"
         />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_alignParentLeft="true"
-        android:textSize="15sp"
-        android:layout_marginTop="80dp"
-        android:text="Estimated Waiting Time: "
-        android:id="@+id/estTimeText"/>
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="70dp"
-        android:layout_marginRight="70dp"
-        android:textSize="15sp"
-        android:id="@+id/editEstTimeText"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="30dp"
-        android:layout_alignParentRight="true"
-        android:textSize="15sp"
-        android:layout_marginTop="80dp"
-        android:text="mins"/>
+
+
+
 
     <TextView
         android:layout_width="wrap_content"
@@ -79,19 +60,32 @@
         android:layout_alignParentLeft="true"
         android:textSize="15sp"
         android:layout_marginTop="160dp"
-        android:text="Late Policy: "
+        android:text="Est. Waiting Time:"
         android:id="@+id/lateText"/>
 
-    <Spinner
-        android:id="@+id/spinLate"
+
+
+    <EditText
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:inputType="numberDecimal"
+        android:layout_marginTop="150dp"
+        android:layout_marginRight="70dp"
+        android:textSize="15sp"
+
+        android:id="@+id/editEstTimeText"/>
+
+    <TextView
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/queuingSysText"
-        android:textSize="15sp"
         android:layout_marginRight="30dp"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="160dp"
-        />
+        android:textSize="15sp"
+        android:layout_marginTop="170dp"
+        android:text="mins"/>
+
 
     <TextView
         android:layout_width="wrap_content"
@@ -118,7 +112,7 @@
         android:layout_centerHorizontal="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="450dp"
+        android:layout_marginTop="400dp"
         android:id="@+id/deleteAllQueue"
         android:text="Delete all Queue"
         />
@@ -127,7 +121,7 @@
         android:layout_centerHorizontal="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="500dp"
+        android:layout_marginTop="350dp"
         android:id="@+id/saveSetting"
         android:text="Save Setting"
         />

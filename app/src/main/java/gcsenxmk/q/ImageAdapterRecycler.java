@@ -19,58 +19,58 @@ import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
+
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class ImageAdapterRecycler extends RecyclerView.Adapter<ImageAdapterRecycler.ImageViewHolder>{
 
     private Context mContext;
     private List<Upload> mUploads;
+    private String imageURL;
+    private String description;
+    private String waitingTime;
     private DatabaseReference mDatabaseRef;
     private DatabaseReference queueDatabaseRef;
-    private DatabaseReference customerDatabaseRef;
     private FirebaseAuth firebaseAuth;
     private FirebaseUser user;
     private FirebaseUser merchant;
-
-
+    private final String TAG = "Customer Join Queue";
 
     private DatabaseReference merchantDatabaseRef;
     public ImageAdapterRecycler(Context context, List<Upload> uploads) {
         mContext = context;
         mUploads = uploads;
-
     }
 
     @Override
     public ImageViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(mContext).inflate(R.layout.activity_cardview, parent, false);
+
+        View v = LayoutInflater.from(mContext).inflate(R.layout.cust_list_item, parent, false);
         return new ImageViewHolder(v);
     }
 
     @Override
     public void onBindViewHolder(ImageViewHolder holder, int position) {
         Upload uploadCurrent = mUploads.get(position);
-        holder.textViewName.setText(uploadCurrent.getName());
+        holder.qName.setText(uploadCurrent.getName());
+        imageURL = uploadCurrent.getImageUrl();
         Picasso.with(mContext)
                 .load(uploadCurrent.getImageUrl())
                 .fit()
                 .centerCrop()
                 .into(holder.imageButton);
-            holder.description.setText(uploadCurrent.getDesc());
-             holder.waitingtime.setText(Integer.toString(uploadCurrent.getAvewaiting()));
-
-
-
-
+      description = uploadCurrent.getDesc();
+      waitingTime = Integer.toString(uploadCurrent.getAvewaiting());
+      holder.qWaitTIme.setText(waitingTime);
     }
 
     @Override
@@ -79,40 +79,46 @@ public class ImageAdapterRecycler extends RecyclerView.Adapter<ImageAdapterRecyc
     }
 
     public class ImageViewHolder extends RecyclerView.ViewHolder {
-        public TextView textViewName;
-
-
-        public ImageButton imageButton;
-        public  TextView description;
-        public TextView waitingtime;
-
-
-
+        private TextView qName;
+        private TextView qWaitTime;
+        private TextView qNumPeople;
+        private ImageButton qImage;
+        private Button joinQButton;
+        public String description;
 
         public ImageViewHolder(View itemView) {
             super(itemView);
-
             firebaseAuth=FirebaseAuth.getInstance();
-
             user = firebaseAuth.getCurrentUser();
-
-
-            textViewName = itemView.findViewById(R.id.text_view_name);
-            imageButton = itemView.findViewById(R.id.image_view_upload);
-            description = itemView.findViewById(R.id.description);
-            waitingtime = itemView.findViewById(R.id.waiting_time);
-            String wait= waitingtime.getText().toString();
+          
+            qName = itemView.findViewById(R.id.queueName);
+            qWaitTime = itemView.findViewById(R.id.queueWaitTime);
+            imageButton = itemView.findViewById(R.id.queueImage);
+            qNumPeople = itemView.findViewById(R.id.queueNumPeople);
+            joinQButton = itemView.findViewById(R.id.joinQ_recycler);
 
             imageButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    Log.d(TAG, "Card's image Button Clicked.");
+                    Intent i = new Intent(mContext,Cust_Gallery.class);
+                    i.putExtra("image_url", imageURL);
+                    i.putExtra("queue_name", qName.getText().toString());
+                    i.putExtra("queue_waiting_time", waitingTime);
+                    i.putExtra("queue_num_people", String.valueOf("28"));
+                    i.putExtra("desc", description);
+                    mContext.startActivity(i);
+                }
+            });
 
+            joinQButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
                     mDatabaseRef = FirebaseDatabase.getInstance().getReference("Users");
                     merchantDatabaseRef=FirebaseDatabase.getInstance().getReference("Merchants");
                     queueDatabaseRef= FirebaseDatabase.getInstance().getReference("Queue");
-
-
-                    queueDatabaseRef.orderByChild("queuename").equalTo(textViewName.getText().toString()).addListenerForSingleValueEvent(new ValueEventListener() {
+                  
+                    queueDatabaseRef.orderByChild("queuename").equalTo(qName.getText().toString()).addListenerForSingleValueEvent(new ValueEventListener() {
                     //merchantDatabaseRef.orderByChild("name").equalTo(textViewName.getText().toString()).addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -122,22 +128,18 @@ public class ImageAdapterRecycler extends RecyclerView.Adapter<ImageAdapterRecyc
                             String merchantID = childSnapshot.getKey();
 
                             if(queueInformation.queue.contains(user.getUid())){
-                                System.out.println("already in the queue");
+                                Log.d("Customer Join Queue", "Already in queue.");
                                // Toast.makeText(RecyclerActivity, "You already register for this queue", Toast.LENGTH_LONG).show();
                             }else {
                                 queueInformation.queue.add(user.getUid());
                                 queueDatabaseRef.child(merchantID).setValue(queueInformation);
                                 mDatabaseRef.child(user.getUid()).child("merchantID").setValue(merchantID);
+                                Log.d("Customer Join Queue", "Joined Queue!");
                             }
 
                         }
 
                     }
-
-
-
-
-
 
                     @Override
                     public void onCancelled(@NonNull DatabaseError databaseError) {
@@ -148,6 +150,7 @@ public class ImageAdapterRecycler extends RecyclerView.Adapter<ImageAdapterRecyc
 
                     }
                 });
+
 
                 }
 

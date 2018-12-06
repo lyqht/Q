@@ -1,5 +1,4 @@
 package gcsenxmk.q;
-
 import android.graphics.Bitmap;
 
 public class MerchantInformation {
@@ -8,8 +7,7 @@ public class MerchantInformation {
     public String queuedescripton;
     public Upload queueimage;
     public int waiting_time;
-
-
+  
     public  MerchantInformation(){
 
     }

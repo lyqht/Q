@@ -5,8 +5,6 @@ import android.graphics.Bitmap;
 import java.util.ArrayList;
 
 public class QueueInformation {
-
-    //public static int creation = 0;
     public String queuename;
     public String desc;
     public int average_waiting_time;
@@ -27,7 +25,6 @@ public class QueueInformation {
         this.desc=desc;
         this.average_waiting_time=average_waiting_time;
         queue = new ArrayList<String>();
-
 
     }
 

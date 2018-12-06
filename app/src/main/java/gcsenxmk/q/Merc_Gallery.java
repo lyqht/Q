@@ -8,6 +8,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.bumptech.glide.Glide;
 
+import gcsenxmk.q.R;
+
 public class Merc_Gallery extends AppCompatActivity {
 
     private static final String TAG = "GalleryActivity";
