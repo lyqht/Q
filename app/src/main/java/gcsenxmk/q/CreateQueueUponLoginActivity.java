@@ -1,15 +1,13 @@
 package gcsenxmk.q;
 
+
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Spinner;
-
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,8 +15,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import android.content.ContentResolver;
 
+import android.content.ContentResolver;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Handler;
@@ -37,7 +35,6 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -47,14 +44,18 @@ import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
-public class QueueActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+import java.util.ArrayList;
 
+public class CreateQueueUponLoginActivity extends AppCompatActivity {
 
     private FirebaseAuth firebaseAuth;
+    private TextView textViewUserEmail;
+    private Button btnlogout2;
+    //private Button imageupload;
     private DatabaseReference databaseReference;
     private DatabaseReference queue_databaseReference;
 
-    private EditText queuename,queuedesc;
+    private EditText queuename,queuedesc, wait_time;
     private Button createqueue;
 
     private static final int PICK_IMAGE_REQUEST = 1;
@@ -62,78 +63,93 @@ public class QueueActivity extends AppCompatActivity implements AdapterView.OnIt
     private Button mButtonChooseImage;
     private Button mButtonUpload;
     private TextView mTextViewShowUploads;
-    private EditText mEditTextLocation; mEditTextDesc,mAverageWaitingtime;
+    private EditText mEditTextFileName,mDesc, mWaitingtime;
     private ImageView mImageView;
     private ProgressBar mProgressBar;
 
     private Uri mImageUri;
-  
+
     private FirebaseUser user;
     private StorageReference mStorageRef;
+
+
     private StorageTask mUploadTask;
 
-    // From Sean's MercCreateQueue
-    EditText location;
-    private Spinner queueTypeSpinner, prioritySpinner;
-    private EditText editEstTimeText;
-    private Button btn_createQueue;
-    EditText Qname;
+
+
+
+
 
     @Override
+
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.merc_create_queue);
-        
-        // Firebase Functions
+        setContentView(R.layout.activty_create_queue_after_login);
+
         firebaseAuth=FirebaseAuth.getInstance();
+
+//        if(firebaseAuth.getCurrentUser()!= null){
+//            finish();
+//            startActivity(new Intent(getApplicationContext(), FirebaseLoginActivity.class));
+//        }
+
         databaseReference= FirebaseDatabase.getInstance().getReference("Merchants");
+
         queue_databaseReference= FirebaseDatabase.getInstance().getReference("Queue");
-        mStorageRef = FirebaseStorage.getInstance().getReference("Merchants");
+
+        queuename=(EditText) findViewById(R.id.queuenamemerchant);
+        queuedesc= (EditText) findViewById(R.id.queuedescription);
+        createqueue=(Button) findViewById(R.id.btnaddqueue);
+        wait_time=(EditText) findViewById(R.id.average_time);
+
         user = firebaseAuth.getCurrentUser();
-
-        // UI Variables
-        queuename= findViewById(R.id.enterQueueName);
-        createqueue=(Button) findViewById(R.id.btn_createQ);
-        location = findViewById(R.id.enterLocation);
-        editEstTimeText = findViewById(R.id.editEstTimeText);
-        queuedesc= (EditText) findViewById(R.id.enterDesc);
-        
-        queueTypeSpinner = findViewById(R.id.spinQueueSys);
-        ArrayAdapter<CharSequence> adapterQueue = ArrayAdapter.createFromResource(this,
-                R.array.queue_system, android.R.layout.simple_spinner_item);
-        adapterQueue.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        queueTypeSpinner.setAdapter(adapterQueue);
-        queueTypeSpinner.setOnItemSelectedListener(this);
-
-        prioritySpinner = findViewById(R.id.spinPriority);
-        ArrayAdapter<CharSequence> adapterPriority = ArrayAdapter.createFromResource(this,
-                R.array.priority_queue, android.R.layout.simple_spinner_item);
-
-        prioritySpinner.setAdapter(adapterPriority);
-        prioritySpinner.setOnItemSelectedListener(this);
-        
-        
-        // Merchant Upload Image Area 
-        mButtonChooseImage = findViewById(R.id.button_choose_image);
-        mButtonUpload = findViewById(R.id.button_upload);
-        mTextViewShowUploads = findViewById(R.id.text_view_show_uploads);
-        mEditTextLocation = findViewById(R.id.enterLocation);
-        mImageView = findViewById(R.id.image_view);
-        mProgressBar = findViewById(R.id.progress_bar);
-
-        //textViewUserEmail=(TextView) findViewById(R.id.textviewemailmerchant);
-        //textViewUserEmail.setText("Welcome "+user.getEmail());
+        textViewUserEmail=(TextView) findViewById(R.id.textviewemailmerchant);
+        textViewUserEmail.setText("Welcome "+user.getEmail());
+        btnlogout2=(Button) findViewById(R.id.btnLogoutMerchant);
+        //imageupload=(Button) findViewById(R.id.btnuploadimage);
 
         createqueue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 uploadFile();
-                Intent intent = new Intent(QueueActivity.this, MercQueueCreated.class);
-                startActivity(intent);
-                finish();
+
             }
         });
-        
+
+
+
+        btnlogout2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                firebaseAuth.signOut();
+                finish();
+                startActivity(new Intent(getApplicationContext(),FirebaseLoginActivity.class));
+
+            }
+        });
+
+//        imageupload.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent= new Intent(QueueActivity.this, FirebaseUploadActivity.class);
+//                startActivity(intent);
+//            }
+//        });
+
+        mButtonChooseImage = findViewById(R.id.button_choose_image);
+        mButtonUpload = findViewById(R.id.button_upload);
+        mTextViewShowUploads = findViewById(R.id.text_view_show_uploads);
+        mEditTextFileName = findViewById(R.id.edit_text_file_name);
+        mDesc= findViewById(R.id.queuedescription);
+        mWaitingtime=findViewById(R.id.average_time);
+
+        mImageView = findViewById(R.id.image_view);
+        mProgressBar = findViewById(R.id.progress_bar);
+
+        mStorageRef = FirebaseStorage.getInstance().getReference("Merchants");
+
+
         mButtonChooseImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -145,7 +161,7 @@ public class QueueActivity extends AppCompatActivity implements AdapterView.OnIt
             @Override
             public void onClick(View v) {
                 if (mUploadTask != null && mUploadTask.isInProgress()) {
-                    Toast.makeText(QueueActivity.this, "Upload in progress", Toast.LENGTH_LONG).show();
+                    Toast.makeText(CreateQueueUponLoginActivity.this, "Upload in progress", Toast.LENGTH_LONG).show();
                 } else {
                     uploadFile();
                 }
@@ -159,46 +175,23 @@ public class QueueActivity extends AppCompatActivity implements AdapterView.OnIt
             }
         });
 
-        //TODO: MOVE THIS LOGOUT BUTTON TO MERCHANT ACCOUNT SETTINGS
-/*        btnlogout2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                firebaseAuth.signOut();
-                finish();
-                startActivity(new Intent(getApplicationContext(),FirebaseLoginActivity.class));
-
-            }
-        });*/
-
     }
 
-    // <========== UI FUNCTIONS ====================> //
+    private void saveMerchantInfo(){
 
-    public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
-        //String text = parent.getItemAtPosition(pos).toString();
+        String getname=queuename.getText().toString().trim();
+        String getdesc=queuedesc.getText().toString().trim();
+        int wait=Integer.parseInt(wait_time.getText().toString().trim());
+
+        // MerchantInformation merchantInformation= new MerchantInformation(getname,getdesc);
+
+        //  FirebaseUser user=firebaseAuth.getCurrentUser();
+
+        //   databaseReference.child(user.getUid()).setValue(merchantInformation);
+        Toast.makeText(this, "Merchant info saved in the database", Toast.LENGTH_LONG).show();
+
+
     }
-
-    public void onNothingSelected(AdapterView<?> parent) {
-        // Another interface callback
-    }
-
-    // <========== DATABASE FUNCTIONS ====================> //
-
-//    private void saveMerchantInfo(){
-//
-//        String getname=queuename.getText().toString().trim();
-//        String getdesc=queuedesc.getText().toString().trim();
-//        int wait_time= Integer.parseInt(waiting_time.getText().toString());
-//
-//       // MerchantInformation merchantInformation= new MerchantInformation(getname,getdesc);
-//
-//      //  FirebaseUser user=firebaseAuth.getCurrentUser();
-//
-//     //   databaseReference.child(user.getUid()).setValue(merchantInformation);
-//        Toast.makeText(this, "Merchant info saved in the database", Toast.LENGTH_LONG).show();
-//
-//
-//    }
 
     private void openFileChooser() {
         Intent intent = new Intent();
@@ -229,7 +222,8 @@ public class QueueActivity extends AppCompatActivity implements AdapterView.OnIt
 
         String getname=queuename.getText().toString().trim();
         String getdesc=queuedesc.getText().toString().trim();
-        int wait_time= Integer.parseInt(waiting_time.getText().toString().trim());
+        int wait=Integer.parseInt(wait_time.getText().toString().trim());
+
 
         //  FirebaseUser user=firebaseAuth.getCurrentUser();
 
@@ -245,7 +239,7 @@ public class QueueActivity extends AppCompatActivity implements AdapterView.OnIt
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                            Handler handler = new Handle
+                            Handler handler = new Handler();
                             handler.postDelayed(new Runnable() {
                                 @Override
                                 public void run() {
@@ -253,18 +247,19 @@ public class QueueActivity extends AppCompatActivity implements AdapterView.OnIt
                                 }
                             }, 500);
 
-                            Toast.makeText(QueueActivity.this, "Upload successful", Toast.LENGTH_LONG).show();
+                            Toast.makeText(CreateQueueUponLoginActivity.this, "Upload successful", Toast.LENGTH_LONG).show();
 
                             Task<Uri> urlTask = taskSnapshot.getStorage().getDownloadUrl();
                             while (!urlTask.isSuccessful());
                             Uri downloadUrl = urlTask.getResult();
                             final String sdownload_url = String.valueOf(downloadUrl);
-                          
-                            Upload upload = new Upload(mEditTextLocation.getText().toString(), sdownload_url, wait_time,
-                                    queuedesc.getText().toString() );
-                            String uploadId = databaseReference.push().getKey();
-                            QueueInformation queueInformation = new QueueInformation(getname, getdesc, wait_time);
 
+                            Upload upload = new Upload(mEditTextFileName.getText().toString().trim(), sdownload_url ,Integer.parseInt(mWaitingtime.getText().toString()) ,mDesc.getText().toString());
+                            String uploadId = databaseReference.push().getKey();
+                            //MerchantInformation merchantInformation= new MerchantInformation(getname, getdesc, wait, upload);
+                            QueueInformation queueInformation = new QueueInformation(getname, getdesc, wait);
+
+                            // merchantInformation.queueimage = upload;
                             databaseReference.child(user.getUid()).setValue(upload);
                             queue_databaseReference.child(user.getUid()).setValue(queueInformation);
                         }
@@ -272,7 +267,7 @@ public class QueueActivity extends AppCompatActivity implements AdapterView.OnIt
                     .addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(QueueActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(CreateQueueUponLoginActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     })
                     .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {

@@ -27,7 +27,6 @@
 
         </activity>
 
-
         <activity android:name=".FirebaseLoginActivity"
             android:parentActivityName=".FirebaseTestActivity"/>
 
@@ -54,8 +53,6 @@
         </activity>
 
         <activity android:name=".Upload_Activity">
-
-
         </activity>
         <activity android:name=".FirebaseUploadActivity"
             android:parentActivityName=".QueueActivity"></activity>
@@ -65,15 +62,18 @@
 
         <activity android:name=".SegregationActivityAfterLogin"
             android:parentActivityName=".FirebaseLoginActivity">
-
         </activity>
-
+      
         <activity android:name=".MerchantViewQueuesActivityAfterLogin"
             android:parentActivityName=".SegregationActivityAfterLogin">
 
         </activity>
 
+        <activity android:name=".CreateQueueUponLoginActivity"
+            android:parentActivityName=".MerchantViewQueuesActivityAfterLogin"></activity>
 
+        <activity android:name=".CustomerHomePageActivity"
+            android:parentActivityName=".SegregationActivityAfterLogin"></activity>
 
         <!-- Cust Activities -->
         <activity
@@ -86,10 +86,7 @@
         <activity android:name=".Cust_HelpPage" />
         <activity android:name=".TEMP_Cust_GettingStarted" />
 
-
         <!-- Merchant Activities -->
-
-
         <activity android:name=".TEMP_Merc_GettingStarted" />
 
         <activity android:name=".Merc_MainActivity">

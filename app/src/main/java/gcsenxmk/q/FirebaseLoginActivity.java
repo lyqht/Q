@@ -11,10 +11,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.firebase.client.DataSnapshot;
+import com.firebase.client.Firebase;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class FirebaseLoginActivity extends AppCompatActivity {
 
@@ -25,12 +31,7 @@ public class FirebaseLoginActivity extends AppCompatActivity {
 
     private ProgressDialog progressDialog;
     private FirebaseAuth firebaseAuth;
-
-
-
-
-
-
+  
     @Override
     protected void onCreate(Bundle savedInstanceState){
 
@@ -74,9 +75,6 @@ public class FirebaseLoginActivity extends AppCompatActivity {
             }
         });
 
-
-
-
 }
 
     private  void userLogin(){
@@ -112,12 +110,6 @@ public class FirebaseLoginActivity extends AppCompatActivity {
         });
 
     }}
-
-
-
-
-
-
 
 
 //    private void signIn(final String username, final String password) {

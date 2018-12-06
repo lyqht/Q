@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import java.sql.SQLException;
 
 public class SignupActivity  extends AppCompatActivity {
 
