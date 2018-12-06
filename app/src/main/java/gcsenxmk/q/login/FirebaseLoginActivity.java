@@ -22,6 +22,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import gcsenxmk.q.login.SegregationActivityAfterLogin;
+
 public class FirebaseLoginActivity extends AppCompatActivity {
 
     private Button btnSignUp;

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/queue_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Queue Name"
+            tools:layout_editor_absoluteX="163dp"
+            tools:layout_editor_absoluteY="45dp" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+
+        <TextView
+        android:id="@+id/waiting_time_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Estimated waiting time    "
+
+
+        tools:layout_editor_absoluteX="163dp"
+        tools:layout_editor_absoluteY="100dp" />
+
+        <TextView
+            android:id="@+id/waiting_time_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Value"
+
+
+            tools:layout_editor_absoluteX="163dp"
+            tools:layout_editor_absoluteY="100dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+
+
+        <Button
+            android:id="@+id/btnjoinq"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Join New Queue"
+            android:layout_gravity="center_horizontal"/>
+
+
+        <Button
+            android:id="@+id/btnDropQueue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Drop Queue"
+            android:layout_gravity="center_horizontal"/>
+
+
+
+    </LinearLayout>
+
+
+
+
+
+
+</LinearLayout>
