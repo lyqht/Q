@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="12dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:outlineAmbientShadowColor="@color/colorGrey"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="183dp"
+            android:adjustViewBounds="false"
+            android:src="@drawable/placeholder_caifan"></ImageView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/queueName"
+                style="@style/card_outlet_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:text="Queue Name"
+                android:textAlignment="center" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:weightSum="10"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="6dp"
+                    android:orientation="vertical"
+                    android:layout_weight="6">
+
+                    <TextView
+                        android:id="@+id/queueNumPeopleHeader2"
+                        style="@style/queueing_now"
+                        android:layout_width="168dp"
+                        android:layout_height="wrap_content"
+
+                        android:text="# of people in front of you" />
+
+                    <LinearLayout
+                        android:layout_width="168dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/minutes"
+                            style="@style/card_estimated_time"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="2dp"
+                            android:text="Est. 4 min" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="12dp"
+                    android:layout_marginTop="12dp"
+                    android:orientation="vertical"
+                    android:layout_weight="4.5">
+
+                    <Button
+                        android:id="@+id/joinQ_recycler"
+                        style="@style/recyclerJoinQ"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:layout_below="@id/queueNumPeopleLayout"
+                        android:layout_marginTop="-1dp"
+                        android:background="@drawable/primary_float_button"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="20dp"
+                        android:text="Withdraw"
+                        android:textSize="15dp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>
