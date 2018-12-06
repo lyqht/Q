@@ -37,7 +37,7 @@ public class Merc_HelpPage extends AppCompatActivity {
         View view = inflater.inflate(R.layout.merc_help_page, container, false);
 
         recyclerView = view.findViewById(R.id.merc_recyclerview);
-        MercRecyclerViewAdapter adapter = new MercRecyclerViewAdapter(mDescriptions, mImage, this);
+        gcsenxmk.q.MercRecyclerViewAdapter adapter = new gcsenxmk.q.MercRecyclerViewAdapter(mDescriptions, mImage, this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
