@@ -1,35 +1,6 @@
 <resources>
     <string name="app_name">Q</string>
 
-    <!-- Placeholder Strings PUT YOUR PLACEHOLDERS HERE DONT CRAMP THE BOTTOM-->
-    <integer-array name="placeholder_queue_waiting_time">
-        <item>4</item>
-        <item>6</item>
-        <item>5</item>
-    </integer-array>
-
-    <integer-array name="placeholder_queue_num_people">
-        <item>4</item>
-        <item>6</item>
-        <item>5</item>
-    </integer-array>
-
-    <array name="placeholder_queue_images">
-        <item>@drawable/placeholder_caifan</item>
-        <item>@drawable/placeholder_caipng</item>
-        <item>@drawable/placeholder_chickenrice</item>
-    </array>
-
-    <string-array name="placeholder_queue_names">
-        <item>Caifan</item>
-        <item>Caipng</item>
-        <item>ChickenRice</item>
-    </string-array>
-
-    <string name="stall_desc">KinMoo – Featuring the quaint and tasty street-food culture of Thailand in a minimalist yet modern cafe set-up, KinMoo is also the 1st open-concept Thai kitchen in Singapore! /n/n
-
-Be it a quick bite to fill up that tummy during lunch, a chill down bar snack downed with ice-cold beer, or a hearty chow down with family and friends for dinner, we have it all! Always sticking to the good old ways of cooking that made Thailand’s food culture legendary, yet accommodating to each and every customers’ tastes as best as we can, come and experience KinMoo’s own unique style today!</string>
-
     <!-- Strings related to toolbar -->
     <string name="account_creation">Account Creation</string>
     <string name="queue_creation">Queue Creation</string>
@@ -50,8 +21,11 @@ Be it a quick bite to fill up that tummy during lunch, a chill down bar snack do
     <string name="queue_system">Queue System</string>
     <string name="advanced_ordering">Advanced Ordering</string>
 
-    <!-- Strings related to stall desc -->
-    <string name="stall_desc_header">Description of Outlet</string>
+    <!-- Strings related to queue desc -->
+    <string name="stall_desc_header">Description of Queue</string>
+    <string name="stall_desc_info">No Description Found</string>
+    <string name="stall_location_header">Location</string>
+    <string name="stall_location">No Location Found</string>
 
     <!-- Strings related to login -->
     <string name="account_created">Account Created!</string>

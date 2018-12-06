@@ -10,130 +10,124 @@
     android:orientation="vertical">
 
     <TextView
+        android:id="@+id/queuecreatetitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:textSize="30sp"
         android:text="Create a Queue!"
-        android:layout_marginTop="10dp"
-        android:id="@+id/queuecreatetitle"
-
-        />
+        android:layout_marginTop="10dp" />
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_below="@+id/queuecreatetitle"
-            android:id="@+id/setName"
-            >
+            android:id="@+id/setName">
             <TextView
+                android:id="@+id/queuenametitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_alignParentLeft="true"
                 android:textSize="15sp"
                 android:layout_centerInParent="true"
-                android:text="Name: "
-                android:id="@+id/queuenametitle"
-
-                />
+                android:text="Name: " />
 
             <EditText
+                android:id="@+id/enterQueueName"
+                android:inputType="textPersonName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="70dp"
                 android:textSize="15sp"
-                android:id="@+id/enterQueueName"
                 android:layout_centerInParent="true"
                 android:layout_toRightOf="@+id/queuenametitle"
-                />
+                style="@style/profile_detail_toEdit"/>
 
         </RelativeLayout>
         <RelativeLayout
+            android:id="@+id/setLocation"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:layout_below="@+id/setName"
-            android:id="@+id/setLocation">
+            android:layout_below="@+id/setName">
             <TextView
+                android:id="@+id/queuelocationtitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_alignParentLeft="true"
                 android:textSize="15sp"
                 android:layout_centerInParent="true"
-                android:text="Location: "
-                android:id="@+id/queuelocationtitle"
-
-                />
+                android:text="Location: " />
 
             <EditText
+                android:id="@+id/enterLocation"
+                android:inputType="text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_centerInParent="true"
                 android:layout_marginRight="70dp"
                 android:textSize="15sp"
-                android:id="@+id/enterLocation"
-                android:layout_toRightOf="@+id/queuelocationtitle"/>
-
+                android:layout_toRightOf="@+id/queuelocationtitle"
+                style="@style/profile_detail_toEdit"/>
         </RelativeLayout>
+
     <RelativeLayout
+        android:id="@+id/setDescription"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:layout_below="@+id/setLocation"
-        android:id="@+id/setDescription">
+        android:layout_below="@+id/setLocation">
         <TextView
+            android:id="@+id/queuedesctitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_alignParentLeft="true"
             android:textSize="15sp"
             android:layout_centerInParent="true"
-            android:text="Description: "
-            android:id="@+id/queuedesctitle"
-
-            />
+            android:text="Description: " />
 
         <EditText
+            android:id="@+id/enterDesc"
+            android:inputType="textLongMessage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerInParent="true"
             android:layout_marginRight="70dp"
             android:textSize="15sp"
-            android:id="@+id/enterDesc"
-            android:inputType="textMultiLine"
-            android:layout_toRightOf="@+id/queuedesctitle"/>
+            android:layout_toRightOf="@+id/queuedesctitle"
+            style="@style/profile_detail_toEdit"/>
 
     </RelativeLayout>
         <RelativeLayout
+            android:id="@+id/setEstTime"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:layout_below="@id/setDescription"
-            android:id="@+id/setEstTime">
+            android:layout_below="@id/setDescription">
             <TextView
+                android:id="@+id/estTimeText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_alignParentLeft="true"
                 android:textSize="15sp"
                 android:layout_centerInParent="true"
-                android:text="Est. Waiting Time: "
-                android:id="@+id/estTimeText"
-                />
+                android:text="Est. Waiting Time: " />
 
             <EditText
+                android:id="@+id/editEstTimeText"
+                android:inputType="numberDecimal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_centerInParent="true"
                 android:layout_marginRight="70dp"
                 android:textSize="15sp"
-                android:inputType="numberDecimal"
                 android:layout_toRightOf="@id/estTimeText"
-                android:id="@+id/editEstTimeText"
-                />
+                style="@style/profile_detail_toEdit"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -144,65 +138,62 @@
                 android:layout_alignParentBottom="true"
                 android:paddingBottom="5dp"
                 android:layout_centerInParent="true"
-                android:text="mins"
-                />
+                android:text="mins" />
         </RelativeLayout>
+
+    <!--
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_below="@id/setEstTime"
             android:id="@+id/setQueueType">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_alignParentLeft="true"
-            android:textSize="15sp"
-            android:layout_centerInParent="true"
-            android:text="Queuing System: "
-            android:id="@+id/queuingSysText"
-            />
+            <TextView
+                android:id="@+id/queuingSysText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_alignParentLeft="true"
+                android:textSize="15sp"
+                android:layout_centerInParent="true"
+                android:text="Queuing System: " />
 
-        <Spinner
-            android:id="@+id/spinQueueSys"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignRight="@+id/queuingSysText"
-            android:textSize="15sp"
-            android:layout_marginRight="50dp"
-            android:layout_alignParentRight="true"
-            android:layout_centerInParent="true"
-            />
+            <Spinner
+                android:id="@+id/spinQueueSys"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@+id/queuingSysText"
+                android:textSize="15sp"
+                android:layout_marginRight="50dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerInParent="true" />
         </RelativeLayout>
+        -->
 
         <RelativeLayout
+            android:id="@+id/setPriority"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:layout_below="@id/setQueueType"
-            android:id="@+id/setPriority">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_alignParentLeft="true"
-            android:textSize="15sp"
-            android:layout_centerInParent="true"
-            android:text="Priority Queue: "
-            android:id="@+id/priorityText"
-            />
+            android:layout_below="@id/setEstTime">
+            <TextView
+                android:id="@+id/priorityText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_alignParentLeft="true"
+                android:textSize="15sp"
+                android:layout_centerInParent="true"
+                android:text="Priority Queue: " />
 
-        <Spinner
-            android:id="@+id/spinPriority"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:textSize="15sp"
-            android:layout_marginRight="50dp"
-            android:layout_alignParentRight="true"
-            android:layout_centerInParent="true"
-            />
-
+            <Spinner
+                android:id="@+id/spinPriority"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:layout_marginRight="50dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerInParent="true" />
         </RelativeLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -215,14 +206,14 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <ImageView
-                android:layout_width="200dp"
-                android:layout_height="100dp"
-                android:id="@+id/image_view"/>
+                android:id="@+id/image_view"
+                android:layout_width="250dp"
+                android:layout_height="125dp" />
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginLeft="24dp"
+                android:layout_marginLeft="12dp"
                 android:layout_gravity="center">
                 <Button
                     android:id="@+id/button_choose_image"
@@ -258,14 +249,14 @@
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-    <Button
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_centerHorizontal="true"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginBottom="10dp"
-        android:id="@+id/btn_createQ"
-        android:text="Create Queue!"
-        />
+        <Button
+            android:id="@+id/btn_createQ"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_centerHorizontal="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="Create Queue!"
+            style="@style/recyclerJoinQ" />
     </android.support.constraint.ConstraintLayout>
 </RelativeLayout>

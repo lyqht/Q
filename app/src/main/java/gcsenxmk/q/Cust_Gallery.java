@@ -28,35 +28,44 @@ public class Cust_Gallery extends AppCompatActivity {
 
     private void getIncomingIntent() {
         Log.d(TAG, "getIncomingIntent for Customer: checking for incoming intents.");
-        if (getIntent().hasExtra("image_url") && getIntent().hasExtra("queue_name")) {
+        if ( getIntent().getExtras() != null) {
             Log.d(TAG, "getIncomingIntent: found intent extras.");
-
             String imageUrl = getIntent().getStringExtra("image_url");
             String queueName = getIntent().getStringExtra("queue_name");
             String queueWaitingTime = getIntent().getStringExtra("queue_waiting_time");
             String queueNumPeople = String.valueOf(getIntent().getStringExtra("queue_num_people"));
+            String queueLocation = getIntent().getStringExtra("location");
+            String queueDesc = getIntent().getStringExtra("description");
 
-            setGallery(imageUrl, queueName, queueWaitingTime, queueNumPeople);
+            setGallery(imageUrl, queueName, queueWaitingTime, queueNumPeople, queueLocation, queueDesc);
         }
     }
 
     private void setGallery(String imageUrl, String queueName,
-                            String queueTime, String queueNumPeople) {
+                            String queueTime, String queueNumPeople,
+                            String queueLocation, String queueDesc) {
         Log.d(TAG, "setGallery:setting to image and name to widgets.");
 
         TextView name = findViewById(R.id.stall_desc_name);
         name.setText(queueName);
+
         TextView waitingTime = findViewById(R.id.stall_desc_waiting_time);
         waitingTime.setText(queueTime);
+
         TextView numPeople = findViewById(R.id.stall_desc_num_people);
         numPeople.setText(queueNumPeople);
-        ImageView image = findViewById(R.id.stall_image);
-        //Glide.with(this).load(Integer.valueOf(imageUrl)).into(image);
 
+        TextView description = findViewById(R.id.stall_desc);
+        description.setText(queueDesc);
+
+        TextView location = findViewById(R.id.stall_location);
+        location.setText(queueLocation);
+
+        ImageView image = findViewById(R.id.stall_image);
         Picasso.with(this)
                 .load(imageUrl)
                 .fit()
-                .centerCrop()
+                .centerInside()
                 .into(image);
     }
 }
