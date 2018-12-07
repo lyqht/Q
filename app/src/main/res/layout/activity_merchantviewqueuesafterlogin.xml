@@ -35,7 +35,7 @@
             android:id="@+id/queue_length"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
+            android:text="You have on customers right now"
             tools:layout_editor_absoluteX="163dp"
             tools:layout_editor_absoluteY="100dp" />
 
@@ -72,7 +72,87 @@
             android:layout_height="wrap_content"
             android:text="Create Queue"
             android:layout_gravity="center_horizontal"/>
+
     </LinearLayout>
+
+    <LinearLayout
+
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:id="@+id/customer1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Customer1"
+            tools:layout_editor_absoluteX="163dp"
+            tools:layout_editor_absoluteY="100dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:id="@+id/customer2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Customer2"
+            tools:layout_editor_absoluteX="163dp"
+            tools:layout_editor_absoluteY="100dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:id="@+id/customer3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Customer3"
+            tools:layout_editor_absoluteX="163dp"
+            tools:layout_editor_absoluteY="100dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:id="@+id/customer4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Customer4"
+            tools:layout_editor_absoluteX="163dp"
+            tools:layout_editor_absoluteY="100dp" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/View_all_customers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="View All Customers"
+        android:layout_gravity="center_horizontal"/>
 
 
 
