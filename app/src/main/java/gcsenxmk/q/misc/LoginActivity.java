@@ -1,4 +1,4 @@
-package gcsenxmk.q;
+package gcsenxmk.q.misc;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import gcsenxmk.q.R;
 
 public class LoginActivity extends AppCompatActivity {
 

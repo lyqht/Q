@@ -1,10 +1,14 @@
-package gcsenxmk.q;
+package gcsenxmk.q.login;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+
+import gcsenxmk.q.merchant.QueueActivity;
+import gcsenxmk.q.R;
+import gcsenxmk.q.customer.Init_Cust_Profile;
 
 public class SegregationActivity extends AppCompatActivity {
 
@@ -22,7 +26,7 @@ public class SegregationActivity extends AppCompatActivity {
         btncust.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent profile= new Intent(SegregationActivity.this, ProfileActivity.class);
+                Intent profile= new Intent(SegregationActivity.this, Init_Cust_Profile.class);
                 startActivity(profile);
 
             }

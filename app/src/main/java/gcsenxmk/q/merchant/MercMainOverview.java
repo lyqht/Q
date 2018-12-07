@@ -1,4 +1,4 @@
-package gcsenxmk.q;
+package gcsenxmk.q.merchant;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,6 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
+
+import gcsenxmk.q.R;
 
 public class MercMainOverview extends Fragment {
     private static final String TAG = "Tab2Fragment";

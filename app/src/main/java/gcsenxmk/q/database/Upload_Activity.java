@@ -1,4 +1,4 @@
-package gcsenxmk.q;
+package gcsenxmk.q.database;
 
 import android.app.ProgressDialog;
 import android.graphics.Bitmap;
@@ -26,6 +26,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+
+import gcsenxmk.q.R;
 
 public class Upload_Activity extends AppCompatActivity {
 

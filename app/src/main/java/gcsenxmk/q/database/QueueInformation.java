@@ -1,4 +1,4 @@
-package gcsenxmk.q;
+package gcsenxmk.q.database;
 import java.util.ArrayList;
 
 public class QueueInformation {

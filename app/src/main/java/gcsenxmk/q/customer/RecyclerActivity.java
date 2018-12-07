@@ -1,4 +1,4 @@
-package gcsenxmk.q;
+package gcsenxmk.q.customer;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -17,6 +17,9 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import gcsenxmk.q.R;
+import gcsenxmk.q.database.Upload;
 
 public class RecyclerActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;

@@ -1,4 +1,4 @@
-package gcsenxmk.q;
+package gcsenxmk.q.merchant;
 
 import android.content.Context;
 import android.content.Intent;
@@ -17,6 +17,7 @@ import com.bumptech.glide.Glide;
 import java.util.ArrayList;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+import gcsenxmk.q.R;
 
 public class MercRecyclerViewAdapter extends RecyclerView.Adapter<MercRecyclerViewAdapter.ViewHolder> {
 

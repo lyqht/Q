@@ -5,30 +5,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical"
-
-    >
-
-
-
+    android:orientation="vertical">
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0"
-        android:orientation="horizontal"
-
-        >
-
+        android:orientation="horizontal">
         <TextView
+            android:id="@+id/textviewemail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Text"
-            android:id="@+id/textviewemail"
             android:layout_gravity="center_horizontal"/>
-
-
-
 
     </LinearLayout>
 
@@ -36,9 +25,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0"
-        android:orientation="horizontal"
-
-        >
+        android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
@@ -50,12 +37,9 @@
             android:id="@+id/nickname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
             android:layout_weight="3"
             android:hint="Your nickname"
-
-
-            />
+            style="@style/profile_detail_toEdit"/>
 
 
     </LinearLayout>
@@ -78,12 +62,9 @@
             android:id="@+id/areastaying"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
             android:layout_weight="3"
             android:hint="Which area do you stay in"
-
-
-            />
+            style="@style/profile_detail_toEdit" />
     </LinearLayout>
 
 
