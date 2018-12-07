@@ -87,16 +87,12 @@
         <activity android:name=".TEMP_Merc_GettingStarted" />
 
         <activity android:name=".merchant.Merc_MainActivity">
-
         </activity>
         <activity android:name=".merchant.Merc_Gallery" />
         <activity
             android:name=".merchant.Merc_HelpPage"
             android:label="Help">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
         <activity
             android:name=".merchant.Merc_HelpPage_ConfigQueue"

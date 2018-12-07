@@ -16,24 +16,23 @@
         />
 
     <Button
-        android:id="@+id/deleteQueueButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/configQueueButton"
-        android:text="Deleting the Queue"
-        android:background="@color/colorWhite"
-        android:shadowColor="@color/colorBlack"
-        />
-
-    <Button
         android:id="@+id/configQueueButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/newQueueButton"
+        android:layout_marginTop="10dp"
         android:text="Configuring the Queue"
         android:background="@color/colorWhite"
         android:shadowColor="@color/colorBlack"
         />
 
+    <Button
+        android:id="@+id/deleteQueueButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Deleting the Queue"
+        android:background="@color/colorWhite"
+        android:shadowColor="@color/colorBlack"
+        />
 
 </LinearLayout>

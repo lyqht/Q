@@ -294,7 +294,6 @@ public class CustSettings extends Fragment {
 
         if (passwordUpdated) {
             Toast.makeText(getContext(), "Account settings saved.", Toast.LENGTH_SHORT).show();
-        }
         oldEmail.setText(newEmail.getText());
         oldName.setText(newName.getText());
         Picasso.with(getContext()).load(mImageUri).transform(new CircleTransform()).into(newProfilePic);
