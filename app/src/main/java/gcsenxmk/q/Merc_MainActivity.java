@@ -26,9 +26,9 @@ public class Merc_MainActivity extends AppCompatActivity {
 
         tabLayout.setupWithViewPager(mViewPager);
 
-        tabLayout.getTabAt(0).setIcon(R.drawable.icon_food);
-        tabLayout.getTabAt(1).setIcon(R.drawable.icon_food);
-        tabLayout.getTabAt(2).setIcon(R.drawable.icon_food);
+        tabLayout.getTabAt(0).setIcon(R.drawable.icon_createqueue);
+        tabLayout.getTabAt(1).setIcon(R.drawable.icon_view);
+        tabLayout.getTabAt(2).setIcon(R.drawable.setting);
     }
 
     private void setupViewPager(ViewPager viewPager) {
