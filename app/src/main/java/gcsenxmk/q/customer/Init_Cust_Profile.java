@@ -1,4 +1,4 @@
-package gcsenxmk.q;
+package gcsenxmk.q.customer;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,61 +14,45 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class ProfileActivity extends AppCompatActivity {
+import gcsenxmk.q.R;
+import gcsenxmk.q.database.UserInformation;
+import gcsenxmk.q.login.CustomerHomePageActivity;
+
+//TODO: ADD PRIORITY Tags into Database
+// Removed Logout Button
+
+public class Init_Cust_Profile extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
     private TextView textViewUserEmail;
-    private Button btnlogout1;
     private DatabaseReference databaseReference;
 
     private EditText name,area;
     private Button save;
 
-
-
-
-
-
     @Override
 
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile);
+        setContentView(R.layout.init_customer_profile);
 
         firebaseAuth=FirebaseAuth.getInstance();
-
 //        if(firebaseAuth.getCurrentUser()!= null){
 //            finish();
 //            startActivity(new Intent(getApplicationContext(), FirebaseLoginActivity.class));
 //        }
-
         databaseReference= FirebaseDatabase.getInstance().getReference("Users");
 
-        name=(EditText) findViewById(R.id.nickname);
-        area= (EditText) findViewById(R.id.areastaying);
-        save=(Button) findViewById(R.id.btnsaveinfo);
+        name= findViewById(R.id.nickname);
+        area=  findViewById(R.id.areastaying);
+        save=findViewById(R.id.btnsaveinfo);
 
         FirebaseUser user= firebaseAuth.getCurrentUser();
-        textViewUserEmail=(TextView) findViewById(R.id.textviewemail);
+        textViewUserEmail= findViewById(R.id.textviewemail);
         textViewUserEmail.setText("Welcome "+user.getEmail());
-        btnlogout1=(Button) findViewById(R.id.btnLogout);
-
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 saveUserInfo();
-
-            }
-        });
-
-
-
-        btnlogout1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                firebaseAuth.signOut();
-                finish();
-                startActivity(new Intent(getApplicationContext(),FirebaseLoginActivity.class));
 
             }
         });
@@ -80,13 +64,12 @@ public class ProfileActivity extends AppCompatActivity {
         String getname=name.getText().toString().trim();
         String getarea=area.getText().toString().trim();
 
+        // Getting User inputs and sending to firebase
         UserInformation userInformation= new UserInformation(getname,getarea);
-
-            FirebaseUser user=firebaseAuth.getCurrentUser();
-
-            databaseReference.child(user.getUid()).setValue(userInformation);
+        FirebaseUser user=firebaseAuth.getCurrentUser();
+        databaseReference.child(user.getUid()).setValue(userInformation);
         Toast.makeText(this, "Information saved in the database", Toast.LENGTH_LONG).show();
-
-
+        Intent i = new Intent(this, CustomerHomePageActivity.class);
+        startActivity(i);
     }
 }

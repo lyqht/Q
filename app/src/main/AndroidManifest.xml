@@ -5,7 +5,7 @@
     <!-- Allow internet usage -->
     <uses-permission android:name="android.permission.INTERNET" />
 
-    <!-- Intro, Login & Registration Activities -->
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -13,9 +13,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".Intro"
-            android:label="Welcome Page!" />
+
+        <!-- OBSOLETE: SQLlite Login & Registration Activities -->
+
         <activity
             android:name=".SignupActivity"
             android:label="Sign Up here"
@@ -26,65 +26,62 @@
             android:parentActivityName=".Intro">
 
         </activity>
+        <!-- Firebase: Intro, Login & Registration Activities -->
+        <activity
+            android:name=".Intro"
+            android:label="Welcome Page!" />
 
+        <activity android:name=".login.FirebaseLoginActivity"
+            android:parentActivityName=".login.FirebaseTestActivity"
+            android:label="Login"/>
 
-        <activity android:name=".FirebaseLoginActivity"
-            android:parentActivityName=".FirebaseTestActivity"/>
-
-        <activity android:name=".ProfileActivity"
-            android:parentActivityName=".SegregationActivity"
+        <activity android:name=".customer.Init_Cust_Profile"
+            android:parentActivityName=".login.SegregationActivity"
+            android:label="Customer Details"
             />
 
-        <activity android:name=".SegregationActivity"
-            android:parentActivityName=".FirebaseTestActivity"/>
+        <activity android:name=".login.SegregationActivity"
+            android:parentActivityName=".login.FirebaseTestActivity"
+            android:label="Account Creation"/>
 
         <activity android:name=".QueueActivity"
-            android:parentActivityName=".SegregationActivity"/>
+            android:parentActivityName=".login.SegregationActivity"
+            android:label="Create new Queue!"/>
 
-
-        <activity android:name=".FirebaseTestActivity">
-
-
+        <activity android:name=".login.FirebaseTestActivity"
+            android:label="Registration">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <activity android:name=".Upload_Activity">
-
-
-        </activity>
-
-        <activity android:name=".RecyclerActivity"
-            android:parentActivityName=".login.CustomerHomePageActivity"></activity>
+        <activity android:name=".customer.RecyclerActivity"
+            android:parentActivityName=".login.CustomerHomePageActivity"
+            android:label="Search Results"></activity>
 
         <activity android:name=".login.SegregationActivityAfterLogin"
-            android:parentActivityName=".FirebaseLoginActivity">
-
+            android:parentActivityName=".login.FirebaseLoginActivity"
+            android:label="Choose what you want to do">
         </activity>
 
         <activity android:name=".login.CustomerHomePageActivity"
-            android:parentActivityName=".login.SegregationActivityAfterLogin"></activity>
-
-        <activity android:name=".login.MerchantViewQueuesActivityAfterLogin"
-            android:parentActivityName=".login.SegregationActivityAfterLogin"></activity>
+            android:parentActivityName=".login.SegregationActivityAfterLogin"
+            android:label="Customer Home Page"></activity>
 
         <!-- Cust Activities -->
         <activity
-            android:name=".Cust_Gallery"
+            android:name=".customer.Cust_Gallery"
             android:label="Stall Description" />
-        <activity android:name=".Cust_MainActivity">
+        <activity android:name=".customer.Cust_MainActivity">
         </activity>
 
 
-        <activity android:name=".Cust_HelpPage" />
+        <activity android:name=".customer.Cust_HelpPage" />
         <activity android:name=".TEMP_Cust_GettingStarted" />
 
 
         <!-- Merchant Activities -->
-
-
         <activity android:name=".TEMP_Merc_GettingStarted" />
 
         <activity android:name=".Merc_MainActivity">
@@ -107,6 +104,12 @@
         <activity android:name=".MercQueueCreated"
             android:label="Queue Created"
             />
+
+        <!-- Redundant activities -->
+        <!-- redundant upload activity -->
+        <activity android:name=".database.Upload_Activity" />
+        <activity android:name=".login.MerchantViewQueuesActivityAfterLogin"
+            android:parentActivityName=".login.SegregationActivityAfterLogin"></activity>
 
 
 

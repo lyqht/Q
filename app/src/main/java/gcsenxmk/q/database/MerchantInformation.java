@@ -1,5 +1,7 @@
-package gcsenxmk.q;
+package gcsenxmk.q.database;
 import android.graphics.Bitmap;
+
+import gcsenxmk.q.database.Upload;
 
 public class MerchantInformation {
 

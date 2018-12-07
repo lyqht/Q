@@ -1,4 +1,4 @@
-package gcsenxmk.q;
+package gcsenxmk.q.customer;
 
 import android.content.Intent;
 import android.provider.ContactsContract;
@@ -33,6 +33,10 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import gcsenxmk.q.R;
+import gcsenxmk.q.database.QueueInformation;
+import gcsenxmk.q.database.Upload;
 
 public class ImageAdapterRecycler extends RecyclerView.Adapter<ImageAdapterRecycler.ImageViewHolder>{
 

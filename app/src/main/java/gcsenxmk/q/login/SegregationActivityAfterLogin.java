@@ -7,8 +7,6 @@ import android.view.View;
 import android.widget.Button;
 
 import gcsenxmk.q.R;
-import gcsenxmk.q.login.CustomerHomePageActivity;
-import gcsenxmk.q.login.MerchantViewQueuesActivityAfterLogin;
 
 public class SegregationActivityAfterLogin extends AppCompatActivity {
 

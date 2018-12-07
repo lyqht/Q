@@ -1,4 +1,4 @@
-package gcsenxmk.q;
+package gcsenxmk.q.login;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -11,17 +11,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.firebase.client.DataSnapshot;
-import com.firebase.client.Firebase;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
+import gcsenxmk.q.R;
 import gcsenxmk.q.login.SegregationActivityAfterLogin;
 
 public class FirebaseLoginActivity extends AppCompatActivity {
@@ -46,7 +41,7 @@ public class FirebaseLoginActivity extends AppCompatActivity {
         firebaseAuth= FirebaseAuth.getInstance();
 //        if(firebaseAuth.getCurrentUser()!= null){
 //            finish();
-//            startActivity(new Intent(FirebaseLoginActivity.this, ProfileActivity.class));
+//            startActivity(new Intent(FirebaseLoginActivity.this, Init_Cust_Profile.class));
 //        }
 
 

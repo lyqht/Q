@@ -1,4 +1,4 @@
-package gcsenxmk.q;
+package gcsenxmk.q.merchant;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -15,6 +15,8 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import gcsenxmk.q.R;
 
 public class MercFragment3 extends Fragment implements AdapterView.OnItemSelectedListener {
     private static final String TAG = "Tab3Fragment - Settings";

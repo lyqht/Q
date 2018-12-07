@@ -1,4 +1,4 @@
-package gcsenxmk.q;
+package gcsenxmk.q.merchant;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -35,6 +35,11 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
+
+import gcsenxmk.q.R;
+import gcsenxmk.q.customer.RecyclerActivity;
+import gcsenxmk.q.database.QueueInformation;
+import gcsenxmk.q.database.Upload;
 
 public class QueueActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 

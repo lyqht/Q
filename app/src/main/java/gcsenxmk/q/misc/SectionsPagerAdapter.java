@@ -1,4 +1,4 @@
-package gcsenxmk.q;
+package gcsenxmk.q.misc;
 
 
 import android.support.v4.app.Fragment;

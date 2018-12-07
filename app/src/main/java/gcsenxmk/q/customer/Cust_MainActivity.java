@@ -1,9 +1,12 @@
-package gcsenxmk.q;
+package gcsenxmk.q.customer;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+
+import gcsenxmk.q.R;
+import gcsenxmk.q.misc.SectionsPagerAdapter;
 
 public class Cust_MainActivity extends AppCompatActivity {
     private static final String TAG = "Cust_MainActivity";
