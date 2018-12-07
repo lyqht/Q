@@ -17,18 +17,18 @@
         <!-- OBSOLETE: SQLlite Login & Registration Activities -->
 
         <activity
-            android:name=".SignupActivity"
+            android:name=".misc.SignupActivity"
             android:label="Sign Up here"
-            android:parentActivityName=".LoginActivity"></activity>
+            android:parentActivityName=".misc.LoginActivity"></activity>
         <activity
-            android:name=".LoginActivity"
+            android:name=".misc.LoginActivity"
             android:label="@string/app_name"
-            android:parentActivityName=".Intro">
+            android:parentActivityName=".misc.Intro">
 
         </activity>
         <!-- Firebase: Intro, Login & Registration Activities -->
         <activity
-            android:name=".Intro"
+            android:name=".misc.Intro"
             android:label="Welcome Page!" />
 
         <activity android:name=".login.FirebaseLoginActivity"
@@ -84,24 +84,24 @@
         <!-- Merchant Activities -->
         <activity android:name=".TEMP_Merc_GettingStarted" />
 
-        <activity android:name=".Merc_MainActivity">
+        <activity android:name=".merchant.Merc_MainActivity">
         </activity>
-        <activity android:name=".Merc_Gallery" />
+        <activity android:name=".merchant.Merc_Gallery" />
         <activity
-            android:name=".Merc_HelpPage"
+            android:name=".merchant.Merc_HelpPage"
             android:label="Help Page(Merchant)">
         </activity>
         <activity
-            android:name=".Merc_QueueInfo"
+            android:name=".merchant.Merc_QueueInfo"
             android:label="Queue Information" />
         <activity
-            android:name=".Merc_QueueSettingsAndEdit"
+            android:name=".merchant.Merc_QueueSettingsAndEdit"
             android:label="Queue Configuration" />
         <activity
-            android:name=".Merc_AccInfoSettings"
+            android:name=".merchant.Merc_AccInfoSettings"
             android:label="Account Settings" />
       
-        <activity android:name=".MercQueueCreated"
+        <activity android:name=".merchant.MercQueueCreated"
             android:label="Queue Created"
             />
 
