@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 import gcsenxmk.q.R;
+import gcsenxmk.q.customer.Cust_MainActivity;
 
 public class SegregationActivityAfterLogin extends AppCompatActivity {
 
@@ -24,7 +25,7 @@ public class SegregationActivityAfterLogin extends AppCompatActivity {
         btncust.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent profile= new Intent(SegregationActivityAfterLogin.this, CustomerHomePageActivity.class);
+                Intent profile= new Intent(SegregationActivityAfterLogin.this, Cust_MainActivity.class);
                 startActivity(profile);
 
             }

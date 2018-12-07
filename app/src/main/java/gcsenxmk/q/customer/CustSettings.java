@@ -13,10 +13,12 @@ import android.preference.Preference;
 import android.preference.PreferenceManager;
 import android.preference.RingtonePreference;
 import android.provider.Settings;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.SwitchCompat;
 
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,9 +29,24 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.firebase.client.Firebase;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.EmailAuthProvider;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 import gcsenxmk.q.R;
+import gcsenxmk.q.login.FirebaseLoginActivity;
+
+import static android.support.constraint.Constraints.TAG;
 
 public class CustSettings extends Fragment {
+
+    private FirebaseAuth firebaseAuth;
+    private FirebaseUser user;
+    boolean emailUpdated;
+    boolean passwordUpdated;
 
     private Button editAccountButton;
     private Button signOutButton;
@@ -52,6 +69,11 @@ public class CustSettings extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        // Get user
+
+        firebaseAuth = FirebaseAuth.getInstance();
+        user = FirebaseAuth.getInstance().getCurrentUser();
+
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.cust_settings, container, false);
         saveButton = v.findViewById(R.id.cust_profile_SaveButton);
@@ -68,13 +90,14 @@ public class CustSettings extends Fragment {
         NotificationEnabled.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) Toast.makeText(getContext(), "Notifications Enabled",Toast.LENGTH_SHORT).show();
+                if (isChecked)
+                    Toast.makeText(getContext(), "Notifications Enabled", Toast.LENGTH_SHORT).show();
             }
         });
 
         retrieveDetails();
 
-        // Setting widgets to be invisible at first, until change account button is clicked
+        // Setting widgets to be invisible at first, until edit account button is clicked
         newPassword.setVisibility(View.GONE);
         oldPassword.setVisibility(View.GONE);
         newEmail.setVisibility(View.GONE);
@@ -91,33 +114,71 @@ public class CustSettings extends Fragment {
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO: Firebase function to check if old password input by user matches database.
-                // TODO: If yes then update. Refer to updateDetails()
-                updateDetails();
+                // Firebase function to check if old password input by user matches database.
+                // If yes then update. Refer to updateDetails()
+
+
+                user.reauthenticate(EmailAuthProvider.getCredential(user.getEmail(),
+                        oldPassword.getText().toString())).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            Log.d(TAG, "User re-authenticated.");
+                            if (newPassword.getText().toString() != oldPassword.getText().toString()) {
+                                updateDetails();
+                            } else {
+                                Toast.makeText(getContext(),"New password is the same as old password?", Toast.LENGTH_SHORT).show();
+                            }
+                        } else {
+                            Toast.makeText(getContext(), "Old Password entered wrongly.", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
             }
         });
-
         //TODO: Signout Activity
         signOutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                startActivity(new Intent(getContext(), FirebaseLoginActivity.class));
             }
         });
-
 
         return v;
     }
 
-
     //TODO: Firebase Function - Retrieve Details
     //TODO: Set text to each of the fields after retrieving data.
     void retrieveDetails() {
+        oldEmail.setText(user.getEmail());
+        newEmail.setText(user.getEmail());
 
+        //Name.setText(user.getDisplayName());
     }
 
-    //TODO : add on to this function - Save and override data in Firebase and local data
     void updateDetails() {
+        user.updateEmail(newEmail.getText().toString())
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            Log.d(TAG, "User email address updated.");
+                            emailUpdated = true;
+                        }
+                    }
+                });
+
+        user.updatePassword(newPassword.getText().toString()).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()) {
+                    Log.d(TAG, "User password updated.");
+                    passwordUpdated = true;
+                }
+            }
+        });
+
+        if (emailUpdated && passwordUpdated) Toast.makeText(getContext(), "Account settings saved.", Toast.LENGTH_SHORT).show();
         oldEmail.setText(newEmail.getText());
         changeVisibility();
 
