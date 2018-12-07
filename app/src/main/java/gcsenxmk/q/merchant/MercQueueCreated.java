@@ -1,4 +1,4 @@
-package gcsenxmk.q;
+package gcsenxmk.q.merchant;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;

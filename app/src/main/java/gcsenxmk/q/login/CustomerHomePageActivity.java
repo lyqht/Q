@@ -17,9 +17,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import gcsenxmk.q.QueueInformation;
+import gcsenxmk.q.database.QueueInformation;
 import gcsenxmk.q.R;
-import gcsenxmk.q.RecyclerActivity;
+import gcsenxmk.q.customer.RecyclerActivity;
 
 public class CustomerHomePageActivity extends AppCompatActivity{
 

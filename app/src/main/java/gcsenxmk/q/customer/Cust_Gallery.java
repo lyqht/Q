@@ -1,4 +1,4 @@
-package gcsenxmk.q;
+package gcsenxmk.q.customer;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

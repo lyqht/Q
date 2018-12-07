@@ -1,4 +1,4 @@
-package gcsenxmk.q;
+package gcsenxmk.q.merchant;
 
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
+
+import gcsenxmk.q.R;
 
 //TODO - contain tutorial on how to use the app
 
@@ -37,7 +39,7 @@ public class Merc_HelpPage extends AppCompatActivity {
         View view = inflater.inflate(R.layout.merc_help_page, container, false);
 
         recyclerView = view.findViewById(R.id.merc_recyclerview);
-        gcsenxmk.q.MercRecyclerViewAdapter adapter = new gcsenxmk.q.MercRecyclerViewAdapter(mDescriptions, mImage, this);
+        MercRecyclerViewAdapter adapter = new MercRecyclerViewAdapter(mDescriptions, mImage, this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 

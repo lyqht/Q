@@ -1,4 +1,4 @@
-package gcsenxmk.q;
+package gcsenxmk.q.customer;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

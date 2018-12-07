@@ -1,8 +1,11 @@
-package gcsenxmk.q;
+package gcsenxmk.q.merchant;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import gcsenxmk.q.R;
+import gcsenxmk.q.misc.SectionsPagerAdapter;
 
 public class Merc_MainActivity extends AppCompatActivity {
 
