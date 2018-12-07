@@ -49,26 +49,27 @@ public class MercMainOverview extends Fragment {
     private void initImageBitmaps() {
         Log.d(TAG, "initImageBitmaps: preparing bitmaps.");
 
-        mImageUrls.add("https://images5.alphacoders.com/787/thumb-350-787097.png");
-        mNames.add("Kono Suba!");
+        mImageUrls.add("https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260");
+        mNames.add("Turkish Cuisine.");
 
-        mImageUrls.add("https://images5.alphacoders.com/782/thumb-350-782977.png");
-        mNames.add("Megumin");
+        mImageUrls.add("https://images.pexels.com/photos/1268558/pexels-photo-1268558.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260");
+        mNames.add("Cheers!");
 
-        mImageUrls.add("https://images6.alphacoders.com/806/thumb-350-806274.png");
-        mNames.add("Megumin & Chomusuke");
+        mImageUrls.add("https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260");
+        mNames.add("Pancakes!");
 
-        mImageUrls.add("https://images2.alphacoders.com/704/thumb-350-704380.png");
-        mNames.add("Megumin Cafe");
+        mImageUrls.add("https://images.pexels.com/photos/5938/food-salad-healthy-lunch.jpg?auto=compress&cs=tinysrgb&h=750&w=1260");
+        mNames.add("Salad.");
 
-        mImageUrls.add("https://images2.alphacoders.com/782/thumb-350-782992.png");
-        mNames.add("ArchWizard Megumin!");
+        mImageUrls.add("https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260");
+        mNames.add("Indian Cuisine");
 
-        mImageUrls.add("https://images8.alphacoders.com/782/thumb-1920-782972.png");
-        mNames.add("Chibi Wiz");
+        mImageUrls.add("https://images.pexels.com/photos/8500/food-dinner-pasta-spaghetti-8500.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500");
+        mNames.add("Spaghetti");
 
-        mImageUrls.add("https://images5.alphacoders.com/798/thumb-350-798247.png");
-        mNames.add("Iris");
+        mImageUrls.add("https://images.pexels.com/photos/132694/pexels-photo-132694.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+        mNames.add("Chocolate Cake");
+
 
 
     }
