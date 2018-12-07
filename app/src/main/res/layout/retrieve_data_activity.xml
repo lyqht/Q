@@ -5,99 +5,81 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical"
-    android:layout_gravity="center_vertical"
-    android:weightSum="9"
 
     >
 
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="3"
-        />
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:gravity="center"
-        android:layout_weight="3"
-        android:orientation="vertical">
+        android:layout_weight="0"
+        android:orientation="horizontal"
 
-        <LinearLayout
-            android:layout_width="fill_parent"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0"
-            android:orientation="horizontal">
+            android:layout_weight="1"
+            android:text="UserName"/>
 
-            <TextView
-                style="@style/login_heading"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:paddingLeft="20dp"
-                android:text="UserName" />
-
-            <EditText
-                android:id="@+id/username"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="3"
-                android:hint="Input UserName" />
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="fill_parent"
+        <EditText
+            android:id="@+id/username"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0"
-            android:orientation="horizontal"
 
-            >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:paddingLeft="20dp"
-                style="@style/login_heading"
-                android:text="Password" />
-
-            <EditText
-                android:id="@+id/password"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:layout_weight="3"
-                android:hint="Input Password"
+            android:layout_weight="3"
+            android:hint="Input UserName"
 
 
-                />
-        </LinearLayout>
+            />
 
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/btnSignup"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Sign Up" />
 
-            <Button
-                android:id="@+id/btnLogin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Login" />
-
-        </LinearLayout>
     </LinearLayout>
 
-    <Space
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="3"/>
+        android:layout_weight="0"
+        android:orientation="horizontal"
+
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Password" />
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_weight="3"
+            android:hint="Input Password"
+
+
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnSignup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sign Up" />
+
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Login" />
+
+    </LinearLayout>
 </LinearLayout>
