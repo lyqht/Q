@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="12dp"
-    tools:context=".CustSettings">
+    tools:context=".customer.CustSettings">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -81,7 +81,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Default Email"
+                android:ellipsize="start"
+                android:gravity="center"
                 android:layout_marginBottom="12dp"
+                android:inputType="textEmailAddress"
                 style="@style/profile_detail_toEdit" />
             <TextView
                 android:id="@+id/cust_profile_password_header"
@@ -100,6 +103,9 @@
                 android:id="@+id/cust_profile_password_userOld"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:ellipsize="start"
+                android:gravity="center"
+                android:inputType="textPassword"
                 android:hint="Old Password"
                 android:layout_marginBottom="6dp"
                 style="@style/profile_detail_toEdit"/>
@@ -107,7 +113,10 @@
                 android:id="@+id/cust_profile_password_userNew"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Old Password"
+                android:hint="New Password"
+                android:ellipsize="start"
+                android:gravity="center"
+                android:inputType="textPassword"
                 style="@style/profile_detail_toEdit"/>
             <Button
                 android:id="@+id/cust_profile_editAccountButton"

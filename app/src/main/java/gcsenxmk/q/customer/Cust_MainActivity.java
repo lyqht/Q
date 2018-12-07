@@ -37,6 +37,7 @@ public class Cust_MainActivity extends AppCompatActivity {
         SectionsPagerAdapter adapter = new SectionsPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new CustSettings());
         adapter.addFragment(new CustExplore());
+        adapter.addFragment(new CustCurrentQueues());
         viewPager.setAdapter(adapter);
     }
 }

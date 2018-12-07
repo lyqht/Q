@@ -130,8 +130,6 @@ public class CustomerHomePageActivity extends AppCompatActivity{
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         if(dataSnapshot.child("merchantID").exists()){
-
-
                             String merchant_id=dataSnapshot.child("merchantID").getValue().toString();
                             customerDatabaseRef.child(user.getUid()).child("merchantID").removeValue();
                             //System.out.println("id"+merchant_id);

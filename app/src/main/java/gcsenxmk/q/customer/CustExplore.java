@@ -1,6 +1,7 @@
 package gcsenxmk.q.customer;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -11,6 +12,7 @@ import android.util.Log;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.SearchView;
@@ -26,6 +28,7 @@ public class CustExplore extends Fragment {
     ImageButton imageButtonLimitedT;
     ImageButton imageButtonExtra;
     ImageButton imageButtonRetail;
+    Button SearchQueryButton;
     SearchView mSearch;
     EditText mysearchView;
     private static final String TAG = "CustExplore";
@@ -44,6 +47,14 @@ public class CustExplore extends Fragment {
         imageButtonExtra = view.findViewById(R.id.buttonExtraCategory);
         mSearch =view.findViewById(R.id.cme_editTxt_SearchBar);
         mSearch.setIconified(false);
+
+        SearchQueryButton = view.findViewById(R.id.BtnSearchResult);
+        SearchQueryButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), RecyclerActivity.class));
+            }
+        });
 
         /*mysearchView.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
