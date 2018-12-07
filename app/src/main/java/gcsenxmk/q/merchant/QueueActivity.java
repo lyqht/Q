@@ -104,6 +104,7 @@ public class QueueActivity extends AppCompatActivity implements AdapterView.OnIt
         createqueue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // TODO - add condition when texts is empty
                 uploadFile();
                 Intent intent = new Intent(QueueActivity.this, MercQueueCreated.class);
                 startActivity(intent);
