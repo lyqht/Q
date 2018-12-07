@@ -37,7 +37,32 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/newQueue"
                 android:textSize="20sp"
-                android:text="Check current queue"/>
+                android:text="1) Tap the create queue button."/>
+
+            <TextView
+                android:id="@+id/newQueue2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/newQueue1"
+                android:textSize="20sp"
+                android:text="2) Fill the queue's info and set the settings"/>
+
+            <TextView
+                android:id="@+id/newQueue3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/newQueue2"
+                android:textSize="20sp"
+                android:text="3) Tap the CREATE QUEUE! to create queue"/>
+
+            <TextView
+                android:id="@+id/newQueue4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/newQueue3"
+                android:textSize="20sp"
+                android:text="4) Done!!"/>
+
 
         <TextView
             android:id="@+id/currentQueue"
