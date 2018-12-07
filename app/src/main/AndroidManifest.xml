@@ -44,7 +44,7 @@
             android:parentActivityName=".login.FirebaseTestActivity"
             android:label="Account Creation"/>
 
-        <activity android:name=".QueueActivity"
+        <activity android:name=".merchant.QueueActivity"
             android:parentActivityName=".login.SegregationActivity"
             android:label="Create new Queue!"/>
 
