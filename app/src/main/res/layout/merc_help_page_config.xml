@@ -4,7 +4,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/helpPageCreated">
+    android:id="@+id/helpPageConfig">
     <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
@@ -14,14 +14,28 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-
             <TextView
                 android:id="@+id/newQueue1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:textSize="20sp"
-                android:text="1) Tap the create queue button."/>
+                android:text="1) Configure your setting to your desire."/>
+
+            <ImageView
+                android:id="@+id/newQueueView1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/setting" />
+
+            <TextView
+                android:id="@+id/configQueue2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textSize="20sp"
+                android:text="2) Tap the Save Setting to save your change(s)."/>
 
             <ImageView
                 android:id="@+id/newQueueView2"
@@ -31,49 +45,12 @@
                 android:src="@drawable/setting" />
 
             <TextView
-                android:id="@+id/newQueue2"
+                android:id="@+id/configQueue3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:textSize="20sp"
-                android:text="2) Fill the queue's info and set the settings"/>
-
-            <ImageView
-                android:id="@+id/newQueueView3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:src="@drawable/setting" />
-
-            <TextView
-                android:id="@+id/newQueue3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:textSize="20sp"
-                android:text="3) Tap the CREATE QUEUE! to create queue"/>
-
-            <ImageView
-                android:id="@+id/newQueueView4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:src="@drawable/setting" />
-
-            <TextView
-                android:id="@+id/newQueue4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:textSize="20sp"
-                android:text="4) Done!!"/>
-
-            <ImageView
-                android:id="@+id/newQueueView1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:src="@drawable/setting" />
+                android:text="3) Done!!"/>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
