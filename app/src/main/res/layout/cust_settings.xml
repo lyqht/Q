@@ -18,22 +18,42 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:layout_gravity="top">
-              
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/cust_profile_image"
+
+                <ImageView
+                    android:id="@+id/cust_profile_image_old"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_gravity="center"
+                    style="@style/Widget.Design.FloatingActionButton"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/search_icon"/>
+                    android:src="@drawable/search_icon"
+                    android:layout_marginBottom="12dp"/>
+
+                <ImageButton
+                    android:id="@+id/cust_profile_image_new"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    style="@style/Widget.Design.FloatingActionButton"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/search_icon"
+                    android:layout_marginBottom="12dp"/>
                 <TextView
-                    android:id="@+id/cust_profile_name"
+                    android:id="@+id/cust_profile_nameOld"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Customer Name"
                     android:fontFamily="@font/quicksand_bold"
                     android:layout_gravity="center"
                     android:textColor="@color/colorSecondaryDark" />
+                <EditText
+                    android:id="@+id/cust_profile_nameNew"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:ellipsize="start"
+                    android:gravity="center"
+                    style="@style/profile_detail_toEdit"/>
 
                 <LinearLayout
                     android:id="@+id/cust_profile_id_layout"
@@ -129,7 +149,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="11dp"
-                android:text="Save" />
+                android:text="Save"
+                style="@style/floatJoinQ"/>
+            <Button
+                android:id="@+id/cust_profile_CancelButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="11dp"
+                android:text="Cancel" />
 
         </LinearLayout>
     </LinearLayout>
