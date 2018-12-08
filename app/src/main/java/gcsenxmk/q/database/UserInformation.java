@@ -3,14 +3,15 @@ package gcsenxmk.q.database;
 public class UserInformation {
 
     public String name;
-    public String area;
+    public String imageURL;
+
 
     public  UserInformation(){
 
     }
 
-    public UserInformation(String name, String area) {
+    public UserInformation(String name, String imageURL) {
         this.name = name;
-        this.area = area;
+        this.imageURL = imageURL;
     }
 }

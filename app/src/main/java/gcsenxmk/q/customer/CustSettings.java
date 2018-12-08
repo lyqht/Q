@@ -41,6 +41,8 @@ import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
@@ -49,6 +51,7 @@ import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
 import gcsenxmk.q.R;
+import gcsenxmk.q.database.UserInformation;
 import gcsenxmk.q.login.FirebaseLoginActivity;
 import gcsenxmk.q.merchant.QueueActivity;
 import gcsenxmk.q.misc.CircleTransform;
@@ -62,6 +65,7 @@ public class CustSettings extends Fragment {
     private FirebaseUser user;
     private StorageReference mStorageRef;
     private StorageTask mUploadTask;
+    private DatabaseReference databaseReference;
 
     boolean passwordUpdated;
 
@@ -103,6 +107,7 @@ public class CustSettings extends Fragment {
         firebaseAuth = FirebaseAuth.getInstance();
         user = FirebaseAuth.getInstance().getCurrentUser();
         mStorageRef = FirebaseStorage.getInstance().getReference("Customers");
+        databaseReference= FirebaseDatabase.getInstance().getReference("Users");
 
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.cust_settings, container, false);
@@ -291,6 +296,9 @@ public class CustSettings extends Fragment {
                     });
         }
 
+        UserInformation userInformation = new UserInformation(newName.getText().toString(), imageURL);
+        databaseReference.child(user.getUid()).setValue(userInformation);
+
 
         if (passwordUpdated) {
             Toast.makeText(getContext(), "Account settings saved.", Toast.LENGTH_SHORT).show();
@@ -298,6 +306,7 @@ public class CustSettings extends Fragment {
         oldEmail.setText(newEmail.getText());
         oldName.setText(newName.getText());
         Picasso.with(getContext()).load(mImageUri).transform(new CircleTransform()).into(newProfilePic);
+        Picasso.with(getContext()).load(mImageUri).transform(new CircleTransform()).into(oldProfilePic);
         changeVisibility();
 
     }
