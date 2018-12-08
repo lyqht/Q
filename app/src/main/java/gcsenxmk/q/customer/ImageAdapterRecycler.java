@@ -50,6 +50,10 @@ public class ImageAdapterRecycler extends RecyclerView.Adapter<ImageAdapterRecyc
     private FirebaseUser user;
     private FirebaseUser merchant;
     private final String TAG = "Customer Join Queue";
+    private String priority = "false";
+    private boolean joinOnce = false;
+    protected boolean makeToast = false;
+
 
     // Temporary variables for each detail of the current upload
 
@@ -133,11 +137,23 @@ public class ImageAdapterRecycler extends RecyclerView.Adapter<ImageAdapterRecyc
             });
 
             // TODO: Set joinQButton's text to "Joined Q!" for queues that are joined even after user exits the app.
+            mDatabaseRef = FirebaseDatabase.getInstance().getReference("Users");
+            mDatabaseRef.child(user.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    priority = dataSnapshot.child("priority").getValue().toString();
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
 
             joinQButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    mDatabaseRef = FirebaseDatabase.getInstance().getReference("Users");
+                    //mDatabaseRef = FirebaseDatabase.getInstance().getReference("Users");
                     merchantDatabaseRef=FirebaseDatabase.getInstance().getReference("Merchants");
                     queueDatabaseRef= FirebaseDatabase.getInstance().getReference("Queue");
                     Log.d(TAG,"joinQ Button clicked");
@@ -153,13 +169,30 @@ public class ImageAdapterRecycler extends RecyclerView.Adapter<ImageAdapterRecyc
                                 if(queueInformation.queue.contains(user.getUid())){
                                     Log.d("Join Queue", "Already in queue.");
 
-                                }else {
-                                    queueInformation.queue.add(user.getUid());
-                                    queueDatabaseRef.child(merchantID).setValue(queueInformation);
-                                    mDatabaseRef.child(user.getUid()).child("merchantID").setValue(merchantID);
-                                    Log.d("Join Queue", "Joined Queue!");
-                                    joinQButton.setText("Joined!");
-                                    // TODO: Increase Q.size by 1
+                                }
+                                else {
+
+                                    if(joinOnce == true){
+                                        makeToast = true;
+                                    }
+
+                                    else{
+                                        if(priority.equals("true")){
+                                            queueInformation.queue.add(0,user.getUid());
+                                        }else{
+                                            queueInformation.queue.add(user.getUid());
+                                        }
+                                        queueDatabaseRef.child(merchantID).setValue(queueInformation);
+                                        joinOnce = true;
+
+
+                                        mDatabaseRef.child(user.getUid()).child("merchantID").setValue(merchantID);
+                                        Log.d("Join Queue", "Joined Queue!");
+                                        joinQButton.setText("Joined!");
+
+                                        // TODO: Increase Q.size by 1
+                                    }
+
                                 }
 
                             }
@@ -182,10 +215,6 @@ public class ImageAdapterRecycler extends RecyclerView.Adapter<ImageAdapterRecyc
 
         }
     }}
-
-
-
-
 
 
 

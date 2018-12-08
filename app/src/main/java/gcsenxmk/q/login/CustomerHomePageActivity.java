@@ -143,6 +143,8 @@ public class CustomerHomePageActivity extends AppCompatActivity{
 
                                     queueDatabaseRef.child(merchant_id).child("queue").setValue(queueInformation.queue);
 
+                                    queue_name.setText("Please join a Queue");
+                                    est_wait_time_data.setText("No Queue yet");
                                 }
 
                                 @Override
