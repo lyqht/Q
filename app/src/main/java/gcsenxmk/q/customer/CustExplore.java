@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.util.Log;
@@ -16,6 +17,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.SearchView;
+
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
 
 import gcsenxmk.q.R;
 
@@ -29,8 +33,9 @@ public class CustExplore extends Fragment {
     ImageButton imageButtonExtra;
     ImageButton imageButtonRetail;
     Button SearchQueryButton;
-    SearchView mSearch;
-    EditText mysearchView;
+    //SearchView mSearch;
+    EditText mSearch;
+
     private static final String TAG = "CustExplore";
 
     @Nullable
@@ -46,32 +51,17 @@ public class CustExplore extends Fragment {
         imageButtonLimitedT = view.findViewById(R.id.buttonLimitedT);
         imageButtonExtra = view.findViewById(R.id.buttonExtraCategory);
         mSearch =view.findViewById(R.id.cme_editTxt_SearchBar);
-        mSearch.setIconified(false);
-
+        SearchQueryButton = view.findViewById(R.id.BtnSearchResult);
         SearchQueryButton = view.findViewById(R.id.BtnSearchResult);
         SearchQueryButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getContext(), RecyclerActivity.class));
+                startActivity(new Intent(getContext(), Cust_Search_Merchant.class));
             }
         });
 
-        /*mysearchView.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-               mysearchView.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
-                        imm.showSoftInput(mysearchView, InputMethodManager.SHOW_IMPLICIT);
-                    }
-                });
-            }
-        });
-        mysearchView.requestFocus();*/
         return view;
     }
-
 
 
 
