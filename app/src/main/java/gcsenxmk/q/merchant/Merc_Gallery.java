@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 
 import gcsenxmk.q.R;
+import gcsenxmk.q.merchant.Merc_QueueDisplay;
 
 public class Merc_Gallery extends AppCompatActivity {
 

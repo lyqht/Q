@@ -9,6 +9,8 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.Toast;
 
+import gcsenxmk.q.R;
+
 public class Merc_QueueDisplay extends AppCompatActivity {
 
     @Override
