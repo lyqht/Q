@@ -112,6 +112,7 @@
             android:label="Queue Configuration" />
         <activity
             android:name=".merchant.Merc_QueueDisplay"
+            android:screenOrientation="landscape"
             />
 
         <activity android:name=".merchant.MercQueueCreated"
