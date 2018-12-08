@@ -42,7 +42,7 @@ public class Merc_MainActivity extends AppCompatActivity {
         SectionsPagerAdapter adapter = new SectionsPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new MercQueueCreation());
         adapter.addFragment(new MercMainOverview());
-        adapter.addFragment(new MercSettings());
+        adapter.addFragment(new MercFragment3());
         viewPager.setAdapter(adapter);
     }
 }
