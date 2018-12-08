@@ -36,10 +36,6 @@ public class Init_Cust_Profile extends AppCompatActivity {
         setContentView(R.layout.init_customer_profile);
 
         firebaseAuth=FirebaseAuth.getInstance();
-//        if(firebaseAuth.getCurrentUser()!= null){
-//            finish();
-//            startActivity(new Intent(getApplicationContext(), FirebaseLoginActivity.class));
-//        }
         databaseReference= FirebaseDatabase.getInstance().getReference("Users");
 
         name= findViewById(R.id.nickname);
