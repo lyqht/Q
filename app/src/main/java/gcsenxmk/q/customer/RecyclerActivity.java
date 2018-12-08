@@ -24,9 +24,7 @@ import gcsenxmk.q.database.Upload;
 public class RecyclerActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private ImageAdapterRecycler mAdapter;
-
     private ProgressBar mProgressCircle;
-
     private DatabaseReference mDatabaseRef;
     private DatabaseReference customerDatabaseRef;
     private List<Upload> mUploads;
