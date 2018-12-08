@@ -9,6 +9,25 @@
 
 
     <TextView
+        android:id="@+id/queuesize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="Queue Size:"
+        android:textColor="@color/colorWhite"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <TextView
+        android:id="@+id/queue_length"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:text="4"
+        android:textColor="@color/colorWhite"
+        app:layout_constraintStart_toEndOf="@+id/queuesize"
+        tools:layout_editor_absoluteY="285dp" />
+
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -22,13 +41,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/cust1"
 
         />
+
     <RelativeLayout
+        android:id="@+id/relativeLayout2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintRight_toRightOf="parent">
+
         <TextView
+            android:id="@+id/cust2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
@@ -36,36 +60,34 @@
             android:text="Customer 2"
             android:textColor="@color/colorWhite"
             android:textSize="20dp"
-            android:id="@+id/cust2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:id="@+id/cust3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@id/cust2"
             android:layout_marginTop="0dp"
             android:layout_marginEnd="8dp"
-            android:layout_below="@id/cust2"
             android:text="Customer 3"
             android:textColor="@color/colorWhite"
             android:textSize="20dp"
-            android:id="@+id/cust3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:id="@+id/cust4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@id/cust3"
             android:layout_marginTop="0dp"
             android:layout_marginEnd="8dp"
-            android:layout_below="@id/cust3"
             android:text="Customer 4"
             android:textColor="@color/colorWhite"
             android:textSize="20dp"
-            android:id="@+id/cust4"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
 
 
     </RelativeLayout>

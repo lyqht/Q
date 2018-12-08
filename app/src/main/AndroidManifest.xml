@@ -29,11 +29,15 @@
         <!-- Firebase: Intro, Login & Registration Activities -->
         <activity
             android:name=".misc.Intro"
-            android:label="Welcome Page!" />
+            android:label="Welcome Page!">
+
+        </activity>
 
         <activity android:name=".login.FirebaseLoginActivity"
             android:parentActivityName=".login.FirebaseTestActivity"
-            android:label="Login"/>
+            android:label="Login">
+
+        </activity>
 
         <activity android:name=".customer.Init_Cust_Profile"
             android:parentActivityName=".login.SegregationActivity"
@@ -124,7 +128,10 @@
         <!-- redundant upload activity -->
         <activity android:name=".database.Upload_Activity" />
         <activity android:name=".login.MerchantViewQueuesActivityAfterLogin"
-            android:parentActivityName=".login.SegregationActivityAfterLogin"></activity>
+            android:parentActivityName=".login.SegregationActivityAfterLogin">
+
+
+        </activity>
 
 
 
