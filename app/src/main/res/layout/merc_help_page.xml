@@ -5,80 +5,34 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/helpTitle"
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/newQueueButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Creating new Queue"
+        android:background="@color/colorWhite"
+        android:shadowColor="@color/colorBlack"
+        />
+
+    <Button
+        android:id="@+id/configQueueButton"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:layout_alignParentLeft="true"
-        android:textSize="30sp"
-        android:text="Help"/>
+        android:text="Configuring the Queue"
+        android:background="@color/colorWhite"
+        android:shadowColor="@color/colorBlack"
+        />
 
-    <ScrollView
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/deleteQueueButton"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/helpTitle"
-        android:layout_centerHorizontal="true">
+        android:layout_marginTop="10dp"
+        android:text="Deleting the Queue"
+        android:background="@color/colorWhite"
+        android:shadowColor="@color/colorBlack"
+        />
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:id="@+id/newQueue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:text="Create new Queue"/>
-
-            <TextView
-                android:id="@+id/newQueue1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:textSize="20sp"
-                android:text="1) Tap the create queue button."/>
-
-            <TextView
-                android:id="@+id/newQueue2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/newQueue1"
-                android:textSize="20sp"
-                android:text="2) Fill the queue's info and set the settings"/>
-
-            <TextView
-                android:id="@+id/newQueue3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/newQueue2"
-                android:textSize="20sp"
-                android:text="3) Tap the CREATE QUEUE! to create queue"/>
-
-            <TextView
-                android:id="@+id/newQueue4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/newQueue3"
-                android:textSize="20sp"
-                android:text="4) Done!!"/>
-
-
-            <TextView
-                android:id="@+id/currentQueue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/newQueue"
-                android:textSize="20sp"
-                android:text="Check current queue"/>
-
-            <TextView
-                android:id="@+id/deleteQueue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/currentQueue"
-                android:textSize="20sp"
-                android:text="Delete existing Queue"/>
-        </LinearLayout>
-    </ScrollView>
 </LinearLayout>

@@ -50,6 +50,11 @@
 
         <activity android:name=".login.FirebaseTestActivity"
             android:label="Registration">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
 
         </activity>
 
@@ -82,17 +87,23 @@
         <activity android:name=".TEMP_Merc_GettingStarted" />
 
         <activity android:name=".merchant.Merc_MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
         </activity>
         <activity android:name=".merchant.Merc_Gallery" />
         <activity
             android:name=".merchant.Merc_HelpPage"
-            android:label="Help Page(Merchant)">
+            android:label="Help">
+
         </activity>
+        <activity
+            android:name=".merchant.Merc_HelpPage_ConfigQueue"
+            android:label="Configuring the Queue"
+            />
+        <activity
+            android:name=".merchant.Merc_HelpPage_CreateQueue"
+            android:label="Creating the Queue"/>
+        <activity
+            android:name=".merchant.Merc_HelpPage_DeleteQueue"
+            android:label="Deleting the Queue"/>
         <activity
             android:name=".merchant.Merc_QueueInfo"
             android:label="Queue Information" />
