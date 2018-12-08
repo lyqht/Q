@@ -24,7 +24,6 @@ public class MercFragment3 extends Fragment implements AdapterView.OnItemSelecte
     private EditText editEstTimeText;
     private Button saveSettingButton, deleteAllQueueButton;
     private SharedPreferences mPreferences;
-    private ImageButton helpPageButton;
 
     @Nullable
     @Override
@@ -32,7 +31,6 @@ public class MercFragment3 extends Fragment implements AdapterView.OnItemSelecte
         View view = inflater.inflate(R.layout.merc_fragment3,container,false);
         saveSettingButton= (Button) view.findViewById(R.id.saveSetting);
         deleteAllQueueButton = (Button) view.findViewById(R.id.deleteAllQueue);
-        helpPageButton = (ImageButton) view.findViewById(R.id.helpPage);
         editEstTimeText = (EditText) view.findViewById(R.id.editEstTimeText);
         queueTypeSpinner = (Spinner) view.findViewById(R.id.spinQueueSys);
         ArrayAdapter<CharSequence> adapterQueue = ArrayAdapter.createFromResource(getContext(),
@@ -68,15 +66,6 @@ public class MercFragment3 extends Fragment implements AdapterView.OnItemSelecte
                 Toast.makeText(getActivity(),"All Queues are deleted",Toast.LENGTH_LONG).show();
             }
         });
-
-        helpPageButton.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                Intent intent = new Intent(getContext(),Merc_HelpPage.class);
-                startActivity(intent);
-            }
-        });
-
         return view;
     }
 
