@@ -296,7 +296,7 @@ public class CustSettings extends Fragment {
                     });
         }
 
-        UserInformation userInformation = new UserInformation(newName.getText().toString(), imageURL);
+        UserInformation userInformation = new UserInformation(newName.getText().toString(), imageURL, Init_Cust_Profile.priority);
         databaseReference.child(user.getUid()).setValue(userInformation);
 
 

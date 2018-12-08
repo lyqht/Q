@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -35,7 +36,7 @@ import gcsenxmk.q.login.CustomerHomePageActivity;
 import gcsenxmk.q.misc.CircleTransform;
 import gcsenxmk.q.misc.Utils;
 
-//TODO: ADD PRIORITY Tags into Database
+
 // Removed Logout Button
 
 public class Init_Cust_Profile extends AppCompatActivity {
@@ -46,6 +47,7 @@ public class Init_Cust_Profile extends AppCompatActivity {
     private StorageTask mUploadTask;
 
     private TextView textViewUserEmail;
+    private CheckBox prioritycheckbox;
     private Uri mImageUri;
     private String imageURL = "";
     private static final int PICK_IMAGE_REQUEST = 1;
@@ -54,6 +56,8 @@ public class Init_Cust_Profile extends AppCompatActivity {
     private EditText name;
     private ImageButton profilePic;
     private Button save;
+    protected static Boolean priority=false;
+
 
     @Override
 
@@ -69,10 +73,26 @@ public class Init_Cust_Profile extends AppCompatActivity {
         name= findViewById(R.id.nickname);
         profilePic = findViewById(R.id.init_profile_image);
         save=findViewById(R.id.btnsaveinfo);
+        prioritycheckbox=findViewById(R.id.priorityCheckbox);
+        //prioritycheckbox.setChecked(false);
 
         FirebaseUser user= firebaseAuth.getCurrentUser();
         textViewUserEmail= findViewById(R.id.textviewemail);
         textViewUserEmail.setText("Welcome "+user.getEmail());
+
+
+
+        prioritycheckbox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                prioritycheckbox.setChecked(true);
+                priority=true;
+            }
+        });
+
+
+
 
         profilePic.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -139,7 +159,7 @@ public class Init_Cust_Profile extends AppCompatActivity {
         }
 
 
-        UserInformation userInformation= new UserInformation(getname,imageURL);
+        UserInformation userInformation= new UserInformation(getname,imageURL,priority);
         databaseReference.child(user.getUid()).setValue(userInformation);
         Toast.makeText(this, "Information saved in the database", Toast.LENGTH_LONG).show();
         Intent i = new Intent(this, CustomerHomePageActivity.class);

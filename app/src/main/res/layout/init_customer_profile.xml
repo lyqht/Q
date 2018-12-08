@@ -60,16 +60,33 @@
 
 
     </LinearLayout>
-        <Button
-            android:id="@+id/btnsaveinfo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Save"
-            android:padding="12dp"
-            android:layout_margin="24dp"
-            android:layout_gravity="center"
-            style="@style/floatJoinQ"
-            android:background="@drawable/primary_float_button"/>
+    <CheckBox
+        android:id="@+id/priorityCheckbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Priority"
+        android:padding="12dp"
+        android:layout_margin="24dp"
+        android:layout_gravity="center"
+        style="@style/floatJoinQ"
+        android:background="@drawable/primary_float_button"/>
+
+    <Button
+        android:id="@+id/btnsaveinfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Save"
+        android:padding="12dp"
+        android:layout_margin="24dp"
+        android:layout_gravity="center"
+        style="@style/floatJoinQ"
+        android:background="@drawable/primary_float_button"/>
+
+
+
+
+
 </LinearLayout>
 
