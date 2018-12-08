@@ -2,6 +2,7 @@ package gcsenxmk.q.merchant;
 
 import android.content.Intent;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -19,26 +20,25 @@ import gcsenxmk.q.R;
 
 //TODO - contain tutorial on how to use the app
 
-public class Merc_HelpPage extends AppCompatActivity {
+public class Merc_HelpPage extends Fragment {
     private static final String TAG = "Helppage_merc";
     private Button newQueueButton, configQueueButton, deleteQueueButton;
 
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.merc_help_page,container,false);
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.merc_help_page);
         Log.i(TAG,"Executing Merc_HelpPage");
 
-        newQueueButton = (Button) findViewById(R.id.newQueueButton);
-        configQueueButton = (Button) findViewById(R.id.configQueueButton);
-        deleteQueueButton = (Button) findViewById(R.id.deleteQueueButton);
-
-        Log.d(TAG, "onCreate: Started.");
+        newQueueButton = (Button) view.findViewById(R.id.newQueueButton);
+        configQueueButton = (Button) view.findViewById(R.id.configQueueButton);
+        deleteQueueButton = (Button) view.findViewById(R.id.deleteQueueButton);
 
         newQueueButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                Intent intent = new Intent(Merc_HelpPage.this,Merc_HelpPage_CreateQueue.class);
+                Intent intent = new Intent(getContext(),Merc_HelpPage_CreateQueue.class);
                 startActivity(intent);
             }
         });
@@ -46,7 +46,7 @@ public class Merc_HelpPage extends AppCompatActivity {
         deleteQueueButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                Intent intent = new Intent(Merc_HelpPage.this,Merc_HelpPage_DeleteQueue.class);
+                Intent intent = new Intent(getContext(),Merc_HelpPage_DeleteQueue.class);
                 startActivity(intent);
             }
         });
@@ -54,10 +54,11 @@ public class Merc_HelpPage extends AppCompatActivity {
         configQueueButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                Intent intent = new Intent(Merc_HelpPage.this,Merc_HelpPage_ConfigQueue.class);
+                Intent intent = new Intent(getContext(),Merc_HelpPage_ConfigQueue.class);
                 startActivity(intent);
             }
         });
+        return view;
     }
 }
 

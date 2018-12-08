@@ -29,22 +29,19 @@
         <!-- Firebase: Intro, Login & Registration Activities -->
         <activity
             android:name=".misc.Intro"
-            android:label="Welcome Page!" />
+            android:label="Welcome Page!">
+
+        </activity>
 
         <activity android:name=".login.FirebaseLoginActivity"
             android:parentActivityName=".login.FirebaseTestActivity"
             android:label="Login">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
-
-
 
         <activity android:name=".customer.Init_Cust_Profile"
             android:parentActivityName=".login.SegregationActivity"
-            android:label="Customer Details"
+            android:label="Customer Account Registration"
             />
 
         <activity android:name=".login.SegregationActivity"
@@ -101,13 +98,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter-->
 
-        </activity>
-        <activity android:name=".merchant.Merc_Gallery" />
-        <activity
-            android:name=".merchant.Merc_HelpPage"
-            android:label="Help">
 
         </activity>
+        <activity android:name=".merchant.Merc_Gallery" />
         <activity
             android:name=".merchant.Merc_HelpPage_ConfigQueue"
             android:label="Configuring the Queue"
@@ -119,9 +112,6 @@
             android:name=".merchant.Merc_HelpPage_DeleteQueue"
             android:label="Deleting the Queue"/>
 
-        <activity
-            android:name=".merchant.Merc_QueueSettingsAndEdit"
-            android:label="Queue Configuration" />
         <activity
             android:name=".merchant.Merc_QueueDisplay"
             android:screenOrientation="landscape"
@@ -135,7 +125,10 @@
         <!-- redundant upload activity -->
         <activity android:name=".database.Upload_Activity" />
         <activity android:name=".login.MerchantViewQueuesActivityAfterLogin"
-            android:parentActivityName=".login.SegregationActivityAfterLogin"></activity>
+            android:parentActivityName=".login.SegregationActivityAfterLogin">
+
+
+        </activity>
 
 
 

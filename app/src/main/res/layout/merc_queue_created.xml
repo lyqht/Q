@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    tools:context=".MercQueueCreated">
+    tools:context=".merchant.MercQueueCreated">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -16,7 +16,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="30sp"
-        android:text="Queue Created!"
+        android:text="Queue Configured!"
         android:fontFamily="@font/fran_italic"
         android:layout_marginTop="80dp"
         android:layout_centerHorizontal="true"/>
@@ -25,7 +25,7 @@
         android:layout_height="250dp"
         android:id="@+id/queuecreatedimage"
         android:layout_marginTop="130dp"
-        android:layout_marginLeft="70dp"
+        android:layout_marginLeft="75dp"
         android:src="@drawable/queue_created"
 
         />
