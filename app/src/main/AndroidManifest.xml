@@ -97,11 +97,6 @@
         </activity>
         <activity android:name=".merchant.Merc_Gallery" />
         <activity
-            android:name=".merchant.Merc_HelpPage"
-            android:label="Help">
-
-        </activity>
-        <activity
             android:name=".merchant.Merc_HelpPage_ConfigQueue"
             android:label="Configuring the Queue"
             />
@@ -111,10 +106,6 @@
         <activity
             android:name=".merchant.Merc_HelpPage_DeleteQueue"
             android:label="Deleting the Queue"/>
-
-        <activity
-            android:name=".merchant.Merc_QueueSettingsAndEdit"
-            android:label="Queue Configuration" />
         <activity
             android:name=".merchant.Merc_QueueDisplay"
             android:screenOrientation="landscape"
