@@ -37,7 +37,7 @@
 
         <activity android:name=".customer.Init_Cust_Profile"
             android:parentActivityName=".login.SegregationActivity"
-            android:label="Customer Details"
+            android:label="Customer Account Registration"
             />
 
         <activity android:name=".login.SegregationActivity"

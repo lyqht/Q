@@ -5,93 +5,71 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:padding="12dp">
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_margin="12dp">
         <TextView
             android:id="@+id/textviewemail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Text"
-            android:layout_gravity="center_horizontal"/>
-
+            android:gravity="center"
+            style="@style/profile_detail_forDisplay"/>
     </LinearLayout>
 
+    <ImageButton
+        android:id="@+id/init_profile_image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        style="@style/Widget.Design.FloatingActionButton"
+        android:scaleType="centerCrop"
+        android:src="@drawable/icon_user"
+        android:layout_marginBottom="12dp"/>
+
     <LinearLayout
-        android:layout_width="fill_parent"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_weight="0"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:layout_margin="12dp">
 
         <TextView
+            android:id="@+id/nickname_header"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Nickname"/>
-
+            android:text="Nickname"
+            android:layout_gravity="center"
+            android:layout_marginRight="12dp"
+            style="@style/profile_detail_forDisplay" />
         <EditText
             android:id="@+id/nickname"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="3"
-            android:hint="Your nickname"
-            style="@style/profile_detail_toEdit"/>
-
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0"
-        android:orientation="horizontal"
-
-        >
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Area" />
-
-        <EditText
-            android:id="@+id/areastaying"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="3"
-            android:hint="Which area do you stay in"
+            android:ellipsize="start"
+            android:gravity="center"
+            android:inputType="textEmailAddress"
             style="@style/profile_detail_toEdit" />
+
+
     </LinearLayout>
-
-
-
-
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal">
-
         <Button
             android:id="@+id/btnsaveinfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="SAVE INFORMATION"
-            android:layout_gravity="center_horizontal"/>
-
-
-        <Button
-            android:id="@+id/btnLogout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Logout"
-            android:layout_gravity="center_horizontal"/>
-
-
-    </LinearLayout>
+            android:gravity="center"
+            android:text="Save"
+            android:padding="12dp"
+            android:layout_margin="24dp"
+            android:layout_gravity="center"
+            style="@style/floatJoinQ"
+            android:background="@drawable/primary_float_button"/>
 </LinearLayout>
 
