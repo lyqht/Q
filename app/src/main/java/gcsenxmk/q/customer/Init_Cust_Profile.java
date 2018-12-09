@@ -162,7 +162,7 @@ public class Init_Cust_Profile extends AppCompatActivity {
         UserInformation userInformation= new UserInformation(getname,imageURL,priority);
         databaseReference.child(user.getUid()).setValue(userInformation);
         Toast.makeText(this, "Information saved! Welcome to Q!", Toast.LENGTH_LONG).show();
-        Intent i = new Intent(this, CustomerHomePageActivity.class);
+        Intent i = new Intent(this, Cust_MainActivity.class);
         startActivity(i);
     }
 
