@@ -85,12 +85,11 @@
             android:label="Seach_Page"
             >
         </activity>
-        <activity android:name=".customer.Cust_HelpPage" />
-        <activity android:name=".TEMP_Cust_GettingStarted" />
+
 
 
         <!-- Merchant Activities -->
-        <activity android:name=".TEMP_Merc_GettingStarted" />
+
 
         <activity android:name=".merchant.Merc_MainActivity">
             <intent-filter>
@@ -117,8 +116,8 @@
             android:screenOrientation="landscape"
             />
 
-        <activity android:name=".merchant.MercQueueCreated"
-            android:label="Queue Created"
+        <activity android:name=".merchant.MercQueueConfigured"
+            android:label="Queue Configured!"
             />
 
         <!-- Redundant activities -->

@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import gcsenxmk.q.R;
 
-public class MercQueueConfigurated extends AppCompatActivity {
+public class MercQueueConfigured extends AppCompatActivity {
 
     TextView gobackmercmainactivity;
     ImageView queuecreated;
@@ -27,7 +27,7 @@ public class MercQueueConfigurated extends AppCompatActivity {
         gobackmercmainactivity.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                Intent intent = new Intent(MercQueueConfigurated.this, Merc_MainActivity.class);
+                Intent intent = new Intent(MercQueueConfigured.this, Merc_MainActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
                 finish();
