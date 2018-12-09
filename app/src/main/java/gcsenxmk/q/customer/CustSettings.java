@@ -90,9 +90,6 @@ public class CustSettings extends Fragment {
     private Uri mImageUri;
     private String imageURL;
 
-    private SwitchCompat NotificationEnabled;
-    private TextView NotificationEnabledText;
-
     private final String TAG = "CustSettings";
 
     public CustSettings() {
@@ -124,16 +121,6 @@ public class CustSettings extends Fragment {
         newName = v.findViewById(R.id.cust_profile_nameNew);
         oldProfilePic = v.findViewById(R.id.cust_profile_image_old);
         newProfilePic = v.findViewById(R.id.cust_profile_image_new);
-
-        NotificationEnabled = v.findViewById(R.id.cust_profile_notifications_switch);
-        NotificationEnabledText = v.findViewById(R.id.cust_profile_enable_notifications_textview);
-        NotificationEnabled.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked)
-                    Toast.makeText(getContext(), "Notifications Enabled", Toast.LENGTH_SHORT).show();
-            }
-        });
 
         retrieveDetails();
 
@@ -347,15 +334,6 @@ public class CustSettings extends Fragment {
             cancelButton.setVisibility(View.GONE);
         }
 
-
-        if (NotificationEnabled.getVisibility() == View.VISIBLE) {
-            NotificationEnabled.setVisibility(View.GONE);
-            NotificationEnabledText.setVisibility(View.GONE);
-        }
-        else {
-            NotificationEnabled.setVisibility(View.VISIBLE);
-            NotificationEnabledText.setVisibility(View.VISIBLE);
-        }
 
         if (newName.getVisibility() == View.GONE && oldName.getVisibility() == View.VISIBLE) {
             newName.setVisibility(View.VISIBLE);

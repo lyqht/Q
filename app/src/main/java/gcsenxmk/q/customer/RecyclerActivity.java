@@ -17,8 +17,10 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Queue;
 
 import gcsenxmk.q.R;
+import gcsenxmk.q.database.QueueInformation;
 import gcsenxmk.q.database.Upload;
 
 public class RecyclerActivity extends AppCompatActivity {
@@ -27,7 +29,7 @@ public class RecyclerActivity extends AppCompatActivity {
     private ProgressBar mProgressCircle;
     private DatabaseReference mDatabaseRef;
     private DatabaseReference customerDatabaseRef;
-    private List<Upload> mUploads;
+    private List<QueueInformation> mUploads;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +44,7 @@ public class RecyclerActivity extends AppCompatActivity {
 
         mUploads = new ArrayList<>();
 
-        mDatabaseRef = FirebaseDatabase.getInstance().getReference("Merchants");
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference("Queue");
         customerDatabaseRef= FirebaseDatabase.getInstance().getReference("Users");
 
         mDatabaseRef.addValueEventListener(new ValueEventListener() {
@@ -52,7 +54,7 @@ public class RecyclerActivity extends AppCompatActivity {
 //                    if(postSnapshot.getValue() instanceof String){
 //                        continue;
 //                    }
-                    Upload upload = postSnapshot.getValue(Upload.class);
+                    QueueInformation upload = postSnapshot.getValue(QueueInformation.class);
                     mUploads.add(upload);
                 }
 
