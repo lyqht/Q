@@ -65,7 +65,12 @@ public class QueueActivity extends AppCompatActivity implements AdapterView.OnIt
     private ImageView mImageView;
     private ProgressBar mProgressBar;
 
-
+    // For publishing progress
+    String getname;
+    String getdesc;
+    String getlocation;
+    int gettime;
+    String getphotoURL;
 
     @Override
 
@@ -109,13 +114,12 @@ public class QueueActivity extends AppCompatActivity implements AdapterView.OnIt
                 String timeInput = queuetime.getText().toString();
                 String locateInput = queuelocation.getText().toString();
                 String sd = queuedesc.getText().toString();
-                uploadFile();
                 if(nameInput.equals("")||timeInput.equals("")||locateInput.equals("")||sd.equals("")){
                     Log.i(TAG, "Please fill up all information");
-
                     Toast.makeText(QueueActivity.this, "Please fill up all information", Toast.LENGTH_LONG).show();
                 }
                 else{
+                    publishToDatabase();
                     Intent intent = new Intent(QueueActivity.this, MercQueueCreated.class);
                     startActivity(intent);
                     finish();
@@ -201,6 +205,25 @@ public class QueueActivity extends AppCompatActivity implements AdapterView.OnIt
         return mime.getExtensionFromMimeType(cR.getType(uri));
     }
 
+    private void publishToDatabase() {
+        getname = queuename.getText().toString().trim();
+        getdesc = queuedesc.getText().toString().trim();
+        getlocation = queuelocation.getText().toString().trim();
+        gettime = Integer.parseInt(queuetime.getText().toString().trim());
+
+        Upload upload = new Upload(getname, getphotoURL, getlocation, getdesc, gettime, 0);
+        String uploadId = databaseReference.push().getKey();
+
+        QueueInformation queueInformation = new QueueInformation(getname, getlocation, getdesc, gettime, 0);
+        databaseReference.child(user.getUid()).setValue(upload);
+        queue_databaseReference.child(user.getUid()).setValue(queueInformation);
+
+        Log.d(TAG, "Merchant info saved");
+        Toast.makeText(QueueActivity.this, "Merchant info saved in the database", Toast.LENGTH_SHORT).show();
+
+
+    }
+
     private void uploadFile() {
 
         //saveMerchantInfo();
@@ -211,10 +234,7 @@ public class QueueActivity extends AppCompatActivity implements AdapterView.OnIt
 
 
         // Variables for initializing a queue
-        String getname = queuename.getText().toString().trim();
-        String getdesc = queuedesc.getText().toString().trim();
-        String getlocation = queuelocation.getText().toString().trim();
-        int gettime = Integer.parseInt(queuetime.getText().toString().trim());
+
 
         if (mImageUri != null) {
             StorageReference fileReference = mStorageRef.child(System.currentTimeMillis()
@@ -238,18 +258,7 @@ public class QueueActivity extends AppCompatActivity implements AdapterView.OnIt
                             Task<Uri> urlTask = taskSnapshot.getStorage().getDownloadUrl();
                             while (!urlTask.isSuccessful());
                             Uri downloadUrl = urlTask.getResult();
-                            final String sdownload_url = String.valueOf(downloadUrl);
-
-                            Upload upload = new Upload(getname, sdownload_url, getlocation, getdesc, gettime, 0);
-                            String uploadId = databaseReference.push().getKey();
-
-                            QueueInformation queueInformation = new QueueInformation(getname, getlocation, getdesc, gettime, 0);
-                            databaseReference.child(user.getUid()).setValue(upload);
-                            queue_databaseReference.child(user.getUid()).setValue(queueInformation);
-
-                            Log.d(TAG, "Merchant info saved");
-                            Toast.makeText(QueueActivity.this, "Merchant info saved in the database", Toast.LENGTH_SHORT).show();
-
+                            getphotoURL = String.valueOf(downloadUrl);
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
