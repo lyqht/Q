@@ -27,10 +27,11 @@ public class MercQueueConfiguration extends Fragment {
         imageView = (ImageView) view.findViewById(R.id.queuecreationimage);
 
 
+
         btn_createQ.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getActivity(), "Fill up these information to create a Queue!",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Configure your Queue!",Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getContext(), QueueActivity.class);
                 startActivity(intent);
             }

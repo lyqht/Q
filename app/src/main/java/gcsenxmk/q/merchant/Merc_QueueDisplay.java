@@ -64,12 +64,7 @@ public class Merc_QueueDisplay extends AppCompatActivity {
         Button btnNext;
         btnNext = findViewById(R.id.nextCustomer);
 
-        btnNext.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(Merc_QueueDisplay.this, "Next Customer", Toast.LENGTH_SHORT).show();
-            }
-        });
+
 
 
 

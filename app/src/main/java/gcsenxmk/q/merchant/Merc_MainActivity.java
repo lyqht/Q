@@ -4,6 +4,9 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 import gcsenxmk.q.R;
 import gcsenxmk.q.misc.SectionsPagerAdapter;
 
@@ -15,6 +18,8 @@ public class Merc_MainActivity extends AppCompatActivity {
 
     private ViewPager mViewPager;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +29,8 @@ public class Merc_MainActivity extends AppCompatActivity {
         setContentView(R.layout.merc_outline);
 
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
+
+        mSectionsPagerAdapter.notifyDataSetChanged();
 
         mViewPager = (ViewPager) findViewById(R.id.merc_viewpager_container);
         setupViewPager(mViewPager);
@@ -38,6 +45,9 @@ public class Merc_MainActivity extends AppCompatActivity {
         //tabLayout.getTabAt(3).setIcon(R.drawable.help);
 
         mViewPager.setCurrentItem(1);
+
+
+
     }
 
     private void setupViewPager(ViewPager viewPager) {
@@ -47,4 +57,6 @@ public class Merc_MainActivity extends AppCompatActivity {
         adapter.addFragment(new Merc_HelpPage());
         viewPager.setAdapter(adapter);
     }
+
+
 }
