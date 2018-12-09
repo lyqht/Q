@@ -310,7 +310,7 @@ public class Merc_QueueDisplay extends AppCompatActivity {
 
                             }
                             else{
-                                c1.setText("NIL");
+                                c1.setText("-1-");
                             }
 
                             if(queueInformation.queue.size()>1){
@@ -341,7 +341,7 @@ public class Merc_QueueDisplay extends AppCompatActivity {
 
                             }
                             else{
-                                c2.setText("NIL");
+                                c2.setText("-2-");
                             }
 
                             if(queueInformation.queue.size()>2){
@@ -373,7 +373,7 @@ public class Merc_QueueDisplay extends AppCompatActivity {
                             }
 
                             else{
-                                c3.setText("NIL");
+                                c3.setText("-3-");
                             }
 
                             if(queueInformation.queue.size()>3){
@@ -406,7 +406,7 @@ public class Merc_QueueDisplay extends AppCompatActivity {
 
                             else{
 
-                                c4.setText("NIL");
+                                c4.setText("-4-");
                             }
 
                             //System.out.println(c1);
