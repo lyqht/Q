@@ -44,6 +44,15 @@ public class FirebaseLoginActivity extends AppCompatActivity {
 //            startActivity(new Intent(FirebaseLoginActivity.this, Init_Cust_Profile.class));
 //        }
 
+/*        ListUsersPage page = FirebaseAuth.getInstance().listUsers(null);
+        while (page != null) {
+            for (ExportedUserRecord user : page.getValues()) {
+                String uid =  user.getUid();
+                FirebaseAuth.getInstance().deleteUser(uid);
+            }
+            page = page.getNextPage();
+        }*/
+
 
 
         //users=database.getReference("Users");
