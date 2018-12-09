@@ -11,6 +11,6 @@ public class Merc_HelpPage_DeleteQueue extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.merc_help_page_delete);
+        setContentView(R.layout.merc_help_page_email);
     }
 }
