@@ -36,14 +36,14 @@ public class Merc_MainActivity extends AppCompatActivity {
         tabLayout.getTabAt(0).setIcon(R.drawable.cog);
         tabLayout.getTabAt(1).setIcon(R.drawable.queue_poles);
         tabLayout.getTabAt(2).setIcon(R.drawable.helpicon26);
-        tabLayout.getTabAt(3).setIcon(R.drawable.help);
+        //tabLayout.getTabAt(3).setIcon(R.drawable.help);
     }
 
     private void setupViewPager(ViewPager viewPager) {
         SectionsPagerAdapter adapter = new SectionsPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new MercQueueCreation());
         adapter.addFragment(new MercMainOverview());
-        adapter.addFragment(new MercFragment3());
+        //adapter.addFragment(new MercFragment3());
         adapter.addFragment(new Merc_HelpPage());
         viewPager.setAdapter(adapter);
     }
