@@ -8,7 +8,9 @@
     android:orientation="vertical"
     android:layout_height="match_parent"
     tools:context=".customer.Cust_Search_Merchant">
-
+    <android.support.constraint.ConstraintLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
     <LinearLayout
         android:id="@+id/cme_LY01"
         android:layout_width="match_parent"
@@ -31,19 +33,19 @@
              /-->
         <EditText
             android:id="@+id/testcme_editTxt_SearchBar"
-            android:layout_width="307dp"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
             android:layout_margin="5dp"
             android:background="@drawable/seach_layout"
             android:ems="10"
             android:hint="Queue ID / Store / Event Nam"
             android:inputType="textPersonName"
             android:padding="8dp"
+            android:paddingBottom="8dp"
             android:paddingLeft="8dp"
             android:paddingTop="8dp"
-            android:paddingBottom="8dp"
             android:textColor="#adadad"
             android:windowSoftInputMode="adjustNothing">
 
@@ -61,6 +63,7 @@
             app:srcCompat="@drawable/search_icon2" />
 
     </LinearLayout>
+    </android.support.constraint.ConstraintLayout>
 
     <LinearLayout
         android:id="@+id/cme_LY02"

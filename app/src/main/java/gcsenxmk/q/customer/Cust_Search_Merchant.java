@@ -3,11 +3,13 @@ package gcsenxmk.q.customer;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,13 +21,19 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import gcsenxmk.q.AppCompatPreferenceActivity;
 import gcsenxmk.q.R;
 import gcsenxmk.q.database.MerchantInformation_forSearch;
+import gcsenxmk.q.database.QueueInformation;
 
 public class Cust_Search_Merchant extends AppCompatActivity {
 
@@ -80,7 +88,7 @@ public class Cust_Search_Merchant extends AppCompatActivity {
             protected void populateViewHolder(UsersViewHolder viewHolder, MerchantInformation_forSearch model, int position) {
 
 
-                viewHolder.setDetails(getApplicationContext(), model.getName(), Integer.toString(model.getAvewaiting()), model.getImageUrl());
+                viewHolder.setDetails(getApplicationContext(), model.getName(), Integer.toString(model.getAvewaiting()), model.getImageUrl(),Integer.toString(model.getNumPeople()));
 
             }
         };
@@ -95,6 +103,17 @@ public class Cust_Search_Merchant extends AppCompatActivity {
     public static class UsersViewHolder extends RecyclerView.ViewHolder {
 
         View mView;
+        private FirebaseAuth firebaseAuth;
+        private FirebaseUser user;
+        private FirebaseUser merchant;
+        private final String TAG = "ImageAdapterRecycler";
+        private String priority = "false";
+        private boolean joinOnce = false;
+        protected boolean makeToast = false;
+
+        private DatabaseReference merchantDatabaseRef;
+        private DatabaseReference queueDatabaseRef;
+        private DatabaseReference customerDatabaseRef;
 
         public UsersViewHolder(View itemView) {
             super(itemView);
@@ -103,18 +122,75 @@ public class Cust_Search_Merchant extends AppCompatActivity {
 
         }
 
-        public void setDetails(Context ctx, String userName, String avewaiting, String userImage){
+        public void setDetails(Context ctx, String userName, String avewaiting, String userImage, String numPeople){
             TextView user_name = (TextView) mView.findViewById(R.id.queueName);
-            TextView user_status = (TextView) mView.findViewById(R.id.minutes);
+            TextView user_waitingTime = (TextView) mView.findViewById(R.id.minutes);
             ImageView user_image = (ImageView) mView.findViewById(R.id.queueImage);
-            TextView user_time= mView.findViewById(R.id.queueNumPeople);
-
-
+            TextView qNumPeople= mView.findViewById(R.id.queueNumPeople);
+            Button joinQButton = mView.findViewById(R.id.joinQ_recycler);
             user_name.setText(userName);
-            user_status.setText(avewaiting);
-
+            qNumPeople.setText(numPeople);
+            //qNumPeople.setText(queueDatabaseRef.child(userName).child();
+            user_waitingTime.setText(avewaiting);
             Glide.with(ctx).load(userImage).into(user_image);
+            firebaseAuth=FirebaseAuth.getInstance();
+            joinQButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    customerDatabaseRef = FirebaseDatabase.getInstance().getReference("Users");
+                    merchantDatabaseRef=FirebaseDatabase.getInstance().getReference("Merchants");
+                    queueDatabaseRef= FirebaseDatabase.getInstance().getReference("Queue");
+                    Log.d(TAG,"joinQ Button clicked");
+                    queueDatabaseRef.orderByChild("name").equalTo(user_name.getText().toString()).addListenerForSingleValueEvent(new ValueEventListener() {
+                        //merchantDatabaseRef.orderByChild("name").equalTo(textViewName.getText().toString()).addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            for(DataSnapshot childSnapshot: dataSnapshot.getChildren()){
+                                user = firebaseAuth.getCurrentUser();
+                                QueueInformation queueInformation = childSnapshot.getValue(QueueInformation.class);
+                                String merchantID = childSnapshot.getKey();
 
+                                if(queueInformation.queue.contains(user.getUid())){
+                                    Log.d("Join Queue", "Already in queue.");
+
+                                }
+                                else {
+                                    if(priority.equals("true")){
+                                        queueInformation.queue.add(0,user.getUid());
+                                    }else{
+                                        queueInformation.queue.add(user.getUid());
+                                    }
+                                    queueDatabaseRef.child(merchantID).setValue(queueInformation);
+                                    joinOnce = true;
+                                    customerDatabaseRef.child(user.getUid()).child("merchantID").setValue(merchantID);
+                                    qNumPeople.setText(String.valueOf(queueInformation.getNumPeople()));
+                                    Log.d(TAG, "adding customer to queue.");
+
+                                    Toast toast = Toast.makeText(v.getContext(),"Joined Queue!", Toast.LENGTH_LONG);
+                                    toast.setGravity(Gravity.CENTER, 0, 0);
+                                    toast.show();
+
+                                    Intent intent = new Intent (v.getContext(), Cust_MainActivity.class);
+                                    v.getContext().startActivity(intent);
+
+                                }
+
+                            }
+
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+                            Log.e("Database", "Error");
+
+                        }
+                    });
+
+
+                }
+
+
+            });
 
         }
 

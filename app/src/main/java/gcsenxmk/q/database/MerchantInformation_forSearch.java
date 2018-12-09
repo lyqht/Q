@@ -1,9 +1,12 @@
 package gcsenxmk.q.database;
 
+import java.util.ArrayList;
+
 public class MerchantInformation_forSearch {
 
     public String name, imageUrl,desc;
     public int avewaiting,numPeople;
+    public static ArrayList<String> queue = new ArrayList<String>();
 
     public MerchantInformation_forSearch(){
 
@@ -15,6 +18,10 @@ public class MerchantInformation_forSearch {
 
     public void setNumPeople(int numPeople) {
         this.numPeople = numPeople;
+    }
+
+    public static void setQueue(ArrayList<String> queue) {
+        MerchantInformation_forSearch.queue = queue;
     }
 
     public void setAvewaiting(int avewaiting) {
@@ -42,7 +49,11 @@ public class MerchantInformation_forSearch {
     }
 
     public int getNumPeople() {
-        return numPeople;
+        return queue.size();
+    }
+
+    public static ArrayList<String> getQueue() {
+        return queue;
     }
 
     public String getDesc() {
