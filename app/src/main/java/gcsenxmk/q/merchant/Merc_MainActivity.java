@@ -44,7 +44,6 @@ public class Merc_MainActivity extends AppCompatActivity {
         SectionsPagerAdapter adapter = new SectionsPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new MercQueueConfiguration());
         adapter.addFragment(new MercMainOverview());
-        //adapter.addFragment(new MercFragment3());
         adapter.addFragment(new Merc_HelpPage());
         viewPager.setAdapter(adapter);
     }
