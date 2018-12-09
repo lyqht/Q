@@ -8,7 +8,8 @@ public class QueueInformation {
     private String Location;
     private int Avewaiting;
 
-    public static ArrayList<String> queue = new ArrayList<String>();;
+    public static ArrayList<String> queue = new ArrayList<String>();
+
 
     public QueueInformation(){
         this.Name = "No Queue Name";
