@@ -3,18 +3,12 @@ package gcsenxmk.q.merchant;
 import android.content.Intent;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Toast;
-
-import java.util.ArrayList;
 
 import gcsenxmk.q.R;
 
@@ -38,7 +32,7 @@ public class Merc_HelpPage extends Fragment {
         operatingButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                Intent intent = new Intent(getContext(),Merc_HelpPage_CreateQueue.class);
+                Intent intent = new Intent(getContext(),Merc_HelpPage_OperateQueue.class);
                 startActivity(intent);
             }
         });
@@ -46,7 +40,7 @@ public class Merc_HelpPage extends Fragment {
         emailButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                Intent intent = new Intent(getContext(),Merc_HelpPage_DeleteQueue.class);
+                Intent intent = new Intent(getContext(),Merc_HelpPage_EmailSetting.class);
                 startActivity(intent);
             }
         });
