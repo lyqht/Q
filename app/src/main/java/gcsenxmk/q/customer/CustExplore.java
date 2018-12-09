@@ -86,7 +86,7 @@ public class CustExplore extends Fragment {
                 else {
                     startActivity(new Intent(getContext(), Cust_Search_Merchant.class));
                 }*/
-                startActivity(new Intent(getContext(), Cust_Search_Merchant.class));
+                startActivity(new Intent(getContext(), RecyclerActivity.class));
             }
 
 

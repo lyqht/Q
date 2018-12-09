@@ -91,7 +91,7 @@ public class CustomerHomePageActivity extends AppCompatActivity{
                             queueInformation = dataSnapshot.getValue(QueueInformation.class);
                             len = queueInformation.queue.size();
                             int index=queueInformation.queue.indexOf(user.getUid());
-                            int average_wait_time=queueInformation.wait_time;
+                            int average_wait_time=queueInformation.getAvewaiting();
                             int waittime = index *average_wait_time;
                             est_wait_time_data.setText(Integer.toString(waittime));
                         }
