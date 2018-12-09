@@ -103,11 +103,11 @@
             android:label="Configuring the Queue"
             />
         <activity
-            android:name=".merchant.Merc_HelpPage_CreateQueue"
-            android:label="Creating the Queue"/>
+            android:name=".merchant.Merc_HelpPage_OperateQueue"
+            android:label="Operating the Queue"/>
         <activity
-            android:name=".merchant.Merc_HelpPage_DeleteQueue"
-            android:label="Deleting the Queue"/>
+            android:name=".merchant.Merc_HelpPage_EmailSetting"
+            android:label="Changing Account Emails and Password"/>
 
         <activity
             android:name=".merchant.Merc_QueueDisplay"
