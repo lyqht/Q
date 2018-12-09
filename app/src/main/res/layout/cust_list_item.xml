@@ -74,12 +74,13 @@
                     android:orientation="horizontal"
                     android:layout_alignParentRight="true"
                     android:layout_marginBottom="12dp">
+
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
                         android:id="@+id/queueNumPeople"
                         style="@style/queueing_now"
-                         />
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

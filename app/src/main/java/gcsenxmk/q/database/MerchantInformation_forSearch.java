@@ -4,12 +4,16 @@ import java.util.ArrayList;
 
 public class MerchantInformation_forSearch {
 
-    public String name, imageUrl,desc;
+    public String name, imageUrl,desc,location;
     public int avewaiting,numPeople;
     public static ArrayList<String> queue = new ArrayList<String>();
 
     public MerchantInformation_forSearch(){
 
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
     }
 
     public void setDesc(String desc) {
@@ -50,6 +54,10 @@ public class MerchantInformation_forSearch {
 
     public int getNumPeople() {
         return queue.size();
+    }
+
+    public String getLocation() {
+        return location;
     }
 
     public static ArrayList<String> getQueue() {
