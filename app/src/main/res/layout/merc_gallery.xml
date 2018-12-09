@@ -41,14 +41,6 @@
 
         />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="5dp"
-        android:layout_weight="10"
-        android:layout_marginLeft="145dp"
-        android:layout_marginBottom="10dp"
-        android:text="Display"
-        android:id="@+id/toQueueDisplay"
-        />
+
 
 </LinearLayout>

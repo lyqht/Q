@@ -1,5 +1,6 @@
 package gcsenxmk.q.merchant;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -9,6 +10,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -20,6 +23,7 @@ public class MercMainOverview extends Fragment {
     private RecyclerView recyclerView;
     private ArrayList<String> mNames;
     private ArrayList<String> mImageUrls;
+    private Button operateQueue;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -29,7 +33,12 @@ public class MercMainOverview extends Fragment {
         mImageUrls = new ArrayList<>();
         Log.d(TAG, "onCreate: Started.");
 
+
+
         initImageBitmaps();
+
+
+
     }
 
 
@@ -42,6 +51,16 @@ public class MercMainOverview extends Fragment {
         MercRecyclerViewAdapter adapter = new MercRecyclerViewAdapter(mNames, mImageUrls, getContext());
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        operateQueue = view.findViewById(R.id.operateQueue);
+        operateQueue.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(getContext(),Merc_QueueDisplay.class);
+                startActivity(intent);
+            }
+        });
 
         return view;
     }
