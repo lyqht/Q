@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 import gcsenxmk.q.R;
 
-public class MercQueueCreation extends Fragment {
+public class MercQueueConfiguration extends Fragment {
     private static final String TAG = "Tab1Fragment";
     private ImageView imageView;
     private Button btn_createQ;
@@ -22,7 +22,7 @@ public class MercQueueCreation extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.merc_queue_creation,container,false);
+        View view = inflater.inflate(R.layout.merc_queue_configuration,container,false);
         btn_createQ = (Button) view.findViewById(R.id.btn_createQ);
         imageView = (ImageView) view.findViewById(R.id.queuecreationimage);
 
