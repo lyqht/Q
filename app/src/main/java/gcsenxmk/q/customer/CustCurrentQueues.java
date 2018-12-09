@@ -102,11 +102,10 @@ public class CustCurrentQueues extends Fragment {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                             queueInformation = dataSnapshot.getValue(QueueInformation.class);
-                            int queueSize =queueInformation.getNumPeople();
-
+                            int queueSize =queueInformation.getNumPeople() + 1;
                             int index=queueInformation.queue.indexOf(user.getUid());
                             int average_wait_time=queueInformation.getAvewaiting();
-                            int waittime = index *average_wait_time;
+                            int waittime = (index-1) *average_wait_time;
                             est_wait_time_data.setText(Integer.toString(waittime) + "mins");
                             num_people_data.setText(String.valueOf(queueSize));
                         }
@@ -152,13 +151,14 @@ public class CustCurrentQueues extends Fragment {
                             queueDatabaseRef.child(merchant_id).addListenerForSingleValueEvent(new ValueEventListener() {
                                 @Override
                                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                    int index=queueInformation.queue.indexOf(user.getUid()) + 1;
+                                    int index=queueInformation.queue.indexOf(user.getUid());
                                     queueInformation.queue.remove(index);
                                     Log.d(TAG,"Remove Customer from queue." + queueInformation.getNumPeople());
                                     queueDatabaseRef.child(merchant_id).setValue(queueInformation);
 
                                     queue_name.setText("Please join a Queue");
                                     est_wait_time_data.setText("No Queue yet");
+                                    num_people_data.setText("No Queue Yet");
                                 }
 
                                 @Override
