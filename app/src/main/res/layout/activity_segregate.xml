@@ -8,27 +8,29 @@
     android:orientation="vertical"
 
     >
-
-
-
     <LinearLayout
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal">
+        android:background="@drawable/round_button_2">
 
-        <Button
+        <imageButton
             android:id="@+id/btnCustomer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/round_button_2"
             android:text="Customer" />
 
-        <Button
-            android:id="@+id/btnMerchant"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Merchant" />
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/btnMerchant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_gravity="center"
+        android:background="@drawable/round_button_2"
+        android:text="Merchant" />
 </LinearLayout>
 
