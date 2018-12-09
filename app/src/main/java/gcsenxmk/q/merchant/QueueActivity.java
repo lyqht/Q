@@ -36,6 +36,8 @@ import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
+import java.util.Queue;
+
 import gcsenxmk.q.R;
 import gcsenxmk.q.customer.RecyclerActivity;
 import gcsenxmk.q.database.QueueInformation;
@@ -213,12 +215,11 @@ public class QueueActivity extends AppCompatActivity implements AdapterView.OnIt
 
         // TODO: Change numPeople from 0 to actual queuesize.
 
-        Upload upload = new Upload(getname, getphotoURL, getlocation, getdesc, gettime, 0);
-        String uploadId = databaseReference.push().getKey();
+        QueueInformation upload = new QueueInformation(getname, getphotoURL, getlocation, getdesc, gettime);
+        //String uploadId = databaseReference.push().getKey();
 
-        QueueInformation queueInformation = new QueueInformation(getname, getlocation, getdesc, gettime, 0);
         databaseReference.child(user.getUid()).setValue(upload);
-        queue_databaseReference.child(user.getUid()).setValue(queueInformation);
+        queue_databaseReference.child(user.getUid()).setValue(upload);
 
         Log.d(TAG, "Merchant info saved");
         Toast.makeText(QueueActivity.this, "Merchant info saved in the database", Toast.LENGTH_SHORT).show();

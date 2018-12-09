@@ -2,41 +2,40 @@ package gcsenxmk.q.database;
 import java.util.ArrayList;
 
 public class QueueInformation {
-    public String queuename;
-    public String desc;
-    public String location;
-    public int wait_time;
-    public int size;
+    private String Name;
+    private String imageUrl;
+    private String Desc;
+    private String Location;
+    private int Avewaiting;
 
     public static ArrayList<String> queue;
 
     public QueueInformation(){
-        this.queuename = "No Queue Name";
-        this.desc="No Desc";
-        this.location = "No location";
-        this.wait_time=1;
-        this.size = 0;
+        this.Name = "No Queue Name";
+        this.Desc="No Desc";
+        this.Location = "No Location";
+        this.Avewaiting=1;
         queue = new ArrayList<String>();
 
     }
 
-    public QueueInformation(String name, String location, String desc, int wait_time, int size) {
-        this.queuename = name;
-        this.desc=desc;
-        this.location=location;
-        this.wait_time=wait_time;
-        this.size = size;
+    public QueueInformation(String name, String imageUrl, String Location, String Desc, int Avewaiting) {
+        this.Name = name;
+        this.imageUrl = imageUrl;
+        this.Desc=Desc;
+        this.Location=Location;
+        this.Avewaiting=Avewaiting;
         queue = new ArrayList<String>();
     }
 
 
 
-    public String getQueuename() {
-        return queuename;
+    public String getName() {
+        return Name;
     }
 
-    public void setQueuename(String queuename) {
-        this.queuename = queuename;
+    public void setName(String Name) {
+        this.Name = Name;
     }
 
     public ArrayList<String> getQueue() {
@@ -44,32 +43,35 @@ public class QueueInformation {
     }
 
     public String getDesc() {
-        return desc;
+        return Desc;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setDesc(String Desc) {
+        this.Desc = Desc;
     }
 
-    public int getWaitingtime() {
-        return wait_time;
+    public int getAvewaiting() {
+        return Avewaiting;
     }
 
-    public void setWaitingtime(int w) {
-        this.wait_time = w;
+    public void setAvewaiting(int w) {
+        this.Avewaiting = w;
     }
 
-    public String getLocation() {return location;}
+    public String getLocation() {return Location;}
 
-    public void setLocation() {this.location = location;}
+    public void setLocation() {this.Location = Location;}
 
-    public int getSize() {return size;}
-
-    public void setSize(int numpeople) {this.size = numpeople;}
+    public int getNumPeople() {return queue.size();}
 
     public void setQueue(ArrayList<String> queue) {
         this.queue = queue;
-        setSize(queue.size());
+    }
+    public void setimageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+    public String getimageUrl() {
+        return imageUrl;
     }
 
 
