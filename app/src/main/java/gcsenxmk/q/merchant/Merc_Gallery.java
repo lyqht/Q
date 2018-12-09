@@ -47,9 +47,6 @@ public class Merc_Gallery extends AppCompatActivity {
     private void setGallery(String imageUrl, String imageName) {
         Log.d(TAG, "setGallery:setting to image and name to widgets.");
 
-
-        Button toQueueDisplay;
-        toQueueDisplay = findViewById(R.id.toQueueDisplay);
         TextView name = findViewById(R.id.merc_queue_name);
         name.setText(imageName);
 
@@ -59,13 +56,6 @@ public class Merc_Gallery extends AppCompatActivity {
                 .load(imageUrl)
                 .into(image);
 
-        toQueueDisplay.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Merc_Gallery.this,Merc_QueueDisplay.class);
-                startActivity(intent);
 
-            }
-        });
     }
 }

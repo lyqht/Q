@@ -10,27 +10,56 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="50"
+
         >
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:text="Queue Overview"
+            android:text="Queue Status"
             android:textSize="30dp"
+            android:fontFamily="@font/quicksand_bold"
             />
         <TextView
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:text="Queue Length"
+            android:text="Queue Length:"
             android:textSize="20dp"
-            android:layout_marginTop="30dp"/>
+            android:layout_marginTop="45dp"
+            android:id="@+id/text1"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ave. Waiting Time:"
+            android:textSize="20dp"
+
+            android:layout_marginTop="75dp"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Operate Queue!"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="@font/quicksand_bold"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="45dp"
+            android:id="@+id/operateQueue"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30dp"
+            android:fontFamily="@font/quicksand_bold"
+            android:text="In Queue:"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"/>
 
 
     </RelativeLayout>
 
 
     <android.support.v7.widget.RecyclerView
-        android:layout_weight="80"
+        android:layout_weight="50"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/merc_recyclerview"></android.support.v7.widget.RecyclerView>
