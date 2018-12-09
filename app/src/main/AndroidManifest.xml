@@ -36,6 +36,11 @@
         <activity android:name=".login.FirebaseLoginActivity"
             android:parentActivityName=".login.FirebaseTestActivity"
             android:label="Login">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <activity android:name=".customer.Init_Cust_Profile"
@@ -92,10 +97,7 @@
 
 
         <activity android:name=".merchant.Merc_MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
 
 
         </activity>
