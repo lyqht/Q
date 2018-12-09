@@ -21,7 +21,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:textSize="20sp"
-                android:text="1) Tap the create queue button."/>
+                android:text="1) The list of current customer and "/>
 
             <ImageView
                 android:id="@+id/newQueueView2"

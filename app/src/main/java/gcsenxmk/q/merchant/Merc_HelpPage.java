@@ -22,7 +22,7 @@ import gcsenxmk.q.R;
 
 public class Merc_HelpPage extends Fragment {
     private static final String TAG = "Helppage_merc";
-    private Button newQueueButton, configQueueButton, deleteQueueButton;
+    private Button operatingButton, configQueueButton, emailButton;
 
     @Nullable
     @Override
@@ -31,11 +31,11 @@ public class Merc_HelpPage extends Fragment {
         super.onCreate(savedInstanceState);
         Log.i(TAG,"Executing Merc_HelpPage");
 
-        newQueueButton = (Button) view.findViewById(R.id.newQueueButton);
+        operatingButton = (Button) view.findViewById(R.id.operatingButton);
         configQueueButton = (Button) view.findViewById(R.id.configQueueButton);
-        deleteQueueButton = (Button) view.findViewById(R.id.deleteQueueButton);
+        emailButton = (Button) view.findViewById(R.id.emailButton);
 
-        newQueueButton.setOnClickListener(new View.OnClickListener(){
+        operatingButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 Intent intent = new Intent(getContext(),Merc_HelpPage_CreateQueue.class);
@@ -43,7 +43,7 @@ public class Merc_HelpPage extends Fragment {
             }
         });
 
-        deleteQueueButton.setOnClickListener(new View.OnClickListener(){
+        emailButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 Intent intent = new Intent(getContext(),Merc_HelpPage_DeleteQueue.class);
