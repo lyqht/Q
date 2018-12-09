@@ -28,7 +28,7 @@ public class MerchantViewQueuesActivityAfterLogin extends AppCompatActivity{
     private  Button btnDeleteQueue;
     private  Button btnCreateQueue;
     private FirebaseUser user;
-    private TextView c1,c2,c3,c4;
+    private TextView c1,c2,c3,c4,c5,c6,c7,c8, c9,c10;
     public int len;
     QueueInformation queueInformation;
 
@@ -52,6 +52,12 @@ public class MerchantViewQueuesActivityAfterLogin extends AppCompatActivity{
         c2= (TextView) findViewById(R.id.customer2);
         c3= (TextView) findViewById(R.id.customer3);
         c4= (TextView) findViewById(R.id.customer4);
+        c5= (TextView) findViewById(R.id.customer5);
+        c6= (TextView) findViewById(R.id.customer6);
+        c7= (TextView) findViewById(R.id.customer7);
+        c8= (TextView) findViewById(R.id.customer8);
+        c9= (TextView) findViewById(R.id.customer9);
+        c10= (TextView) findViewById(R.id.customer10);
         System.out.println("11");
 
 
@@ -71,9 +77,16 @@ public class MerchantViewQueuesActivityAfterLogin extends AppCompatActivity{
                     String customer2="";
                     String customer3="";
                     String customer4="";
+                    String customer5="";
+                    String customer6="";
+                    String customer7="";
+                    String customer8="";
+                    String customer9="";
+                    String customer10="";
+
 
                     if(queueInformation.queue.size()>0){
-                     customer1= queueInformation.queue.get(0);
+                        customer1= queueInformation.queue.get(0);
 
 
                         customerDatabaseReference.child(customer1).addListenerForSingleValueEvent(new ValueEventListener() {
@@ -184,7 +197,177 @@ public class MerchantViewQueuesActivityAfterLogin extends AppCompatActivity{
 
                     }
 
-                    //System.out.println(c1);
+                    if(queueInformation.queue.size()>4){
+                        customer5= queueInformation.queue.get(4);
+
+
+                        customerDatabaseReference.child(customer5).addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                                if(dataSnapshot.child("name").exists()){
+                                    String cust_name5=dataSnapshot.child("name").getValue().toString();
+                                    c5.setText(cust_name5);
+                                    System.out.println("myname"+cust_name5);
+                                }
+                                else{
+                                    c5.setText("No name entered");
+                                }
+
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                            }
+                        });
+
+
+                    }
+
+                    if(queueInformation.queue.size()>5){
+                        customer6= queueInformation.queue.get(5);
+
+
+                        customerDatabaseReference.child(customer6).addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                                if(dataSnapshot.child("name").exists()){
+                                    String cust_name6=dataSnapshot.child("name").getValue().toString();
+                                    c6.setText(cust_name6);
+                                    System.out.println("myname"+cust_name6);
+                                }
+                                else{
+                                    c6.setText("No name entered");
+                                }
+
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                            }
+                        });
+
+
+                    }
+
+                    if(queueInformation.queue.size()>6){
+                        customer7= queueInformation.queue.get(6);
+
+
+                        customerDatabaseReference.child(customer7).addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                                if(dataSnapshot.child("name").exists()){
+                                    String cust_name7=dataSnapshot.child("name").getValue().toString();
+                                    c7.setText(cust_name7);
+                                    System.out.println("myname"+cust_name7);
+                                }
+                                else{
+                                    c7.setText("No name entered");
+                                }
+
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                            }
+                        });
+
+
+                    }
+
+                    if(queueInformation.queue.size()>7){
+                        customer8= queueInformation.queue.get(7);
+
+
+                        customerDatabaseReference.child(customer8).addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                                if(dataSnapshot.child("name").exists()){
+                                    String cust_name8=dataSnapshot.child("name").getValue().toString();
+                                    c8.setText(cust_name8);
+                                    System.out.println("myname"+cust_name8);
+                                }
+                                else{
+                                    c8.setText("No name entered");
+                                }
+
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                            }
+                        });
+
+
+                    }
+
+                    if(queueInformation.queue.size()>8){
+                        customer9= queueInformation.queue.get(8);
+
+
+                        customerDatabaseReference.child(customer9).addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                                if(dataSnapshot.child("name").exists()){
+                                    String cust_name9=dataSnapshot.child("name").getValue().toString();
+                                    c9.setText(cust_name9);
+                                    System.out.println("myname"+cust_name9);
+                                }
+                                else{
+                                    c9.setText("No name entered");
+                                }
+
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                            }
+                        });
+
+
+                    }
+
+                    if(queueInformation.queue.size()>9){
+                        customer10= queueInformation.queue.get(9);
+
+
+                        customerDatabaseReference.child(customer10).addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                                if(dataSnapshot.child("name").exists()){
+                                    String cust_name10=dataSnapshot.child("name").getValue().toString();
+                                    c10.setText(cust_name10);
+                                    System.out.println("myname"+cust_name10);
+                                }
+                                else{
+                                    c10.setText("No name entered");
+                                }
+
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                            }
+                        });
+
+
+                    }
+
+
+
+
                 }
 
             }
@@ -247,10 +430,18 @@ public class MerchantViewQueuesActivityAfterLogin extends AppCompatActivity{
                             len = queueInformation.queue.size();
                             queue_length.setText(Integer.toString(len));
 
+
+
                             String customer1="";
                             String customer2="";
                             String customer3="";
                             String customer4="";
+                            String customer5="";
+                            String customer6="";
+                            String customer7="";
+                            String customer8="";
+                            String customer9="";
+                            String customer10="";
 
                             if(queueInformation.queue.size()>0){
                                 customer1= queueInformation.queue.get(0);
@@ -379,7 +570,209 @@ public class MerchantViewQueuesActivityAfterLogin extends AppCompatActivity{
                                 c4.setText("NIL");
                             }
 
-                            //System.out.println(c1);
+                            if(queueInformation.queue.size()>4){
+                                customer5= queueInformation.queue.get(4);
+
+
+                                customerDatabaseReference.child(customer5).addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                                        if(dataSnapshot.child("name").exists()){
+                                            String cust_name5=dataSnapshot.child("name").getValue().toString();
+                                            c4.setText(cust_name5);
+                                            System.out.println("myname"+cust_name5);
+                                        }
+                                        else{
+                                            c5.setText("No name entered");
+                                        }
+
+                                    }
+
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                    }
+                                });
+
+
+                            }
+
+                            else{
+
+                                c5.setText("NIL");
+                            }
+
+                            if(queueInformation.queue.size()>5){
+                                customer6= queueInformation.queue.get(5);
+
+
+                                customerDatabaseReference.child(customer6).addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                                        if(dataSnapshot.child("name").exists()){
+                                            String cust_name6=dataSnapshot.child("name").getValue().toString();
+                                            c6.setText(cust_name6);
+                                            System.out.println("myname"+cust_name6);
+                                        }
+                                        else{
+                                            c6.setText("No name entered");
+                                        }
+
+                                    }
+
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                    }
+                                });
+
+
+                            }
+
+                            else{
+
+                                c6.setText("NIL");
+                            }
+
+                            if(queueInformation.queue.size()>6){
+                                customer7= queueInformation.queue.get(6);
+
+
+                                customerDatabaseReference.child(customer7).addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                                        if(dataSnapshot.child("name").exists()){
+                                            String cust_name7=dataSnapshot.child("name").getValue().toString();
+                                            c4.setText(cust_name7);
+                                            System.out.println("myname"+cust_name7);
+                                        }
+                                        else{
+                                            c7.setText("No name entered");
+                                        }
+
+                                    }
+
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                    }
+                                });
+
+
+                            }
+
+                            else{
+
+                                c7.setText("NIL");
+                            }
+
+                            if(queueInformation.queue.size()>7){
+                                customer8= queueInformation.queue.get(7);
+
+
+                                customerDatabaseReference.child(customer8).addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                                        if(dataSnapshot.child("name").exists()){
+                                            String cust_name8=dataSnapshot.child("name").getValue().toString();
+                                            c8.setText(cust_name8);
+                                            System.out.println("myname"+cust_name8);
+                                        }
+                                        else{
+                                            c8.setText("No name entered");
+                                        }
+
+                                    }
+
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                    }
+                                });
+
+
+                            }
+
+                            else{
+
+                                c8.setText("NIL");
+                            }
+
+                            if(queueInformation.queue.size()>8){
+                                customer9= queueInformation.queue.get(8);
+
+
+                                customerDatabaseReference.child(customer9).addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                                        if(dataSnapshot.child("name").exists()){
+                                            String cust_name9=dataSnapshot.child("name").getValue().toString();
+                                            c9.setText(cust_name9);
+                                            System.out.println("myname"+cust_name9);
+                                        }
+                                        else{
+                                            c9.setText("No name entered");
+                                        }
+
+                                    }
+
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                    }
+                                });
+
+
+                            }
+
+                            else{
+
+                                c9.setText("NIL");
+                            }
+
+                            if(queueInformation.queue.size()>9){
+                                customer10= queueInformation.queue.get(9);
+
+
+                                customerDatabaseReference.child(customer10).addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                                        if(dataSnapshot.child("name").exists()){
+                                            String cust_name10=dataSnapshot.child("name").getValue().toString();
+                                            c10.setText(cust_name10);
+                                            System.out.println("myname"+cust_name10);
+                                        }
+                                        else{
+                                            c10.setText("No name entered");
+                                        }
+
+                                    }
+
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                    }
+                                });
+
+
+                            }
+
+                            else{
+
+                                c10.setText("NIL");
+                            }
+
+
+
+
+
+
                         }
 
                     }
