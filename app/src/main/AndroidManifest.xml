@@ -81,7 +81,8 @@
         <activity
             android:name=".customer.Cust_Gallery"
             android:label="Stall Description" />
-        <activity android:name=".customer.Cust_MainActivity">
+        <activity android:name=".customer.Cust_MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
 
         </activity>
         <activity

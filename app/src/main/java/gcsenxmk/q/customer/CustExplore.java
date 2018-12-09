@@ -7,6 +7,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.util.Log;
@@ -17,6 +18,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.SearchView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -56,7 +58,15 @@ public class CustExplore extends Fragment {
         SearchQueryButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getContext(), Cust_Search_Merchant.class));
+                String searchEnquiry = mSearch.getText().toString().trim();
+                if (searchEnquiry.equals("")) {
+                    startActivity(new Intent(getContext(), RecyclerActivity.class));
+                    Log.d(TAG, "Empty input");
+                }
+
+                else {
+                    startActivity(new Intent(getContext(), Cust_Search_Merchant.class));
+                }
             }
         });
 

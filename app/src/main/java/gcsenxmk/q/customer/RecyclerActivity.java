@@ -29,10 +29,6 @@ public class RecyclerActivity extends AppCompatActivity {
     private DatabaseReference customerDatabaseRef;
     private List<Upload> mUploads;
 
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
