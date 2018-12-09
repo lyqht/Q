@@ -102,7 +102,7 @@ public class CustCurrentQueues extends Fragment {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                             queueInformation = dataSnapshot.getValue(QueueInformation.class);
-                            int queueSize =queueInformation.getNumPeople() + 1;
+                            int queueSize =queueInformation.getNumPeople();
                             int index=queueInformation.queue.indexOf(user.getUid());
                             int average_wait_time=queueInformation.getAvewaiting();
                             int waittime = (index-1) *average_wait_time;

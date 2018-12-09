@@ -83,6 +83,7 @@ public class ImageAdapterRecycler extends RecyclerView.Adapter<ImageAdapterRecyc
         holder.location = uploadCurrent.getLocation();
         holder.imageURL = uploadCurrent.getimageUrl();
         holder.numPeople = Integer.toString(uploadCurrent.getNumPeople());
+        Log.d(TAG,String.valueOf(uploadCurrent.getQueue().size()));
 
         holder.qNumPeople.setText(holder.numPeople);
         holder.qName.setText(holder.name);
@@ -190,6 +191,7 @@ public class ImageAdapterRecycler extends RecyclerView.Adapter<ImageAdapterRecyc
                                         queueInformation.queue.add(user.getUid());
                                     }
                                     queueDatabaseRef.child(merchantID).setValue(queueInformation);
+                                    merchantDatabaseRef.child(merchantID).setValue(queueInformation);
                                     joinOnce = true;
                                     customerDatabaseRef.child(user.getUid()).child("merchantID").setValue(merchantID);
                                     qNumPeople.setText(String.valueOf(queueInformation.getNumPeople()));
