@@ -8,21 +8,15 @@
     android:orientation="vertical"
 
     >
-    <LinearLayout
+
+    <Button
+        android:id="@+id/btnCustomer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/round_button_2">
+        android:layout_gravity="center"
+        android:background="@drawable/round_button_2"
+        android:text="Customer" />
 
-        <imageButton
-            android:id="@+id/btnCustomer"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:background="@drawable/round_button_2"
-            android:text="Customer" />
-
-
-    </LinearLayout>
 
     <Button
         android:id="@+id/btnMerchant"
