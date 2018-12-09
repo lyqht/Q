@@ -30,8 +30,8 @@ public class CustCurrentQueues extends Fragment {
     private FirebaseAuth firebaseAuth;
     private TextView queue_name;
     private TextView est_wait_time_data;
-    private Button btnjoinNewQ;
-    private  Button btnDropQ;
+    private TextView num_people_data;
+    private Button btnDropQ;
 
     private FirebaseUser user;
     public int len;
@@ -50,9 +50,9 @@ public class CustCurrentQueues extends Fragment {
         user = firebaseAuth.getCurrentUser();
 
         queue_name = view.findViewById(R.id.queue_name);
-        btnjoinNewQ = view.findViewById(R.id.btnjoinq);
         btnDropQ = view.findViewById(R.id.btnDropQueue);
         est_wait_time_data= view.findViewById(R.id.waiting_time_data);
+        num_people_data = view.findViewById(R.id.num_people_data);
 
         merchantDatabaseRef=FirebaseDatabase.getInstance().getReference("Merchants");
         customerDatabaseRef=FirebaseDatabase.getInstance().getReference("Users");
@@ -87,11 +87,14 @@ public class CustCurrentQueues extends Fragment {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                             queueInformation = dataSnapshot.getValue(QueueInformation.class);
+                            int queueSize =queueInformation.getSize();
+
                             len = queueInformation.queue.size();
                             int index=queueInformation.queue.indexOf(user.getUid());
                             int average_wait_time=queueInformation.wait_time;
                             int waittime = index *average_wait_time;
-                            est_wait_time_data.setText(Integer.toString(waittime));
+                            est_wait_time_data.setText(Integer.toString(waittime) + "mins");
+                            num_people_data.setText(String.valueOf(len));
                         }
 
                         @Override
@@ -151,6 +154,9 @@ public class CustCurrentQueues extends Fragment {
                                 }
                             });
 
+                        }
+                        else {
+                            Toast.makeText(getContext(),"You are not in a queue!", Toast.LENGTH_SHORT);
                         }
                     }
 

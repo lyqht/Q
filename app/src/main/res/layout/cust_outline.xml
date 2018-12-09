@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Cust_MainActivity"
+    tools:context=".customer.Cust_MainActivity"
     android:background="@color/colorWhite">
 
     <RelativeLayout
@@ -21,15 +21,6 @@
 
         </android.support.v4.view.ViewPager>
 
-
-
-
-
-
-
-
-
-
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -39,21 +30,15 @@
             <android.support.design.widget.AppBarLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                >
-
-
+                android:layout_gravity="bottom">
 
                     <android.support.design.widget.TabLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/cust_tabs"
-                        android:background="@drawable/white_grey_border_top"
-                        >
+                        android:background="@drawable/white_grey_border_top">
 
                     </android.support.design.widget.TabLayout>
-
-
 
             </android.support.design.widget.AppBarLayout>
 

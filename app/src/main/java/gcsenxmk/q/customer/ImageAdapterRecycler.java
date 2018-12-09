@@ -140,7 +140,6 @@ public class ImageAdapterRecycler extends RecyclerView.Adapter<ImageAdapterRecyc
                 }
             });
 
-            // TODO: Set joinQButton's text to "Joined Q!" for queues that are joined even after user exits the app.
             mDatabaseRef = FirebaseDatabase.getInstance().getReference("Users");
             mDatabaseRef.child(user.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
@@ -209,14 +208,14 @@ public class ImageAdapterRecycler extends RecyclerView.Adapter<ImageAdapterRecyc
                                         queueDatabaseRef.child(merchantID).setValue(queueInformation);
                                         joinOnce = true;
                                         mDatabaseRef.child(user.getUid()).child("merchantID").setValue(merchantID);
-                                        Log.d("Join Queue", "Joined Queue!");
-                                        joinQButton.setText("Joined!");
+                                        qNumPeople.setText(String.valueOf(queueInformation.queue.size()));
+
                                         Toast toast = Toast.makeText(v.getContext(),"Joined Queue!", Toast.LENGTH_LONG);
                                         toast.setGravity(Gravity.CENTER, 0, 0);
                                         toast.show();
+
                                         Intent intent = new Intent (v.getContext(), Cust_MainActivity.class);
                                         v.getContext().startActivity(intent);
-                                        // TODO: Increase Q.size by 1
                                     }
 
                                 }

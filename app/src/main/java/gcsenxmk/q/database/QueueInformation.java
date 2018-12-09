@@ -69,6 +69,7 @@ public class QueueInformation {
 
     public void setQueue(ArrayList<String> queue) {
         this.queue = queue;
+        setSize(queue.size());
     }
 
 
