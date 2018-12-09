@@ -10,6 +10,7 @@ public class QueueInformation {
 
     public static ArrayList<String> queue = new ArrayList<String>();
 
+
     public QueueInformation(){
         this.Name = "No Queue Name";
         this.Desc="No Desc";
@@ -24,7 +25,6 @@ public class QueueInformation {
         this.Desc=Desc;
         this.Location=Location;
         this.Avewaiting=Avewaiting;
-
     }
 
 
@@ -35,10 +35,6 @@ public class QueueInformation {
 
     public void setName(String Name) {
         this.Name = Name;
-    }
-
-    public ArrayList<String> getQueue() {
-        return queue;
     }
 
     public String getDesc() {
@@ -62,6 +58,8 @@ public class QueueInformation {
     public void setLocation() {this.Location = Location;}
 
     public int getNumPeople() {return queue.size();}
+
+    public ArrayList<String> getQueue() {return queue;}
 
     public void setQueue(ArrayList<String> queue) {
         this.queue = queue;

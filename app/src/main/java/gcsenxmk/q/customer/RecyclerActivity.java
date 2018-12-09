@@ -44,7 +44,7 @@ public class RecyclerActivity extends AppCompatActivity {
 
         mUploads = new ArrayList<>();
 
-        mDatabaseRef = FirebaseDatabase.getInstance().getReference("Merchants");
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference("Queue");
         customerDatabaseRef= FirebaseDatabase.getInstance().getReference("Users");
 
         mDatabaseRef.addValueEventListener(new ValueEventListener() {
