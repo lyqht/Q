@@ -55,6 +55,25 @@ public class CustExplore extends Fragment {
         mSearch =view.findViewById(R.id.cme_editTxt_SearchBar);
         SearchQueryButton = view.findViewById(R.id.BtnSearchResult);
         SearchQueryButton = view.findViewById(R.id.BtnSearchResult);
+
+
+        imageButtonFnB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                /*if (searchEnquiry.equals("")) {
+                    startActivity(new Intent(getContext(), RecyclerActivity.class));
+                    Log.d(TAG, "Empty input");
+                }
+
+                else {
+                    startActivity(new Intent(getContext(), Cust_Search_Merchant.class));
+                }*/
+                startActivity(new Intent(getContext(), RecyclerActivity.class));
+            }
+
+
+        });
         SearchQueryButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,6 +88,8 @@ public class CustExplore extends Fragment {
                 }*/
                 startActivity(new Intent(getContext(), Cust_Search_Merchant.class));
             }
+
+
         });
 
         return view;
