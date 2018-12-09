@@ -63,7 +63,7 @@
             app:srcCompat="@drawable/search_icon2" />
 
     </LinearLayout>
-    </android.support.constraint.ConstraintLayout>>
+    </android.support.constraint.ConstraintLayout>
 
     <LinearLayout
         android:id="@+id/cme_LY02"
