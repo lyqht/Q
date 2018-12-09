@@ -16,24 +16,41 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:text="Queue Status"
+            android:text="Queue Status:"
             android:textSize="30dp"
             android:fontFamily="@font/quicksand_bold"
             />
         <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="Queue Length:"
             android:textSize="20dp"
-            android:layout_marginTop="55dp"
+            android:layout_marginTop="60dp"
             android:id="@+id/text1"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:text="-"
+            android:textSize="20dp"
+            android:id="@+id/queue_length"
+            android:layout_marginLeft="250dp"/>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Ave. Waiting Time:"
             android:textSize="20dp"
 
-            android:layout_marginTop="90dp"/>
+            android:layout_marginTop="95dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="95dp"
+            android:text="-"
+            android:textSize="20dp"
+            android:id="@+id/AveWaitingTime"
+            android:layout_marginLeft="250dp"/>
 
         <Button
             android:layout_width="wrap_content"

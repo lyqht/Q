@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -24,6 +25,8 @@ public class MercMainOverview extends Fragment {
     private ArrayList<String> mNames;
     private ArrayList<String> mImageUrls;
     private Button operateQueue;
+
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -51,6 +54,12 @@ public class MercMainOverview extends Fragment {
         MercRecyclerViewAdapter adapter = new MercRecyclerViewAdapter(mNames, mImageUrls, getContext());
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
+
+        TextView aveWaitingTime, queue_length;
+        aveWaitingTime = view.findViewById(R.id.AveWaitingTime);
+        queue_length = view.findViewById(R.id.queue_length);
+
 
         operateQueue = view.findViewById(R.id.operateQueue);
         operateQueue.setOnClickListener(new View.OnClickListener() {
