@@ -1,60 +1,59 @@
 package gcsenxmk.q.database;
 
 public class MerchantInformation_forSearch {
-    public String queuename;
-    public String queuedescripton;
-    public String queueimage;
-    public int waiting_time;
-    int NumberofCust;
-    public  MerchantInformation_forSearch(){
+
+    public String name, imageUrl,desc;
+    public int avewaiting,numPeople;
+
+    public MerchantInformation_forSearch(){
 
     }
 
-    public MerchantInformation_forSearch(String name, String desc, int waiting_time, String queueimage,int NumberofCust) {
-        this.queuename = name;
-        this.queuedescripton = desc;
-        this.waiting_time=waiting_time;
-        this.queueimage=queueimage;
-        this.NumberofCust=NumberofCust;
+    public void setDesc(String desc) {
+        this.desc = desc;
     }
 
-    public void setNumberofCust(int numberofCust) {
-        NumberofCust = numberofCust;
+    public void setNumPeople(int numPeople) {
+        this.numPeople = numPeople;
     }
 
-    public void setWaiting_time(int waiting_time) {
-        this.waiting_time = waiting_time;
+    public void setAvewaiting(int avewaiting) {
+        this.avewaiting = avewaiting;
     }
 
-    public void setQueuename(String queuename) {
-        this.queuename = queuename;
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
-    public void setQueuedescripton(String queuedescripton) {
-        this.queuedescripton = queuedescripton;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void setQueueimage(String queueimage) {
-        this.queueimage = queueimage;
+    public int getAvewaiting() {
+        return avewaiting;
     }
 
-    public int getNumberofCust() {
-        return NumberofCust;
+    public String getImageUrl() {
+        return imageUrl;
     }
 
-    public String getQueuename() {
-        return queuename;
+    public String getName() {
+        return name;
     }
 
-    public String getQueuedescripton() {
-        return queuedescripton;
+    public int getNumPeople() {
+        return numPeople;
     }
 
-    public int getWaiting_time() {
-        return waiting_time;
+    public String getDesc() {
+        return desc;
     }
 
-    public String getQueueimage() {
-        return queueimage;
+    public MerchantInformation_forSearch(String name, String imageUrl, int avewaiting, int numPeople, String desc) {
+        this.name = name;
+        this.avewaiting=avewaiting;
+        this.imageUrl=imageUrl;
+        this.desc=desc;
+        this.numPeople=numPeople;
     }
 }
