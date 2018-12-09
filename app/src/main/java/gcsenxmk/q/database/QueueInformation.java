@@ -8,14 +8,13 @@ public class QueueInformation {
     private String Location;
     private int Avewaiting;
 
-    public static ArrayList<String> queue;
+    public static ArrayList<String> queue = new ArrayList<String>();
 
     public QueueInformation(){
         this.Name = "No Queue Name";
         this.Desc="No Desc";
         this.Location = "No Location";
         this.Avewaiting=1;
-        queue = new ArrayList<String>();
 
     }
 
@@ -25,7 +24,7 @@ public class QueueInformation {
         this.Desc=Desc;
         this.Location=Location;
         this.Avewaiting=Avewaiting;
-        queue = new ArrayList<String>();
+
     }
 
 
