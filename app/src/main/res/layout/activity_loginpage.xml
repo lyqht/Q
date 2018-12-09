@@ -74,19 +74,6 @@
         </LinearLayout>
 
 
-
-
-    <Button
-        android:id="@+id/btntoSignup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_gravity="center"
-        android:textColor="@color/colorWhite"
-        android:background="@drawable/round_button"
-        android:text="Sign Up" />
-
-
     <Button
         android:id="@+id/btntoSignin"
         android:layout_width="wrap_content"
@@ -96,6 +83,17 @@
         android:textColor="@color/colorWhite"
         android:background="@drawable/round_button"
         android:text="Login" />
+
+    <TextView
+        android:id="@+id/linktoSignup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="250dp"
+        android:clickable="true"
+        android:onClick="setContentView"
+        android:text="First time using Q? Click here to signup!!"/>
+
 
 
 </LinearLayout>

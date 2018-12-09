@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -21,10 +22,10 @@ import gcsenxmk.q.login.SegregationActivityAfterLogin;
 
 public class FirebaseLoginActivity extends AppCompatActivity {
 
-    private Button btnSignUp;
     private  Button btnSignIn;
     private EditText useremail;
     private EditText pass;
+    private TextView signUp;
 
     private ProgressDialog progressDialog;
     private FirebaseAuth firebaseAuth;
@@ -58,10 +59,9 @@ public class FirebaseLoginActivity extends AppCompatActivity {
         //users=database.getReference("Users");
         useremail= (EditText) findViewById(R.id.emaillogin);
         pass=(EditText) findViewById(R.id.passwordlogin);
-        btnSignUp= (Button) findViewById(R.id.btntoSignup);
         btnSignIn= (Button) findViewById(R.id.btntoSignin);
         progressDialog=new ProgressDialog(this);
-
+        signUp = (TextView) findViewById(R.id.linktoSignup);
 
 
         btnSignIn.setOnClickListener(new View.OnClickListener() {
@@ -73,7 +73,7 @@ public class FirebaseLoginActivity extends AppCompatActivity {
 
             }
         });
-        btnSignUp.setOnClickListener(new View.OnClickListener() {
+        signUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();

@@ -69,7 +69,7 @@
         android:id="@+id/btnSignup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="30dp"
         android:layout_gravity="center"
         android:textColor="@color/colorWhite"
         android:background="@drawable/round_button"
@@ -84,6 +84,6 @@
         android:layout_gravity="center"
         android:textColor="@color/colorWhite"
         android:background="@drawable/round_button"
-        android:text="Login" />
+        android:text="Back to Login" />
 </LinearLayout>
 
