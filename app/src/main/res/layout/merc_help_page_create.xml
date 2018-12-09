@@ -21,7 +21,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:textSize="20sp"
-                android:text="1) The list of current customer and next 3 customers will be shown here."/>
+                android:text="1) The list of current customer and "/>
 
             <ImageView
                 android:id="@+id/newQueueView2"
@@ -36,7 +36,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:textSize="20sp"
-                android:text="2) Queue size will be shown here."/>
+                android:text="2) Fill the queue's info and set the settings"/>
 
             <ImageView
                 android:id="@+id/newQueueView3"
@@ -51,7 +51,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:textSize="20sp"
-                android:text="3) Tap 'Next Customer' button to remove the current queue and replace with next tin line."/>
+                android:text="3) Tap the CREATE QUEUE! to create queue"/>
 
             <ImageView
                 android:id="@+id/newQueueView4"

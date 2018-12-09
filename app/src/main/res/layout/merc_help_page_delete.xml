@@ -20,40 +20,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:textSize="20sp"
-                android:text="1) Change to new Email."/>
+                android:text="1) Tap delete button to delete all the existing queue."/>
 
             <ImageView
                 android:id="@+id/newQueueView1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:src="@drawable/setting" />
-
-            <TextView
-            android:id="@+id/newQueue2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:textSize="20sp"
-            android:text="2) Insert new password and confirm your old one."/>
-
-            <ImageView
-                android:id="@+id/newQueueView2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:src="@drawable/setting" />
-
-            <TextView
-                android:id="@+id/newQueue3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:textSize="20sp"
-                android:text="3) Tap 'SAVE' to confirm your setting or 'CANCEL' to leave the page without changing."/>
-
-            <ImageView
-                android:id="@+id/newQueueView3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -65,7 +35,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:textSize="20sp"
-                android:text="4) Done!!"/>
+                android:text="2) Done!!"/>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

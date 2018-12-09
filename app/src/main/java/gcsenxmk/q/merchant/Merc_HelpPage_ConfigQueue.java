@@ -11,6 +11,6 @@ public class Merc_HelpPage_ConfigQueue extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.merc_help_page_operate);
+        setContentView(R.layout.merc_help_page_config);
     }
 }
