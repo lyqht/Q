@@ -126,7 +126,7 @@ public class Cust_Search_Merchant extends AppCompatActivity {
 
         public void setDetails(Context ctx, String userName, String avewaiting, String userImage, String numPeople, String desc, String location){
             TextView user_name = (TextView) mView.findViewById(R.id.queueName);
-            TextView user_waitingTime = (TextView) mView.findViewById(R.id.minutes);
+            TextView user_waitingTime = (TextView) mView.findViewById(R.id.queueWaitTime);
             ImageView user_image = (ImageView) mView.findViewById(R.id.queueImage);
             TextView qNumPeople= mView.findViewById(R.id.queueNumPeople);
             TextView description= mView.findViewById(R.id.stall_desc);
@@ -140,6 +140,21 @@ public class Cust_Search_Merchant extends AppCompatActivity {
             user_waitingTime.setText(avewaiting);
             Glide.with(ctx).load(userImage).into(user_image);
             firebaseAuth=FirebaseAuth.getInstance();
+            user_image.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Log.d(TAG, "Card's image Button Clicked.");
+                    Intent i = new Intent(v.getContext(),Cust_Gallery.class);
+                    i.putExtra("image_url", userImage);
+                    i.putExtra("location", location);
+                    i.putExtra("queue_name", userName);
+                    i.putExtra("queue_waiting_time", avewaiting);
+                    i.putExtra("queue_num_people", numPeople);
+                    i.putExtra("description", desc);
+                    v.getContext().startActivity(i);
+                }
+            });
+
             joinQButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -147,20 +162,6 @@ public class Cust_Search_Merchant extends AppCompatActivity {
                     merchantDatabaseRef=FirebaseDatabase.getInstance().getReference("Merchants");
                     queueDatabaseRef= FirebaseDatabase.getInstance().getReference("Queue");
                     Log.d(TAG,"joinQ Button clicked");
-                    user_image.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            Log.d(TAG, "Card's image Button Clicked.");
-                            Intent i = new Intent(v.getContext(),Cust_Gallery.class);
-                            i.putExtra("image_url", userImage);
-                            i.putExtra("location", location);
-                            i.putExtra("queue_name", userName);
-                            i.putExtra("queue_waiting_time", avewaiting);
-                            i.putExtra("queue_num_people", numPeople);
-                            i.putExtra("description", desc);
-                            v.getContext().startActivity(i);
-                        }
-                    });
 
                     queueDatabaseRef.orderByChild("name").equalTo(user_name.getText().toString()).addListenerForSingleValueEvent(new ValueEventListener() {
                         //merchantDatabaseRef.orderByChild("name").equalTo(textViewName.getText().toString()).addListenerForSingleValueEvent(new ValueEventListener() {
