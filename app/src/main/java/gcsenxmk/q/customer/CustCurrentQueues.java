@@ -56,7 +56,6 @@ public class CustCurrentQueues extends Fragment {
 
         merchantDatabaseRef=FirebaseDatabase.getInstance().getReference("Merchants");
         customerDatabaseRef=FirebaseDatabase.getInstance().getReference("Users");
-
         queueDatabaseRef = FirebaseDatabase.getInstance().getReference("Queue");
 
         System.out.println("hola");

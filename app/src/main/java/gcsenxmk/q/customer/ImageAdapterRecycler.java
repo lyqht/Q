@@ -2,6 +2,7 @@ package gcsenxmk.q.customer;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -149,6 +150,24 @@ public class ImageAdapterRecycler extends RecyclerView.Adapter<ImageAdapterRecyc
                     }
                 }
 
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+
+            customerDatabaseRef=FirebaseDatabase.getInstance().getReference("Users");
+            customerDatabaseRef.child(user.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.hasChild("merchantID")) {
+                        joinQButton.setClickable(false);
+                        joinQButton.setBackgroundResource(R.drawable.already_join_button);
+                    }
+                    else {
+                        joinQButton.setClickable(true);
+                    }
+                }
                 @Override
                 public void onCancelled(@NonNull DatabaseError databaseError) {
 
