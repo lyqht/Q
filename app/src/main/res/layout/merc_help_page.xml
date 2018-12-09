@@ -6,11 +6,11 @@
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/newQueueButton"
+        android:id="@+id/operatingButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="Creating new Queue"
+        android:text="Operating Queue"
         android:background="@color/colorWhite"
         android:shadowColor="@color/colorBlack"
         />
@@ -26,11 +26,11 @@
         />
 
     <Button
-        android:id="@+id/deleteQueueButton"
+        android:id="@+id/emailButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="Deleting the Queue"
+        android:text="Changing Account Email and Password"
         android:background="@color/colorWhite"
         android:shadowColor="@color/colorBlack"
         />
