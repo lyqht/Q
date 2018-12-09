@@ -15,6 +15,8 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -29,6 +31,7 @@ import android.widget.ProgressBar;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
@@ -210,6 +213,8 @@ public class QueueActivity extends AppCompatActivity implements AdapterView.OnIt
         getdesc = queuedesc.getText().toString().trim();
         getlocation = queuelocation.getText().toString().trim();
         gettime = Integer.parseInt(queuetime.getText().toString().trim());
+
+        // TODO: Change numPeople from 0 to actual queuesize.
 
         Upload upload = new Upload(getname, getphotoURL, getlocation, getdesc, gettime, 0);
         String uploadId = databaseReference.push().getKey();
