@@ -1,5 +1,6 @@
 package gcsenxmk.q.customer;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -45,13 +46,14 @@ public class Init_Cust_Profile extends AppCompatActivity {
     private StorageReference mStorageRef;
     private DatabaseReference databaseReference;
     private StorageTask mUploadTask;
+    private Context mContext;
 
     private TextView textViewUserEmail;
     private CheckBox prioritycheckbox;
     private Uri mImageUri;
     private String imageURL = "";
     private static final int PICK_IMAGE_REQUEST = 1;
-    private static final String TAG = "Cust_Profile_Init";
+    private static final String TAG = "CustProfileInit";
 
     private EditText name;
     private ImageButton profilePic;
@@ -64,9 +66,10 @@ public class Init_Cust_Profile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.init_customer_profile);
+        mContext = this;
 
         firebaseAuth=FirebaseAuth.getInstance();
-        user = FirebaseAuth.getInstance().getCurrentUser();
+        user= firebaseAuth.getCurrentUser();
         mStorageRef = FirebaseStorage.getInstance().getReference("Customers");
         databaseReference= FirebaseDatabase.getInstance().getReference("Users");
 
@@ -74,13 +77,8 @@ public class Init_Cust_Profile extends AppCompatActivity {
         profilePic = findViewById(R.id.init_profile_image);
         save=findViewById(R.id.btnsaveinfo);
         prioritycheckbox=findViewById(R.id.priorityCheckbox);
-        //prioritycheckbox.setChecked(false);
-
-        FirebaseUser user= firebaseAuth.getCurrentUser();
         textViewUserEmail= findViewById(R.id.textviewemail);
         textViewUserEmail.setText("Welcome "+user.getEmail());
-
-
 
         prioritycheckbox.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,9 +88,6 @@ public class Init_Cust_Profile extends AppCompatActivity {
                 priority=true;
             }
         });
-
-
-
 
         profilePic.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -114,8 +109,9 @@ public class Init_Cust_Profile extends AppCompatActivity {
 
         String getname=name.getText().toString().trim();
         if (mImageUri != null && mImageUri!= user.getPhotoUrl()) {
+            Log.d(TAG, "Processing mImageURI into storage.");
             StorageReference fileReference = mStorageRef.child(System.currentTimeMillis()
-                    + "." + Utils.getFileExtension(mImageUri, this));
+                    + "." + Utils.getFileExtension(mImageUri, mContext));
 
             mUploadTask = fileReference.putFile(mImageUri)
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -179,7 +175,7 @@ public class Init_Cust_Profile extends AppCompatActivity {
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK
                 && data != null && data.getData() != null) {
             mImageUri = data.getData();
-            Picasso.with(this).load(mImageUri).transform(new CircleTransform()).into(profilePic);
+            Picasso.with(mContext).load(mImageUri).transform(new CircleTransform()).into(profilePic);
         }
     }
 }
