@@ -164,9 +164,8 @@ public class CustSettings extends Fragment {
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String empty_string = "";
-                if (newPassword.getText().toString() == empty_string || oldPassword.getText().toString() == empty_string ||
-                        newName.getText().toString() == empty_string || newEmail.getText().toString() == empty_string) {
+                if (TextUtils.isEmpty(newPassword.getText()) || TextUtils.isEmpty(oldPassword.getText()) ||
+                        TextUtils.isEmpty(newName.getText()) || TextUtils.isEmpty(newEmail.getText())) {
                     Toast.makeText(getContext(), "All fields are necessary!", Toast.LENGTH_SHORT).show();
                 } else {
                     verifyUserDetails();

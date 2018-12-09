@@ -15,10 +15,12 @@
         android:layout_height="match_parent"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
         android:orientation="horizontal"
         android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:paddingTop="10dp">
+        android:paddingTop="10dp"
+        android:paddingRight="20dp">
 
         <ImageView
             android:id="@+id/imageView2"
@@ -42,23 +44,29 @@
              /-->
         <EditText
             android:id="@+id/cme_editTxt_SearchBar"
-            android:layout_width="307dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
             android:layout_alignParentTop="true"
-            android:layout_marginEnd="23dp"
-            android:layout_marginTop="14dp"
+            android:layout_alignParentEnd="true"
             android:background="@drawable/seach_layout"
             android:ems="10"
-            android:hint="Queue ID / Store / Event Nam"
+            android:hint="Queue Name"
             android:inputType="textPersonName"
-            android:paddingBottom="8dp"
-            android:paddingLeft="8dp"
-            android:paddingTop="8dp"
+            android:padding="8dp"
+            android:layout_marginRight="12dp"
             android:textColor="#adadad"
             android:windowSoftInputMode="adjustNothing">
 
         </EditText>
+
+        <Button
+            android:id="@+id/BtnSearchResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="&#62;"
+            android:padding="8dp"
+            style="@style/floatJoinQ"
+            android:background="@drawable/primary_float_button"/>
 
     </LinearLayout>
     <!--EditText
@@ -81,12 +89,7 @@
         <requestFocus/>
     </EditText-->
 
-    <Space
-        android:id="@+id/cme_space1"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_alignParentStart="true"
-        />
+
 
     <LinearLayout
         android:id="@+id/cme_LY02"
@@ -96,24 +99,12 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="49dp"
         android:orientation="vertical">
-        <!-- remove btnSearchResult later once Gong Chen understands how to make
-        SearchView work, just testing to find all queues without filter -->
-        <Button
-            android:id="@+id/BtnSearchResult"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="&#62;"/>
-
-        <TextView
-            android:id="@+id/cme_TextV_Explore"
+        <Space
+            android:id="@+id/cme_space1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="5dp"
-            android:paddingLeft="15dp"
-            android:text="Explore"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="30sp"
-            android:textStyle="bold" />
+            android:layout_height="30dp"
+            android:layout_alignParentStart="true" />
+
     </LinearLayout>
 
 
