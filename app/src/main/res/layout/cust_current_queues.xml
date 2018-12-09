@@ -98,6 +98,38 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/cust_profile_notifications_settings_layout"
+        style="@style/profile_category_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/btnDropQueue"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        tools:layout_editor_absoluteX="0dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+
+            <TextView
+                android:id="@+id/cust_profile_enable_notifications_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="6dp"
+                android:text="Enable Notifications" />
+
+            <android.support.v7.widget.SwitchCompat
+                android:id="@+id/cust_profile_notifications_switch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+
     <Button
         android:id="@+id/btnDropQueue"
         android:layout_width="match_parent"

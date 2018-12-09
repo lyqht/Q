@@ -36,6 +36,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Queue;
 
 import gcsenxmk.q.R;
 import gcsenxmk.q.database.QueueInformation;
@@ -45,15 +46,14 @@ import gcsenxmk.q.login.CustomerHomePageActivity;
 public class ImageAdapterRecycler extends RecyclerView.Adapter<ImageAdapterRecycler.ImageViewHolder>{
 
     private Context mContext;
-    private List<Upload> mUploads;
-
-    private DatabaseReference mDatabaseRef;
+    private List<QueueInformation> mUploads;
+    
     private DatabaseReference queueDatabaseRef;
     private DatabaseReference customerDatabaseRef;
     private FirebaseAuth firebaseAuth;
     private FirebaseUser user;
     private FirebaseUser merchant;
-    private final String TAG = "Customer Join Queue";
+    private final String TAG = "ImageAdapterRecycler";
     private String priority = "false";
     private boolean joinOnce = false;
     protected boolean makeToast = false;
@@ -62,7 +62,7 @@ public class ImageAdapterRecycler extends RecyclerView.Adapter<ImageAdapterRecyc
     // Temporary variables for each detail of the current upload
 
     private DatabaseReference merchantDatabaseRef;
-    public ImageAdapterRecycler(Context context, List<Upload> uploads) {
+    public ImageAdapterRecycler(Context context, List<QueueInformation> uploads) {
         mContext = context;
         mUploads = uploads;
     }
@@ -76,13 +76,14 @@ public class ImageAdapterRecycler extends RecyclerView.Adapter<ImageAdapterRecyc
 
     @Override
     public void onBindViewHolder(ImageViewHolder holder, int position) {
-        Upload uploadCurrent = mUploads.get(position);
+        QueueInformation uploadCurrent = mUploads.get(position);
         holder.name = uploadCurrent.getName();
         holder.description = uploadCurrent.getDesc();
         holder.waitingTime = Integer.toString(uploadCurrent.getAvewaiting());
         holder.location = uploadCurrent.getLocation();
-        holder.imageURL = uploadCurrent.getImageUrl();
+        holder.imageURL = uploadCurrent.getimageUrl();
         holder.numPeople = Integer.toString(uploadCurrent.getNumPeople());
+        Log.d(TAG,String.valueOf(uploadCurrent.getQueue().size()));
 
         holder.qNumPeople.setText(holder.numPeople);
         holder.qName.setText(holder.name);
@@ -140,25 +141,13 @@ public class ImageAdapterRecycler extends RecyclerView.Adapter<ImageAdapterRecyc
                 }
             });
 
-            mDatabaseRef = FirebaseDatabase.getInstance().getReference("Users");
-            mDatabaseRef.child(user.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
+            customerDatabaseRef = FirebaseDatabase.getInstance().getReference("Users");
+            customerDatabaseRef.child(user.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     if (dataSnapshot.child("priority").getValue() != null) {
                         priority = dataSnapshot.child("priority").getValue().toString();
                     }
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                }
-            });
-
-            customerDatabaseRef=FirebaseDatabase.getInstance().getReference("Users");
-            customerDatabaseRef.child(user.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     if (dataSnapshot.hasChild("merchantID")) {
                         joinQButton.setClickable(false);
                         joinQButton.setBackgroundResource(R.drawable.already_join_button);
@@ -167,20 +156,22 @@ public class ImageAdapterRecycler extends RecyclerView.Adapter<ImageAdapterRecyc
                         joinQButton.setClickable(true);
                     }
                 }
+
                 @Override
                 public void onCancelled(@NonNull DatabaseError databaseError) {
 
                 }
             });
+            
 
             joinQButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    //mDatabaseRef = FirebaseDatabase.getInstance().getReference("Users");
+                    //customerDatabaseRef = FirebaseDatabase.getInstance().getReference("Users");
                     merchantDatabaseRef=FirebaseDatabase.getInstance().getReference("Merchants");
                     queueDatabaseRef= FirebaseDatabase.getInstance().getReference("Queue");
                     Log.d(TAG,"joinQ Button clicked");
-                    queueDatabaseRef.orderByChild("queuename").equalTo(name).addListenerForSingleValueEvent(new ValueEventListener() {
+                    queueDatabaseRef.orderByChild("name").equalTo(name).addListenerForSingleValueEvent(new ValueEventListener() {
                         //merchantDatabaseRef.orderByChild("name").equalTo(textViewName.getText().toString()).addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -194,29 +185,24 @@ public class ImageAdapterRecycler extends RecyclerView.Adapter<ImageAdapterRecyc
 
                                 }
                                 else {
-
-                                    if(joinOnce == true){
-                                        makeToast = true;
+                                    if(priority.equals("true")){
+                                        queueInformation.queue.add(0,user.getUid());
+                                    }else{
+                                        queueInformation.queue.add(user.getUid());
                                     }
+                                    queueDatabaseRef.child(merchantID).setValue(queueInformation);
+                                    merchantDatabaseRef.child(merchantID).setValue(queueInformation);
+                                    joinOnce = true;
+                                    customerDatabaseRef.child(user.getUid()).child("merchantID").setValue(merchantID);
+                                    qNumPeople.setText(String.valueOf(queueInformation.getNumPeople()));
+                                    Log.d(TAG, "adding customer to queue.");
 
-                                    else{
-                                        if(priority.equals("true")){
-                                            queueInformation.queue.add(0,user.getUid());
-                                        }else{
-                                            queueInformation.queue.add(user.getUid());
-                                        }
-                                        queueDatabaseRef.child(merchantID).setValue(queueInformation);
-                                        joinOnce = true;
-                                        mDatabaseRef.child(user.getUid()).child("merchantID").setValue(merchantID);
-                                        qNumPeople.setText(String.valueOf(queueInformation.queue.size()));
+                                    Toast toast = Toast.makeText(v.getContext(),"Joined Queue!", Toast.LENGTH_LONG);
+                                    toast.setGravity(Gravity.CENTER, 0, 0);
+                                    toast.show();
 
-                                        Toast toast = Toast.makeText(v.getContext(),"Joined Queue!", Toast.LENGTH_LONG);
-                                        toast.setGravity(Gravity.CENTER, 0, 0);
-                                        toast.show();
-
-                                        Intent intent = new Intent (v.getContext(), Cust_MainActivity.class);
-                                        v.getContext().startActivity(intent);
-                                    }
+                                    Intent intent = new Intent (v.getContext(), Cust_MainActivity.class);
+                                    v.getContext().startActivity(intent);
 
                                 }
 
