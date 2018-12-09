@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -24,7 +25,9 @@ public class MercMainOverview extends Fragment {
     private RecyclerView recyclerView;
     private ArrayList<String> mNames;
     private ArrayList<String> mImageUrls;
-    private Button operateQueue;
+
+    private SwipeRefreshLayout swipeContainer;
+
 
 
 
@@ -55,12 +58,13 @@ public class MercMainOverview extends Fragment {
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
+        //adapter.notifyDataSetChanged();
 
         TextView aveWaitingTime, queue_length;
         aveWaitingTime = view.findViewById(R.id.AveWaitingTime);
         queue_length = view.findViewById(R.id.queue_length);
 
-
+        Button operateQueue;
         operateQueue = view.findViewById(R.id.operateQueue);
         operateQueue.setOnClickListener(new View.OnClickListener() {
             @Override
