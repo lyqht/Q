@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.SwitchCompat;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -107,7 +108,7 @@ public class CustCurrentQueues extends Fragment {
                             int average_wait_time=queueInformation.getAvewaiting();
                             int waittime = index *average_wait_time;
                             est_wait_time_data.setText(Integer.toString(waittime) + "mins");
-                            num_people_data.setText(String.valueOf(len));
+                            num_people_data.setText(String.valueOf(queueSize));
                         }
 
                         @Override
@@ -151,9 +152,9 @@ public class CustCurrentQueues extends Fragment {
                             queueDatabaseRef.child(merchant_id).addListenerForSingleValueEvent(new ValueEventListener() {
                                 @Override
                                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                    int index=queueInformation.queue.indexOf(user.getUid());
+                                    int index=queueInformation.queue.indexOf(user.getUid()) + 1;
                                     queueInformation.queue.remove(index);
-
+                                    Log.d(TAG,"Remove Customer from queue." + queueInformation.getNumPeople());
                                     queueDatabaseRef.child(merchant_id).setValue(queueInformation);
 
                                     queue_name.setText("Please join a Queue");
