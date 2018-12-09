@@ -59,14 +59,15 @@ public class CustExplore extends Fragment {
             @Override
             public void onClick(View v) {
                 String searchEnquiry = mSearch.getText().toString().trim();
-                if (searchEnquiry.equals("")) {
+                /*if (searchEnquiry.equals("")) {
                     startActivity(new Intent(getContext(), RecyclerActivity.class));
                     Log.d(TAG, "Empty input");
                 }
 
                 else {
                     startActivity(new Intent(getContext(), Cust_Search_Merchant.class));
-                }
+                }*/
+                startActivity(new Intent(getContext(), Cust_Search_Merchant.class));
             }
         });
 
