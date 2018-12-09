@@ -105,10 +105,21 @@ public class QueueActivity extends AppCompatActivity implements AdapterView.OnIt
             @Override
             public void onClick(View v) {
                 // TODO - add condition when texts is empty
+                String nameInput = queuename.getText().toString();
+                String timeInput = queuetime.getText().toString();
+                String locateInput = queuelocation.getText().toString();
+                String sd = queuedesc.getText().toString();
                 uploadFile();
-                Intent intent = new Intent(QueueActivity.this, MercQueueCreated.class);
-                startActivity(intent);
-                finish();
+                if(nameInput.equals("")||timeInput.equals("")||locateInput.equals("")||sd.equals("")){
+                    Log.i(TAG, "Please fill up all information");
+
+                    Toast.makeText(QueueActivity.this, "Please fill up all information", Toast.LENGTH_LONG).show();
+                }
+                else{
+                    Intent intent = new Intent(QueueActivity.this, MercQueueCreated.class);
+                    startActivity(intent);
+                    finish();
+                }
             }
         });
         
