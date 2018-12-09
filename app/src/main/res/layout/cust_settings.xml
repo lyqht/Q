@@ -61,17 +61,6 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:layout_gravity="center">
-                    <TextView
-                        android:id="@+id/cust_profile_id_header"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="User"
-                        android:layout_marginRight="6dp"/>
-                    <TextView
-                        android:id="@+id/cust_profile_id"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="#000"/>
                 </LinearLayout>
 
             </LinearLayout>

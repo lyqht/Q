@@ -1,5 +1,6 @@
 package gcsenxmk.q.customer;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
@@ -9,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 
 import android.content.Context;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,6 +39,7 @@ import java.util.List;
 import gcsenxmk.q.R;
 import gcsenxmk.q.database.QueueInformation;
 import gcsenxmk.q.database.Upload;
+import gcsenxmk.q.login.CustomerHomePageActivity;
 
 public class ImageAdapterRecycler extends RecyclerView.Adapter<ImageAdapterRecycler.ImageViewHolder>{
 
@@ -80,6 +83,7 @@ public class ImageAdapterRecycler extends RecyclerView.Adapter<ImageAdapterRecyc
         holder.imageURL = uploadCurrent.getImageUrl();
         holder.numPeople = Integer.toString(uploadCurrent.getNumPeople());
 
+        holder.qNumPeople.setText(holder.numPeople);
         holder.qName.setText(holder.name);
         Picasso.with(mContext)
                 .load(holder.imageURL)
@@ -120,7 +124,6 @@ public class ImageAdapterRecycler extends RecyclerView.Adapter<ImageAdapterRecyc
             qNumPeople = itemView.findViewById(R.id.queueNumPeople);
             joinQButton = itemView.findViewById(R.id.joinQ_recycler);
 
-
             qImage.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -141,7 +144,9 @@ public class ImageAdapterRecycler extends RecyclerView.Adapter<ImageAdapterRecyc
             mDatabaseRef.child(user.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    priority = dataSnapshot.child("priority").getValue().toString();
+                    if (dataSnapshot.child("priority").getValue() != null) {
+                        priority = dataSnapshot.child("priority").getValue().toString();
+                    }
                 }
 
                 @Override
@@ -184,12 +189,14 @@ public class ImageAdapterRecycler extends RecyclerView.Adapter<ImageAdapterRecyc
                                         }
                                         queueDatabaseRef.child(merchantID).setValue(queueInformation);
                                         joinOnce = true;
-
-
                                         mDatabaseRef.child(user.getUid()).child("merchantID").setValue(merchantID);
                                         Log.d("Join Queue", "Joined Queue!");
                                         joinQButton.setText("Joined!");
-
+                                        Toast toast = Toast.makeText(v.getContext(),"Joined Queue!", Toast.LENGTH_LONG);
+                                        toast.setGravity(Gravity.CENTER, 0, 0);
+                                        toast.show();
+                                        Intent intent = new Intent (v.getContext(), Cust_MainActivity.class);
+                                        v.getContext().startActivity(intent);
                                         // TODO: Increase Q.size by 1
                                     }
 

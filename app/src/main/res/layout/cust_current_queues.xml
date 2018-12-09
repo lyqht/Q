@@ -1,27 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
-        android:id="@+id/cme_LY02"
+    <TextView
+        android:id="@+id/cme_TextV_Explore"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:paddingBottom="5dp"
+        android:paddingLeft="15dp"
+        android:text="Current Queue"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/queue_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Queue Name"
+            style="@style/card_outlet_name"/>
+    </LinearLayout>
+
+    <LinearLayout
+
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
 
         <TextView
-            android:id="@+id/cme_TextV_Explore"
-            android:layout_width="match_parent"
+            android:id="@+id/waiting_time_title"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingBottom="5dp"
-            android:paddingLeft="15dp"
-            android:text="Current Queue"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="30sp"
-            android:textStyle="bold" />
+            android:text="Estimated waiting time"
+            android:layout_marginRight="12dp"
+            style="@style/profile_detail_forDisplay"/>
+
+        <TextView
+            android:id="@+id/waiting_time_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Value"
+            style="@style/profile_detail_forDisplay"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnDropQueue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Drop Queue"
+            android:layout_gravity="center_horizontal"/>
+
+
+
     </LinearLayout>
 
 
-</RelativeLayout>
+</LinearLayout>
