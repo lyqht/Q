@@ -24,10 +24,11 @@
 
             <ImageView
                 android:id="@+id/configQueueView1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="200dp"
+                android:layout_height="300dp"
                 android:layout_marginTop="10dp"
-                android:src="@drawable/setting" />
+                android:layout_gravity="center"
+                android:src="@drawable/confiq1" />
 
             <TextView
                 android:id="@+id/configQueue2"
@@ -39,10 +40,11 @@
 
             <ImageView
                 android:id="@+id/newQueueView2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="200dp"
+                android:layout_height="300dp"
                 android:layout_marginTop="10dp"
-                android:src="@drawable/setting" />
+                android:layout_gravity="center"
+                android:src="@drawable/confiq2" />
 
             <TextView
                 android:id="@+id/configQueue3"
@@ -51,6 +53,14 @@
                 android:layout_marginTop="10dp"
                 android:textSize="20sp"
                 android:text="3) Done!!"/>
+
+            <ImageView
+                android:id="@+id/newQueueView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:src="@drawable/fgo_jalter" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
