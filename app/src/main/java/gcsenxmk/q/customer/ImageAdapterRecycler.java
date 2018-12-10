@@ -55,9 +55,6 @@ public class ImageAdapterRecycler extends RecyclerView.Adapter<ImageAdapterRecyc
     private FirebaseUser merchant;
     private final String TAG = "ImageAdapterRecycler";
     private String priority = "false";
-    private boolean joinOnce = false;
-    protected boolean makeToast = false;
-
 
     // Temporary variables for each detail of the current upload
 
@@ -192,7 +189,6 @@ public class ImageAdapterRecycler extends RecyclerView.Adapter<ImageAdapterRecyc
                                     }
                                     queueDatabaseRef.child(merchantID).setValue(queueInformation);
                                     merchantDatabaseRef.child(merchantID).setValue(queueInformation);
-                                    joinOnce = true;
                                     customerDatabaseRef.child(user.getUid()).child("merchantID").setValue(merchantID);
                                     qNumPeople.setText(String.valueOf(queueInformation.getNumPeople()));
                                     Log.d(TAG, "adding customer to queue.");
