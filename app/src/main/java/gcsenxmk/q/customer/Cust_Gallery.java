@@ -1,6 +1,7 @@
 package gcsenxmk.q.customer;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -9,6 +10,7 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -32,8 +34,6 @@ public class Cust_Gallery extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
     private FirebaseUser user;
     private String priority = "false";
-    private boolean joinOnce = false;
-    protected boolean makeToast = false;
 
     private DatabaseReference queueDatabaseRef;
     private DatabaseReference customerDatabaseRef;
@@ -45,8 +45,6 @@ public class Cust_Gallery extends AppCompatActivity {
         Log.d(TAG, "onCreate: started.");
     }
 
-    // TODO : MODIFY getIncomingIntent() & setGallery for more details to be displayed.
-    // TODO - tags, operating hours, location (Google Map API)
 
     private void getIncomingIntent() {
         Log.d(TAG, "getIncomingIntent for Customer: checking for incoming intents.");
@@ -82,6 +80,21 @@ public class Cust_Gallery extends AppCompatActivity {
 
         TextView location = findViewById(R.id.stall_location);
         location.setText(queueLocation);
+
+        ImageButton map = findViewById(R.id.mapButton);
+        map.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri.Builder builder = new Uri.Builder();
+                builder.scheme( "geo" ).opaquePart( "0.0" ).appendQueryParameter( "q" ,queueLocation);
+                Uri geoLocation = builder.build();
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(geoLocation);
+                if ( intent.resolveActivity(getPackageManager()) != null ){
+                    startActivity(intent);
+                }
+            }
+        });
 
         ImageView image = findViewById(R.id.stall_image);
         Picasso.with(this)
