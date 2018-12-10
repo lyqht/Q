@@ -24,7 +24,7 @@
         <LinearLayout
             android:id="@+id/cli_MainbottonLY"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="115dp"
             android:orientation="horizontal"
             android:weightSum="10">
 
@@ -79,8 +79,8 @@
                 android:layout_height="match_parent"
                 android:layout_marginBottom="12dp"
                 android:layout_marginTop="12dp"
-                android:orientation="vertical"
-                android:layout_weight="4.5">
+                android:layout_weight="4.5"
+                android:orientation="vertical">
 
                 <LinearLayout
                     android:id="@+id/queueNumPeopleLayout"
