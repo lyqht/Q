@@ -4,7 +4,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/helpPageConfig">
+    android:id="@+id/helpPageCreated">
     <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
@@ -14,43 +14,66 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+
             <TextView
-                android:id="@+id/configQueue1"
+                android:id="@+id/opQueue1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:textSize="20sp"
-                android:text="1) Configure your setting to your desire."/>
+                android:text="1) The Current Customers and a list of next 3 customers are shown here."/>
 
             <ImageView
-                android:id="@+id/configQueueView1"
+                android:id="@+id/opQueueView1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:src="@drawable/setting" />
 
             <TextView
-                android:id="@+id/configQueue2"
+                android:id="@+id/opQueue2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:textSize="20sp"
-                android:text="2) Tap the Save Setting to save your change(s)."/>
+                android:text="2) Number of people in the queue are shown here."/>
 
             <ImageView
-                android:id="@+id/newQueueView2"
+                android:id="@+id/opQueueView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:src="@drawable/setting" />
 
             <TextView
-                android:id="@+id/configQueue3"
+                android:id="@+id/opQueue3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:textSize="20sp"
-                android:text="3) Done!!"/>
+                android:text="3) Tap 'NEXT CUSTOMER' to replace the current queue with the next one in line."/>
+
+            <ImageView
+                android:id="@+id/opQueueView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/setting" />
+
+            <TextView
+                android:id="@+id/opQueue4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textSize="20sp"
+                android:text="4) Done!!"/>
+
+            <ImageView
+                android:id="@+id/newQueueView1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/setting" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
