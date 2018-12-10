@@ -20,6 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.firebase.client.Firebase;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -45,16 +46,10 @@ public class Cust_Search_Merchant extends AppCompatActivity {
     private Context mContext;
     private RecyclerView mResultList;
 
-    private DatabaseReference mUserDatabase;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.cust_merchant_searchresult);
-
-        mUserDatabase = FirebaseDatabase.getInstance().getReference("Merchants");
-
-
         mSearchField = findViewById(R.id.testcme_editTxt_SearchBar);
         mSearchBtn = findViewById(R.id.imageView2);
 
@@ -75,7 +70,7 @@ public class Cust_Search_Merchant extends AppCompatActivity {
     private void firebaseUserSearch(String searchText) {
 
         Toast.makeText(Cust_Search_Merchant.this, "Started Search", Toast.LENGTH_LONG).show();
-
+        DatabaseReference mUserDatabase = FirebaseDatabase.getInstance().getReference("Merchants");
         Query firebaseSearchQuery = mUserDatabase.orderByChild("name").startAt(searchText).endAt(searchText + "\uf8ff");
 
         FirebaseRecyclerAdapter<MerchantInformation_forSearch, UsersViewHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<MerchantInformation_forSearch, UsersViewHolder>(
@@ -88,9 +83,10 @@ public class Cust_Search_Merchant extends AppCompatActivity {
         ) {
             @Override
             protected void populateViewHolder(UsersViewHolder viewHolder, MerchantInformation_forSearch model, int position) {
+                int total_wait_time = model.getAvewaiting() * model.getNumPeople();
 
 
-                viewHolder.setDetails(getApplicationContext(), model.getName(), Integer.toString(model.getAvewaiting()), model.getImageUrl(),
+                viewHolder.setDetails(getApplicationContext(), model.getName(), Integer.toString(total_wait_time), model.getImageUrl(),
                         Integer.toString(model.getNumPeople()),
                         model.getDesc(), model.getLocation());
 
@@ -112,9 +108,6 @@ public class Cust_Search_Merchant extends AppCompatActivity {
         private FirebaseUser merchant;
         private final String TAG = "ImageAdapterRecycler";
         private String priority = "false";
-        private boolean joinOnce = false;
-        protected boolean makeToast = false;
-        Context mContext;
         private DatabaseReference merchantDatabaseRef;
         private DatabaseReference queueDatabaseRef;
         private DatabaseReference customerDatabaseRef;
@@ -122,24 +115,27 @@ public class Cust_Search_Merchant extends AppCompatActivity {
         public UsersViewHolder(View itemView) {
             super(itemView);
             mView = itemView;
+            customerDatabaseRef = FirebaseDatabase.getInstance().getReference("Users");
+            merchantDatabaseRef=FirebaseDatabase.getInstance().getReference("Merchants");
+            queueDatabaseRef= FirebaseDatabase.getInstance().getReference("Queue");
+
+            firebaseAuth = FirebaseAuth.getInstance();
+            user = firebaseAuth.getCurrentUser();
         }
 
         public void setDetails(Context ctx, String userName, String avewaiting, String userImage, String numPeople, String desc, String location){
-            TextView user_name = (TextView) mView.findViewById(R.id.queueName);
-            TextView user_waitingTime = (TextView) mView.findViewById(R.id.queueWaitTime);
-            ImageView user_image = (ImageView) mView.findViewById(R.id.queueImage);
+            TextView user_name = mView.findViewById(R.id.queueName);
+            TextView user_waitingTime =  mView.findViewById(R.id.queueWaitTime);
+            ImageView user_image = mView.findViewById(R.id.queueImage);
             TextView qNumPeople= mView.findViewById(R.id.queueNumPeople);
-            TextView description= mView.findViewById(R.id.stall_desc);
+            //TextView description= mView.findViewById(R.id.stall_desc);
             Button joinQButton = mView.findViewById(R.id.joinQ_recycler);
-            TextView merchant_location = mView.findViewById(R.id.stall_location);
+            //TextView merchant_location = mView.findViewById(R.id.stall_location);
             user_name.setText(userName);
-            qNumPeople.setText(numPeople);
-            //description.setText(desc);
-            //merchant_location.setText(location);
             qNumPeople.setText(numPeople);
             user_waitingTime.setText(avewaiting);
             Glide.with(ctx).load(userImage).into(user_image);
-            firebaseAuth=FirebaseAuth.getInstance();
+
             user_image.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -155,12 +151,30 @@ public class Cust_Search_Merchant extends AppCompatActivity {
                 }
             });
 
+            customerDatabaseRef.child(user.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.child("priority").getValue() != null) {
+                        priority = dataSnapshot.child("priority").getValue().toString();
+                    }
+                    if (dataSnapshot.hasChild("merchantID")) {
+                        joinQButton.setClickable(false);
+                        joinQButton.setBackgroundResource(R.drawable.already_join_button);
+                    }
+                    else {
+                        joinQButton.setClickable(true);
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+
             joinQButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    customerDatabaseRef = FirebaseDatabase.getInstance().getReference("Users");
-                    merchantDatabaseRef=FirebaseDatabase.getInstance().getReference("Merchants");
-                    queueDatabaseRef= FirebaseDatabase.getInstance().getReference("Queue");
                     Log.d(TAG,"joinQ Button clicked");
 
                     queueDatabaseRef.orderByChild("name").equalTo(user_name.getText().toString()).addListenerForSingleValueEvent(new ValueEventListener() {
@@ -168,7 +182,6 @@ public class Cust_Search_Merchant extends AppCompatActivity {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                             for(DataSnapshot childSnapshot: dataSnapshot.getChildren()){
-                                user = firebaseAuth.getCurrentUser();
                                 QueueInformation queueInformation = childSnapshot.getValue(QueueInformation.class);
                                 String merchantID = childSnapshot.getKey();
 
@@ -183,7 +196,6 @@ public class Cust_Search_Merchant extends AppCompatActivity {
                                         queueInformation.queue.add(user.getUid());
                                     }
                                     queueDatabaseRef.child(merchantID).setValue(queueInformation);
-                                    joinOnce = true;
                                     customerDatabaseRef.child(user.getUid()).child("merchantID").setValue(merchantID);
                                     qNumPeople.setText(String.valueOf(queueInformation.getNumPeople()));
                                     Log.d(TAG, "adding customer to queue.");
