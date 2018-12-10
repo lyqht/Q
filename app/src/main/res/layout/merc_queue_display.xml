@@ -7,6 +7,10 @@
     android:background="@color/colorBlack"
     android:orientation="horizontal">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/queuedisplayrefresh"/>
 
     <TextView
         android:id="@+id/queuesize"
