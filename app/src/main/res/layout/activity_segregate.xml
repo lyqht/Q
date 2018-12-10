@@ -28,12 +28,15 @@
 
         <TextView
             android:id="@+id/splitTitle2"
-            android:layout_width="match_parent"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
+            android:layout_below="@+id/splitTitle"
+            android:layout_alignStart="@+id/splitTitle"
+            android:layout_alignEnd="@+id/splitTitle"
             android:layout_gravity="center"
-            android:layout_marginTop="89dp"
+            android:layout_marginStart="62dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="63dp"
             android:text="You are...."
             android:textSize="20dp" />
     </RelativeLayout>
