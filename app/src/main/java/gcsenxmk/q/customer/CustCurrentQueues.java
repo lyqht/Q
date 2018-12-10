@@ -41,7 +41,6 @@ public class CustCurrentQueues extends Fragment {
     QueueInformation queueInformation;
     private DatabaseReference queueDatabaseRef;
     private DatabaseReference customerDatabaseRef;
-    private DatabaseReference merchantDatabaseRef;
 
     private SwitchCompat NotificationEnabled;
     private TextView NotificationEnabledText;
@@ -58,8 +57,7 @@ public class CustCurrentQueues extends Fragment {
         btnDropQ = view.findViewById(R.id.btnDropQueue);
         est_wait_time_data= view.findViewById(R.id.waiting_time_data);
         num_people_data = view.findViewById(R.id.num_people_data);
-
-        merchantDatabaseRef=FirebaseDatabase.getInstance().getReference("Merchants");
+        
         customerDatabaseRef=FirebaseDatabase.getInstance().getReference("Users");
         queueDatabaseRef = FirebaseDatabase.getInstance().getReference("Queue");
 
@@ -79,7 +77,7 @@ public class CustCurrentQueues extends Fragment {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if(dataSnapshot.hasChild("merchantID")){
 
-                    merchantDatabaseRef.child(dataSnapshot.child("merchantID").getValue().toString()).addListenerForSingleValueEvent(new ValueEventListener() {
+                    queueDatabaseRef.child(dataSnapshot.child("merchantID").getValue().toString()).addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                             String merc_name=dataSnapshot.child("name").getValue().toString();
