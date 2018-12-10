@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,6 +17,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+
+import org.w3c.dom.Text;
 
 import gcsenxmk.q.R;
 
@@ -102,11 +105,12 @@ public class FirebaseTestActivity extends AppCompatActivity {
                 else {
                     progressDialog.dismiss();
 
-                    if(pass.length()<6){
-                        Toast.makeText(getApplicationContext(),"Make sure password is at least 6 characters long", Toast.LENGTH_LONG).show();
-
-                    }else
-                        Toast.makeText(getApplicationContext(),"Account already exists", Toast.LENGTH_LONG).show();
+                    if (pass.length() < 6) {
+                        Toast.makeText(getApplicationContext(), "Make sure password is at least 6 characters long", Toast.LENGTH_LONG).show();
+                    }
+                    else{
+                        Toast.makeText(getApplicationContext(), "Account already exists \n / Email ID invalid", Toast.LENGTH_LONG).show();
+                    }
                 }
             }
         });
