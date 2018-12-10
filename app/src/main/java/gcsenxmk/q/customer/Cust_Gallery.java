@@ -31,12 +31,10 @@ public class Cust_Gallery extends AppCompatActivity {
     private static final String TAG = "GalleryActivity";
     private FirebaseAuth firebaseAuth;
     private FirebaseUser user;
-    private FirebaseUser merchant;
     private String priority = "false";
     private boolean joinOnce = false;
     protected boolean makeToast = false;
 
-    private DatabaseReference merchantDatabaseRef;
     private DatabaseReference queueDatabaseRef;
     private DatabaseReference customerDatabaseRef;
     @Override
@@ -97,7 +95,6 @@ public class Cust_Gallery extends AppCompatActivity {
             public void onClick(View v) {
                 firebaseAuth=FirebaseAuth.getInstance();
                 customerDatabaseRef = FirebaseDatabase.getInstance().getReference("Users");
-                merchantDatabaseRef=FirebaseDatabase.getInstance().getReference("Merchants");
                 queueDatabaseRef= FirebaseDatabase.getInstance().getReference("Queue");
                 Log.d(TAG,"joinQ Button clicked");
                 queueDatabaseRef.orderByChild("name").equalTo(name.getText().toString()).addListenerForSingleValueEvent(new ValueEventListener() {
@@ -120,7 +117,6 @@ public class Cust_Gallery extends AppCompatActivity {
                                     queueInformation.queue.add(user.getUid());
                                 }
                                 queueDatabaseRef.child(merchantID).setValue(queueInformation);
-                                joinOnce = true;
                                 customerDatabaseRef.child(user.getUid()).child("merchantID").setValue(merchantID);
                                 numPeople.setText(String.valueOf(queueInformation.getNumPeople()));
                                 Log.d(TAG, "adding customer to queue.");
