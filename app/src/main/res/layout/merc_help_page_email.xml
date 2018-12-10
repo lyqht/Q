@@ -4,7 +4,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/helpPageCreated">
+    android:id="@+id/helpPageConfig">
     <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
@@ -14,66 +14,58 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-
             <TextView
-                android:id="@+id/newQueue1"
+                android:id="@+id/emailQueue1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:textSize="20sp"
-                android:text="1) The list of current customer and "/>
+                android:text="1) Enter the new email"/>
 
             <ImageView
-                android:id="@+id/newQueueView2"
+                android:id="@+id/emailQueueView1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:src="@drawable/setting" />
 
             <TextView
-                android:id="@+id/newQueue2"
+                android:id="@+id/emailQueue2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:textSize="20sp"
-                android:text="2) Fill the queue's info and set the settings"/>
+                android:text="2) Enter both new password and old one."/>
 
             <ImageView
-                android:id="@+id/newQueueView3"
+                android:id="@+id/emailQueueView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:src="@drawable/setting" />
 
             <TextView
-                android:id="@+id/newQueue3"
+                android:id="@+id/emailQueue3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:textSize="20sp"
-                android:text="3) Tap the CREATE QUEUE! to create queue"/>
+                android:text="3) Tap 'Save' to save the setting or 'Cancel' to go exit the page."/>
 
             <ImageView
-                android:id="@+id/newQueueView4"
+                android:id="@+id/emailQueueView3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:src="@drawable/setting" />
 
             <TextView
-                android:id="@+id/newQueue4"
+                android:id="@+id/emailQueue4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:textSize="20sp"
                 android:text="4) Done!!"/>
-
-            <ImageView
-                android:id="@+id/newQueueView1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:src="@drawable/setting" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
