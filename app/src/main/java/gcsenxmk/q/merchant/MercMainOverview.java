@@ -59,7 +59,7 @@ public class MercMainOverview extends Fragment {
     public int len;
     QueueInformation queueInformation;
 
-    private DatabaseReference queueDatabaseRef,customerDatabaseReference, merchantDatabaseReference;
+    private DatabaseReference queueDatabaseRef,customerDatabaseReference;
 
 
     @Override
@@ -86,7 +86,6 @@ public class MercMainOverview extends Fragment {
 
         queueDatabaseRef = FirebaseDatabase.getInstance().getReference("Queue");
         customerDatabaseReference=FirebaseDatabase.getInstance().getReference("Users");
-        merchantDatabaseReference=FirebaseDatabase.getInstance().getReference("Merchants");
         //callFirebase();
 
 
@@ -151,8 +150,6 @@ public class MercMainOverview extends Fragment {
 
         queueDatabaseRef = FirebaseDatabase.getInstance().getReference("Queue");
         customerDatabaseReference=FirebaseDatabase.getInstance().getReference("Users");
-        merchantDatabaseReference=FirebaseDatabase.getInstance().getReference("Merchants");
-
 
 
 

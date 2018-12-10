@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class MerchantInformation_forSearch {
 
     public String name, imageUrl,desc,location;
-    public int avewaiting;
+    public int avewaiting, numPeople;
     public static ArrayList<String> queue;
 
     public MerchantInformation_forSearch(){
@@ -48,9 +48,16 @@ public class MerchantInformation_forSearch {
         return name;
     }
 
+
     public int getNumPeople() {
-        return queue.size();
+        try {
+            return queue.size();
+        } catch (NullPointerException ex) {
+            return numPeople;
+        }
     }
+
+
 
     public String getLocation() {
         return location;
