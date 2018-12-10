@@ -101,28 +101,6 @@
                 app:layout_constraintHorizontal_bias="0.50"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/stall_desc_num_queue_layout" />
-
-            <Button
-                android:id="@+id/stall_image_prev_button"
-                style="@style/change_image"
-                android:layout_marginBottom="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:text="&#60;"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/stall_image" />
-
-            <Button
-                android:id="@+id/stall_image_next_button"
-                style="@style/change_image"
-                android:layout_marginBottom="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginTop="8dp"
-                android:text="&#62;"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/stall_image" />
         </android.support.constraint.ConstraintLayout>
 
         <RelativeLayout
@@ -168,6 +146,17 @@
                 android:layout_marginTop="12dp"
                 android:text="@string/stall_location"
                 android:textAlignment="center" />
+
+            <ImageButton
+                android:id="@+id/mapButton"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_below="@id/stall_location"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="6dp"
+                android:src="@drawable/map_icon"
+                android:scaleType="centerInside"
+                android:background="@color/colorTransparentGrey"/>
 
 
         </RelativeLayout>
