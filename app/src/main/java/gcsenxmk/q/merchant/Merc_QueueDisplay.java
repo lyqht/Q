@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -27,7 +28,7 @@ public class Merc_QueueDisplay extends AppCompatActivity {
 
     private FirebaseAuth firebaseAuth;
 
-
+    private TextView queuedisplayrefresh;
     private FirebaseUser user;
     private TextView c1,c2,c3,c4;
     public int len;
@@ -66,7 +67,18 @@ public class Merc_QueueDisplay extends AppCompatActivity {
 
 
 
-
+        queuedisplayrefresh = findViewById(R.id.queuedisplayrefresh);
+        queuedisplayrefresh.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                Intent intent = new Intent (Merc_QueueDisplay.this, Merc_QueueDisplay.class);
+                finish();
+                overridePendingTransition( 0, 0);
+                startActivity(getIntent());
+                overridePendingTransition( 0, 0);
+                return false;
+            }
+        });
 
 
 

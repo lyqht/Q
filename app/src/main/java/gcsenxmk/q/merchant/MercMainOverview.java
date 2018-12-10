@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -50,7 +51,7 @@ public class MercMainOverview extends Fragment {
     private TextView queue_length;
     private TextView aveWaitingTime;
 
-
+    private Button refresh;
 
     private FirebaseUser user;
     private TextView c1,c2,c3,c4,c5,c6,c7,c8, c9,c10;
@@ -68,10 +69,6 @@ public class MercMainOverview extends Fragment {
         mNames = new ArrayList<>();
         mImageUrls = new ArrayList<>();
         Log.d(TAG, "onCreate: Started.");
-
-
-
-
 
 
 
@@ -97,6 +94,18 @@ public class MercMainOverview extends Fragment {
         //MercRecyclerViewAdapter adapter = new MercRecyclerViewAdapter(mNames, mImageUrls, getContext());
         //recyclerView.setAdapter(adapter);
         //recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        refresh = view.findViewById(R.id.queuerefresh);
+        refresh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(), "Refreshed!", Toast.LENGTH_SHORT).show();
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                ft.detach(MercMainOverview.this).attach(MercMainOverview.this).commit();
+
+            }
+        });
+
+
 
         queue_length = (TextView) view.findViewById(R.id.queue_length);
         aveWaitingTime = view.findViewById(R.id.AveWaitingTime);
