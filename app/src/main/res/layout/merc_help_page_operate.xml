@@ -25,10 +25,11 @@
 
             <ImageView
                 android:id="@+id/opQueueView1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="300dp"
+                android:layout_height="200dp"
+                android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                android:src="@drawable/setting" />
+                android:src="@drawable/op1" />
 
             <TextView
                 android:id="@+id/opQueue2"
@@ -40,10 +41,11 @@
 
             <ImageView
                 android:id="@+id/opQueueView2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="300dp"
+                android:layout_height="200dp"
+                android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                android:src="@drawable/setting" />
+                android:src="@drawable/op2" />
 
             <TextView
                 android:id="@+id/opQueue3"
@@ -55,10 +57,11 @@
 
             <ImageView
                 android:id="@+id/opQueueView3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="300dp"
+                android:layout_height="200dp"
+                android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                android:src="@drawable/setting" />
+                android:src="@drawable/op3" />
 
             <TextView
                 android:id="@+id/opQueue4"
@@ -70,10 +73,11 @@
 
             <ImageView
                 android:id="@+id/newQueueView1"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                android:src="@drawable/setting" />
+                android:src="@drawable/fgo_skadi" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
