@@ -105,7 +105,7 @@ public class CustCurrentQueues extends Fragment {
                             int queueSize =queueInformation.getNumPeople();
                             int index=queueInformation.queue.indexOf(user.getUid());
                             int average_wait_time=queueInformation.getAvewaiting();
-                            int waittime = (index-1) *average_wait_time;
+                            int waittime = (index) *average_wait_time;
                             est_wait_time_data.setText(Integer.toString(waittime) + "mins");
                             num_people_data.setText(String.valueOf(queueSize));
                         }
