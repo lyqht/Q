@@ -70,7 +70,7 @@ public class Cust_Search_Merchant extends AppCompatActivity {
     private void firebaseUserSearch(String searchText) {
 
         Toast.makeText(Cust_Search_Merchant.this, "Started Search", Toast.LENGTH_LONG).show();
-        DatabaseReference mUserDatabase = FirebaseDatabase.getInstance().getReference("Merchants");
+        DatabaseReference mUserDatabase = FirebaseDatabase.getInstance().getReference("Queue");
         Query firebaseSearchQuery = mUserDatabase.orderByChild("name").startAt(searchText).endAt(searchText + "\uf8ff");
 
         FirebaseRecyclerAdapter<MerchantInformation_forSearch, UsersViewHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<MerchantInformation_forSearch, UsersViewHolder>(
