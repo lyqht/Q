@@ -34,7 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="12dp"
             android:layout_marginEnd="8dp"
             android:text="Queue Length:"
             android:textSize="20dp"
@@ -89,13 +89,14 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginBottom="50dp"
 
+            android:layout_marginBottom="16dp"
             android:fontFamily="@font/quicksand_bold"
             android:gravity="center"
             android:text="Operate Queue!"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/relativeLayout"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.502"
             app:layout_constraintStart_toStartOf="parent" />
 
         <RelativeLayout
@@ -108,15 +109,18 @@
 ">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="0dp"
+                android:background="@color/colorPrimaryDark"
                 android:fontFamily="@font/quicksand_bold"
                 android:gravity="center"
                 android:text="In Queue:"
-                android:textSize="30dp"
 
-                />
+
+                android:textColor="@color/colorWhite"
+                android:textSize="30dp" />
         </RelativeLayout>
 
     </android.support.constraint.ConstraintLayout>
