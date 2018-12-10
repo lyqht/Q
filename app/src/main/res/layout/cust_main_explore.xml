@@ -22,15 +22,6 @@
         android:paddingTop="10dp"
         android:paddingRight="20dp">
 
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="42dp"
-            android:layout_height="42dp"
-            android:layout_alignTop="@+id/cme_editTxt_SearchBar"
-            android:layout_toStartOf="@+id/cme_editTxt_SearchBar"
-            android:adjustViewBounds="false"
-            android:padding="5dp"
-            app:srcCompat="@drawable/search_icon2" />
 
         <!--SearchView
             android:id="@+id/cme_editTxt_SearchBar"
@@ -42,31 +33,15 @@
             android:iconifiedByDefault="false"
             android:searchIcon="@null"
              /-->
-        <EditText
-            android:id="@+id/cme_editTxt_SearchBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:background="@drawable/seach_layout"
-            android:ems="10"
-            android:hint="Queue Name"
-            android:inputType="textPersonName"
-            android:padding="8dp"
-            android:layout_marginRight="12dp"
-            android:textColor="#adadad"
-            android:windowSoftInputMode="adjustNothing">
-
-        </EditText>
 
         <Button
             android:id="@+id/BtnSearchResult"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="&#62;"
+            android:text="Search &#62;"
             android:padding="8dp"
-            style="@style/floatJoinQ"
-            android:background="@drawable/primary_float_button"/>
+            style="@style/recyclerJoinQ"
+            android:background="@drawable/round_button"/>
 
     </LinearLayout>
     <!--EditText

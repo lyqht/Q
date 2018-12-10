@@ -7,7 +7,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".merchant.QueueActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    >
 
     <TextView
         android:id="@+id/queuecreatetitle"
@@ -16,13 +17,18 @@
         android:layout_centerHorizontal="true"
         android:textSize="30sp"
         android:text="Queue Configuration!"
+        style="@style/profile_detail_header"
+        android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp" />
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/queuecreatetitle"
-            android:id="@+id/setName">
+            android:id="@+id/setName"
+            android:layout_marginBottom="6dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp">
             <TextView
                 android:id="@+id/queuenametitle"
                 android:layout_width="wrap_content"
@@ -31,7 +37,8 @@
                 android:layout_alignParentLeft="true"
                 android:textSize="15sp"
                 android:layout_centerInParent="true"
-                android:text="Name: " />
+                android:text="Name: "
+                style="@style/profile_detail_forDisplay"/>
 
             <EditText
                 android:id="@+id/enterQueueName"
@@ -39,18 +46,22 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:layout_marginRight="70dp"
                 android:textSize="15sp"
                 android:layout_centerInParent="true"
                 android:layout_toRightOf="@+id/queuenametitle"
+                android:hint="Kimi no Na Wa?"
+                android:gravity="center"
                 style="@style/profile_detail_toEdit"/>
 
         </RelativeLayout>
         <RelativeLayout
             android:id="@+id/setLocation"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_below="@+id/setName">
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/setName"
+            android:layout_marginBottom="6dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp">
             <TextView
                 android:id="@+id/queuelocationtitle"
                 android:layout_width="wrap_content"
@@ -59,26 +70,31 @@
                 android:layout_alignParentLeft="true"
                 android:textSize="15sp"
                 android:layout_centerInParent="true"
-                android:text="Location: " />
+                android:text="Location: "
+                style="@style/profile_detail_forDisplay"/>
 
             <EditText
                 android:id="@+id/enterLocation"
-                android:inputType="text"
+                android:inputType="textMultiLine"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_centerInParent="true"
-                android:layout_marginRight="70dp"
                 android:textSize="15sp"
                 android:layout_toRightOf="@+id/queuelocationtitle"
-                style="@style/profile_detail_toEdit"/>
+                style="@style/profile_detail_toEdit"
+                android:gravity="center"
+                android:hint="Valid Address for Google Maps to work accurately"/>
         </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/setDescription"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_below="@+id/setLocation">
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/setLocation"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="6dp">
         <TextView
             android:id="@+id/queuedesctitle"
             android:layout_width="wrap_content"
@@ -87,26 +103,30 @@
             android:layout_alignParentLeft="true"
             android:textSize="15sp"
             android:layout_centerInParent="true"
-            android:text="Description: " />
+            android:text="Description: "
+            style="@style/profile_detail_forDisplay"/>
 
         <EditText
             android:id="@+id/enterDesc"
-            android:inputType="textLongMessage"
+            android:inputType="textMultiLine"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerInParent="true"
-            android:layout_marginRight="70dp"
             android:textSize="15sp"
             android:layout_toRightOf="@+id/queuedesctitle"
-            style="@style/profile_detail_toEdit"/>
+            style="@style/profile_detail_toEdit"
+            android:gravity="center"
+            android:hint="Write something sugoii :)"/>
 
     </RelativeLayout>
         <RelativeLayout
             android:id="@+id/setEstTime"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_below="@id/setDescription">
+            android:layout_height="wrap_content"
+            android:layout_below="@id/setDescription"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp">
             <TextView
                 android:id="@+id/estTimeText"
                 android:layout_width="wrap_content"
@@ -115,7 +135,8 @@
                 android:layout_alignParentLeft="true"
                 android:textSize="15sp"
                 android:layout_centerInParent="true"
-                android:text="Est. Waiting Time: " />
+                android:text="Est. Waiting Time: "
+                style="@style/profile_detail_forDisplay"/>
 
             <EditText
                 android:id="@+id/editEstTimeText"
@@ -124,21 +145,13 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_centerInParent="true"
-                android:layout_marginRight="70dp"
+                android:ellipsize="middle"
+                android:gravity="center"
+                android:hint="time/pax in minutes"
                 android:textSize="15sp"
                 android:layout_toRightOf="@id/estTimeText"
                 style="@style/profile_detail_toEdit"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="30dp"
-                android:layout_alignParentRight="true"
-                android:textSize="15sp"
-                android:layout_alignParentBottom="true"
-                android:paddingBottom="5dp"
-                android:layout_centerInParent="true"
-                android:text="mins" />
         </RelativeLayout>
 
     <!--
@@ -169,36 +182,11 @@
         </RelativeLayout>
         -->
 
-        <RelativeLayout
-            android:id="@+id/setPriority"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_below="@id/setEstTime">
-            <TextView
-                android:id="@+id/priorityText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_alignParentLeft="true"
-                android:textSize="15sp"
-                android:layout_centerInParent="true"
-                android:text="Priority Queue: " />
-
-            <Spinner
-                android:id="@+id/spinPriority"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="15sp"
-                android:layout_marginRight="50dp"
-                android:layout_alignParentRight="true"
-                android:layout_centerInParent="true" />
-        </RelativeLayout>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_below="@id/setPriority"
+        android:layout_below="@id/setEstTime"
         android:layout_marginTop="16dp"
         android:id="@+id/merchant_image_upload_area">
         <LinearLayout
@@ -208,7 +196,9 @@
             <ImageView
                 android:id="@+id/image_view"
                 android:layout_width="250dp"
-                android:layout_height="125dp" />
+                android:layout_height="125dp"
+                android:src="@drawable/placeholder_image_upload"
+                android:scaleType="centerInside"/>
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -219,6 +209,8 @@
                     android:id="@+id/button_choose_image"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    style="@style/profile_detail_forDisplay"
+                    android:padding="16dp"
                     android:text="Choose file" />
                 <Button
                     android:id="@+id/button_upload"
@@ -226,6 +218,8 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:layout_centerHorizontal="true"
+                    style="@style/profile_detail_forDisplay"
+                    android:padding="16dp"
                     android:text="Upload" />
 
             </LinearLayout>
@@ -255,8 +249,11 @@
             android:layout_centerHorizontal="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
             android:text="Configure Queue!"
-            style="@style/recyclerJoinQ" />
+            style="@style/recyclerJoinQ"
+            android:layout_margin="10dp"
+            android:background="@drawable/primary_float_button"
+            android:elevation="12dp"
+            android:translationZ="3dp"/>
     </android.support.constraint.ConstraintLayout>
 </RelativeLayout>

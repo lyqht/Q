@@ -56,18 +56,16 @@
 
     <Button
         android:id="@+id/switchModeButton"
-        style="@style/floatJoinQ"
-        android:layout_width="match_parent"
+        style="@style/profile_detail_forDisplay"
+        android:padding="16dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="12dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="60dp"
-        android:background="@color/colorSecondaryDark"
-        android:text="Swtich Mode"
-        android:textSize="11dp"
+        android:layout_marginBottom="44dp"
+        android:text="Swtich Mode!"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
 </android.support.constraint.ConstraintLayout>
