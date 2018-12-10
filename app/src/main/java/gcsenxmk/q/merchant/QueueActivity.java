@@ -36,6 +36,7 @@ import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.Queue;
 
 import gcsenxmk.q.R;
@@ -49,7 +50,6 @@ public class QueueActivity extends AppCompatActivity implements AdapterView.OnIt
     private static final String TAG = "CustQueueActivity";
 
     private FirebaseAuth firebaseAuth;
-    private DatabaseReference databaseReference;
     private DatabaseReference queue_databaseReference;
     private Uri mImageUri;
     private FirebaseUser user;
@@ -83,7 +83,6 @@ public class QueueActivity extends AppCompatActivity implements AdapterView.OnIt
         
         // Firebase Instances
         firebaseAuth=FirebaseAuth.getInstance();
-        databaseReference= FirebaseDatabase.getInstance().getReference("Merchants");
         queue_databaseReference= FirebaseDatabase.getInstance().getReference("Queue");
         mStorageRef = FirebaseStorage.getInstance().getReference("Merchants");
         user = firebaseAuth.getCurrentUser();
@@ -213,18 +212,20 @@ public class QueueActivity extends AppCompatActivity implements AdapterView.OnIt
         getlocation = queuelocation.getText().toString().trim();
         gettime = Integer.parseInt(queuetime.getText().toString().trim());
 
-        // TODO: Change numPeople from 0 to actual queuesize.
-
         QueueInformation upload = new QueueInformation(getname, getphotoURL, getlocation, getdesc, gettime);
         //String uploadId = databaseReference.push().getKey();
+        ArrayList<String> testqueue = upload.getQueue();
+        if(testqueue != null){
+            for (String s : testqueue){
+                System.out.println("extra consumers : "+ s);
+            }
+        }
+        Log.i("testqueue", getname);
 
-        databaseReference.child(user.getUid()).setValue(upload);
         queue_databaseReference.child(user.getUid()).setValue(upload);
 
         Log.d(TAG, "Merchant info saved");
         Toast.makeText(QueueActivity.this, "Merchant info saved in the database", Toast.LENGTH_SHORT).show();
-
-
     }
 
     private void uploadFile() {
@@ -234,10 +235,7 @@ public class QueueActivity extends AppCompatActivity implements AdapterView.OnIt
         //databaseReference.child(user.getUid()).setValue(merchantInformation);
         //MerchantInformation merchantInformation= new MerchantInformation(getname, getdesc, gettime, upload);
         //MerchantInformation.queueimage = upload;
-
-
         // Variables for initializing a queue
-
 
         if (mImageUri != null) {
             StorageReference fileReference = mStorageRef.child(System.currentTimeMillis()
