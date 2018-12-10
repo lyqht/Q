@@ -52,9 +52,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="2"
             android:hint="Input Email ID"
-
-
-            />
+            android:ellipsize="middle"
+            android:inputType="textEmailAddress" />
 
 
     </LinearLayout>
@@ -85,6 +84,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="2"
+            android:ellipsize="middle"
+            android:inputType="textPassword"
             android:hint="Input Password" />
     </LinearLayout>
 
@@ -105,7 +106,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout4" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4"
+        android:elevation="12dp"
+        android:translationZ="3dp"/>
 
     <TextView
         android:id="@+id/linktoSignup"

@@ -53,6 +53,7 @@ import com.squareup.picasso.Picasso;
 import gcsenxmk.q.R;
 import gcsenxmk.q.database.UserInformation;
 import gcsenxmk.q.login.FirebaseLoginActivity;
+import gcsenxmk.q.login.SegregationActivityAfterLogin;
 import gcsenxmk.q.merchant.QueueActivity;
 import gcsenxmk.q.misc.CircleTransform;
 import gcsenxmk.q.misc.Utils;
@@ -70,7 +71,7 @@ public class CustSettings extends Fragment {
     boolean passwordUpdated;
 
     private Button editAccountButton;
-    private Button signOutButton;
+    private Button switchModeButton;
     private Button saveButton;
     private Button cancelButton;
 
@@ -111,7 +112,7 @@ public class CustSettings extends Fragment {
         saveButton = v.findViewById(R.id.cust_profile_SaveButton);
         editAccountButton = v.findViewById(R.id.cust_profile_editAccountButton);
         cancelButton = v.findViewById(R.id.cust_profile_CancelButton);
-        signOutButton = v.findViewById(R.id.cust_profile_signOutButton);
+        switchModeButton = v.findViewById(R.id.cust_profile_switchModeButton);
         displayPassword = v.findViewById(R.id.cust_profile_password_textview);
         oldPassword = v.findViewById(R.id.cust_profile_password_userOld);
         newPassword = v.findViewById(R.id.cust_profile_password_userNew);
@@ -167,11 +168,11 @@ public class CustSettings extends Fragment {
             }
         });
 
-        signOutButton.setOnClickListener(new View.OnClickListener() {
+
+        switchModeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                firebaseAuth.signOut();
-                startActivity(new Intent(getContext(), FirebaseLoginActivity.class));
+                startActivity(new Intent(getContext(), SegregationActivityAfterLogin.class));
             }
         });
 
@@ -319,9 +320,9 @@ public class CustSettings extends Fragment {
         else if (displayPassword.getVisibility() == View.VISIBLE)
             displayPassword.setVisibility(View.GONE);
 
-        if (signOutButton.getVisibility() == View.GONE) signOutButton.setVisibility(View.VISIBLE);
-        else if (signOutButton.getVisibility() == View.VISIBLE)
-            signOutButton.setVisibility(View.GONE);
+        if (switchModeButton.getVisibility() == View.GONE) switchModeButton.setVisibility(View.VISIBLE);
+        else if (switchModeButton.getVisibility() == View.VISIBLE)
+            switchModeButton.setVisibility(View.GONE);
 
         if (editAccountButton.getVisibility() == View.VISIBLE) {
             saveButton.setVisibility(View.VISIBLE);

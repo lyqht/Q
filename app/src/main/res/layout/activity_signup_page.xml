@@ -52,19 +52,17 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_marginLeft="30dp"
             android:text="Email ID" />
 
         <EditText
             android:id="@+id/uniquemail"
-            android:layout_width="wrap_content"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
-
-            android:layout_weight="3"
-            android:hint="Sigup with an existing E-mail ID"
-
-
-            />
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:hint="johnsmith@tt.com"
+            android:inputType="textEmailAddress" />
 
 
     </LinearLayout>
@@ -74,7 +72,6 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_weight="0"
@@ -86,16 +83,18 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_marginLeft="30dp"
             android:text="Password" />
 
         <EditText
             android:id="@+id/password"
-            android:layout_width="wrap_content"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
-
-            android:layout_weight="3"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="16dp"
+            android:inputType="textPassword"
             android:hint="Create Password"
+
 
 
             />

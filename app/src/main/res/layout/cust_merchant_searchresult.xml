@@ -40,21 +40,21 @@
              /-->
             <EditText
                 android:id="@+id/testcme_editTxt_SearchBar"
-                android:layout_width="0dp"
-                android:layout_weight="7"
+                android:layout_width="137dp"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
                 android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
                 android:layout_margin="5dp"
+                android:layout_weight="7"
                 android:background="@drawable/seach_layout"
                 android:ems="10"
                 android:gravity="center"
                 android:hint="Queue Name"
                 android:inputType="textPersonName"
                 android:padding="8dp"
-                android:paddingBottom="8dp"
                 android:paddingLeft="8dp"
                 android:paddingTop="8dp"
+                android:paddingBottom="8dp"
                 android:textColor="#adadad"
                 android:windowSoftInputMode="adjustNothing">
 
@@ -89,6 +89,7 @@
             android:paddingBottom="5dp"
             android:text="Result"
             android:textColor="@color/colorPrimaryDark"
+            style="@style/recyclerJoinQ"
             android:textSize="30sp"
             android:textStyle="bold" />
     </LinearLayout>

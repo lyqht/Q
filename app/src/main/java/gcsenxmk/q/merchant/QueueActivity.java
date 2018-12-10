@@ -94,13 +94,13 @@ public class QueueActivity extends AppCompatActivity implements AdapterView.OnIt
         queuelocation = findViewById(R.id.enterLocation);
         queuetime = findViewById(R.id.editEstTimeText);
         queuedesc = findViewById(R.id.enterDesc);
-
+/*
         prioritySpinner = findViewById(R.id.spinPriority);
         ArrayAdapter<CharSequence> adapterPriority = ArrayAdapter.createFromResource(this,
                 R.array.priority_queue, android.R.layout.simple_spinner_item);
 
         prioritySpinner.setAdapter(adapterPriority);
-        prioritySpinner.setOnItemSelectedListener(this);
+        prioritySpinner.setOnItemSelectedListener(this);*/
         mButtonChooseImage = findViewById(R.id.button_choose_image);
         mButtonUpload = findViewById(R.id.button_upload);
         mTextViewShowUploads = findViewById(R.id.text_view_show_uploads);

@@ -52,10 +52,8 @@ public class CustExplore extends Fragment {
         imageButtonRetail = view.findViewById(R.id.buttonRetail_Outlets);
         imageButtonLimitedT = view.findViewById(R.id.buttonLimitedT);
         imageButtonExtra = view.findViewById(R.id.buttonExtraCategory);
-        mSearch =view.findViewById(R.id.cme_editTxt_SearchBar);
+        //mSearch =view.findViewById(R.id.cme_editTxt_SearchBar);
         SearchQueryButton = view.findViewById(R.id.BtnSearchResult);
-        SearchQueryButton = view.findViewById(R.id.BtnSearchResult);
-
 
         imageButtonFnB.setOnClickListener(new View.OnClickListener() {
             @Override

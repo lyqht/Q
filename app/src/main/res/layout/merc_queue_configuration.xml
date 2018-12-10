@@ -33,6 +33,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/btn_createQ"
             android:text="Configure Q!"
+            android:fontFamily="@font/quicksand_bold"
 
 
             />
