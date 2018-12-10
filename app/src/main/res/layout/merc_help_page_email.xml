@@ -24,10 +24,11 @@
 
             <ImageView
                 android:id="@+id/emailQueueView1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="200dp"
+                android:layout_height="300dp"
+                android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                android:src="@drawable/setting" />
+                android:src="@drawable/email1_edit" />
 
             <TextView
                 android:id="@+id/emailQueue2"
@@ -39,10 +40,11 @@
 
             <ImageView
                 android:id="@+id/emailQueueView2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="200dp"
+                android:layout_height="300dp"
                 android:layout_marginTop="10dp"
-                android:src="@drawable/setting" />
+                android:layout_gravity="center"
+                android:src="@drawable/email2_edit" />
 
             <TextView
                 android:id="@+id/emailQueue3"
@@ -54,10 +56,11 @@
 
             <ImageView
                 android:id="@+id/emailQueueView3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="200dp"
+                android:layout_height="300dp"
                 android:layout_marginTop="10dp"
-                android:src="@drawable/setting" />
+                android:layout_gravity="center"
+                android:src="@drawable/email3_edit" />
 
             <TextView
                 android:id="@+id/emailQueue4"
@@ -66,6 +69,14 @@
                 android:layout_marginTop="10dp"
                 android:textSize="20sp"
                 android:text="4) Done!!"/>
+
+            <ImageView
+                android:id="@+id/emailQueueView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:src="@drawable/fgo_mashu" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
