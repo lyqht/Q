@@ -108,7 +108,6 @@ public class Cust_Search_Merchant extends AppCompatActivity {
         private FirebaseUser merchant;
         private final String TAG = "ImageAdapterRecycler";
         private String priority = "false";
-        private DatabaseReference merchantDatabaseRef;
         private DatabaseReference queueDatabaseRef;
         private DatabaseReference customerDatabaseRef;
 
@@ -116,7 +115,6 @@ public class Cust_Search_Merchant extends AppCompatActivity {
             super(itemView);
             mView = itemView;
             customerDatabaseRef = FirebaseDatabase.getInstance().getReference("Users");
-            merchantDatabaseRef=FirebaseDatabase.getInstance().getReference("Merchants");
             queueDatabaseRef= FirebaseDatabase.getInstance().getReference("Queue");
 
             firebaseAuth = FirebaseAuth.getInstance();

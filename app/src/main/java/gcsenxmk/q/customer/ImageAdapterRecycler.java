@@ -56,9 +56,6 @@ public class ImageAdapterRecycler extends RecyclerView.Adapter<ImageAdapterRecyc
     private final String TAG = "ImageAdapterRecycler";
     private String priority = "false";
 
-    // Temporary variables for each detail of the current upload
-
-    private DatabaseReference merchantDatabaseRef;
     public ImageAdapterRecycler(Context context, List<QueueInformation> uploads) {
         mContext = context;
         mUploads = uploads;
@@ -159,13 +156,11 @@ public class ImageAdapterRecycler extends RecyclerView.Adapter<ImageAdapterRecyc
 
                 }
             });
-            
 
             joinQButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     //customerDatabaseRef = FirebaseDatabase.getInstance().getReference("Users");
-                    merchantDatabaseRef=FirebaseDatabase.getInstance().getReference("Merchants");
                     queueDatabaseRef= FirebaseDatabase.getInstance().getReference("Queue");
                     Log.d(TAG,"joinQ Button clicked");
                     queueDatabaseRef.orderByChild("name").equalTo(name).addListenerForSingleValueEvent(new ValueEventListener() {
@@ -187,8 +182,10 @@ public class ImageAdapterRecycler extends RecyclerView.Adapter<ImageAdapterRecyc
                                     }else{
                                         queueInformation.queue.add(user.getUid());
                                     }
+
+
+
                                     queueDatabaseRef.child(merchantID).setValue(queueInformation);
-                                    merchantDatabaseRef.child(merchantID).setValue(queueInformation);
                                     customerDatabaseRef.child(user.getUid()).child("merchantID").setValue(merchantID);
                                     qNumPeople.setText(String.valueOf(queueInformation.getNumPeople()));
                                     Log.d(TAG, "adding customer to queue.");
