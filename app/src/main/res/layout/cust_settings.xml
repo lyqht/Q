@@ -159,8 +159,8 @@
 
 
     <Button
-        android:id="@+id/cust_profile_signOutButton"
-        android:text="Sign Out"
+        android:id="@+id/cust_profile_switchModeButton"
+        android:text="Swtich Mode"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="@style/floatJoinQ"
