@@ -10,11 +10,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 import gcsenxmk.q.R;
 
 //TODO - contain tutorial on how to use the app
 
 public class Merc_HelpPage extends Fragment {
+    private FirebaseAuth firebaseAuth;
+    private FirebaseUser user;
     private static final String TAG = "Helppage_merc";
     private Button operatingButton, configQueueButton, emailButton;
 
@@ -24,6 +29,9 @@ public class Merc_HelpPage extends Fragment {
         View view = inflater.inflate(R.layout.merc_help_page,container,false);
         super.onCreate(savedInstanceState);
         Log.i(TAG,"Executing Merc_HelpPage");
+        firebaseAuth = FirebaseAuth.getInstance();
+        user = FirebaseAuth.getInstance().getCurrentUser();
+
 
         operatingButton = (Button) view.findViewById(R.id.operatingButton);
         configQueueButton = (Button) view.findViewById(R.id.configQueueButton);

@@ -3,7 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:layout_margin="20dp">
 
     <Button
         android:id="@+id/operatingButton"
@@ -11,28 +12,33 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="Operating Queue"
-        android:background="@color/colorWhite"
-        android:shadowColor="@color/colorBlack"
+        android:background="@drawable/round_button"
+        android:elevation="12dp"
+        android:translationZ="6dp"
         />
 
     <Button
         android:id="@+id/configQueueButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="16dp"
         android:text="Configuring the Queue"
-        android:background="@color/colorWhite"
+        android:background="@drawable/round_button"
         android:shadowColor="@color/colorBlack"
+        android:elevation="12dp"
+        android:translationZ="6dp"
         />
 
     <Button
         android:id="@+id/emailButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="16dp"
         android:text="Changing Account Email and Password"
-        android:background="@color/colorWhite"
+        android:background="@drawable/round_button"
         android:shadowColor="@color/colorBlack"
+        android:elevation="12dp"
+        android:translationZ="6dp"
         />
 
 </LinearLayout>
