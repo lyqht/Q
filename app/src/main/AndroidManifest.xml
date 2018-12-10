@@ -27,12 +27,6 @@
 
         </activity>
         <!-- Firebase: Intro, Login & Registration Activities -->
-        <activity
-            android:name=".misc.Intro"
-            android:label="Welcome Page!">
-
-        </activity>
-
         <activity android:name=".login.FirebaseLoginActivity"
 
             android:label="Q Login">
@@ -48,11 +42,11 @@
             />
 
         <activity android:name=".login.SegregationActivity"
-            android:parentActivityName=".login.FirebaseTestActivity"
+
             android:label="Account Creation"/>
 
         <activity android:name=".merchant.QueueActivity"
-            android:parentActivityName=".login.SegregationActivity"
+
             android:label="Configure your Queue!"/>
 
         <activity android:name=".login.FirebaseTestActivity"
@@ -68,8 +62,8 @@
             android:label="Search Results"></activity>
 
         <activity android:name=".login.SegregationActivityAfterLogin"
-            android:parentActivityName=".login.FirebaseLoginActivity"
-            android:label="Choose what you want to do">
+
+            android:label="Selection!">
         </activity>
 
         <activity android:name=".login.CustomerHomePageActivity"
