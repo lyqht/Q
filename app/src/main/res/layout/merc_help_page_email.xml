@@ -72,11 +72,11 @@
 
             <ImageView
                 android:id="@+id/emailQueueView4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
                 android:layout_marginTop="10dp"
                 android:layout_gravity="center"
-                android:src="@drawable/fgo_mashu" />
+                android:src="@drawable/mashu" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

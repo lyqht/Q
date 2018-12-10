@@ -73,11 +73,11 @@
 
             <ImageView
                 android:id="@+id/newQueueView1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                android:src="@drawable/fgo_skadi" />
+                android:src="@drawable/skadi" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
