@@ -86,7 +86,7 @@
         <activity
             android:name=".customer.Cust_Search_Merchant"
 
-            android:label="Seach_Page"
+            android:label="Search Page"
             >
         </activity>
 
