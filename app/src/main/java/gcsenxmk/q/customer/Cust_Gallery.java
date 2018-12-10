@@ -95,11 +95,12 @@ public class Cust_Gallery extends AppCompatActivity {
         joinQButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                firebaseAuth=FirebaseAuth.getInstance();
                 customerDatabaseRef = FirebaseDatabase.getInstance().getReference("Users");
                 merchantDatabaseRef=FirebaseDatabase.getInstance().getReference("Merchants");
                 queueDatabaseRef= FirebaseDatabase.getInstance().getReference("Queue");
                 Log.d(TAG,"joinQ Button clicked");
-                queueDatabaseRef.orderByChild("name").equalTo(queueName).addListenerForSingleValueEvent(new ValueEventListener() {
+                queueDatabaseRef.orderByChild("name").equalTo(name.getText().toString()).addListenerForSingleValueEvent(new ValueEventListener() {
                     //merchantDatabaseRef.orderByChild("name").equalTo(textViewName.getText().toString()).addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
