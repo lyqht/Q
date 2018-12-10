@@ -6,67 +6,98 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical"
+    android:weightSum="100"
 
     >
-    <TextView
-        android:id="@+id/splitTitle"
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_gravity="center"
-        android:textSize="30dp"
-        android:text="Welcome to Q!! You are...."/>
+        android:layout_weight="15">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/splitTitle"
+            android:layout_width="215dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="24dp"
+            android:text="Welcome to Q!!"
+            android:textSize="30dp" />
+
+        <TextView
+            android:id="@+id/splitTitle2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="89dp"
+            android:text="You are...."
+            android:textSize="20dp" />
+    </RelativeLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp">
+        android:layout_weight="85"
+        android:layout_gravity="center">
 
-        <ImageButton
-            android:id="@+id/btnCustomer"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:scaleType="fitCenter"
-            android:layout_marginStart="5dp"
-            android:outlineSpotShadowColor="@color/colorBlack"
-            android:background="@drawable/segregate_customer"
+        <ImageView
+            android:layout_width="125dp"
+            android:layout_height="125dp"
             android:layout_gravity="start"
-            android:src="@drawable/round_button_2" />
+            android:src="@drawable/megimin_eat"
+            app:layout_constraintBottom_toTopOf="@+id/btnMerchant"
+            app:layout_constraintEnd_toStartOf="@+id/btnCustomer"
+            app:layout_constraintHorizontal_bias="0.4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.516" />
 
-
-        <ImageButton
-            android:id="@+id/btnMerchant"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:scaleType="fitCenter"
-            android:layout_marginStart="5dp"
-            android:outlineSpotShadowColor="@color/colorBlack"
-            android:background="@drawable/segregate_merchant"
-            android:layout_gravity="end"
-            android:src="@drawable/round_button_2" />
-
-    </LinearLayout>
-
-        <LinearLayout
+        <Button
+            android:id="@+id/btnCustomer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="7dp">
+            android:layout_gravity="end"
+            android:layout_marginEnd="28dp"
+            android:background="@drawable/round_button_2"
+            android:text="Customer"
+            android:textSize="30dp"
+            app:layout_constraintBottom_toTopOf="@+id/imageView4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.716" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="75dp"
-                android:text="Customer"
-                android:layout_gravity="start"
-                android:textSize="15dp"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="125dp"
-                android:text="Merchant"
-                android:layout_gravity="end"
-                android:textSize="15dp"/>
-        </LinearLayout>
+        <Button
+            android:id="@+id/btnMerchant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginBottom="116dp"
+            android:layout_marginStart="16dp"
+            android:background="@drawable/round_button_2"
+            android:text="Merchant"
+            android:textSize="30dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:layout_gravity="start"
+            android:layout_marginBottom="96dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/eris"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.588"
+            app:layout_constraintStart_toEndOf="@+id/btnMerchant" />
+    </android.support.constraint.ConstraintLayout>
+
+
 </LinearLayout>
 

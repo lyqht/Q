@@ -13,7 +13,7 @@ import gcsenxmk.q.merchant.Merc_MainActivity;
 
 public class SegregationActivityAfterLogin extends AppCompatActivity {
 
-    private ImageButton btncust, btnmerc;
+    private Button btncust, btnmerc;
 
 
 
@@ -21,8 +21,8 @@ public class SegregationActivityAfterLogin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_segregate);
 
-        btncust=(ImageButton) findViewById(R.id.btnCustomer);
-        btnmerc=(ImageButton) findViewById(R.id.btnMerchant);
+        btncust=(Button) findViewById(R.id.btnCustomer);
+        btnmerc=(Button) findViewById(R.id.btnMerchant);
 
         btncust.setOnClickListener(new View.OnClickListener() {
             @Override
