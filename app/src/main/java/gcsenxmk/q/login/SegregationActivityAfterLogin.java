@@ -8,6 +8,7 @@ import android.widget.Button;
 
 import gcsenxmk.q.R;
 import gcsenxmk.q.customer.Cust_MainActivity;
+import gcsenxmk.q.merchant.Merc_MainActivity;
 
 public class SegregationActivityAfterLogin extends AppCompatActivity {
 
@@ -34,7 +35,7 @@ public class SegregationActivityAfterLogin extends AppCompatActivity {
         btnmerc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent queueactivity= new Intent(SegregationActivityAfterLogin.this, MerchantViewQueuesActivityAfterLogin.class);
+                Intent queueactivity= new Intent(SegregationActivityAfterLogin.this, Merc_MainActivity.class);
                 startActivity(queueactivity);
 
             }

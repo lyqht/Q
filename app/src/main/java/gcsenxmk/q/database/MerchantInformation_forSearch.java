@@ -5,8 +5,8 @@ import java.util.ArrayList;
 public class MerchantInformation_forSearch {
 
     public String name, imageUrl,desc,location;
-    public int avewaiting,numPeople;
-    public static ArrayList<String> queue = new ArrayList<String>();
+    public int avewaiting;
+    public static ArrayList<String> queue;
 
     public MerchantInformation_forSearch(){
 
@@ -20,12 +20,8 @@ public class MerchantInformation_forSearch {
         this.desc = desc;
     }
 
-    public void setNumPeople(int numPeople) {
-        this.numPeople = numPeople;
-    }
-
-    public static void setQueue(ArrayList<String> queue) {
-        MerchantInformation_forSearch.queue = queue;
+    public void setQueue(ArrayList<String> queue) {
+        this.queue = queue;
     }
 
     public void setAvewaiting(int avewaiting) {
@@ -60,7 +56,7 @@ public class MerchantInformation_forSearch {
         return location;
     }
 
-    public static ArrayList<String> getQueue() {
+    public ArrayList<String> getQueue() {
         return queue;
     }
 
@@ -68,11 +64,10 @@ public class MerchantInformation_forSearch {
         return desc;
     }
 
-    public MerchantInformation_forSearch(String name, String imageUrl, int avewaiting, int numPeople, String desc) {
+    public MerchantInformation_forSearch(String name, String imageUrl, int avewaiting, String desc) {
         this.name = name;
         this.avewaiting=avewaiting;
         this.imageUrl=imageUrl;
         this.desc=desc;
-        this.numPeople=numPeople;
     }
 }
