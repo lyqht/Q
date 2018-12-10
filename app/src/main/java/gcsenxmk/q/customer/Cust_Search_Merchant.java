@@ -1,3 +1,4 @@
+
 package gcsenxmk.q.customer;
 
 import android.content.Context;
@@ -117,6 +118,7 @@ public class Cust_Search_Merchant extends AppCompatActivity {
             customerDatabaseRef = FirebaseDatabase.getInstance().getReference("Users");
             queueDatabaseRef= FirebaseDatabase.getInstance().getReference("Queue");
 
+
             firebaseAuth = FirebaseAuth.getInstance();
             user = firebaseAuth.getCurrentUser();
         }
@@ -232,3 +234,4 @@ public class Cust_Search_Merchant extends AppCompatActivity {
     }
 
 }
+

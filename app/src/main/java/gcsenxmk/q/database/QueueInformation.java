@@ -7,8 +7,7 @@ public class QueueInformation {
     private String Desc;
     private String Location;
     private int Avewaiting;
-
-    public static ArrayList<String> queue = new ArrayList<String>();
+    public ArrayList<String> queue;
 
 
     public QueueInformation(){
@@ -16,7 +15,7 @@ public class QueueInformation {
         this.Desc="No Desc";
         this.Location = "No Location";
         this.Avewaiting=1;
-
+        queue = new ArrayList<>();
     }
 
     public QueueInformation(String name, String imageUrl, String Location, String Desc, int Avewaiting) {
@@ -25,6 +24,8 @@ public class QueueInformation {
         this.Desc=Desc;
         this.Location=Location;
         this.Avewaiting=Avewaiting;
+        queue = new ArrayList<>();
+
     }
 
 

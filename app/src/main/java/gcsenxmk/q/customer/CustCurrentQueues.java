@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.SwitchCompat;
@@ -34,7 +35,7 @@ public class CustCurrentQueues extends Fragment {
     private TextView queue_name;
     private TextView est_wait_time_data;
     private TextView num_people_data;
-    private Button btnDropQ;
+    private Button btnDropQ, btnRefresh;
 
     private FirebaseUser user;
     public int len;
@@ -55,9 +56,10 @@ public class CustCurrentQueues extends Fragment {
 
         queue_name = view.findViewById(R.id.queue_name);
         btnDropQ = view.findViewById(R.id.btnDropQueue);
+        btnRefresh= view.findViewById(R.id.buttonCurrentRefresh);
         est_wait_time_data= view.findViewById(R.id.waiting_time_data);
         num_people_data = view.findViewById(R.id.num_people_data);
-        
+
         customerDatabaseRef=FirebaseDatabase.getInstance().getReference("Users");
         queueDatabaseRef = FirebaseDatabase.getInstance().getReference("Queue");
 
@@ -130,6 +132,14 @@ public class CustCurrentQueues extends Fragment {
             }
         });
 
+        btnRefresh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                ft.detach(CustCurrentQueues.this).attach(CustCurrentQueues.this).commit();
+            }
+        });
+
 
 
         btnDropQ.setOnClickListener(new View.OnClickListener() {
@@ -151,6 +161,7 @@ public class CustCurrentQueues extends Fragment {
                                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                     int index=queueInformation.queue.indexOf(user.getUid());
                                     queueInformation.queue.remove(index);
+                                    System.out.println("indexxx"+index);
                                     Log.d(TAG,"Remove Customer from queue." + queueInformation.getNumPeople());
                                     queueDatabaseRef.child(merchant_id).setValue(queueInformation);
 

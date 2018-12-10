@@ -111,7 +111,7 @@ public class MercMainOverview extends Fragment {
         btnNext = (Button) view.findViewById(R.id.btnNext);
         //btnDeleteQueue = (Button) view.findViewById(R.id.btnDeleteQueue);
         //btnCreateQueue= (Button) view.findViewById(R.id.btnCreateNewQueue);
-        queue_length.setText("test");
+        queue_length.setText("-");
 
         queueDatabaseRef.child(user.getUid()).addValueEventListener(new ValueEventListener() {
             @Override
