@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -53,6 +54,7 @@ public class MercMainOverview extends Fragment {
 
     private FirebaseUser user;
     private TextView c1,c2,c3,c4,c5,c6,c7,c8, c9,c10;
+    private ImageView c1_pic,c2_pic,c3_pic,c4_pic,c5_pic,c6_pic,c7_pic,c8_pic, c9_pic,c10_pic;
     public int len;
     QueueInformation queueInformation;
 
@@ -106,17 +108,13 @@ public class MercMainOverview extends Fragment {
         queueDatabaseRef.child(user.getUid()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                String time= dataSnapshot.child("avewaiting").getValue().toString();
-                aveWaitingTime.setText(time);
-
-
+                if (dataSnapshot.child("avewaiting").getValue() != null) {
+                    String time = dataSnapshot.child("avewaiting").getValue().toString();
+                    aveWaitingTime.setText(time);
+                }
                 queueInformation = dataSnapshot.getValue(QueueInformation.class);
                 len = queueInformation.queue.size();
                 queue_length.setText(Integer.toString(len));
-
-
-
-
             }
 
             @Override
@@ -124,9 +122,6 @@ public class MercMainOverview extends Fragment {
 
             }
         });
-
-
-
         c1= (TextView) view.findViewById(R.id.c1);
         c2= (TextView) view.findViewById(R.id.c2);
         c3= (TextView) view.findViewById(R.id.c3);
@@ -161,7 +156,6 @@ public class MercMainOverview extends Fragment {
                     queue_length.setText(Integer.toString(len));
                     System.out.println(len);
 
-
                     String customer1="";
                     String customer2="";
                     String customer3="";
@@ -186,12 +180,8 @@ public class MercMainOverview extends Fragment {
                                 if(dataSnapshot.child("name").exists()){
                                     cust_name1=dataSnapshot.child("name").getValue().toString();
                                     cc1 = cust_name1;
-
                                     c1.setText(cust_name1);
                                     //final String[] cust = new String[(cust_name1)];
-
-
-
                                 }
                                 else{
                                     c1.setText("No name entered");

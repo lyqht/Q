@@ -20,10 +20,10 @@
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
             android:fontFamily="@font/quicksand_bold"
+            android:gravity="center"
             android:text="Queue Status:"
             android:textSize="30dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -33,14 +33,15 @@
             android:id="@+id/text1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="8dp"
             android:text="Queue Length:"
             android:textSize="20dp"
-            app:layout_constraintBottom_toTopOf="@+id/textView2"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.833"
-            tools:layout_editor_absoluteX="0dp"
+            app:layout_constraintEnd_toStartOf="@+id/queue_length"
+            app:layout_constraintHorizontal_bias="0.493"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView3"
             tools:ignore="MissingConstraints" />
 
 
@@ -61,15 +62,13 @@
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
 
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginStart="44dp"
+            android:layout_marginTop="12dp"
             android:text="Ave. Waiting Time:"
             android:textSize="20dp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/text1" />
 
         <TextView
             android:id="@+id/AveWaitingTime"
@@ -88,12 +87,12 @@
             android:id="@+id/operateQueue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
-
             android:layout_marginBottom="50dp"
+
             android:fontFamily="@font/quicksand_bold"
+            android:gravity="center"
             android:text="Operate Queue!"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -112,8 +111,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:layout_centerHorizontal="true"
                 android:fontFamily="@font/quicksand_bold"
+                android:gravity="center"
                 android:text="In Queue:"
                 android:textSize="30dp"
 
@@ -129,103 +128,166 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_weight="50">
-        <RelativeLayout
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal">
 
-            >
-            <TextView
-                android:layout_width="wrap_content"
-                android:textSize="20dp"
-                android:layout_height="30dp"
+            <LinearLayout
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="12dp">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="80dp"
+                    android:id="@+id/c1_pic"
+                    android:src="@drawable/icon_user"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="80dp"
+                    android:src="@drawable/icon_user"
+                    android:id="@+id/c2_pic" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="80dp"
+                    android:src="@drawable/icon_user"
+                    android:id="@+id/c3_pic" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="80dp"
+                    android:src="@drawable/icon_user"
+                    android:id="@+id/c4_pic" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="80dp"
+                    android:src="@drawable/icon_user"
+                    android:id="@+id/c5_pic" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="80dp"
+                    android:src="@drawable/icon_user"
+                    android:id="@+id/c6_pic" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="80dp"
+                    android:src="@drawable/icon_user"
+                    android:id="@+id/c7_pic" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="80dp"
+                    android:src="@drawable/icon_user"
+                    android:id="@+id/c8_pic" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="80dp"
+                    android:src="@drawable/icon_user"
+                    android:id="@+id/c9_pic" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="80dp"
+                    android:src="@drawable/icon_user"
+                    android:id="@+id/c10_pic" />
 
-                android:layout_centerHorizontal="true"
-                android:id="@+id/c1"
-                android:fontFamily="@font/fran_italic"
-                android:text="-1-"
-                android:layout_alignParentTop="true"/>
-
-            <TextView
+            </LinearLayout>
+            
+            <RelativeLayout
                 android:layout_width="wrap_content"
-                android:textSize="20dp"
-                android:layout_height="30dp"
-                android:layout_centerHorizontal="true"
-                android:id="@+id/c2"
-                android:layout_below="@id/c1"
-                android:fontFamily="@font/fran_italic"
-                android:text="-2-"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:textSize="20dp"
-                android:layout_height="30dp"
-                android:layout_centerHorizontal="true"
-                android:id="@+id/c3"
-                android:layout_below="@id/c2"
-                android:fontFamily="@font/fran_italic"
-                android:text="-3-"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:textSize="20dp"
-                android:layout_height="30dp"
-                android:layout_centerHorizontal="true"
-                android:id="@+id/c4"
-                android:layout_below="@id/c3"
-                android:text="-4-"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:textSize="20dp"
-                android:layout_height="30dp"
-                android:layout_centerHorizontal="true"
-                android:id="@+id/c5"
-                android:layout_below="@id/c4"
-                android:fontFamily="@font/fran_italic"
-                android:text="-5-"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:textSize="20dp"
-                android:layout_height="30dp"
-                android:layout_centerHorizontal="true"
-                android:id="@+id/c6"
-                android:layout_below="@id/c5"
-                android:fontFamily="@font/fran_italic"
-                android:text="-6-"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:textSize="20dp"
-                android:layout_height="30dp"
-                android:layout_centerHorizontal="true"
-                android:id="@+id/c7"
-                android:layout_below="@id/c6"
-                android:fontFamily="@font/fran_italic"
-                android:text="-7-"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:textSize="20dp"
-                android:layout_height="30dp"
-                android:layout_centerHorizontal="true"
-                android:id="@+id/c8"
-                android:layout_below="@id/c7"
-                android:fontFamily="@font/fran_italic"
-                android:text="-8-"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:textSize="20dp"
-                android:layout_height="30dp"
-                android:layout_centerHorizontal="true"
-                android:id="@+id/c9"
-                android:layout_below="@id/c8"
-                android:fontFamily="@font/fran_italic"
-                android:text="-9-"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:textSize="20dp"
-                android:layout_height="30dp"
-                android:layout_centerHorizontal="true"
-                android:id="@+id/c10"
-                android:layout_below="@id/c9"
-                android:text="-10-"
-                android:fontFamily="@font/fran_italic"/>
-        </RelativeLayout>
+                android:layout_height="wrap_content"
+                android:layout_marginRight="30dp"
+                android:padding="12dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:textSize="20dp"
+                    android:layout_height="80dp"
+                    android:gravity="center"
+                    android:id="@+id/c1"
+                    android:fontFamily="@font/fran_italic"
+                    android:text="-1-"
+                    android:layout_alignParentTop="true"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:textSize="20dp"
+                    android:layout_height="80dp"
+                    android:gravity="center"
+                    android:id="@+id/c2"
+                    android:layout_below="@id/c1"
+                    android:fontFamily="@font/fran_italic"
+                    android:text="-2-"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:textSize="20dp"
+                    android:layout_height="80dp"
+                    android:gravity="center"
+                    android:id="@+id/c3"
+                    android:layout_below="@id/c2"
+                    android:fontFamily="@font/fran_italic"
+                    android:text="-3-"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:textSize="20dp"
+                    android:layout_height="80dp"
+                    android:gravity="center"
+                    android:id="@+id/c4"
+                    android:layout_below="@id/c3"
+                    android:text="-4-"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:textSize="20dp"
+                    android:layout_height="80dp"
+                    android:gravity="center"
+                    android:id="@+id/c5"
+                    android:layout_below="@id/c4"
+                    android:fontFamily="@font/fran_italic"
+                    android:text="-5-"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:textSize="20dp"
+                    android:layout_height="80dp"
+                    android:gravity="center"
+                    android:id="@+id/c6"
+                    android:layout_below="@id/c5"
+                    android:fontFamily="@font/fran_italic"
+                    android:text="-6-"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:textSize="20dp"
+                    android:layout_height="80dp"
+                    android:gravity="center"
+                    android:id="@+id/c7"
+                    android:layout_below="@id/c6"
+                    android:fontFamily="@font/fran_italic"
+                    android:text="-7-"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:textSize="20dp"
+                    android:layout_height="80dp"
+                    android:gravity="center"
+                    android:id="@+id/c8"
+                    android:layout_below="@id/c7"
+                    android:fontFamily="@font/fran_italic"
+                    android:text="-8-"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:textSize="20dp"
+                    android:layout_height="80dp"
+                    android:gravity="center"
+                    android:id="@+id/c9"
+                    android:layout_below="@id/c8"
+                    android:fontFamily="@font/fran_italic"
+                    android:text="-9-"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:textSize="20dp"
+                    android:layout_height="80dp"
+                    android:gravity="center"
+                    android:id="@+id/c10"
+                    android:layout_below="@id/c9"
+                    android:text="-10-"
+                    android:fontFamily="@font/fran_italic"/>
+            </RelativeLayout>
+            
+        </LinearLayout>
     </ScrollView>
 </LinearLayout>
