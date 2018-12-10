@@ -8,23 +8,65 @@
     android:orientation="vertical"
 
     >
+    <TextView
+        android:id="@+id/splitTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:textSize="30dp"
+        android:text="Welcome to Q!! You are...."/>
 
-    <Button
-        android:id="@+id/btnCustomer"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:background="@drawable/round_button_2"
-        android:text="Customer" />
+        android:layout_marginTop="25dp">
+
+        <ImageButton
+            android:id="@+id/btnCustomer"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:scaleType="fitCenter"
+            android:layout_marginStart="5dp"
+            android:outlineSpotShadowColor="@color/colorBlack"
+            android:background="@drawable/segregate_customer"
+            android:layout_gravity="start"
+            android:src="@drawable/round_button_2" />
 
 
-    <Button
-        android:id="@+id/btnMerchant"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_gravity="center"
-        android:background="@drawable/round_button_2"
-        android:text="Merchant" />
+        <ImageButton
+            android:id="@+id/btnMerchant"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:scaleType="fitCenter"
+            android:layout_marginStart="5dp"
+            android:outlineSpotShadowColor="@color/colorBlack"
+            android:background="@drawable/segregate_merchant"
+            android:layout_gravity="end"
+            android:src="@drawable/round_button_2" />
+
+    </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="75dp"
+                android:text="Customer"
+                android:layout_gravity="start"
+                android:textSize="15dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="125dp"
+                android:text="Merchant"
+                android:layout_gravity="end"
+                android:textSize="15dp"/>
+        </LinearLayout>
 </LinearLayout>
 
