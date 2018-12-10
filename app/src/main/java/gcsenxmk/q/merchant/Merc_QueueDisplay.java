@@ -269,6 +269,7 @@ public class Merc_QueueDisplay extends AppCompatActivity {
 
                     queueDatabaseRef.child(user.getUid()).child("queue").setValue(queueInformation.queue);
                     len--;
+                    queueDatabaseRef.child(user.getUid()).child("numPeople").setValue(len);
                     queue_length.setText(Integer.toString(len));
                 }
 
