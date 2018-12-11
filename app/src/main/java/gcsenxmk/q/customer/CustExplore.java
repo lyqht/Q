@@ -75,7 +75,7 @@ public class CustExplore extends Fragment {
         SearchQueryButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String searchEnquiry = mSearch.getText().toString().trim();
+                //String searchEnquiry = mSearch.getText().toString().trim();
                 /*if (searchEnquiry.equals("")) {
                     startActivity(new Intent(getContext(), RecyclerActivity.class));
                     Log.d(TAG, "Empty input");
@@ -84,6 +84,7 @@ public class CustExplore extends Fragment {
                 else {
                     startActivity(new Intent(getContext(), Cust_Search_Merchant.class));
                 }*/
+
                 startActivity(new Intent(getContext(), Cust_Search_Merchant.class));
             }
 
