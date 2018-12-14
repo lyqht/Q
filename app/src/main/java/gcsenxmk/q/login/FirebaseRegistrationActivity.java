@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
-import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,15 +17,12 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-import org.w3c.dom.Text;
-
 import gcsenxmk.q.R;
 
-public class FirebaseTestActivity extends AppCompatActivity {
+public class FirebaseRegistrationActivity extends AppCompatActivity {
 
     private Button btnSignUp;
     private  Button btnSignIn;
-    private EditText username;
     private EditText password;
     private EditText emailID;
     private Firebase mRef;
@@ -39,18 +35,10 @@ public class FirebaseTestActivity extends AppCompatActivity {
         setContentView(R.layout.activity_signup_page);
         firebaseAuth=FirebaseAuth.getInstance();
 
-//        if(firebaseAuth.getCurrentUser()!= null){
-//            finish();
-//            startActivity(new Intent(getApplicationContext(), Init_Cust_Profile.class));
-//        }
-
-
-
-        emailID= (EditText) findViewById(R.id.uniquemail);
-        //username= (EditText) findViewById(R.id.username);
-        password=(EditText) findViewById(R.id.password);
-        btnSignUp= (Button) findViewById(R.id.btnSignup);
-        btnSignIn= (Button) findViewById(R.id.btnLogin);
+        emailID= findViewById(R.id.uniquemail);
+        password= findViewById(R.id.password);
+        btnSignUp= findViewById(R.id.btnSignup);
+        btnSignIn= findViewById(R.id.btnLogin);
 
         progressDialog= new ProgressDialog(this);
 
@@ -58,7 +46,7 @@ public class FirebaseTestActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent s= new Intent(FirebaseTestActivity.this, FirebaseLoginActivity.class);
+                Intent s= new Intent(FirebaseRegistrationActivity.this, FirebaseLoginActivity.class);
                 startActivity(s);
 
             }
@@ -99,7 +87,7 @@ public class FirebaseTestActivity extends AppCompatActivity {
                     progressDialog.dismiss();
                     Toast.makeText(getApplicationContext(), "Registered Successfully", Toast.LENGTH_LONG).show();
 
-                    Intent segregate= new Intent(FirebaseTestActivity.this, SegregationActivity.class);
+                    Intent segregate= new Intent(FirebaseRegistrationActivity.this, SegregationActivity.class);
                     startActivity(segregate);
                 }
                 else {
@@ -118,31 +106,3 @@ public class FirebaseTestActivity extends AppCompatActivity {
     }
 
 }
-
-//        if(!TextUtils.isEmpty(name)){
-//
-//            String id= mRef.push().getKey();
-//            UserList users= new UserList(name,pass);
-//
-//            mRef.child((id)).setValue(users);
-//            Toast.makeText(this,"User entered the database", Toast.LENGTH_LONG).show();
-//
-//
-//        }else{
-//            Toast.makeText(this,"Enter a name", Toast.LENGTH_LONG).show();
-//
-//        }
-
-
-//                String value= username.getText().toString();
-//                String valuepass= mockpass.getText().toString();
-//                Firebase childRef=mRef.child("Users");
-//                //Firebase mRefChild=mRef.child("Name");
-//
-//                //mRefChild.setValue("Harry");
-//                childRef.push().setValue(value);
-//                childRef.push().setValue(valuepass);
-
-//Firebase.setAndroidContext(this);
-// mRef=new Firebase("https://qsystem-5001.firebaseio.com/Users");
-

@@ -33,12 +33,8 @@ import com.squareup.picasso.Picasso;
 
 import gcsenxmk.q.R;
 import gcsenxmk.q.database.UserInformation;
-import gcsenxmk.q.login.CustomerHomePageActivity;
 import gcsenxmk.q.misc.CircleTransform;
 import gcsenxmk.q.misc.Utils;
-
-
-// Removed Logout Button
 
 public class Init_Cust_Profile extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
@@ -138,6 +134,11 @@ public class Init_Cust_Profile extends AppCompatActivity {
                                             }
                                         }
                                     });
+                            UserInformation userInformation= new UserInformation(getname,imageURL,priority);
+                            databaseReference.child(user.getUid()).setValue(userInformation);
+                            Toast.makeText(Init_Cust_Profile.this, "Information saved! Welcome to Q!", Toast.LENGTH_LONG).show();
+                            Intent i = new Intent(Init_Cust_Profile.this, Cust_MainActivity.class);
+                            startActivity(i);
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
@@ -155,11 +156,6 @@ public class Init_Cust_Profile extends AppCompatActivity {
         }
 
 
-        UserInformation userInformation= new UserInformation(getname,imageURL,priority);
-        databaseReference.child(user.getUid()).setValue(userInformation);
-        Toast.makeText(this, "Information saved! Welcome to Q!", Toast.LENGTH_LONG).show();
-        Intent i = new Intent(this, Cust_MainActivity.class);
-        startActivity(i);
     }
 
     private void openFileChooser() {

@@ -35,8 +35,6 @@ public class CustExplore extends Fragment {
     ImageButton imageButtonExtra;
     ImageButton imageButtonRetail;
     Button SearchQueryButton;
-    //SearchView mSearch;
-    EditText mSearch;
 
     private static final String TAG = "CustExplore";
 
@@ -44,47 +42,17 @@ public class CustExplore extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.cust_main_explore, container,false);
-        // Widget References
         imageButtonPhotography = view.findViewById(R.id.buttonPhotography);
         imageButtonFnB = view.findViewById(R.id.buttonFood_and_Beverages);
         imageButtonMusic = view.findViewById(R.id.buttonMusicConcert);
-        //imageButtonIT = view.findViewById(R.id.imageButtonIT);
         imageButtonRetail = view.findViewById(R.id.buttonRetail_Outlets);
         imageButtonLimitedT = view.findViewById(R.id.buttonLimitedT);
         imageButtonExtra = view.findViewById(R.id.buttonExtraCategory);
-        //mSearch =view.findViewById(R.id.cme_editTxt_SearchBar);
         SearchQueryButton = view.findViewById(R.id.BtnSearchResult);
 
-        imageButtonFnB.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                /*if (searchEnquiry.equals("")) {
-                    startActivity(new Intent(getContext(), RecyclerActivity.class));
-                    Log.d(TAG, "Empty input");
-                }
-
-                else {
-                    startActivity(new Intent(getContext(), Cust_Search_Merchant.class));
-                }*/
-                startActivity(new Intent(getContext(), RecyclerActivity.class));
-            }
-
-
-        });
         SearchQueryButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //String searchEnquiry = mSearch.getText().toString().trim();
-                /*if (searchEnquiry.equals("")) {
-                    startActivity(new Intent(getContext(), RecyclerActivity.class));
-                    Log.d(TAG, "Empty input");
-                }
-
-                else {
-                    startActivity(new Intent(getContext(), Cust_Search_Merchant.class));
-                }*/
-
                 startActivity(new Intent(getContext(), Cust_Search_Merchant.class));
             }
 

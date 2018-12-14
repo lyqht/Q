@@ -37,12 +37,9 @@ import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
-import java.util.Queue;
 
 import gcsenxmk.q.R;
-import gcsenxmk.q.customer.RecyclerActivity;
 import gcsenxmk.q.database.QueueInformation;
-import gcsenxmk.q.database.Upload;
 
 public class QueueActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
@@ -58,16 +55,12 @@ public class QueueActivity extends AppCompatActivity implements AdapterView.OnIt
 
     private EditText queuename,queuedesc, queuelocation, queuetime;
     private Button createqueue;
-    private Spinner prioritySpinner;
 
-    // Variables for image upload area
     private Button mButtonChooseImage;
     private Button mButtonUpload;
-    private TextView mTextViewShowUploads;
     private ImageView mImageView;
     private ProgressBar mProgressBar;
 
-    // For publishing progress
     String getname;
     String getdesc;
     String getlocation;
@@ -94,23 +87,14 @@ public class QueueActivity extends AppCompatActivity implements AdapterView.OnIt
         queuelocation = findViewById(R.id.enterLocation);
         queuetime = findViewById(R.id.editEstTimeText);
         queuedesc = findViewById(R.id.enterDesc);
-/*
-        prioritySpinner = findViewById(R.id.spinPriority);
-        ArrayAdapter<CharSequence> adapterPriority = ArrayAdapter.createFromResource(this,
-                R.array.priority_queue, android.R.layout.simple_spinner_item);
-
-        prioritySpinner.setAdapter(adapterPriority);
-        prioritySpinner.setOnItemSelectedListener(this);*/
         mButtonChooseImage = findViewById(R.id.button_choose_image);
         mButtonUpload = findViewById(R.id.button_upload);
-        mTextViewShowUploads = findViewById(R.id.text_view_show_uploads);
         mImageView = findViewById(R.id.image_view);
         mProgressBar = findViewById(R.id.progress_bar);
 
         createqueue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO - add condition when texts is empty
                 String nameInput = queuename.getText().toString();
                 String timeInput = queuetime.getText().toString();
                 String locateInput = queuelocation.getText().toString();
@@ -146,24 +130,6 @@ public class QueueActivity extends AppCompatActivity implements AdapterView.OnIt
             }
         });
 
-        mTextViewShowUploads.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openImagesActivity();
-            }
-        });
-
-        //TODO: MOVE THIS LOGOUT BUTTON TO MERCHANT ACCOUNT SETTINGS
-/*        btnlogout2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                firebaseAuth.signOut();
-                finish();
-                startActivity(new Intent(getApplicationContext(),FirebaseLoginActivity.class));
-
-            }
-        });*/
-
     }
 
     // <========== UI FUNCTIONS ====================> //
@@ -177,10 +143,6 @@ public class QueueActivity extends AppCompatActivity implements AdapterView.OnIt
     }
 
     // <========== DATABASE FUNCTIONS ====================> //
-    // not sure what is this for
-    private void saveMerchantInfo() {
-
-    }
 
     private void openFileChooser() {
         Intent intent = new Intent();
@@ -229,14 +191,6 @@ public class QueueActivity extends AppCompatActivity implements AdapterView.OnIt
     }
 
     private void uploadFile() {
-
-        //saveMerchantInfo();
-        //FirebaseUser user=firebaseAuth.getCurrentUser();
-        //databaseReference.child(user.getUid()).setValue(merchantInformation);
-        //MerchantInformation merchantInformation= new MerchantInformation(getname, getdesc, gettime, upload);
-        //MerchantInformation.queueimage = upload;
-        // Variables for initializing a queue
-
         if (mImageUri != null) {
             StorageReference fileReference = mStorageRef.child(System.currentTimeMillis()
                     + "." + getFileExtension(mImageUri));
@@ -280,10 +234,6 @@ public class QueueActivity extends AppCompatActivity implements AdapterView.OnIt
         }
     }
 
-    private void openImagesActivity() {
-        Intent intent = new Intent(this, RecyclerActivity.class);
-        startActivity(intent);
-    }
 
 
 

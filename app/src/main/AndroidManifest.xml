@@ -2,10 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="gcsenxmk.q">
 
-    <!-- Allow internet usage -->
-    <uses-permission android:name="android.permission.INTERNET" />
-
-
     <application
         android:allowBackup="true"
         android:icon="@drawable/app_logo1"
@@ -49,26 +45,15 @@
 
             android:label="Configure your Queue!"/>
 
-        <activity android:name=".login.FirebaseTestActivity"
+        <activity android:name=".login.FirebaseRegistrationActivity"
             android:label="Registration"
             >
-
-
-
         </activity>
-
-        <activity android:name=".customer.RecyclerActivity"
-            android:parentActivityName=".login.CustomerHomePageActivity"
-            android:label="Search Results"></activity>
 
         <activity android:name=".login.SegregationActivityAfterLogin"
 
             android:label="Selection!">
         </activity>
-
-        <activity android:name=".login.CustomerHomePageActivity"
-            android:parentActivityName=".login.SegregationActivityAfterLogin"
-            android:label="Customer Home Page"></activity>
 
         <!-- Cust Activities -->
         <activity
@@ -86,9 +71,7 @@
         </activity>
 
 
-
         <!-- Merchant Activities -->
-
 
         <activity android:name=".merchant.Merc_MainActivity">
         </activity>
@@ -112,18 +95,6 @@
         <activity android:name=".merchant.MercQueueConfigured"
             android:label="Queue Configured!"
             />
-
-        <!-- Redundant activities -->
-        <!-- redundant upload activity -->
-        <activity android:name=".database.Upload_Activity" />
-        <activity android:name=".login.MerchantViewQueuesActivityAfterLogin"
-            android:parentActivityName=".login.SegregationActivityAfterLogin">
-
-
-        </activity>
-
-
-
     </application>
 
     <uses-permission android:name="android.permission.INTERNET"/>

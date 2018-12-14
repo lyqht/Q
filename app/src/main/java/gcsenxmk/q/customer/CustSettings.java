@@ -68,8 +68,6 @@ public class CustSettings extends Fragment {
     private StorageTask mUploadTask;
     private DatabaseReference databaseReference;
 
-    boolean passwordUpdated;
-
     private Button editAccountButton;
     private Button switchModeButton;
     private Button saveButton;
@@ -100,8 +98,6 @@ public class CustSettings extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Get user
-
         firebaseAuth = FirebaseAuth.getInstance();
         user = FirebaseAuth.getInstance().getCurrentUser();
         mStorageRef = FirebaseStorage.getInstance().getReference("Customers");
@@ -217,7 +213,6 @@ public class CustSettings extends Fragment {
     }
 
     void updateDetails() {
-        // Update Email
         user.updateEmail(newEmail.getText().toString())
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
@@ -233,7 +228,6 @@ public class CustSettings extends Fragment {
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()) {
                     Log.d(TAG, "User password updated.");
-                    passwordUpdated = true;
                 }
             }
         });
@@ -267,6 +261,15 @@ public class CustSettings extends Fragment {
                                             }
                                         }
                                     });
+
+                            Toast.makeText(getContext(), "Account settings saved.", Toast.LENGTH_SHORT).show();
+                            UserInformation userInformation = new UserInformation(newName.getText().toString(), imageURL, Init_Cust_Profile.priority);
+                            databaseReference.child(user.getUid()).setValue(userInformation);
+                            Picasso.with(getContext()).load(mImageUri).transform(new CircleTransform()).into(oldProfilePic);
+                            oldEmail.setText(newEmail.getText());
+                            oldName.setText(newName.getText());
+                            Picasso.with(getContext()).load(mImageUri).transform(new CircleTransform()).into(newProfilePic);
+                            changeVisibility();
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
@@ -282,19 +285,6 @@ public class CustSettings extends Fragment {
                         }
                     });
         }
-
-        UserInformation userInformation = new UserInformation(newName.getText().toString(), imageURL, Init_Cust_Profile.priority);
-        databaseReference.child(user.getUid()).setValue(userInformation);
-
-
-        if (passwordUpdated) {
-            Toast.makeText(getContext(), "Account settings saved.", Toast.LENGTH_SHORT).show();
-        }
-        oldEmail.setText(newEmail.getText());
-        oldName.setText(newName.getText());
-        Picasso.with(getContext()).load(mImageUri).transform(new CircleTransform()).into(newProfilePic);
-        Picasso.with(getContext()).load(mImageUri).transform(new CircleTransform()).into(oldProfilePic);
-        changeVisibility();
 
     }
 
