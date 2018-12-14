@@ -27,7 +27,6 @@ import com.google.firebase.database.ValueEventListener;
 
 import gcsenxmk.q.R;
 import gcsenxmk.q.database.QueueInformation;
-import gcsenxmk.q.login.CustomerHomePageActivity;
 
 public class CustCurrentQueues extends Fragment {
     private static final String TAG = "CustCurrentQueues";

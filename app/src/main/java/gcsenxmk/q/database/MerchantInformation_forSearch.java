@@ -57,8 +57,6 @@ public class MerchantInformation_forSearch {
         }
     }
 
-
-
     public String getLocation() {
         return location;
     }

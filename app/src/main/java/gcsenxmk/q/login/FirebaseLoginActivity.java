@@ -18,7 +18,6 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 import gcsenxmk.q.R;
-import gcsenxmk.q.login.SegregationActivityAfterLogin;
 
 public class FirebaseLoginActivity extends AppCompatActivity {
 
@@ -77,7 +76,7 @@ public class FirebaseLoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
-                startActivity(new Intent(getApplicationContext(), FirebaseTestActivity.class));
+                startActivity(new Intent(getApplicationContext(), FirebaseRegistrationActivity.class));
             }
         });
 

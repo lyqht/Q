@@ -230,14 +230,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_above="@+id/button_upload"
-            android:layout_alignParentStart="true" />
-        <TextView
-            android:id="@+id/text_view_show_uploads"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Show Uploads"
-            android:textSize="16sp" />
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="16dp"/>
     </LinearLayout>
 
     <android.support.constraint.ConstraintLayout

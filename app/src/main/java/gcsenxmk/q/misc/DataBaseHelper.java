@@ -14,12 +14,6 @@ public class DataBaseHelper extends SQLiteOpenHelper{
     private static final String DATABASE_NAME="signup1.db";
     private static final String TABLE_NAME= "signup_table";
 
-
-//    public DataBaseHelper(Context context){
-//        super(context,DATABASE_NAME,null,1);
-//    }
-
-
     public static DataBaseHelper getDataHelper(Context context) {
         if (myDB == null){
             myDB = new DataBaseHelper(context);

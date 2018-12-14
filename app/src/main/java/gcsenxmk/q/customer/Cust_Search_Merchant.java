@@ -117,8 +117,6 @@ public class Cust_Search_Merchant extends AppCompatActivity {
             mView = itemView;
             customerDatabaseRef = FirebaseDatabase.getInstance().getReference("Users");
             queueDatabaseRef= FirebaseDatabase.getInstance().getReference("Queue");
-
-
             firebaseAuth = FirebaseAuth.getInstance();
             user = firebaseAuth.getCurrentUser();
         }
@@ -128,9 +126,7 @@ public class Cust_Search_Merchant extends AppCompatActivity {
             TextView user_waitingTime =  mView.findViewById(R.id.queueWaitTime);
             ImageView user_image = mView.findViewById(R.id.queueImage);
             TextView qNumPeople= mView.findViewById(R.id.queueNumPeople);
-            //TextView description= mView.findViewById(R.id.stall_desc);
             Button joinQButton = mView.findViewById(R.id.joinQ_recycler);
-            //TextView merchant_location = mView.findViewById(R.id.stall_location);
             user_name.setText(userName);
             qNumPeople.setText(numPeople);
             user_waitingTime.setText(avewaiting);
