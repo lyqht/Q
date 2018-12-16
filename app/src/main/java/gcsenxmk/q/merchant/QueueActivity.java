@@ -135,7 +135,7 @@ public class QueueActivity extends AppCompatActivity implements AdapterView.OnIt
     // <========== UI FUNCTIONS ====================> //
 
     public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
-        //String text = parent.getItemAtPosition(pos).toString();
+
     }
 
     public void onNothingSelected(AdapterView<?> parent) {
@@ -233,11 +233,6 @@ public class QueueActivity extends AppCompatActivity implements AdapterView.OnIt
             Toast.makeText(this, "No file selected", Toast.LENGTH_SHORT).show();
         }
     }
-
-
-
-
-
 
 }
 

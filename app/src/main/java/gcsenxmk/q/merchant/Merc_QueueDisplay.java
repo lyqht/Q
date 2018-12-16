@@ -201,7 +201,7 @@ public class Merc_QueueDisplay extends AppCompatActivity {
 
                     }
 
-                    //System.out.println(c1);
+
                 }
 
             }
@@ -397,7 +397,6 @@ public class Merc_QueueDisplay extends AppCompatActivity {
                                 c4.setText("-4-");
                             }
 
-                            //System.out.println(c1);
                         }
 
                     }

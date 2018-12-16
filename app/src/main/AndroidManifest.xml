@@ -10,18 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <!-- OBSOLETE: SQLlite Login & Registration Activities -->
 
-        <activity
-            android:name=".misc.SignupActivity"
-            android:label="Sign Up here"
-            android:parentActivityName=".misc.LoginActivity"></activity>
-        <activity
-            android:name=".misc.LoginActivity"
-            android:label="@string/app_name"
-            >
 
-        </activity>
         <!-- Firebase: Intro, Login & Registration Activities -->
         <activity android:name=".login.FirebaseLoginActivity"
 
@@ -55,7 +45,7 @@
             android:label="Selection!">
         </activity>
 
-        <!-- Cust Activities -->
+        <!-- Customer Activities -->
         <activity
             android:name=".customer.Cust_Gallery"
             android:label="Stall Description" />

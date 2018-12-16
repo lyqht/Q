@@ -94,6 +94,9 @@ public class Init_Cust_Profile extends AppCompatActivity {
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                    Toast.makeText(Init_Cust_Profile.this, "Please make sure you upload your profile picture to progress/ if uploaded kindly wait for 3-5 seconds :)", Toast.LENGTH_SHORT).show();
+
                 saveUserInfo();
 
             }

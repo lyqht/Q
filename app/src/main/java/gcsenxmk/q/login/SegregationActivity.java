@@ -40,14 +40,8 @@ public class SegregationActivity extends AppCompatActivity {
                 startActivity(queueactivity);
 
             }
+
         });
 
-
-
-
-
     }
-
-
-
     }

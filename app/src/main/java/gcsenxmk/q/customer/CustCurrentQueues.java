@@ -149,6 +149,7 @@ public class CustCurrentQueues extends Fragment {
                 customerDatabaseRef.child(user.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
                         if(dataSnapshot.child("merchantID").exists()){
                             String merchant_id=dataSnapshot.child("merchantID").getValue().toString();
                             customerDatabaseRef.child(user.getUid()).child("merchantID").removeValue();
@@ -177,7 +178,7 @@ public class CustCurrentQueues extends Fragment {
 
                         }
                         else {
-                            Toast.makeText(getContext(),"You are not in a queue!", Toast.LENGTH_SHORT);
+                            Toast.makeText(getContext(),"You are not in any queue at the moment",Toast.LENGTH_LONG).show();
                         }
                     }
 

@@ -28,8 +28,6 @@ public class QueueInformation {
 
     }
 
-
-
     public String getName() {
         return Name;
     }

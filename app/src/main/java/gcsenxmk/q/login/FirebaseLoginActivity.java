@@ -36,26 +36,8 @@ public class FirebaseLoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loginpage);
 
-
-        //database =new Firebase("https://qsystem-5001.firebaseio.com/Users");
         firebaseAuth= FirebaseAuth.getInstance();
-//        if(firebaseAuth.getCurrentUser()!= null){
-//            finish();
-//            startActivity(new Intent(FirebaseLoginActivity.this, Init_Cust_Profile.class));
-//        }
 
-/*        ListUsersPage page = FirebaseAuth.getInstance().listUsers(null);
-        while (page != null) {
-            for (ExportedUserRecord user : page.getValues()) {
-                String uid =  user.getUid();
-                FirebaseAuth.getInstance().deleteUser(uid);
-            }
-            page = page.getNextPage();
-        }*/
-
-
-
-        //users=database.getReference("Users");
         useremail= (EditText) findViewById(R.id.emaillogin);
         pass=(EditText) findViewById(R.id.passwordlogin);
         btnSignIn= (Button) findViewById(R.id.btntoSignin);
@@ -67,8 +49,6 @@ public class FirebaseLoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 userLogin();
-
-                // signIn(useremail.getText().toString(), pass.getText().toString());
 
             }
         });
@@ -115,26 +95,3 @@ public class FirebaseLoginActivity extends AppCompatActivity {
         });
 
     }}
-
-
-//    private void signIn(final String username, final String password) {
-////
-////        users.addListenerForSingleValueEvent(new ValueEventListener() {
-////            @Override
-////            public void onDataChange(@NonNull com.google.firebase.database.DataSnapshot dataSnapshot) {
-////                if(dataSnapshot.child(username).exists())
-////                    if(!username.isEmpty()){
-////
-////                    }
-////            }
-////
-////            @Override
-////            public void onCancelled(@NonNull DatabaseError databaseError) {
-////
-////            }
-////        });
-////
-////
-////
-////    }
-//

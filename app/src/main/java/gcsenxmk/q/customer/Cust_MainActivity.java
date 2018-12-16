@@ -27,7 +27,6 @@ public class Cust_MainActivity extends AppCompatActivity {
 
         tabLayout.setupWithViewPager(mViewPager);
 
-        //tabLayout.getTabAt(0).setIcon(R.drawable.icon_myqueue_noncircular);
         tabLayout.getTabAt(0).setIcon(R.drawable.icon_myqueue_noncircular);
         tabLayout.getTabAt(1).setIcon(R.drawable.icon_home_noncircular);
         tabLayout.getTabAt(2).setIcon(R.drawable.icon_user_noncircular);

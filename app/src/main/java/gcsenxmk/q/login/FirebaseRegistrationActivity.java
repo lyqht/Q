@@ -57,9 +57,7 @@ public class FirebaseRegistrationActivity extends AppCompatActivity {
             public void onClick(View v) {
                 addUsers();
 
-
-
-            }
+                }
         });
 
     }

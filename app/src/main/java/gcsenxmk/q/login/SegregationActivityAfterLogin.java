@@ -56,12 +56,5 @@ public class SegregationActivityAfterLogin extends AppCompatActivity {
             }
         });
 
-
-
-
-
-    }
-
-
-
+        }
 }
