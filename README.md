@@ -1,12 +1,37 @@
 # Project Status
-## NOTICE
-Make sure tell the entire group what activity you are working so that you don't work on same file(s) concurrently. Otherwise I have to manually resolve conflicts and it might result in efforts to be counterproductive.
+# Introduction
+Q is a queue management app made for a school project for the course 50.001 Introduction to Information Systems & Programming in SUTD. It uses Firebase features such as Firebase Authetication, Data storage, User Management System & Recyclerview. 
 
-Please update as you see fit for the README, so everyone is updated on the progress.
+## The Problem Statement
+Queues are a common sight in the much land-deprived Singapore. They are a source of psychological discomfort and unproductivity. 
 
-# About : Q-app
-This app is made as a school project for the course 50.001 Introduction to Information Sytems & Programming in SUTD. 
+With the ageing population of Singapore, the elderly will also be present in ever greater numbers. It is troubling for the elderly to queue for long periods while standing or sitting and remaining stationary in their spot. For very long physical queues, there will be crowd control costs incurred.
 
+For restaurants and cafes, where it tends to be very packed, there is a high risk of knocking onto people carrying fragile stuff or hot food, and this could be dangerous. For crowded canteens or food courts, there are also chances of mixing up the queues for adjacent stores to join for the customers. This can be applied to ad-hoc events as well, where they have different queues for different purposes but are put next to each other.
+
+## The Solution: Q
+Q serves to eliminate the problem of physical queues by implementing a user-friendly interface for users to find, join and create queues easily. Similar to Carousell, our Q system allows users to be both customers and merchants. 
+
+## Areas of application
+1. Healthcare
+2. Food & Beverages 
+3. Airport Customs
+4. Customer Service Counters
+5. Once-off Events
+   - Goodie Bag Distribution
+   - Gift Packaging
+  
+## Future Work
+1. Allowing customers to join multiple queues
+2. Allowing merchants to make multiple queues
+3. QR integration & function to allow merchant to add anonymous users (customers without the app) into their queue.
+4. Recommendation of certain queue for customer mode’s user  based on previous queue habits and location.  
+5. Customizable Queueing System
+   - First Come First Serve
+   - Randomized Queue Allocation
+   - Batches/Timeslot
+6. Advance Order Management for simple orders for F&B  
+  
 ## Team Members:
 - Gong Chen (gcgloven)
 - Lim Theck Sean (limsean)
@@ -15,27 +40,5 @@ This app is made as a school project for the course 50.001 Introduction to Infor
 - Xiao Meng (jody1999)
 - Kundan Dalmia (kundanda)
 
-## The Problem Statement
-A common sight in the much land-deprived Singapore. They are a source of psychological discomfort and unproductivity. 
-
-## Objective of App
-It serves as a queue management system to eliminate physical queues. 
-
-## Features
-1. Universal Easy Implementation
-2. Freeware for Singaporeans, SUTD Students, everyone to use
-3. Customizable Queueing System
-  - First Come First Serve
-  - Randomized Queue Allocation
-  - Batches/Timeslot
-
-4. Advance Order Management for simple orders
-
-## Usage 
-1. Healthcare
-2. Food & Beverages 
-3. Airport Customs
-4. Customer Service Counters
-5. Once-off Events 
-  - Fitbit Distribution by HPB
-  - House Guardian RetroNight
+## For a more detailed report of our project
+Available upon request, message any of our members.
