@@ -3,10 +3,10 @@ Q is a queue management app made for a school project for the course 50.001 Intr
 
 # Screenshots
 <p float="left" align="middle">
-   <img src="https://github.com/lyqht/Q/blob/Integration2/Screenshots/CustExplore.png" width="200" />
-   <img src="https://github.com/lyqht/Q/blob/Integration2/Screenshots/CustSearchMerchant.png" width="200" />
-   <img src="https://github.com/lyqht/Q/blob/Integration2/Screenshots/QueueActivity_Default.png" width="200" /> 
-   <img src="https://github.com/lyqht/Q/blob/Integration2/Screenshots/Merc_MainOverview_ExistingQueue.png" width="200" /> 
+   <img src="./Screenshots/CustExplore.png" width="200" />
+   <img src="./Screenshots/CustSearchMerchant.png" width="200" />
+   <img src="./Screenshots/QueueActivity_Default.png" width="200" /> 
+   <img src="./Screenshots/Merc_MainOverview_ExistingQueue.png" width="200" /> 
 </p>
 
 # The Problem of Physical Queues
